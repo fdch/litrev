@@ -39,7 +39,7 @@ function getLit(x) {
   replaceContent(x);
   //makeMenu($("#menuEvents"), eventMenu.length, eventMenu, "button");
   loadJSON(eFormUrl, function(response) {
-    $("#loadEvents").append("<article></article>");
+    $("body").append("<article></article>");
     var today = new Date();
     var eclass = "new";
     var f = JSON.parse(response);
@@ -69,7 +69,7 @@ function getLit(x) {
   <h6>"+etime+"</h6>\
   <span>Event created on: "+estam+"</>\
   </div>";
-      $("#loadEvents article").prepend(nevent);
+      $("body article").prepend(nevent);
     }
   });
 }
