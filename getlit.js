@@ -44,7 +44,7 @@ function getLit(x) {
       var epage = e.gsx$page.$t;
       var equot = e.gsx$quickquote.$t;
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
-      var nevent = "<p>"+eauth+", in "+ebook+", explains that \""+equot+" \"("+eauth+", "+epage+")</p>";
+      var nevent = "<p>\""+equot+" \"("+eauth+", "+epage+")</p>";
       $("body").append(nevent);
     }
   });
