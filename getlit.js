@@ -57,8 +57,8 @@ function getLit(x) {
       var nevent = "<p class=small>\""+equot+" \"("+eauth+", "+epage+")</p>";
       var close = "</div>";
       x.append([open,intro,nevent, close]);
-    }
-    x.append(keywords);
+    } 
+    x.prepend(keywords);
   });
 }
 
