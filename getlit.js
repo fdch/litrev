@@ -70,7 +70,7 @@ function getLit(x) {
 function makeMenu(x){
     x.append("<nav>");
     for (var k in keywords){
-      x.append("<a href=\"#"+keywords[k].replace(/ /g,"_").toLowerCase()+"\"">"+keywords[k]+" </a>");
+      x.append("<a href=\"#"+keywords[k].replace(/ /g,"_").toLowerCase()+"\">"+keywords[k]+" </a>");
     }
     x.append("</nav>");
 }
