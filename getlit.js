@@ -26,7 +26,9 @@ function loadJSON(x,callback) {
   };
   xobj.send(null);  
 }
-
+var keyword="blank";
+var keychange=0;
+var keywords=[];
 function getLit(x) {
 
   loadJSON(eFormUrl, function(response) {
@@ -37,6 +39,13 @@ function getLit(x) {
       var e = entry[i];
     //var estam = e.gsx$timestamp.$t;
       var ekeyw = e.gsx$keyword.$t;
+      if (keyword.localeCompare(ekeyw)) {
+        keychange=0;
+      } else {
+        keychange=1;
+        keyword=ekeyw;
+        keywords.push(keyword);
+      }
       var ebook = e.gsx$booktitle.$t;
       var eauth = e.gsx$author.$t;
       var epage = e.gsx$page.$t;
@@ -49,6 +58,7 @@ function getLit(x) {
       var close = "</div>";
       x.append([open,intro,nevent, close]);
     }
+    x.append(keywords);
   });
 }
 
