@@ -18,7 +18,7 @@ function replaceContent(x) {
  var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
 
  // Make sure it is public or set to Anyone with link can view 
- var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/o1nbw6e/public/values?alt=json";
+ var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/1/public/values?alt=json";
 
 //var eFormUrl = "https://sheets.googleapis.com/v4/spreadsheets/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE?key=AIzaSyAVRpELjB1AatwXQ2wIhCkFqs2WyKzgixU"
 
