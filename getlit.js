@@ -7,8 +7,8 @@ var logoimage = ["img/logo", 200, 200];
 var meta = "";
 var w,h;
 
-var titleData = "<h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2>";
-
+var titleData = "<header><h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2></header>";
+var containers = "<div id=menu></div><div id=content></div>";
 
 
  var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
@@ -62,14 +62,16 @@ function getLit(x) {
       else{
         x.append([intro,nevent])
       }
-    } 
-    x.prepend("</nav>");
-    for (var k in keywords){
-      x.prepend("<span>"+keywords[k]+"</span>");
     }
-    x.prepend("<nav>");
-
   });
+}
+
+function makeMenu(x){
+    x.append("<nav>");
+    for (var k in keywords){
+      x.append("<span>"+keywords[k]+" </span>");
+    }
+    x.append("</nav>");
 }
 
 
@@ -78,8 +80,9 @@ $(document).ready(function(x) {
   h = $(window).height();
   //Place elements
   //$("head").append(meta);
-  $("body").append([titleData]);
-  getLit($("body"));
+  $("body").append([titleData, containers]);
+  getLit($("content"));
+  makeMenu($("menu"));
   
 });
 
