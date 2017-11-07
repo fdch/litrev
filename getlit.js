@@ -7,7 +7,7 @@ var logoimage = ["img/logo", 200, 200];
 var meta = "";
 var w,h;
 
-var titleData = "<h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2><div id=menu></div><div id=content></div>";
+var titleData = "<h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2>";
 
 function replaceContent(x) {
   document.getElementById('content').innerHTML = x;
