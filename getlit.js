@@ -81,8 +81,8 @@ $(document).ready(function(x) {
   //Place elements
   //$("head").append(meta);
   $("body").append([titleData, containers]);
-  getLit($("content"));
-  makeMenu($("menu"));
+  getLit($("#content"));
+  makeMenu($("#menu"));
   
 });
 
