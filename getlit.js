@@ -29,7 +29,7 @@ function loadJSON(x,callback) {
 var keyword="blank";
 var keychange=0;
 var keywords=[];
-function getLit(x) {
+function getLit(x, callback) {
 
   loadJSON(eFormUrl, function(response) {
 
@@ -63,14 +63,15 @@ function getLit(x) {
         x.append([intro,nevent])
       }
     }
-  makeMenu($("#menu"));
+  
   });
+  callback(makeMenu($("#menu")));
 }
 
 function makeMenu(x){
     x.append("<nav>");
     for (var k in keywords){
-      x.append("<span>"+keywords[k]+" </span>");
+      x.append("<a href=\"/#"+keywords[k].toLowerCase()+"\">"+keywords[k]+" </a>");
     }
     x.append("</nav>");
 }
