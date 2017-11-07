@@ -13,14 +13,19 @@ function replaceContent(x) {
   document.getElementById('content').innerHTML = x;
 }
 
+//https://spreadsheets.google.com/feeds/list/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/od6/public/values?alt=json
+//
+// var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
+
+ // Make sure it is public or set to Anyone with link can view 
+// var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/o1nbw6e/public/values?alt=json";
+
+var eFormUrl = "https://sheets.googleapis.com/v4/spreadsheets/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE?key=AIzaSyAVRpELjB1AatwXQ2wIhCkFqs2WyKzgixU"
+
+
 function getLit(x) {
   replaceContent(x);
   //makeMenu($("#menuEvents"), eventMenu.length, eventMenu, "button");
-  eFormUrl = "https://sheets.googleapis.com/v4/spreadsheets/1325190824";
-
-
-
-
   loadJSON(eFormUrl, function(response) {
     $("#loadEvents").append("<article></article>");
     var today = new Date();
