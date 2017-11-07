@@ -9,9 +9,7 @@ var w,h;
 
 var titleData = "<h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2>";
 
-function replaceContent(x) {
-  document.getElementById('content').innerHTML = x;
-}
+
 
  var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
  var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/1/public/values?alt=json";
@@ -30,7 +28,7 @@ function loadJSON(x,callback) {
 }
 
 function getLit(x) {
-  replaceContent(x);
+
   loadJSON(eFormUrl, function(response) {
 
     var f = JSON.parse(response);
@@ -49,7 +47,7 @@ function getLit(x) {
       var intro = "<p>"+epara+"</p>";
       var nevent = "<p class=small>\""+equot+" \"("+eauth+", "+epage+")</p>";
       var close = "</div>";
-      $("body").append([open,intro,nevent, close]);
+      x.append([open,intro,nevent, close]);
     }
   });
 }
