@@ -7,7 +7,7 @@ var logoimage = ["img/logo", 200, 200];
 var meta = "";
 var w,h;
 
-var titleData = "<h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2><div id=logo><img src='" + logoimage[0] + "' width="+ logoimage[1] +" height="+ logoimage[2] +"/></div><div id=menu></div><div id=content></div>";
+var titleData = "<h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2><div id=menu></div><div id=content></div>";
 
 function replaceContent(x) {
   document.getElementById('content').innerHTML = x;
@@ -16,8 +16,11 @@ function replaceContent(x) {
 function getLit(x) {
   replaceContent(x);
   //makeMenu($("#menuEvents"), eventMenu.length, eventMenu, "button");
-  eFormUrl = "https://spreadsheets.google.com/feeds/list/1jMniwPCuLlYMUC9INNGqcOV9HFXJ8y6LjYZpEWLxtTM/o1nbw6e/public/values?alt=json";
-  
+  eFormUrl = "https://sheets.googleapis.com/v4/spreadsheets/1325190824";
+
+
+
+
   loadJSON(eFormUrl, function(response) {
     $("#loadEvents").append("<article></article>");
     var today = new Date();
