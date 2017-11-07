@@ -13,7 +13,7 @@ function replaceContent(x) {
   document.getElementById('content').innerHTML = x;
 }
 
-//https://spreadsheets.google.com/feeds/list/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/od6/public/values?alt=json
+//https://spreadsheets.google.com/feeds/list/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/1/public/values?alt=json
 //
  var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
 
@@ -39,37 +39,21 @@ function getLit(x) {
   replaceContent(x);
   //makeMenu($("#menuEvents"), eventMenu.length, eventMenu, "button");
   loadJSON(eFormUrl, function(response) {
-    $("body").append("<article></article>");
-    var today = new Date();
-    var eclass = "new";
+    //$("body").append("<article></article>");
+    //var today = new Date();
+    //var eclass = "new";
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry) {
       var e = entry[i];
-      var estam = e.gsx$timestamp.$t;
-      var edate = new Date(e.gsx$dateandtime.$t);
-      var etime = edate.toTimeString();
-      var etitl = e.gsx$title.$t;
+    //var estam = e.gsx$timestamp.$t;
+      var ekeyw = e.gsx$keyword.$t;
+      var ebook = e.gsx$booktitle.$t;
       var eauth = e.gsx$author.$t;
-      var edesc = e.gsx$description.$t;
-      var eloca = e.gsx$location.$t;
-      var eiurl = e.gsx$imageurl.$t;
-      if (today.getTime() > edate.getTime()) {
-        eclass = "old";
-      } else {
-        eclass = "new";
-      }
-      var nevent = "<div class="+eclass+">\
-  <h2>"+etitl+"</h2>\
-  <h3>"+eauth+"</h3>\
-  <h4>"+edate.toDateString()+"</h4>\
-  <a href=\""+eiurl+"\"><img width="+w+" src=\""+eiurl+"\" title=\""+eauth+"\"/></a>\
-  <p>"+edesc+"</p>\
-  <h5>"+eloca+"</h5>\
-  <h6>"+etime+"</h6>\
-  <span>Event created on: "+estam+"</>\
-  </div>";
-      $("body article").prepend(nevent);
+      var epage = e.gsx$page.$t;
+      var equot = e.gsx$quickquote.$t;
+      var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
+      $("body").append(nevent);
     }
   });
 }
