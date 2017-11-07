@@ -15,7 +15,7 @@ function replaceContent(x) {
 
  var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
  var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/1/public/values?alt=json";
-
+///https://spreadsheets.google.com/feeds/list/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/1/public/values?alt=json
 
 function loadJSON(x,callback) {
   var xobj = new XMLHttpRequest();
@@ -43,9 +43,11 @@ function getLit(x) {
       var eauth = e.gsx$author.$t;
       var epage = e.gsx$page.$t;
       var equot = e.gsx$quickquote.$t;
+      var epara = e.gsx$paraphrase.$t;
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
-      var nevent = "<p>\""+equot+" \"("+eauth+", "+epage+")</p>";
-      $("body").append(nevent);
+      var intro = "<p>"+epara+"</p>
+      var nevent = "<p class=small>\""+equot+" \"("+eauth+", "+epage+")</p>";
+      $("body").append([intro,nevent]);
     }
   });
 }
