@@ -43,7 +43,7 @@ function getLit(x) {
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
-      var open = "<div class=\""+ekeyw.toLowerCase()+"\">"
+      var open = "<div class=\""+ekeyw.toLowerCase()+"\"><h4>"+ekeyw+"</h4>"
       var intro = "<p>"+epara+"</p>";
       var nevent = "<p class=small>\""+equot+" \"("+eauth+", "+epage+")</p>";
       var close = "</div>";
