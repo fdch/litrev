@@ -40,11 +40,11 @@ function getLit(x) {
     //var estam = e.gsx$timestamp.$t;
       var ekeyw = e.gsx$keyword.$t;
       if (keyword.localeCompare(ekeyw)) {
-        keychange=0;
-      } else {
         keychange=1;
         keyword=ekeyw;
         keywords.push(keyword);
+      } else {
+        keychange=0;
       }
       var ebook = e.gsx$booktitle.$t;
       var eauth = e.gsx$author.$t;
