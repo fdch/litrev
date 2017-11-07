@@ -29,7 +29,7 @@ function loadJSON(x,callback) {
 var keyword="blank";
 var keychange=0;
 var keywords=[];
-function getLit(x, callback) {
+function getLit(x) {
 
   loadJSON(eFormUrl, function(response) {
 
@@ -52,7 +52,7 @@ function getLit(x, callback) {
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
-      var open = "<div class=\""+ekeyw.toLowerCase()+"\"><h4>"+ekeyw+"</h4>"
+      var open = "<div id=\""+ekeyw.replace(/ /g,"_").toLowerCase();+"\"><h4>"+ekeyw+"</h4>"
       var intro = "<p>"+epara+"</p>";
       var nevent = "<blockquote>\""+equot+" \"("+eauth+", "+epage+")</blockquote>";
       var close = "</div>";
@@ -63,15 +63,14 @@ function getLit(x, callback) {
         x.append([intro,nevent])
       }
     }
-  
+  makeMenu($("#menu"));
   });
-  callback(makeMenu($("#menu")));
 }
 
 function makeMenu(x){
     x.append("<nav>");
     for (var k in keywords){
-      x.append("<a href=\"/#"+keywords[k].toLowerCase()+"\">"+keywords[k]+" </a>");
+      x.append("<a href=\"/#"+keywords[k].replace(/ /g,"_").toLowerCase();+"\">"+keywords[k]+" </a>");
     }
     x.append("</nav>");
 }
