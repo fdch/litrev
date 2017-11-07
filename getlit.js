@@ -56,9 +56,19 @@ function getLit(x) {
       var intro = "<p>"+epara+"</p>";
       var nevent = "<p class=small>\""+equot+" \"("+eauth+", "+epage+")</p>";
       var close = "</div>";
-      x.append([open,intro,nevent, close]);
+      if(keychange){
+        x.append([open,intro,nevent, close]);
+      }
+      else{
+        x.append([intro,nevent])
+      }
     } 
-    x.prepend(keywords);
+    x.prepend("</nav>");
+    for (var k in keywords){
+      x.prepend("<span>"+keywords[k]+"</span>");
+    }
+    x.prepend("<nav>");
+
   });
 }
 
