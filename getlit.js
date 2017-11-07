@@ -13,14 +13,8 @@ function replaceContent(x) {
   document.getElementById('content').innerHTML = x;
 }
 
-//https://spreadsheets.google.com/feeds/list/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/1/public/values?alt=json
-//
  var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
-
- // Make sure it is public or set to Anyone with link can view 
  var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/1/public/values?alt=json";
-
-//var eFormUrl = "https://sheets.googleapis.com/v4/spreadsheets/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE?key=AIzaSyAVRpELjB1AatwXQ2wIhCkFqs2WyKzgixU"
 
 
 function loadJSON(x,callback) {
@@ -37,11 +31,8 @@ function loadJSON(x,callback) {
 
 function getLit(x) {
   replaceContent(x);
-  //makeMenu($("#menuEvents"), eventMenu.length, eventMenu, "button");
   loadJSON(eFormUrl, function(response) {
-    //$("body").append("<article></article>");
-    //var today = new Date();
-    //var eclass = "new";
+
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry) {
@@ -52,7 +43,8 @@ function getLit(x) {
       var eauth = e.gsx$author.$t;
       var epage = e.gsx$page.$t;
       var equot = e.gsx$quickquote.$t;
-      var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
+    //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
+      var nevent = "<p>"+eauth+", in "+ebook+", explains that \""+equot+" \"("+eauth+", "+epage+")</p>";
       $("body").append(nevent);
     }
   });
