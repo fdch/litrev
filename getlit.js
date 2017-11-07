@@ -63,6 +63,7 @@ function getLit(x) {
         x.append([intro,nevent])
       }
     }
+  makeMenu($("#menu"));
   });
 }
 
@@ -82,7 +83,7 @@ $(document).ready(function(x) {
   //$("head").append(meta);
   $("body").append([titleData, containers]);
   getLit($("#content"));
-  makeMenu($("#menu"));
+  
   
 });
 
