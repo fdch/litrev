@@ -53,9 +53,9 @@ function getLit(x) {
       var epara = e.gsx$paraphrase.$t;
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
       var open = "<div id=\""+ekeyw.replace(/ /g,"_").toLowerCase()+"\"><h4>"+ekeyw+"</h4>";
-      var intro = "";//"<p>"+epara+"</p>";
-      //var nevent = "<blockquote>\""+equot+" \"("+eauth+", "+epage+")</blockquote>";
-      var nevent = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
+      var intro = "<p>"+epara+"</p>";
+      var nevent = "<blockquote>\""+equot+" \"("+eauth+", "+epage+")</blockquote>";
+      //var nevent = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
       
       var close = "</div>";
       if(keychange){
