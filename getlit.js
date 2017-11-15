@@ -28,7 +28,7 @@ function loadJSON(x,callback) {
 }
 var keyword="blank";
 var keychange=0;
-var keywords=[];
+var keywords=[], books=[];
 function getLit(x) {
 
   loadJSON(eFormUrl, function(response) {
@@ -56,7 +56,7 @@ function getLit(x) {
       var intro = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
       var nevent = "<blockquote>\""+equot+" \"("+eauth+", "+epage+")</blockquote>";
       //var nevent = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
-      
+      var biblio = "<div></div>";
       var close = "</div>";
       if(keychange){
         x.append([open,intro,nevent, close]);
