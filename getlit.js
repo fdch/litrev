@@ -8,8 +8,7 @@ var meta = "";
 var w,h;
 
 var titleData = "<header><h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2></header>";
-var containers = "<div id=menu></div><div id=content></div>";
-
+var containers = "<div id=menu></div><div id=content></div><div id=biblio></div>";
 
  var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
  var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/1/public/values?alt=json";
@@ -26,9 +25,11 @@ function loadJSON(x,callback) {
   };
   xobj.send(null);  
 }
+
 var keyword="blank";
 var keychange=0;
 var keywords=[], books=[];
+
 function getLit(x) {
 
   loadJSON(eFormUrl, function(response) {
@@ -77,7 +78,41 @@ function makeMenu(x){
     x.append("</nav>");
 }
 
+function getBib(x) {
+ var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/2/public/values?alt=json";
+  loadJSON(eFormUrl, function(response) {
 
+    var f = JSON.parse(response);
+    var entry = f.feed.entry;
+    for (var i in entry) {
+      var e = entry[i];
+      var ebook = e.gsx$booktitle.$t;
+      var eyear = e.gsx$year.$t;
+      var epubl = e.gsx$publisher.$t;
+      var edito = e.gsx$editor.$t;
+      var ejour = e.gsx$journal.$t;
+      var evolu = e.gsx$volume.$t;
+      var enumb = e.gsx$number.$t;
+      if (edito) {
+        var ed = " Ed. ";
+      } else {
+        var ed = "";
+      }
+      if (evolu) {
+        var vol = " Vol. ";
+      } else {
+        var vol = "";
+      }
+      if (enumb) {
+        var num = " No. ";
+      } else {
+        var num = "";
+      }
+      var biblio = "<p>"+ebook+". "+eyear+"."+ed+edito+". <i>"+ejour+"</i>"+vol+evolu+num+enumb+"</p>";
+      x.append(biblio);
+    }
+  });
+}
 $(document).ready(function(x) {
   if ((w = $(window).width()) >= 600) w = w*0.5;
   h = $(window).height();
@@ -85,6 +120,7 @@ $(document).ready(function(x) {
   //$("head").append(meta);
   $("body").append([titleData, containers]);
   getLit($("#content"));
+  getBib($("#biblio"));
   
   
 });
