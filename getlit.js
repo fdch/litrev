@@ -1,3 +1,5 @@
+var keywords=[];
+
 function getLit(x, sheet)
 {
   loadJSON(sheet, function(response) {
