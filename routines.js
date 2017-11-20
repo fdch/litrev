@@ -1,3 +1,7 @@
+var keyword="blank";
+var keychange=0;
+var keywords=[];
+
 function linkify(x)
 {
   return(x.replace(/ /g,"_").toLowerCase());
