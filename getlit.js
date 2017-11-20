@@ -54,7 +54,7 @@ function getBib(x,sheet)
       var edito = e.gsx$editor.$t;
       var ejour = e.gsx$journal.$t;
       var evolu = e.gsx$volume.$t;
-      var enumb = +e.gsx$number.$t;
+      var enumb = e.gsx$number.$t;
       var quote = eauth+", ";
       quote += ename+". ";
       quote += "<i>"+ebook+"</i>. ";
