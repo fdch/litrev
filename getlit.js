@@ -61,11 +61,9 @@ function getBib(x,sheet)
       var enumb = e.gsx$number.$t;
       var quote = eauth+", ";
       quote += ename+". ";
-      quote += "<i>"+ebook+"</i>. ";
-      quote += eyear+". ";
-      quote += epubl+". ";
+      quote += "<i>"+ebook+"</i>.";
       if (edito) {
-        quote += "in "+edito+" (Ed.) ";
+        quote += ", in "+edito+" (Ed.) ";
         quote += "<i>"+ejour+"</i>. ";
         if (evolu) {
           quote += " Vol. "+evolu;
@@ -74,6 +72,8 @@ function getBib(x,sheet)
           quote += " No. "+enumb;
         }
       }
+      quote += " "+eyear+". ";
+      quote += epubl+". ";
       x.append("<p>"+quote+"</p>");
     }
   });
