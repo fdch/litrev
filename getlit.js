@@ -55,7 +55,7 @@ function getBib(x,sheet)
       var ebook = "<i>"+e.gsx$booktitle.$t+"</i>. ";
       var eyear = e.gsx$year.$t+". ";
       var epubl = e.gsx$publisher.$t+". ";
-      var edito = "in " +e.gsx$editor.$t" (Ed.) ";
+      var edito = "in " +e.gsx$editor.$t+" (Ed.) ";
       var ejour = "<i>"+e.gsx$journal.$t+"</i>. ";
       var evolu = " Vol. "+e.gsx$volume.$t;
       var enumb = " No. "+e.gsx$number.$t;
