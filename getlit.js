@@ -63,8 +63,12 @@ function getBib(x,sheet)
       if (edito) {
         quote += "in "+edito+" (Ed.) ";
         quote += "<i>"+ejour+"</i>. ";
-        quote += " Vol. "+evolu;
-        quote += " No. "+enumb;
+        if (evolu) {
+          quote += " Vol. "+evolu;
+        }
+        if (enumb) {
+          quote += " No. "+enumb;
+        }
       }
       x.append("<p>"+quote+"</p>");
     }
