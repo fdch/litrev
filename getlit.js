@@ -1,3 +1,5 @@
+var keyword="blank";
+var keychange=0;
 var keywords=[];
 
 function getLit(x, sheet)

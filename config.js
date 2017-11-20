@@ -18,7 +18,5 @@ var containers = "\
 <div id=content></div>\
 <h3>Bibliography</h3>\
 <div id=biblio></div>";
-var keyword="blank";
-var keychange=0;
 var lit = https + spreadsheetID + "1" + altjson;
 var bib = https + spreadsheetID + "2" + altjson;
