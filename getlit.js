@@ -8,7 +8,7 @@ var meta = "";
 var w,h;
 
 var titleData = "<header><h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2></header>";
-var containers = "<div id=menu></div><div id=content></div><div id=biblio></div>";
+var containers = "<div id=menu></div><h3>Quotes</h3><div id=content></div><h3>Bibliography</h3><div id=biblio></div>";
 
  var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
  var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/1/public/values?alt=json";
