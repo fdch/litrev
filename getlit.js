@@ -87,6 +87,7 @@ function getBib(x) {
     for (var i in entry) {
       var e = entry[i];
       var eauth = e.gsx$author.$t;
+      var ename = e.gsx$name.$t;
       var ebook = e.gsx$booktitle.$t;
       var eyear = e.gsx$year.$t;
       var epubl = e.gsx$publisher.$t;
@@ -97,7 +98,7 @@ function getBib(x) {
       if (edito) {
         var editor = " Ed. "+edito;
       } else {
-        var editor = eauth;
+        var editor = eauth+", "+ename;
       }
       if (evolu) {
         var vol = " Vol. ";
