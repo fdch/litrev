@@ -46,16 +46,26 @@ function getBib(x,sheet)
     for (var i in entry)
     {
       var e = entry[i];
-      var eauth = e.gsx$author.$t+", ";
-      var ename = e.gsx$name.$t+". ";
-      var ebook = "<i>"+e.gsx$booktitle.$t+"</i>. ";
-      var eyear = e.gsx$year.$t+". ";
-      var epubl = e.gsx$publisher.$t+". ";
-      var edito = "in " +e.gsx$editor.$t+" (Ed.) ";
-      var ejour = "<i>"+e.gsx$journal.$t+"</i>. ";
-      var evolu = " Vol. "+e.gsx$volume.$t;
-      var enumb = " No. "+e.gsx$number.$t;
-      var quote = eauth+ename+ebook+eyear+epubl+edito+ejour+evolu+enumb;
+      var eauth = e.gsx$author.$t;
+      var ename = e.gsx$name.$t;
+      var ebook = e.gsx$booktitle.$t;
+      var eyear = e.gsx$year.$t;
+      var epubl = e.gsx$publisher.$t;
+      var edito = e.gsx$editor.$t;
+      var ejour = e.gsx$journal.$t;
+      var evolu = e.gsx$volume.$t;
+      var enumb = +e.gsx$number.$t;
+      var quote = eauth+", ";
+      quote += ename+". ";
+      quote += "<i>"+ebook+"</i>. ";
+      quote += eyear+". ";
+      quote += epubl+". ";
+      if (edito) {
+        quote += "in "+edito+" (Ed.) ";
+        quote += "<i>"+ejour+"</i>. ";
+        quote += " Vol. "+evolu;
+        quote += " No. "+enumb;
+      }
       x.append("<p>"+quote+"</p>");
     }
   });
