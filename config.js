@@ -6,7 +6,7 @@ var subtitle = "Towards The Holy Mountain of the Dissertation";
 var https = "https://spreadsheets.google.com/feeds/list/";
 var altjson = "/public/values?alt=json";
 var w, h;
-var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
+var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/";
 var titleData = "\
 <header>\
 <h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1>\
