@@ -86,6 +86,7 @@ function getBib(x) {
     var entry = f.feed.entry;
     for (var i in entry) {
       var e = entry[i];
+      var eauth = e.gsx$author.$t;
       var ebook = e.gsx$booktitle.$t;
       var eyear = e.gsx$year.$t;
       var epubl = e.gsx$publisher.$t;
@@ -94,9 +95,9 @@ function getBib(x) {
       var evolu = e.gsx$volume.$t;
       var enumb = e.gsx$number.$t;
       if (edito) {
-        var ed = " Ed. ";
+        var editor = " Ed. "+edito;
       } else {
-        var ed = "";
+        var editor = eauth;
       }
       if (evolu) {
         var vol = " Vol. ";
@@ -108,7 +109,7 @@ function getBib(x) {
       } else {
         var num = "";
       }
-      var biblio = "<p>"+ebook+". "+eyear+"."+ed+edito+". <i>"+ejour+"</i>"+vol+evolu+num+enumb+"</p>";
+      var biblio = "<p>"+editor+". <i>"+ebook+"</i>. "+eyear+". <i>"+ejour+"</i>"+vol+evolu+num+enumb+"</p>";
       x.append(biblio);
     }
   });
