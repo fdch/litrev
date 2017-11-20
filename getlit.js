@@ -1,11 +1,10 @@
-var keyword="blank";
-var keychange=0;
-var keywords=[];
-
 function getLit(x, sheet)
 {
   loadJSON(sheet, function(response) {
     var f = JSON.parse(response);
+    var keyword="blank";
+    var keychange=0;
+    var keywords=[];
     var entry = f.feed.entry;
     for (var i in entry)
     {
