@@ -56,7 +56,7 @@ function getBib(x,sheet)
       var evolu = e.gsx$volume.$t;
       var enumb = e.gsx$number.$t;
       if (edito) {
-        var editor = edito+" (Ed.) ";
+        var editor = eauth+", "+ename+" in "+edito+" (Ed.) ";
       } else {
         var editor = eauth+", "+ename;
       }
