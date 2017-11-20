@@ -1,28 +1,40 @@
 #!/bin/bash
 i=0
+BASE="http://fdch.github.io"
+REPO=$(basename `git rev-parse --show-toplevel`)
+DATE=$(date +"%D %T")
+COMMIT="updates"
+
 while [ $i -lt 80 ]
 do
-echo -ne "$(tput setaf 2)="
-i=$[$i+1]
+	echo -ne "$(tput setaf 2)="
+	i=$[$i+1]
 done
+
 echo "$(tput sgr 0)"
+
 git add .
+
 if [[ $1 ]] 
 then
-git commit -m "$1"
-else
-git commit -m "updates"
+	COMMIT = "$1"
 fi
+
+git commit -m "$COMMIT"
+
+echo "$(tput setaf 2)
+
+Committed $COMMIT to $REPO on $DATE $(tput sgr 0)"
+
 git push
 
-DATE=$(date +"%D %T")
-echo "$(tput setaf 2)
-Committed to Literature Review on $DATE $(tput sgr 0)"
 while [ $i -gt 0 ]
 do
-sleep 0.1
-echo -ne "="
-i=$[$i-1]
+	sleep 0.1
+	echo -ne "="
+	i=$[$i-1]
 done
-open http://fdch.github.io/litrev
+
+open "$BASE/$REPO"
+
 exit

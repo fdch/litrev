@@ -1,42 +1,10 @@
-var url = "https://fdch.github.io/litrev";
-var repo = "https://github.com/fdch/litrev";
-var email = "fch226@nyu.edu";
-var title = "Literature Review";
-var subtitle = "Towards The Holy Mountain of the Dissertation";
-var logoimage = ["img/logo", 200, 200];
-var meta = "";
-var w,h;
-
-var titleData = "<header><h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1><h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2></header>";
-var containers = "<div id=menu></div><h3>Quotes</h3><div id=content></div><h3>Bibliography</h3><div id=biblio></div>";
-
- var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE";
- var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/1/public/values?alt=json";
-///https://spreadsheets.google.com/feeds/list/1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/1/public/values?alt=json
-
-function loadJSON(x,callback) {
-  var xobj = new XMLHttpRequest();
-  xobj.overrideMimeType("application/json");
-  xobj.open('GET', x, true);
-  xobj.onreadystatechange = function () {
-    if (xobj.readyState == 4 && xobj.status == "200") {
-      callback(xobj.responseText);
-    }
-  };
-  xobj.send(null);  
-}
-
-var keyword="blank";
-var keychange=0;
-var keywords=[], books=[];
-
-function getLit(x) {
-
-  loadJSON(eFormUrl, function(response) {
-
+function getLit(x, sheet)
+{
+  loadJSON(sheet, function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
-    for (var i in entry) {
+    for (var i in entry)
+    {
       var e = entry[i];
     //var estam = e.gsx$timestamp.$t;
       var ekeyw = e.gsx$keyword.$t;
@@ -53,11 +21,10 @@ function getLit(x) {
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
-      var open = "<div id=\""+ekeyw.replace(/ /g,"_").toLowerCase()+"\"><h4>"+ekeyw+"</h4>";
+      var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+"</h4>";
       var intro = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
       var nevent = "<blockquote>\""+equot+" \"("+eauth+", "+epage+")</blockquote>";
       //var nevent = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
-      var biblio = "<div></div>";
       var close = "</div>";
       if(keychange){
         x.append([open,intro,nevent, close]);
@@ -70,21 +37,14 @@ function getLit(x) {
   });
 }
 
-function makeMenu(x){
-    x.append("<nav>");
-    for (var k in keywords){
-      x.append("<a href=\"#"+keywords[k].replace(/ /g,"_").toLowerCase()+"\">"+keywords[k]+" </a>");
-    }
-    x.append("</nav>");
-}
-
-function getBib(x) {
- var eFormUrl = "https://spreadsheets.google.com/feeds/list/" + spreadsheetID + "/2/public/values?alt=json";
-  loadJSON(eFormUrl, function(response) {
-
+function getBib(x,sheet)
+{
+  loadJSON(sheet, function(response)
+  {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
-    for (var i in entry) {
+    for (var i in entry)
+    {
       var e = entry[i];
       var eauth = e.gsx$author.$t;
       var ename = e.gsx$name.$t;
@@ -96,7 +56,7 @@ function getBib(x) {
       var evolu = e.gsx$volume.$t;
       var enumb = e.gsx$number.$t;
       if (edito) {
-        var editor = " Ed. "+edito;
+        var editor = edito+" (Ed.) ";
       } else {
         var editor = eauth+", "+ename;
       }
@@ -110,22 +70,7 @@ function getBib(x) {
       } else {
         var num = "";
       }
-      var biblio = "<p>"+editor+". <i>"+ebook+"</i>. "+eyear+". <i>"+ejour+"</i>"+vol+evolu+num+enumb+"</p>";
-      x.append(biblio);
+      x.append("<p>"+editor+". <i>"+ebook+"</i>. "+eyear+". <i>"+ejour+"</i>"+vol+evolu+num+enumb+"</p>");
     }
   });
 }
-$(document).ready(function(x) {
-  if ((w = $(window).width()) >= 600) w = w*0.5;
-  h = $(window).height();
-  //Place elements
-  //$("head").append(meta);
-  $("body").append([titleData, containers]);
-  getLit($("#content"));
-  getBib($("#biblio"));
-  
-  
-});
-
-
-
