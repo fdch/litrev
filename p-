@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# This script commits to github, just run $ ./p- "optional commit msg"
+#
 i=0
 BASE="http://fdch.github.io"
 REPO=$(basename `git rev-parse --show-toplevel`)

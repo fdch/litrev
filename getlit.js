@@ -16,9 +16,7 @@ function getLit(x, sheet)
         keychange=1;
         keyword=ekeyw;
         keywords.push(keyword);
-      } else {
-        keychange=0;
-      }
+      } else keychange=0;
       var ebook = e.gsx$booktitle.$t;
       var eauth = e.gsx$author.$t;
       var epage = e.gsx$page.$t;
@@ -30,12 +28,8 @@ function getLit(x, sheet)
       var nevent = "<blockquote>\""+equot+" \"("+eauth+", "+epage+")</blockquote>";
       //var nevent = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
       var close = "</div>";
-      if(keychange){
-        x.append([open,intro,nevent, close]);
-      }
-      else{
-        x.append([intro,nevent])
-      }
+      if (keychange) x.append([open,intro,nevent, close]);
+      else           x.append([intro,nevent])
     }
   makeMenu($("#menu"));
   });
@@ -66,12 +60,8 @@ function getBib(x,sheet)
         quote += ", in ";
         quote += "<i>"+ejour+"</i>. ";
         quote += edito+" (Ed.) ";
-        if (evolu) {
-          quote += " Vol. "+evolu;
-        }
-        if (enumb) {
-          quote += " No. "+enumb;
-        }
+        if (evolu) quote += " Vol. "+evolu;
+        if (enumb) quote += " No. "+enumb;
       }
       quote += " "+eyear+". ";
       quote += epubl+". ";

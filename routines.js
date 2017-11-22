@@ -5,7 +5,7 @@ function linkify(x)
 
 function makeHref(x)
 {
-  return("<a href=\"#"+x.replace(/ /g,"_").toLowerCase()+"\">"+x+" </a>");
+  return("<a href=\"#"+linkify(x)+"\">"+x+" </a>");
 }
 
 function makeMenu(x)
