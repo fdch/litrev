@@ -22,10 +22,12 @@ function getLit(x, sheet)
       var epage = e.gsx$page.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
+      var eyear = e.gsx$year.$t;
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
+      var quoteref = "("+eauth+" "+eyear+":"+epage+")";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+"</h4>";
-      var intro = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
-      var nevent = "<blockquote>\""+equot+" \"("+eauth+", "+epage+")</blockquote>";
+      var intro = "<p>"+epara+" "+quoteref+"</p>";
+      var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
       //var nevent = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
       var close = "</div>";
       if (keychange) x.append([open,intro,nevent, close]);
