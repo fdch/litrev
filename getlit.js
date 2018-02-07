@@ -3,6 +3,42 @@ var keychange=0;
 var keywords=[];
 var booktitles=[];
 
+function getBib(x,sheet)
+{
+  loadJSON(sheet, function(response)
+  {
+    var f = JSON.parse(response);
+    var entry = f.feed.entry;
+    for (var i in entry)
+    {
+      var e = entry[i];
+      var eauth = e.gsx$author.$t;
+      var ename = e.gsx$name.$t;
+      var ebook = e.gsx$booktitle.$t;
+      var eyear = e.gsx$year.$t;
+      var epubl = e.gsx$publisher.$t;
+      var edito = e.gsx$editor.$t;
+      var ejour = e.gsx$journal.$t;
+      var evolu = e.gsx$volume.$t;
+      var enumb = e.gsx$number.$t;
+      var quote = eauth+", ";
+      quote += ename+". ";
+      quote += "<i>"+ebook+"</i>.";
+      if (edito) {
+        quote += ", in ";
+        quote += "<i>"+ejour+"</i>. ";
+        quote += edito+" (Ed.) ";
+        if (evolu) quote += " Vol. "+evolu;
+        if (enumb) quote += " No. "+enumb;
+      }
+      quote += " "+eyear+". ";
+      quote += epubl+". ";
+      booktitles.push(ebook);
+      x.append("<p id=eID"+i+"><span>["+i+"]</span>"+quote+"</p>");
+    }
+  });
+}
+
 function getLit(x, sheet)
 {
   loadJSON(sheet, function(response) {
@@ -46,38 +82,3 @@ function getLit(x, sheet)
   });
 }
 
-function getBib(x,sheet)
-{
-  loadJSON(sheet, function(response)
-  {
-    var f = JSON.parse(response);
-    var entry = f.feed.entry;
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var eauth = e.gsx$author.$t;
-      var ename = e.gsx$name.$t;
-      var ebook = e.gsx$booktitle.$t;
-      var eyear = e.gsx$year.$t;
-      var epubl = e.gsx$publisher.$t;
-      var edito = e.gsx$editor.$t;
-      var ejour = e.gsx$journal.$t;
-      var evolu = e.gsx$volume.$t;
-      var enumb = e.gsx$number.$t;
-      var quote = eauth+", ";
-      quote += ename+". ";
-      quote += "<i>"+ebook+"</i>.";
-      if (edito) {
-        quote += ", in ";
-        quote += "<i>"+ejour+"</i>. ";
-        quote += edito+" (Ed.) ";
-        if (evolu) quote += " Vol. "+evolu;
-        if (enumb) quote += " No. "+enumb;
-      }
-      quote += " "+eyear+". ";
-      quote += epubl+". ";
-      booktitles.push(ebook);
-      x.append("<p id=eID"+i+"><span>["+i+"]</span>"+quote+"</p>");
-    }
-  });
-}
