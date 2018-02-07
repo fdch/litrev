@@ -12,15 +12,17 @@ function getBib(x,sheet)
     for (var i in entry)
     {
       var e = entry[i];
-      var eauth = e.gsx$author.$t;
-      var ename = e.gsx$name.$t;
-      var ebook = e.gsx$booktitle.$t;
+      var eauth = e.gsx$lastname.$t;
+      var ename = e.gsx$firstname.$t;
+      var ebook = e.gsx$title.$t;
       var eyear = e.gsx$year.$t;
       var epubl = e.gsx$publisher.$t;
       var edito = e.gsx$editor.$t;
       var ejour = e.gsx$journal.$t;
       var evolu = e.gsx$volume.$t;
       var enumb = e.gsx$number.$t;
+      var eslas = e.gsx$secondlastname.$t;
+      var esfir = e.gsx$secondfirstname.$t;
       var quote = eauth+", ";
       quote += ename+". ";
       quote += "<i>"+ebook+"</i>.";
