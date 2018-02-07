@@ -36,7 +36,7 @@ function getBib(x,sheet)
       quote += " "+eyear+". ";
       quote += epubl+". ";
       booktitles.push(ebook);
-      x.append("<p id=eID"+i+"><span>["+i+"]</span>"+quote+"</p>");
+      x.append("<p id=eID"+i+"><span>["+i+"] </span>"+quote+"</p>");
     }
   });
 }
