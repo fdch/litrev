@@ -66,7 +66,7 @@ function getLit(x, sheet)
       //var quoteref = "("+eauth+" "+eyear+":"+epage+")";
       var btlength = booktitles.length;
       for (var i = 0; i < btlength; i++) {
-        if (ebook.localeCompare(booktitles[i])) {
+        if (booktitles[i].localeCompare(ebook)) {
           var quoteref = "<a href=\"#eID"+i+"\">["+i+"]</a>";
           break;
         } else //{
