@@ -1,6 +1,7 @@
 var keyword="blank";
 var keychange=0;
 var keywords=[];
+var booktitles=[];
 
 function getLit(x, sheet)
 {
@@ -18,15 +19,23 @@ function getLit(x, sheet)
         keywords.push(keyword);
       } else keychange=0;
       var ebook = e.gsx$booktitle.$t;
-      var eauth = e.gsx$author.$t;
+      //var eauth = e.gsx$author.$t;
       var epage = e.gsx$page.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
-      var eyear = e.gsx$year.$t;
+      //var eyear = e.gsx$year.$t;
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
-      var quoteref = "("+eauth+" "+eyear+":"+epage+")";
+      //var quoteref = "("+eauth+" "+eyear+":"+epage+")";
+      for (var eID in booktitles){
+        if (ebook.localeCompare(booktitles[eID]) {
+          var quoteref = "<a href=\"#"+eID+"\">["+eID+"]</a>";
+          break;
+        }
+      }
+
+      var quoteref;
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+"</h4>";
-      var intro = "<p>"+epara+" "+quoteref+"</p>";
+      var intro = "<p>"+epara+"</p>";
       var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
       //var nevent = "<p>"+epara+" ("+eauth+", "+epage+")</p>";
       var close = "</div>";
@@ -67,7 +76,8 @@ function getBib(x,sheet)
       }
       quote += " "+eyear+". ";
       quote += epubl+". ";
-      x.append("<p>"+quote+"</p>");
+      booktitles.push(ebook);
+      x.append("<p id=eID"+i+"><span>["+i+"]</span>"+quote+"</p>");
     }
   });
 }
