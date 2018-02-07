@@ -65,17 +65,17 @@ function getLit(x, sheet)
     //var nevent = "<h3>"+ekeyw+"</h3><p>"+equot+" ("+eauth+","+ebook+","+epage+")</p>";
       //var quoteref = "("+eauth+" "+eyear+":"+epage+")";
       var btlength = booktitles.length;
-      for (var i = 0; i < btlength; i++) {
-        if (booktitles[i].localeCompare(ebook)) {
-          var quoteref = "<a href=\"#eID"+i+"\">["+i+"]</a>";
-          break;
-        } else //{
-          //eID++;
-          continue;
+      //for (var i = 0; i < btlength; i++) {
+      //  if (booktitles[i].localeCompare(ebook)) {
+      //    var quoteref = "<a href=\"#eID"+i+"\">["+i+"]</a>";
+      //    break;
+      //  } else //{
+      //    //eID++;
+      //    continue;
       //}
-      }
-
-      var quoteref;
+      //}
+      var eID = jQuery.inArray( ebook, booktitles );
+      var quoteref = "<a href=\"#eID"+eID+"\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+"</h4>";
       var intro = "<p>"+epara+"</p>";
       var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
