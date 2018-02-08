@@ -13,7 +13,7 @@ function makeMenu(x)
   x.append("<nav><ul>");
   for (var k in keywords)
   {
-    x.append("<li style=display:inline>"+makeHref(keywords[k])+"</li>");
+    x.append("<li style=display:inline>"+makeHref(keywords[k])+" | </li>");
   }
   x.append("</ul></nav>");
 }
