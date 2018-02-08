@@ -10,7 +10,7 @@ function makeHref(x)
 
 function makeMenu(x)
 {
-  x.append("<nav><ul>");
+  x.append("<nav><ul id=keywords>");
   for (var k in keywords)
   {
     x.append("<li>"+makeHref(keywords[k])+"</li>");
