@@ -58,10 +58,11 @@ function getLit(x, sheet)
       } else keychange=0;
       var ebook = e.gsx$booktitle.$t;
       var epage = e.gsx$page.$t;
+      var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
       var eID = jQuery.inArray( ebook, booktitles );
-      var quoteref = "<a href=\"#eID"+eID+"\" title=\""+booktitles[eID]+"\">["+eID+"]</a>";
+      var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+"</h4>";
       var intro = "<p>"+epara+"</p>";
       var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
