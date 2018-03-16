@@ -61,7 +61,7 @@ function getLit(x, sheet)
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
       var eID = jQuery.inArray( ebook, booktitles );
-      var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+"\">["+eID+"]</a>";
+      var quoteref = "<a href=\"#eID"+eID+"\" title=\""+booktitles[eID]+"\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+"</h4>";
       var intro = "<p>"+epara+"</p>";
       var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
