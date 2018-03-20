@@ -9,7 +9,7 @@ then
 	ENDPOINT=$(grep -nr "Bibliography" tmpcut | cut -d : -f 2)
 	((ENDPOINT=$ENDPOINT-1))
 	split -l $ENDPOINT tmpcut
-	grep -o -E '\w+' xaa  | tr ' ' '\n' | sort | uniq -c | awk '{print $1"\t"$2}' | sort -g -r -o $1-freq
+	grep -o -E '\w+' xaa  | tr ' ' '\n' | tr '[:upper:]' '[:lower:]' | sed 's/ *[0-9][0-9]*.//' | sed '/^\s*$/d' | sort | uniq -c | awk '{print $1"\t"$2}' | sort -g -r -o $1-freq
 	rm tmp*
 	rm x*
 else
