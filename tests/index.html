@@ -3,10 +3,16 @@
 <head>
 <script type='text/javascript' src='https://code.jquery.com/jquery-3.1.1.js'></script>
 </head>
+<style>
+span.onhover {
+	cursor:hand;
+	text-decoration: underline;
+}
+</style>
 <script>
 
 function getTests(x) {
-
+	$("#content").emtpy();
   // var file = 'test/' + x ;
   $.get(x, function(data){
     lines = data.split("\n");
