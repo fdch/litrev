@@ -5,19 +5,19 @@
 </head>
 <style>
 span:hover {
-	cursor:hand;
+	cursor:pointer;
 	text-decoration: underline;
 }
 </style>
 <script>
 
 function getTests(x) {
-	$("#content").empty();
+	$("#content").empty().append("<p>");
   // var file = 'test/' + x ;
   $.get(x, function(data){
     lines = data.split("\n");
     $.each(lines, function(n, elem) {
-      $("#content").append(elem);
+      $("#content").append(elem.replace(/";"/g,"</p><p>"));
     });
   });
 }
