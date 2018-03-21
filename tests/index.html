@@ -14,7 +14,7 @@ span:hover {
 <script>
 
 function getTests(x) {
-	$("#content").empty().append("<p>");
+	$("#content").empty().append("<p>").append("<h3>"+x+"</h3>");
   // var file = 'test/' + x ;
   $.get(x, function(data){
     lines = data.split("\n");
