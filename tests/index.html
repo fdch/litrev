@@ -17,7 +17,7 @@ function getTests(x) {
   $.get(x, function(data){
     lines = data.split("\n");
     $.each(lines, function(n, elem) {
-      $("#content").append(elem.replace(/";"/g,"</p><p>"));
+      $("#content").append(elem.replace(/;/g,"</p><p>"));
     });
   });
 }
