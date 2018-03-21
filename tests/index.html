@@ -7,8 +7,8 @@
 
 function getTests(x) {
 
-  var file = 'test/' + x ;
-  $.get(file, function(data){
+  // var file = 'test/' + x ;
+  $.get(x, function(data){
     lines = data.split("\n");
     $.each(lines, function(n, elem) {
       $("#content").append(elem);
