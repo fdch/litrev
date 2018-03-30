@@ -2,7 +2,7 @@ var keyword="blank";
 var keychange=0;
 var keywords=[];
 var booktitles=[];
-
+var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
 function getBib(x,sheet)
 {
   loadJSON(sheet, function(response)
@@ -63,7 +63,7 @@ function getLit(x, sheet)
       var epara = e.gsx$paraphrase.$t;
       var eID = jQuery.inArray( ebook, booktitles );
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
-      var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+"</h4>";
+      var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
       var intro = "<p>"+epara+"</p>";
       var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
       var close = "</div>";
