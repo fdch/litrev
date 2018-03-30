@@ -22,5 +22,6 @@ var containers = "\
 <div id=content></div>\
 <h3>Bibliography</h3>\
 <div id=biblio></div>";
-var lit = https + spreadsheetID + "2" + altjson;
+var lit = https + spreadsheetID + "1" + altjson;
 var bib = https + spreadsheetID + "3" + altjson;
+
