@@ -23,9 +23,9 @@ function makeTests(x,y)
   x.append("<nav>");
   for (i in y)
   {
-    x.append("<a href=\""+y[i]+"\">"+y[i]+"</a>");
+    x.append("| <a href=\""+y[i]+"\">"+y[i]+"</a>");
   }
-  x.append("</nav>");
+  x.append("| </nav>");
 }
 
 function loadJSON(x,callback)
