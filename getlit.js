@@ -2,6 +2,7 @@ var keyword="blank";
 var keychange=0;
 var keywords=[];
 var booktitles=[];
+var fullquotes=[];
 var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
 function getBib(x,sheet)
 {
@@ -37,6 +38,7 @@ function getBib(x,sheet)
       quote += epubl+". ";
       booktitles.push(ebook);
       x.append("<p id=eID"+i+"><span>["+i+"] </span>"+quote+"</p>");
+      fullquotes.push(quote);
     }
   });
 }
@@ -62,7 +64,7 @@ function getLit(x, sheet)
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
       var eID = jQuery.inArray( ebook, booktitles );
-      var quoteref = " ("+epage+") <a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
+      var quoteref = fullquotes(eID)+" (p. "+epage+") <a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
       var intro = "<p>"+epara+"</p>";
       var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
