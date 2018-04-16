@@ -54,8 +54,8 @@ function getFormData($form){
 
 
 
-function pushForm(x){   
-
+function pushForm(e,x){   
+e.preventDefault();
 var obj = $(x).serializeArray();
 /*
 var jqxhr = $.ajax({
@@ -116,7 +116,7 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"submit\" onclick=\"event.preventDefault();pushForm(\'"+uniqueForm+"\')\" >Submit</button>\
+            <button type=\"submit\" onclick=\"pushForm(event,\'"+uniqueForm+"\')\" >Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\
