@@ -44,19 +44,19 @@ function getBib(x,sheet)
 
 
 
-  /*
-function pushForm(x){   
 
+function pushForm(x){   
+/*
 $.ajax({ url: updateParaphrases, 
   method: 'GET', 
   dataType: 'json', 
   data: $(x).serializeObject()
 });
-
+*/
 alert($(x).serializeObject());
 }
 
-*/
+
 function getLit(x, sheet)
 {
   loadJSON(sheet, function(response) {
@@ -85,7 +85,7 @@ function getLit(x, sheet)
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
       var uniqueForm = "#eID"+eID+eqid;
       var form = "\
-      <form id=\""+uniqueForm+"f\">\
+      <form id=\""+uniqueForm+"\">\
       <table><tbody>\
         <tr>\
           <td>\
@@ -101,7 +101,7 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"submit\" class=\"forms\" id=\""+uniqueForm+"\" >Submit</button>\
+            <button type=\"submit\" onclick=\"event.preventDefault();pushForm(\'"+uniqueForm+"\')\" >Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\

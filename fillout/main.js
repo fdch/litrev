@@ -4,16 +4,4 @@ $(document).ready(function(x) {
   $("body").append([titleData, containers]);
   getBib($("#biblio"), bib);
   getLit($("#content"), lit);
-  //makeTests($("header"), navmenu);
-  $(".forms").on('click', function(e) {
-    e.preventDefault();
-    var formID = $(this).attr(id)+"f";
-    $(formID).submit(function( event ) {
-  		alert( "Handler for .submit() called: " + formID );
-  		event.preventDefault();
-  		});
-	});
-    //var formSerialized = $(formID+"f").serializeObject();
-    //alert("Excellent, you clicked: "+ formID);
-  //});
 });
