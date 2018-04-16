@@ -41,20 +41,20 @@ function getBib(x,sheet)
   });
 }
 
-function pushForm(submit,form)
-{
-  $(submit).on('click', function(e) {
+
+  $(".form-submit").on('click', function(e) {
     e.preventDefault();
+    var formID = $(this).attr(id);
     var jqxhr = $.ajax({
       url: updateParaphrases,
       method: "GET",
       dataType: "json",
-      data: $(form).serializeObject()
+      data: formID.serializeObject()
     }).success(
       //alert("Excellent, you submitted: "+ form)
     );
   })
-}
+
 
 function getLit(x, sheet)
 {
@@ -101,7 +101,7 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"button\" id=\""+uniqueSubmit+"\" onclick=\"pushForm(\'"+uniqueSubmit+"\',\'"+uniqueForm+"\');\">Submit</button>\
+            <button type=\"submit\" class=\"form-submit\" id=\""uniqueForm"\" >Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\
