@@ -80,10 +80,10 @@ function pushForm(e,x)
     url: updateParaphrases,
     method: "GET",
     dataType: "json",
-    data: $(x).serializeObject(),
+    data: $(x).serializeJSON(),
 
     success: function() { 
-        alert("Pushed form "+x+" with object: "+ $(x).serializeObject())
+        alert("Pushed form "+x+" with object: "+ $(x).serializeJSON())
     }
   });
 }
