@@ -43,9 +43,9 @@ function getBib(x,sheet)
 
 
 $("button.form-submit").on('click', function(e) {
-    e.preventDefault();
-    var formID = $(this).attr(id).replace(/s/g,"f");
-    var formSerialized = $(formID).serializeObject();
+    //e.preventDefault();
+    var formID = $(this).attr(id)
+    var formSerialized = $(formID+"f").serializeObject();
     alert("Excellent, you submitted: "+ formSerialized)
   });
 
@@ -88,10 +88,9 @@ function getLit(x, sheet)
       var ta_defs = "type=\"message\" rows=\"15\" cols=\"55\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
-      var uniqueForm = "#eID"+eID+"f-"+eqid;
-      var uniqueSubmit = "#eID"+eID+"s-"+eqid;
+      var uniqueForm = "#eID"+eID+eqid;
       var form = "\
-      <form id=\""+uniqueForm+"\">\
+      <form id=\""+uniqueForm+"f\">\
       <table><tbody>\
         <tr>\
           <td>\
@@ -107,7 +106,7 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"submit\" class=\"form-submit\" id=\""+uniqueSubmit+"\" >Submit</button>\
+            <button type=\"button\" class=\"form-submit\" id=\""+uniqueSubmit+"\" >Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\
