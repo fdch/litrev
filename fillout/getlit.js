@@ -67,9 +67,9 @@ function getLit(x, sheet)
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
       var form = "<table><tbody><tr><td><form action=\"\">\
-                  <td>Quote:<br>\
+                  Quote:<br>\
                   <textarea "+ta_defs+" name=\"#eID"+eID+"Q\">"+equot+"</textarea></td>\
-                  Paraphrasing:<br>\
+                  <td>Paraphrasing:<br>\
                   <textarea "+ta_defs+" name=\"#eID"+eID+"P\">"+epara+"</textarea></td>\
                   </tr><tr><td>"+quoteref+"</td></tr>\
                   <tr><td><input type=\"submit\" value=\"Submit\"></td></tr></form></tbody></table>";
