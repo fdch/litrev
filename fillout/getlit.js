@@ -56,7 +56,7 @@ function getFormData($form){
 
 function pushForm(x){   
 
-var obj = $(x).serializeJSON();
+var obj = $(x).serializeArray();
 /*
 var jqxhr = $.ajax({
     url: updateParaphrases,
@@ -67,7 +67,7 @@ var jqxhr = $.ajax({
     alert("Pushed form "+x+" with object: "+obj)
   );
 */
-alert("Pushed form "+x+" with object: "+getFormData($(x)));
+alert("Pushed form "+x+" with object: "+obj);
 //
 }
 
