@@ -68,9 +68,9 @@ function getLit(x, sheet)
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
       var form = "<table><tbody><tr><td><form action=\"\">\
                   Paraphrasing:<br>\
-                  <textarea "+ta_defs+" name=\"#eID"+eID+"P\" value=\""+epara+"\"></td>\
+                  <textarea "+ta_defs+" name=\"#eID"+eID+"P\" value=\""+epara+"\"></textarea></td>\
                   <td>Quote:<br>\
-                  <textarea "+ta_defs+" name=\"#eID"+eID+"Q\" value=\""+equot+"\"></td>\
+                  <textarea "+ta_defs+" name=\"#eID"+eID+"Q\" value=\""+equot+"\"></textarea></td>\
                   </tr><tr><td>"+quoteref+"</td></tr>\
                   <tr><td><input type=\"submit\" value=\"Submit\"></td></tr></form></tbody></table>";
 
