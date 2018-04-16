@@ -49,7 +49,6 @@ function getBib(x,sheet)
     alert("Excellent, you submitted: "+ formSerialized)
 */ 
 function pushForm(x){   
-preventDefault();
 $.ajax({ url: updateParaphrases, 
   method: 'GET', 
   dataType: 'json', 
