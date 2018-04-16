@@ -63,7 +63,7 @@ function getLit(x, sheet)
       var epara = e.gsx$paraphrase.$t;
       var eID = jQuery.inArray( ebook, booktitles );
 
-      var ta_defs = "type=\"message\" rows=\"300\" cols=\"100\"";
+      var ta_defs = "type=\"message\" rows=\"30\" cols=\"20\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
       var form = "<table><tbody><tr><td><form action=\"\">\
