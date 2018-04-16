@@ -45,6 +45,9 @@ function getBib(x,sheet)
   $(".form-submit").on('click', function(e) {
     e.preventDefault();
     var formID = $(this).attr(id).replace(/s/g,"f");
+    var formSerialized = $(formID).serializeObject();
+    alert("Excellent, you submitted: "+ formSerialized)
+    /*
     var jqxhr = $.ajax({
       url: updateParaphrases,
       method: "GET",
@@ -53,6 +56,7 @@ function getBib(x,sheet)
     }).success(
       //alert("Excellent, you submitted: "+ form)
     );
+    */
   })
 
 
