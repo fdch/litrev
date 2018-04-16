@@ -101,7 +101,7 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"submit\" id=\""+uniqueSubmit+"\" onclick=\"pushForm(\'"+uniqueSubmit+"\',\'"+uniqueForm+"\');\">Submit</button>\
+            <button type=\"button\" id=\""+uniqueSubmit+"\" onclick=\"pushForm(\'"+uniqueSubmit+"\',\'"+uniqueForm+"\');\">Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\
