@@ -49,11 +49,14 @@ function getBib(x,sheet)
     alert("Excellent, you submitted: "+ formSerialized)
 */ 
 function pushForm(x){   
+  /*
 $.ajax({ url: updateParaphrases, 
   method: 'GET', 
   dataType: 'json', 
   data: $(x).serializeObject()
 });
+*/
+alert($(x).serializeObject());
 }
 function getLit(x, sheet)
 {
