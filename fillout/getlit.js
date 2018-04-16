@@ -43,13 +43,13 @@ function getBib(x,sheet)
 
 function pushForm(submit,form)
 {
-  $(submit).on('click', function(e) {
+  $("button#"submit).on('click', function(e) {
     e.preventDefault();
     var jqxhr = $.ajax({
       url: updateParaphrases,
       method: "GET",
       dataType: "json",
-      data: form.serializeObject()
+      data: "form#"+form.serializeObject()
     }).success(
       //alert("Excellent, you submitted: "+ form)
     );
