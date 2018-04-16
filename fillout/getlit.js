@@ -82,8 +82,10 @@ function getLit(x, sheet)
       var ta_defs = "type=\"message\" rows=\"15\" cols=\"55\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
+      var uniqueForm = "#eID"+eID+"f-"+eqid;
+      var uniqueSubmit = "#eID"+eID+"s-"+eqid;
       var form = "\
-      <form id=\"#eID"+eID+"f\">\
+      <form id=\""+uniqueForm+"\">\
       <table><tbody>\
         <tr>\
           <td>\
@@ -99,7 +101,7 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"submit\" id=\"#eID"+eID+"s\" onclick=\"pushForm(\'#eID"+eID+"s\',\'#eID"+eID+"f\');\">Submit</button>\
+            <button type=\"submit\" id=\""+uniqueSubmit+"\" onclick=\"pushForm(\'"+uniqueSubmit+"\',\'"+uniqueForm+"\');\">Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\
