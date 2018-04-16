@@ -75,15 +75,16 @@ var jqxhr = $.ajax({
 
 function pushForm(e,x)
 { 
+  var myObj = JSON.stringify($(x).serializeJSON());
   e.preventDefault();
   var jqxhr = $.ajax({
     url: updateParaphrases,
     method: "GET",
     dataType: "json",
-    data: $(x).serializeJSON(),
+    data: myObj,
 
     success: function() { 
-        alert("Pushed form "+x+" with object: "+ $(x).serializeJSON())
+        alert("Pushed form "+x+" with object: "+ myObj)
     }
   });
 }
