@@ -41,25 +41,21 @@ function getBib(x,sheet)
   });
 }
 
-
+/*
   $(".form-submit").on('click', function(e) {
     e.preventDefault();
     var formID = $(this).attr(id).replace(/s/g,"f");
     var formSerialized = $(formID).serializeObject();
     alert("Excellent, you submitted: "+ formSerialized)
-    /*
-    var jqxhr = $.ajax({
-      url: updateParaphrases,
-      method: "GET",
-      dataType: "json",
-      data: formID.serializeObject()
-    }).success(
-      //alert("Excellent, you submitted: "+ form)
-    );
-    */
-  })
-
-
+*/ 
+function pushForm(x){   
+preventDefault();
+$.ajax({ url: updateParaphrases, 
+  method: 'GET', 
+  dataType: 'json', 
+  data: $(x).serializeObject()
+});
+}
 function getLit(x, sheet)
 {
   loadJSON(sheet, function(response) {
@@ -105,7 +101,7 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"submit\" class=\"form-submit\" id=\""+uniqueSubmit+"\" >Submit</button>\
+            <button type=\"submit\" onclick=\"pushForm("+uniqueForm+")\" >Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\
