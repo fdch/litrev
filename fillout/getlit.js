@@ -62,15 +62,17 @@ function getLit(x, sheet)
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
       var eID = jQuery.inArray( ebook, booktitles );
+
+      var ta_defs = "type=\"message\" rows=\"300\" cols=\"100\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
-      var form = "<table><tr><td><form action=\"\">\
+      var form = "<table><tbody><tr><td><form action=\"\">\
                   Paraphrasing:<br>\
-                  <input type=\"text\" name=\"#eID"+eID+"P\" value=\""+epara+"\"></td>\
+                  <textarea "+ta_defs+" name=\"#eID"+eID+"P\" value=\""+epara+"\"></td>\
                   <td>Quote:<br>\
-                  <input type=\"text\" name=\"#eID"+eID+"Q\" value=\""+equot+"\"></td>\
-                  </tr><tr>"+quoteref+"</tr>\
-                  <tr><input type=\"submit\" value=\"Submit\"></tr></form></table>";
+                  <textarea "+ta_defs+" name=\"#eID"+eID+"Q\" value=\""+equot+"\"></td>\
+                  </tr><tr><td>"+quoteref+"</td></tr>\
+                  <tr><td><input type=\"submit\" value=\"Submit\"></td></tr></form></tbody></table>";
 
       /*
 <form action="/action_page.php">
