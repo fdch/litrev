@@ -52,7 +52,7 @@ function getFormData($form){
     return indexed_array;
 }
 
-
+/*
 
 function pushForm(e,x){   
 
@@ -71,6 +71,22 @@ var jqxhr = $.ajax({
 ///e.preventDefault();
 //
 }
+*/
+
+function pushForm(e,x)
+{ 
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: updateParaphrases,
+    method: "GET",
+    dataType: "json",
+    data: $(x).serializeObject()
+  }).success(
+    // do something
+    alert("Pushed form "+x+" with object: "+ $(x).serializeObject())
+  );
+}
+
 
 
 function getLit(x, sheet)
