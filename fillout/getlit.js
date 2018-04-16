@@ -44,7 +44,7 @@ function getBib(x,sheet)
 
   $(".form-submit").on('click', function(e) {
     e.preventDefault();
-    var formID = $(this).attr(id);
+    var formID = $(this).attr(id).replace(/s/g,"f");
     var jqxhr = $.ajax({
       url: updateParaphrases,
       method: "GET",
@@ -101,7 +101,7 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"submit\" class=\"form-submit\" id=\""+uniqueForm+"\" >Submit</button>\
+            <button type=\"submit\" class=\"form-submit\" id=\""+uniqueSubmit+"\" >Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\
