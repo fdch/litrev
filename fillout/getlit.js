@@ -46,14 +46,17 @@ function getBib(x,sheet)
 
 
 function pushForm(x){   
+var obj = x.serializeObject();
+var jqxhr = $.ajax({
+    url: updateParaphrases,
+    method: "GET",
+    dataType: "json",
+    data: obj
+  }).success(
+    alert(obj)
+  );
 
-$.ajax({ url: updateParaphrases, 
-  method: 'GET', 
-  dataType: 'json', 
-  data: $(x).serializeObject()
-});
-
-//alert($(x).serializeObject());
+//
 }
 
 
