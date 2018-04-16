@@ -4,5 +4,5 @@ $(document).ready(function(x) {
   $("body").append([titleData, containers]);
   getBib($("#biblio"), bib);
   getLit($("#content"), lit);
-  makeTests($("header"), navmenu);
+  //makeTests($("header"), navmenu);
 });

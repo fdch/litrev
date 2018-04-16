@@ -46,7 +46,7 @@ function pushForm(submit,form)
   $(submit).on('click', function(e) {
     e.preventDefault();
     var jqxhr = $.ajax({
-      url: updateParaphrases,
+      url: updateParaprhases,
       method: "GET",
       dataType: "json",
       data: form.serializeObject()
@@ -101,12 +101,13 @@ function getLit(x, sheet)
             <p>Click submit when ready:</p>\
           </td>\
           <td>\
-            <button type=\"submit\" id=\""+uniqueSubmit+"\" onclick=\"pushForm(\'"+uniqueSubmit+"\',\'"+uniqueForm+"\');\">Submit</button>\
+            <button type=\"submit\" id=\""+uniqueSubmit+"\">Submit</button>\
           </td>\
         </tr>\
       </tbody></table>\
       </form>";
-
+      
+//onclick=\"pushForm(\'"+uniqueSubmit+"\',\'"+uniqueForm+"\');\"
       /*
 <form action="/action_page.php">
   First name:<br>
