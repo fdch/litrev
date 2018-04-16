@@ -55,7 +55,7 @@ function getFormData($form){
 
 
 function pushForm(e,x){   
-e.preventDefault();
+
 var obj = $(x).serializeArray();
 /*
 var jqxhr = $.ajax({
@@ -68,6 +68,7 @@ var jqxhr = $.ajax({
   );
 */
 alert("Pushed form "+x+" with object: "+obj);
+e.preventDefault();
 //
 }
 
