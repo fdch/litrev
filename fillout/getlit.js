@@ -82,12 +82,28 @@ function getLit(x, sheet)
       var ta_defs = "type=\"message\" rows=\"15\" cols=\"55\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
-      var form = "<table><tbody><tr><td><form id=\"#eID"+eID+"f\">\
-                  <label>Quote </label><input type=\"text\" cols=\"3\" rows=\"1\" name=\"quote-id\" value=\""+eqid+"\"/><br>\
-                  <textarea "+ta_defs+" name=\"quote\">"+equot+"</textarea></td>\
-                  <td><label>Paraphrasing (source:"+quoteref+"; id="+eqid+")</label>\
-                  <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea></td>\
-                  <tr><td><p>Click submit when ready:</p></td><td><button type=\"submit\" id=\"#eID"+eID+"s\" onclick=\"pushForm(\'#eID"+eID+"s\',\'#eID"+eID+"f\'');\">Submit</button></td></tr></form></tbody></table>";
+      var form = "\
+      <form id=\"#eID"+eID+"f\">\
+      <table><tbody>\
+        <tr>\
+          <td>\
+            <label>Quote </label><input type=\"text\" cols=\"3\" rows=\"1\" name=\"quote-id\" value=\""+eqid+"\"/>\
+            <textarea "+ta_defs+" name=\"quote\">"+equot+"\</textarea>\
+          </td>\
+          <td>\
+            <label>Paraphrasing (source: "+quoteref+", id="+eqid+")</label>\
+            <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea>\
+          </td>\
+        <tr>\
+          <td>\
+            <p>Click submit when ready:</p>\
+          </td>\
+          <td>\
+            <button type=\"submit\" id=\"#eID"+eID+"s\" onclick=\"pushForm(\'#eID"+eID+"s\',\'#eID"+eID+"f\'');\">Submit</button>\
+          </td>\
+        </tr>\
+      </tbody></table>\
+      </form>";
 
       /*
 <form action="/action_page.php">
