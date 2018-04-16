@@ -88,7 +88,7 @@ function getLit(x, sheet)
                   <td><label>Paraphrasing:</label>\
                   <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea></td>\
                   </tr><tr><td colspan=\"2\">"+quoteref+"</td></tr>\
-                  <tr><td><p>Click submit when ready:</p></td><td><button type=\"submit\" id=\"#eID"+eID+"S\" onclick=\"pushForm(\"#eID"+eID+"S\",\"#eID"+eID+"F\");\">Submit</button></td></tr></form></tbody></table>";
+                  <tr><td><p>Click submit when ready:</p></td><td><button type=\"submit\" id=\"#eID"+eID+"S\" onclick=\"pushForm(\'#eID"+eID+"S\',\'#eID"+eID+"F\'');\">Submit</button></td></tr></form></tbody></table>";
 
       /*
 <form action="/action_page.php">
