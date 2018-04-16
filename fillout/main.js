@@ -5,4 +5,10 @@ $(document).ready(function(x) {
   getBib($("#biblio"), bib);
   getLit($("#content"), lit);
   //makeTests($("header"), navmenu);
+  $(".form-submit").on('click', function(e) {
+    //e.preventDefault();
+    var formID = $(this).attr(id);
+    var formSerialized = $(formID+"f").serializeObject();
+    alert("Excellent, you submitted: "+ formSerialized);
+  });
 });

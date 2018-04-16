@@ -42,12 +42,7 @@ function getBib(x,sheet)
 }
 
 
-$(".form-submit").on('click', function(e) {
-    //e.preventDefault();
-    var formID = $(this).attr(id);
-    var formSerialized = $(formID+"f").serializeObject();
-    alert("Excellent, you submitted: "+ formSerialized);
-  });
+
 
   /*
 function pushForm(x){   
