@@ -46,7 +46,7 @@ function getBib(x,sheet)
 
 
 function pushForm(x){   
-var obj = $(x).serializeObject();
+var obj = $(x).serializeJSON();
 var jqxhr = $.ajax({
     url: updateParaphrases,
     method: "GET",
