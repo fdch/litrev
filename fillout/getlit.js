@@ -68,7 +68,7 @@ var jqxhr = $.ajax({
   );
 */
 alert("Pushed form "+x+" with object: "+obj);
-e.preventDefault();
+///e.preventDefault();
 //
 }
 
