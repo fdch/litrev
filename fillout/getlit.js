@@ -51,7 +51,7 @@ function pushForm(submit,form)
       dataType: "json",
       data: form.serializeObject()
     }).success(
-      alert("Excellent, you submitted: "+ form);
+      alert("Excellent, you submitted: "+ form)
     );
   })
 }
