@@ -6,6 +6,7 @@ var subtitle = "Towards The Holy Mountain of the Dissertation";
 var https = "https://spreadsheets.google.com/feeds/list/";
 var altjson = "/public/values?alt=json";
 var w, h;
+var updateParaprhases = "https://script.google.com/macros/s/AKfycbwkysTS68G1h9qx_YCJ98pQsG3ietAkS-BOaNfp6W4tVxQrQBlu/exec";
 var navmenu = ["tests","tests2"];
 var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/";
 var formID = "1FAIpQLScijqg1IlmAWLsBgQ7jaUxEcCPUQqZroXG-9ZxXV4BvOKzbKg";

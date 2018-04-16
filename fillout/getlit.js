@@ -41,6 +41,21 @@ function getBib(x,sheet)
   });
 }
 
+function pushForm(submit,form)
+{
+  $(submit).on('click', function(e) {
+    e.preventDefault();
+    var jqxhr = $.ajax({
+      url: updateParaphrases,
+      method: "GET",
+      dataType: "json",
+      data: form.serializeObject()
+    }).success(
+      alert("Excellent, you submitted: "+ form);
+    );
+  })
+}
+
 function getLit(x, sheet)
 {
   loadJSON(sheet, function(response) {
@@ -61,18 +76,19 @@ function getLit(x, sheet)
       var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
+      var eqid = e.gsx$id.$t;
       var eID = jQuery.inArray( ebook, booktitles );
 
       var ta_defs = "type=\"message\" rows=\"15\" cols=\"55\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
-      var form = "<table><tbody><tr><td><form action=\"\">\
-                  Quote:<br>\
-                  <textarea "+ta_defs+" name=\"#eID"+eID+"Q\">"+equot+"</textarea></td>\
-                  <td>Paraphrasing:<br>\
-                  <textarea "+ta_defs+" name=\"#eID"+eID+"P\">"+epara+"</textarea></td>\
-                  </tr><tr><td>"+quoteref+"</td></tr>\
-                  <tr><td><input type=\"submit\" value=\"Submit\"></td></tr></form></tbody></table>";
+      var form = "<table><tbody><tr><td><form id=\"#eID"+eID+"F\">\
+                  <label>Quote</label><input type=\"text\" name=\"quote-id\" value=\""+eqid+"\"/>:<br>\
+                  <textarea "+ta_defs+" name=\"quote\">"+equot+"</textarea></td>\
+                  <td><label>Paraphrasing:</label>\
+                  <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea></td>\
+                  </tr><tr><td colspan=\"2\">"+quoteref+"</td></tr>\
+                  <tr><td><p>Click submit when ready:</p></td><td><button type=\"submit\" id=\"#eID"+eID+"S\" onclick=\"pushForm(\"#eID"+eID+"S\",\"#eID"+eID+"F\");\">Submit</button></td></tr></form></tbody></table>";
 
       /*
 <form action="/action_page.php">
