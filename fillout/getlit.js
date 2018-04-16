@@ -53,7 +53,7 @@ var jqxhr = $.ajax({
     dataType: "json",
     data: obj
   }).success(
-    alert(obj)
+    alert("Pushed form "+x+" with object: "+obj)
   );
 
 //
