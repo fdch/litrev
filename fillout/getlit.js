@@ -41,12 +41,23 @@ function getBib(x,sheet)
   });
 }
 
+function getFormData($form){
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
 
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
+    });
+
+    return indexed_array;
+}
 
 
 
 function pushForm(x){   
+
 var obj = $(x).serializeJSON();
+/*
 var jqxhr = $.ajax({
     url: updateParaphrases,
     method: "GET",
@@ -55,7 +66,8 @@ var jqxhr = $.ajax({
   }).success(
     alert("Pushed form "+x+" with object: "+obj)
   );
-
+*/
+alert("Pushed form "+x+" with object: "+getFormData(x))
 //
 }
 
