@@ -148,7 +148,7 @@ function getLit(x, sheet)
       <label>Paraphrasing</label>\
       <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea>\
       </div><div>\
-      <button type=\"submit\" class=\"submit-form\" onclick=\"event.preventDefault();alert($(\'"+uniqueForm+"\').serialize());\">Submit</button>\
+      <button type=\"submit\" class=\"submit-form\" onclick=\"alert($(\'"+uniqueForm+"\').serialize());event.preventDefault();\">Submit</button>\
       </div>\
       </form>";
       /*
