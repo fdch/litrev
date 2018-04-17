@@ -153,16 +153,16 @@ function getLit(x, sheet)
       </div>\
       </form>";
       var formScript = "<script>\
-$(\'"+uniqueForm+"\'').submit(function(e){\
+$("+uniqueForm+").submit(function(e){\
   var myObj = JSON.stringify($("+uniqueForm+"));\
   e.preventDefault();\
   var jqxhr = $.ajax({\
     url: updateParaphrases,\
-    method: \"GET\",\
-    dataType: \"json\",\
+    method: \'GET\',\
+    dataType: \'json\',\
     data: myObj,\
     success: function() { \
-        alert(\"Pushed form \"+"+uniqueForm+"+\" with object: \"+ myObj)\
+        alert(\'Pushed form \'+"+uniqueForm+"+\'' with object: \'+ myObj)\
     }\
   });\
 });</script>";
