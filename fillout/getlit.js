@@ -95,6 +95,23 @@ var jqxhr = $.ajax({
 // }
 
 
+
+  $('button.submit-form').click(function(e){
+    alert("you did something")
+    // var x = $(this).closest('form').serializeObject();;
+    // e.preventDefault();
+    // var jqxhr = $.ajax({
+    //   url: updateParaphrases,
+    //   method: "GET",
+    //   dataType: "json",
+    //   data: x,
+
+    //   success: function() { 
+    //       alert("Posted this: "+ x)
+    //   }
+    // });
+  });
+
 function getLit(x, sheet)
 {
   loadJSON(sheet, function(response) {
@@ -133,13 +150,13 @@ function getLit(x, sheet)
       <label>Paraphrasing</label>\
       <textarea name=\"paraphrase\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
-      <button type=\"submit\" class=\"submit-form\">Submit</button>\
+      <button type=\"submit\" class=\"submit-form\">Go</button>\
       </div>\
       </form>";
       /*
       onclick=\"alert($(\'"+uniqueForm+"\').serialize());event.preventDefault();\"
 
-      
+
       var formScript = "<script>\
 $(\'"+uniqueForm+"\').submit(function(e){\
   var myObj = JSON.stringify($(\'"+uniqueForm+"\'));\
