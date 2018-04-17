@@ -94,21 +94,6 @@ var jqxhr = $.ajax({
 // });
 
 
-function pushForm(e,x)
-{ 
-  //var myObj = JSON.stringify($(x));
-  e.preventDefault();
-  var jqxhr = $.ajax({
-    url: updateParaphrases,
-    method: "GET",
-    dataType: "json",
-    data: $(x).serializeObject(),
-
-    success: function() { 
-        alert("Pushed form "+x+" with object: "+ $(x).serializeObject())
-    }
-  });
-}
 
 
 function getLit(x, sheet)
