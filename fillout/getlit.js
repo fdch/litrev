@@ -73,8 +73,8 @@ var jqxhr = $.ajax({
 }
 */
 
-function pushForm(e,x)
-{ 
+$('.submit-form').click(function(e){
+  var x = $(this).closest('form');
   var myObj = JSON.stringify($(x));
   e.preventDefault();
   var jqxhr = $.ajax({
@@ -87,8 +87,24 @@ function pushForm(e,x)
         alert("Pushed form "+x+" with object: "+ myObj)
     }
   });
-}
+});
 
+
+// function pushForm(e,x)
+// { 
+//   var myObj = JSON.stringify($(x));
+//   e.preventDefault();
+//   var jqxhr = $.ajax({
+//     url: updateParaphrases,
+//     method: "GET",
+//     dataType: "json",
+//     data: myObj,
+
+//     success: function() { 
+//         alert("Pushed form "+x+" with object: "+ myObj)
+//     }
+//   });
+// }
 
 
 function getLit(x, sheet)
@@ -129,12 +145,12 @@ function getLit(x, sheet)
       <label>Paraphrasing</label>\
       <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea>\
       </div><div>\
-      <button type=\"submit\" onclick=\"pushForm(event,\'"+uniqueForm+"\')\" >Submit</button>\
+      <button type=\"submit\" class=\"submit-form\" >Submit</button>\
       </div>\
       </form>";
 
       /*
-
+onclick=\"pushForm(event,\'"+uniqueForm+"\')\"
  (source: "+quoteref+", id="+eqid+")
 
 <form action="/action_page.php">
