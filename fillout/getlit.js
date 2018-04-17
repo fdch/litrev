@@ -95,7 +95,7 @@ var jqxhr = $.ajax({
 
 function pushForm(e,x)
 { 
-  var formData = $(e.target).serialize();
+  var formData = $(x).serialize();
   e.preventDefault();
   var jqxhr = $.ajax({
     url: updateParaphrases,
