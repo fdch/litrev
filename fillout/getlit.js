@@ -104,7 +104,7 @@ function pushForm(e,x)
     data: formData,
 
     success: function() { 
-      console.log(formData); 
+      alert(formData); 
      }
   });
 }
