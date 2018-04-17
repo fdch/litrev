@@ -94,21 +94,21 @@ var jqxhr = $.ajax({
 // });
 
 
-// function pushForm(e,x)
-// { 
-//   var myObj = JSON.stringify($(x));
-//   e.preventDefault();
-//   var jqxhr = $.ajax({
-//     url: updateParaphrases,
-//     method: "GET",
-//     dataType: "json",
-//     data: myObj,
+function pushForm(e,x)
+{ 
+  //var myObj = JSON.stringify($(x));
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: updateParaphrases,
+    method: "GET",
+    dataType: "json",
+    data: JSON.stringify($(x)),
 
-//     success: function() { 
-//         alert("Pushed form "+x+" with object: "+ myObj)
-//     }
-//   });
-// }
+    success: function() { 
+        alert("Pushed form "+x+" with object: "+ JSON.stringify($(x)))
+    }
+  });
+}
 
 
 function getLit(x, sheet)
@@ -149,9 +149,10 @@ function getLit(x, sheet)
       <label>Paraphrasing</label>\
       <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea>\
       </div><div>\
-      <button type=\"submit\" class=\"submit-form\" >Submit</button>\
+      <button type=\"submit\" class=\"submit-form\" onclick=\"pushForm(event,\'"+uniqueForm+"\')\">Submit</button>\
       </div>\
       </form>";
+      /*
       var formScript = "<script>\
 $(\'"+uniqueForm+"\').submit(function(e){\
   var myObj = JSON.stringify($(\'"+uniqueForm+"\'));\
@@ -162,12 +163,13 @@ $(\'"+uniqueForm+"\').submit(function(e){\
     dataType: \'json\',\
     data: myObj,\
     success: function() { \
-        alert(\'Pushed form +"+uniqueForm+"+ with object: \'+ myObj)\
+        alert(\'Pushed form "+uniqueForm+" with object: \'+ myObj)\
     }\
   });\
 });</script>";
+      */
+
       /*
-onclick=\"pushForm(event,\'"+uniqueForm+"\')\"
  (source: "+quoteref+", id="+eqid+")
 
 <form action="/action_page.php">
@@ -182,8 +184,8 @@ onclick=\"pushForm(event,\'"+uniqueForm+"\')\"
       */
       //var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
       var close = "</div>";
-      if (keychange) x.append([open,formScript,form,close]);
-      else           x.append([formScript,form]);
+      if (keychange) x.append([open,form,close]);
+      else           x.append([form]);
     }
   makeMenu($("#menu"));
   });
