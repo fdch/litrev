@@ -140,13 +140,13 @@ function getLit(x, sheet)
       var form = "<form id=\""+uniqueForm+"\">\
       <div>\
       <label>Quote Id</label>\
-      <input type=\"text\" cols=\"3\" rows=\"1\" name=\"quote-id\" value=\""+eqid+"\"/>\
+      <input name=\"quote-id\" type=\"text\" cols=\"3\" rows=\"1\" value=\""+eqid+"\"/>\
       </div><div>\
       <label>Quote</label>\
-      <textarea "+ta_defs+" name=\"quote\">"+equot+"\</textarea>\
+      <textarea name=\"quote\" "+ta_defs+">"+equot+"\</textarea>\
       </div><div>\
       <label>Paraphrasing</label>\
-      <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea>\
+      <textarea name=\"paraphrase\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
       <button type=\"submit\" class=\"submit-form\" onclick=\"alert($(\'"+uniqueForm+"\').serialize());event.preventDefault();\">Submit</button>\
       </div>\
