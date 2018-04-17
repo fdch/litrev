@@ -73,21 +73,25 @@ var jqxhr = $.ajax({
 }
 */
 
-$('.submit-form').click(function(e){
-  var x = $(this).closest('form');
-  var myObj = JSON.stringify($(x));
-  e.preventDefault();
-  var jqxhr = $.ajax({
-    url: updateParaphrases,
-    method: "GET",
-    dataType: "json",
-    data: myObj,
 
-    success: function() { 
-        alert("Pushed form "+x+" with object: "+ myObj)
-    }
-  });
-});
+
+
+
+// $('.submit-form').click(function(e){
+//   var x = $(this).closest('form');
+//   var myObj = JSON.stringify($(x));
+//   e.preventDefault();
+//   var jqxhr = $.ajax({
+//     url: updateParaphrases,
+//     method: "GET",
+//     dataType: "json",
+//     data: myObj,
+
+//     success: function() { 
+//         alert("Pushed form "+x+" with object: "+ myObj)
+//     }
+//   });
+// });
 
 
 // function pushForm(e,x)
@@ -148,7 +152,20 @@ function getLit(x, sheet)
       <button type=\"submit\" class=\"submit-form\" >Submit</button>\
       </div>\
       </form>";
-
+      var formScript = "<script>\
+$(\'"+uniqueForm+"\'').submit(function(e){\
+  var myObj = JSON.stringify($("+uniqueForm+"));\
+  e.preventDefault();\
+  var jqxhr = $.ajax({\
+    url: updateParaphrases,\
+    method: \"GET\",\
+    dataType: \"json\",\
+    data: myObj,\
+    success: function() { \
+        alert(\"Pushed form \"+"+uniqueForm+"+\" with object: \"+ myObj)\
+    }\
+  });\
+});</script>";
       /*
 onclick=\"pushForm(event,\'"+uniqueForm+"\')\"
  (source: "+quoteref+", id="+eqid+")
