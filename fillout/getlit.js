@@ -41,16 +41,16 @@ function getBib(x,sheet)
   });
 }
 
-function getFormData($form){
-    var unindexed_array = $form.serializeArray();
-    var indexed_array = {};
+// function getFormData($form){
+//     var unindexed_array = $form.serializeArray();
+//     var indexed_array = {};
 
-    $.map(unindexed_array, function(n, i){
-        indexed_array[n['name']] = n['value'];
-    });
+//     $.map(unindexed_array, function(n, i){
+//         indexed_array[n['name']] = n['value'];
+//     });
 
-    return indexed_array;
-}
+//     return indexed_array;
+// }
 
 /*
 
@@ -93,7 +93,21 @@ var jqxhr = $.ajax({
 //   });
 // });
 
+function pushForm(e,x)
+{ 
+  var $form = $(e.target);
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: updateParaphrases,
+    method: "GET",
+    dataType: "json",
+    data: $form.serializeObject(),
 
+    success: function() { 
+        alert("Pushed form "+x+" with object: "+ $form.serializeObject())
+    }
+  });
+}
 
 
 function getLit(x, sheet)
