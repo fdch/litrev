@@ -95,13 +95,13 @@ var jqxhr = $.ajax({
 
 function pushForm(e,x)
 { 
-  var formData = $("\'"+x+"\'").serialize();
+  var formData = $(x).serializeArray();
   e.preventDefault();
   var jqxhr = $.ajax({
     url: updateParaphrases,
     method: "GET",
     dataType: "json",
-    data: formData.serializeObject(),
+    data: formData,
 
     success: function() { 
       alert(formData); 
@@ -148,7 +148,7 @@ function getLit(x, sheet)
       <label>Paraphrasing</label>\
       <textarea "+ta_defs+" name=\"paraphrase\">"+epara+"</textarea>\
       </div><div>\
-      <button type=\"submit\" class=\"submit-form\" onclick=\"pushForm(event,\'"+uniqueForm+"\')\">Submit</button>\
+      <button type=\"submit\" class=\"submit-form\" onclick=\"event.preventDefault();alert($("+uniqueForm+").serialize());\">Submit</button>\
       </div>\
       </form>";
       /*
