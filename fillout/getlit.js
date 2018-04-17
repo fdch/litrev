@@ -95,16 +95,16 @@ var jqxhr = $.ajax({
 
 function pushForm(e,x)
 { 
-  var $form = $(e.target);
+  var formData = $(e.target).serialize();
   e.preventDefault();
   var jqxhr = $.ajax({
     url: updateParaphrases,
     method: "GET",
     dataType: "json",
-    data: $form.serialize(),
+    data: formData,
 
     success: function() { 
-      console.log($form.serialize()); 
+      console.log(formData); 
      }
   });
 }
