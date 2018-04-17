@@ -101,11 +101,11 @@ function pushForm(e,x)
     url: updateParaphrases,
     method: "GET",
     dataType: "json",
-    data: $form.serializeObject(),
+    data: $form.serialize(),
 
     success: function() { 
-        alert("Pushed form "+x+" with object: "+ $form.serializeObject())
-    }
+      console.log($form.serialize()); 
+     }
   });
 }
 
