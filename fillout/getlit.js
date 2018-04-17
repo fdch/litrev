@@ -182,8 +182,8 @@ onclick=\"pushForm(event,\'"+uniqueForm+"\')\"
       */
       //var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
       var close = "</div>";
-      if (keychange) x.append([open,form,close]);
-      else           x.append(form)
+      if (keychange) x.append([open,formScript,form,close]);
+      else           x.append([formScript,form])
     }
   makeMenu($("#menu"));
   });
