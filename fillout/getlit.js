@@ -153,8 +153,8 @@ function getLit(x, sheet)
       </div>\
       </form>";
       var formScript = "<script>\
-$("+uniqueForm+").submit(function(e){\
-  var myObj = JSON.stringify($("+uniqueForm+"));\
+$(\'"+uniqueForm+"\').submit(function(e){\
+  var myObj = JSON.stringify($(\'"+uniqueForm+"\'));\
   e.preventDefault();\
   var jqxhr = $.ajax({\
     url: updateParaphrases,\
@@ -162,7 +162,7 @@ $("+uniqueForm+").submit(function(e){\
     dataType: \'json\',\
     data: myObj,\
     success: function() { \
-        alert(\'Pushed form \'+"+uniqueForm+"+\'' with object: \'+ myObj)\
+        alert(\'Pushed form +"+uniqueForm+"+ with object: \'+ myObj)\
     }\
   });\
 });</script>";
@@ -183,7 +183,7 @@ onclick=\"pushForm(event,\'"+uniqueForm+"\')\"
       //var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
       var close = "</div>";
       if (keychange) x.append([open,formScript,form,close]);
-      else           x.append([formScript,form])
+      else           x.append([formScript,form]);
     }
   makeMenu($("#menu"));
   });
