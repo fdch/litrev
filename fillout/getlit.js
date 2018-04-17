@@ -77,37 +77,22 @@ var jqxhr = $.ajax({
 
 
 
-// $('.submit-form').click(function(e){
-//   var x = $(this).closest('form');
-//   var myObj = JSON.stringify($(x));
+
+// function pushForm(e,x)
+// { 
+//   var formData = $(x).serializeArray();
 //   e.preventDefault();
 //   var jqxhr = $.ajax({
 //     url: updateParaphrases,
 //     method: "GET",
 //     dataType: "json",
-//     data: myObj,
+//     data: formData,
 
 //     success: function() { 
-//         alert("Pushed form "+x+" with object: "+ myObj)
-//     }
+//       alert(formData); 
+//      }
 //   });
-// });
-
-function pushForm(e,x)
-{ 
-  var formData = $(x).serializeArray();
-  e.preventDefault();
-  var jqxhr = $.ajax({
-    url: updateParaphrases,
-    method: "GET",
-    dataType: "json",
-    data: formData,
-
-    success: function() { 
-      alert(formData); 
-     }
-  });
-}
+// }
 
 
 function getLit(x, sheet)
@@ -148,10 +133,13 @@ function getLit(x, sheet)
       <label>Paraphrasing</label>\
       <textarea name=\"paraphrase\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
-      <button type=\"submit\" class=\"submit-form\" onclick=\"alert($(\'"+uniqueForm+"\').serialize());event.preventDefault();\">Submit</button>\
+      <button type=\"submit\" class=\"submit-form\">Submit</button>\
       </div>\
       </form>";
       /*
+      onclick=\"alert($(\'"+uniqueForm+"\').serialize());event.preventDefault();\"
+
+      
       var formScript = "<script>\
 $(\'"+uniqueForm+"\').submit(function(e){\
   var myObj = JSON.stringify($(\'"+uniqueForm+"\'));\
