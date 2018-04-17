@@ -95,13 +95,13 @@ var jqxhr = $.ajax({
 
 function pushForm(e,x)
 { 
-  var formData = $(e.data).serialize();
+  var formData = $("\'"+x+"\'").serialize();
   e.preventDefault();
   var jqxhr = $.ajax({
     url: updateParaphrases,
     method: "GET",
     dataType: "json",
-    data: formData,
+    data: formData.serializeObject(),
 
     success: function() { 
       alert(formData); 
