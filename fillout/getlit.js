@@ -107,8 +107,8 @@ function getCurrentNum(sheet) {
       var e = entry[i];
       num = e.gsx$currentnumber.$t;
     }
+    return num;
   })
-  return num;
 }
 
 
