@@ -2,7 +2,10 @@ var keyword="blank";
 var keychange=0;
 var keywords=[];
 var booktitles=[];
+var allForms=[];
 var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
+
+
 function getBib(x,sheet)
 {
   loadJSON(sheet, function(response)
@@ -96,7 +99,7 @@ var jqxhr = $.ajax({
 
 
 
-  $('button.submit-form').click(function(e){
+  $('#thesubmit').click(function(e){
     alert("you did something")
     // var x = $(this).closest('form').serializeObject();;
     // e.preventDefault();
@@ -120,39 +123,37 @@ function getLit(x, sheet)
     for (var i in entry)
     {
       var e = entry[i];
-    //var estam = e.gsx$timestamp.$t;
-      var ekeyw = e.gsx$keyword.$t;
-      if (keyword.localeCompare(ekeyw)) {
-        keychange=1;
-        keyword=ekeyw;
-        keywords.push(keyword);
-      } else keychange=0;
+
       var ebook = e.gsx$booktitle.$t;
-      var epage = e.gsx$page.$t;
       var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
       var eqid = e.gsx$id.$t;
-      var eID = jQuery.inArray( ebook, booktitles );
 
+      var eID = jQuery.inArray( ebook, booktitles );
       var ta_defs = "type=\"message\" rows=\"15\" cols=\"55\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
-      var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
-      var uniqueForm = "#eID"+eID+eqid;
-      var form = "<form id=\""+uniqueForm+"\">\
+      //var uniqueForm = "#eID"+eID+eqid;
+      //var uniqueSubmit = "#eIDsubmit"+eID+eqid;
+      var uniqueForm = "theform";
+      var uniqueSubmit = "thesubmit";
+
+      var form = "\
+      <form id=\""+uniqueForm+"\">\
       <div>\
-      <label>Quote Id</label>\
-      <input name=\"quote-id\" type=\"text\" cols=\"3\" rows=\"1\" value=\""+eqid+"\"/>\
+      <label for=\"quoteId\" >Quote Id</label>\
+      <input name=\"quoteIdName\" id=\"quoteID\" type=\"text\" cols=\"3\" rows=\"1\" value=\""+eqid+"\"/>\
       </div><div>\
-      <label>Quote</label>\
-      <textarea name=\"quote\" "+ta_defs+">"+equot+"\</textarea>\
+      <label for=\"quoteLabel\">Quote</label>\
+      <textarea name=\"quote\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
       </div><div>\
-      <label>Paraphrasing</label>\
-      <textarea name=\"paraphrase\" "+ta_defs+" >"+epara+"</textarea>\
+      <label for=\"paraphraseLabel\">Paraphrasing</label>\
+      <textarea name=\"paraphrase\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
-      <button type=\"submit\" class=\"submit-form\">Go</button>\
+      <input type=\"submit\" id=\""+uniqueSubmit+"\"value=\"Submit\">\
       </div>\
       </form>";
+      
       /*
       onclick=\"alert($(\'"+uniqueForm+"\').serialize());event.preventDefault();\"
 
@@ -187,11 +188,13 @@ $(\'"+uniqueForm+"\').submit(function(e){\
 </form> 
       */
       //var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
-      var close = "</div>";
-      if (keychange) x.append([open,form,close]);
-      else           x.append([form]);
+      //var close = "</div>";
+     // if (keychange) x.append([open,form,close]);
+      //else           x.append([form]);
+      allForms.push(form);
     }
   makeMenu($("#menu"));
+  x.append(allForms[0]);
   });
 }
 
