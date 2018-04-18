@@ -3,6 +3,7 @@ var keychange=0;
 var keywords=[];
 var booktitles=[];
 var allForms=[];
+var allBibs=[];
 var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
 
 
@@ -39,8 +40,9 @@ function getBib(x,sheet)
       quote += " "+eyear+". ";
       quote += epubl+". ";
       booktitles.push(ebook);
-      x.append("<p id=eID"+i+"><span>["+i+"] </span>"+quote+"</p>");
+      allBibs.push("<p id=eID"+i+"><span>["+i+"] </span>"+quote+"</p>");
     }
+    x.append(allBibs[0]);
   });
 }
 
@@ -182,3 +184,26 @@ $(\'"+uniqueForm+"\').submit(function(e){\
   x.append(allForms[0]);
   });
 }
+
+
+/*
+$( "#theform" ).submit( function(event)
+{
+    alert("you did something");
+    event.preventDefault();
+
+
+    // var x = $(this).closest('form').serializeObject();;
+    // e.preventDefault();
+    // var jqxhr = $.ajax({
+    //   url: updateParaphrases,
+    //   method: "GET",
+    //   dataType: "json",
+    //   data: x,
+
+    //   success: function() { 
+    //       alert("Posted this: "+ x)
+    //   }
+    // });
+});
+*/
