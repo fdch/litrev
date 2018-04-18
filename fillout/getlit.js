@@ -99,21 +99,6 @@ var jqxhr = $.ajax({
 
 
 
-  $('#thesubmit').click(function(e){
-    alert("you did something")
-    // var x = $(this).closest('form').serializeObject();;
-    // e.preventDefault();
-    // var jqxhr = $.ajax({
-    //   url: updateParaphrases,
-    //   method: "GET",
-    //   dataType: "json",
-    //   data: x,
-
-    //   success: function() { 
-    //       alert("Posted this: "+ x)
-    //   }
-    // });
-  });
 
 function getLit(x, sheet)
 {
@@ -198,3 +183,21 @@ $(\'"+uniqueForm+"\').submit(function(e){\
   });
 }
 
+
+
+$('#thesubmit').click(function(e){
+    alert("you did something");
+    e.preventDefault();
+    // var x = $(this).closest('form').serializeObject();;
+    // e.preventDefault();
+    // var jqxhr = $.ajax({
+    //   url: updateParaphrases,
+    //   method: "GET",
+    //   dataType: "json",
+    //   data: x,
+
+    //   success: function() { 
+    //       alert("Posted this: "+ x)
+    //   }
+    // });
+});
