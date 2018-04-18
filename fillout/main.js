@@ -3,5 +3,5 @@ $(document).ready(function(x) {
   h = $(window).height();
   $("body").append([titleData, containers]);
   getBib($("#biblio"), bib);
-  getLit($("#content"), lit);
+  getLit($("#content"), lit, getCurrentNum(currentForm););
 });

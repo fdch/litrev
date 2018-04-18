@@ -24,4 +24,4 @@ var containers = "\
 <div id=content></div>";
 var lit = https + spreadsheetID + "1" + altjson;
 var bib = https + spreadsheetID + "3" + altjson;
-
+var currentForm = https + spreadsheetID + "2" + altjson;

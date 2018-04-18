@@ -98,11 +98,15 @@ var jqxhr = $.ajax({
 //      }
 //   });
 // }
+function getCurrentNum(sheet) {
+  loadJSON(sheet, function(response) { 
+     return JSON.parse(response).feed.entry[0].gsx$currentnumber.$t;
+  }
+}
 
 
 
-
-function getLit(x, sheet)
+function getLit(x, sheet, current)
 {
   loadJSON(sheet, function(response) {
     var f = JSON.parse(response);
@@ -179,9 +183,9 @@ $(\'"+uniqueForm+"\').submit(function(e){\
       allForms.push(form);
       alleID.push(eID);
     }
-  makeMenu($("#menu"));
-  x.append(allForms[0]);
-  x.append(allBibs[alleID[0]]);
+  //makeMenu($("#menu"));
+  x.append(allForms[current]);
+  x.append(allBibs[alleID[current]]);
   });
 }
 
