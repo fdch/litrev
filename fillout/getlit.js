@@ -99,8 +99,9 @@ var jqxhr = $.ajax({
 //   });
 // }
 function getCurrentNum(sheet) {
+  var num;
   loadJSON(sheet, function(response) { 
-     var num = JSON.parse(response).feed.entry[0].gsx$currentnumber.$t;
+     num = JSON.parse(response).feed.entry[0].gsx$currentnumber.$t;
   })
   return num;
 }
