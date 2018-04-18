@@ -100,8 +100,9 @@ var jqxhr = $.ajax({
 // }
 function getCurrentNum(sheet) {
   loadJSON(sheet, function(response) { 
-     return JSON.parse(response).feed.entry[0].gsx$currentnumber.$t;
+     var num = JSON.parse(response).feed.entry[0].gsx$currentnumber.$t;
   })
+  return num;
 }
 
 
