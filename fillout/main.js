@@ -4,8 +4,8 @@ $(document).ready(function(x) {
   $("body").append([titleData, containers]);
   getBib($("#biblio"), bib);
   getLit($("#content"), lit);
-  
-$('#thesubmit').submit(function(e){
+
+$('#theform').submit(function(e){
     alert("you did something");
     e.preventDefault();
     // var x = $(this).closest('form').serializeObject();;
