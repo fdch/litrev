@@ -4,4 +4,21 @@ $(document).ready(function(x) {
   $("body").append([titleData, containers]);
   getBib($("#biblio"), bib);
   getLit($("#content"), lit);
+  
+$('#thesubmit').submit(function(e){
+    alert("you did something");
+    e.preventDefault();
+    // var x = $(this).closest('form').serializeObject();;
+    // e.preventDefault();
+    // var jqxhr = $.ajax({
+    //   url: updateParaphrases,
+    //   method: "GET",
+    //   dataType: "json",
+    //   data: x,
+
+    //   success: function() { 
+    //       alert("Posted this: "+ x)
+    //   }
+    // });
+});
 });

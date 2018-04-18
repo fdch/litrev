@@ -182,22 +182,3 @@ $(\'"+uniqueForm+"\').submit(function(e){\
   x.append(allForms[0]);
   });
 }
-
-
-
-$('#thesubmit').submit(function(e){
-    alert("you did something");
-    e.preventDefault();
-    // var x = $(this).closest('form').serializeObject();;
-    // e.preventDefault();
-    // var jqxhr = $.ajax({
-    //   url: updateParaphrases,
-    //   method: "GET",
-    //   dataType: "json",
-    //   data: x,
-
-    //   success: function() { 
-    //       alert("Posted this: "+ x)
-    //   }
-    // });
-});
