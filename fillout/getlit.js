@@ -128,9 +128,9 @@ function getLit(x, sheet)
       var form = "\
       <form id=\""+uniqueForm+"\" action=\""+formAction+"\">\
       <div>\
-      <textarea name=\""+formName[0]+"\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
+      <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
       </div><div>\
-      <textarea name=\""+formName[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
+      <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
       <input type=\"submit\" id=\""+uniqueSubmit+"\"value=\"Submit\">\
       </div>\
