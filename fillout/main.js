@@ -3,5 +3,7 @@ $(document).ready(function(x) {
   h = $(window).height();
   $("body").append([titleData, containers]);
   getBib($("#biblio"), bib);
-  getLit($("#content"), lit, getCurrentNum(currentForm));
+  var currentFormNumber = getCurrentNum(currentForm);
+  alert("current form number: " +currentFormNumber);
+  getLit($("#content"), lit, currentFormNumber);
 });
