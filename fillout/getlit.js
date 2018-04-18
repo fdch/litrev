@@ -1,12 +1,7 @@
-var keyword="blank";
-var keychange=0;
-var keywords=[];
 var booktitles=[];
 var allForms=[];
 var allBibs=[];
 var alleID=[];
-var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
-
 
 function getBib(x,sheet)
 {
@@ -46,61 +41,6 @@ function getBib(x,sheet)
   });
 }
 
-// function getFormData($form){
-//     var unindexed_array = $form.serializeArray();
-//     var indexed_array = {};
-
-//     $.map(unindexed_array, function(n, i){
-//         indexed_array[n['name']] = n['value'];
-//     });
-
-//     return indexed_array;
-// }
-
-/*
-
-function pushForm(e,x){   
-
-var obj = $(x).serializeObject();
-
-var jqxhr = $.ajax({
-    url: updateParaphrases,
-    method: "GET",
-    dataType: "json",
-    data: obj
-  }).success(
-    alert("Pushed form "+x+" with object: "+obj)
-  );
-
-//alert("Pushed form "+x+" with object: "+obj);
-///e.preventDefault();
-//
-}
-*/
-
-
-
-
-
-
-// function pushForm(e,x)
-// { 
-//   var formData = $(x).serializeArray();
-//   e.preventDefault();
-//   var jqxhr = $.ajax({
-//     url: updateParaphrases,
-//     method: "GET",
-//     dataType: "json",
-//     data: formData,
-
-//     success: function() { 
-//       alert(formData); 
-//      }
-//   });
-// }
-
-
-
 function getLit(x, sheet, formsheet)
 {
   var num = 0;
@@ -130,90 +70,22 @@ function getLit(x, sheet, formsheet)
       var eID = jQuery.inArray( ebook, booktitles );
       var ta_defs = "type=\"message\" rows=\"15\" cols=\"55\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
-      //var uniqueForm = "#eID"+eID+eqid;
-      //var uniqueSubmit = "#eIDsubmit"+eID+eqid;
-      var uniqueForm = "theform";
-      var uniqueSubmit = "thesubmit";
 
       var form = "\
-      <form id=\""+uniqueForm+"\" action=\""+formAction+"\">\
+      <form id=\"theform\" action=\""+formAction+"\">\
       <div>\
       <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
       </div><div>\
       <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
-      <input type=\"submit\" id=\""+uniqueSubmit+"\"value=\"Submit\">\
+      <input type=\"submit\" id=\"thesubmit"\"value=\"Submit\">\
       </div>\
       </form>";
-      
-      /*
-      onclick=\"alert($(\'"+uniqueForm+"\').serialize());event.preventDefault();\"
-      
-      </div><div>\
-      <input name=\"quoteIdName\" id=\"quoteID\" type=\"text\" cols=\"3\" rows=\"1\" value=\""+eqid+"\"/>\
-
-
-      var formScript = "<script>\
-$(\'"+uniqueForm+"\').submit(function(e){\
-  var myObj = JSON.stringify($(\'"+uniqueForm+"\'));\
-  e.preventDefault();\
-  var jqxhr = $.ajax({\
-    url: updateParaphrases,\
-    method: \'GET\',\
-    dataType: \'json\',\
-    data: myObj,\
-    success: function() { \
-        alert(\'Pushed form "+uniqueForm+" with object: \'+ myObj)\
-    }\
-  });\
-});</script>";
-      */
-
-      /*
- (source: "+quoteref+", id="+eqid+")
-
-<form action="/action_page.php">
-  First name:<br>
-  <input type="text" name="firstname" value="Mickey">
-  <br>
-  Last name:<br>
-  <input type="text" name="lastname" value="Mouse">
-  <br><br>
-  <input type="submit" value="Submit">
-</form> 
-      */
-      //var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
-      //var close = "</div>";
-     // if (keychange) x.append([open,form,close]);
-      //else           x.append([form]);
+  
       allForms.push(form);
       alleID.push(eID);
     }
-  //makeMenu($("#menu"));
-  x.append(allForms[num]);
   x.append(allBibs[alleID[num]]);
+  x.append(allForms[num]);
   });
 }
-
-
-/*
-$( "#theform" ).submit( function(event)
-{
-    alert("you did something");
-    event.preventDefault();
-
-
-    // var x = $(this).closest('form').serializeObject();;
-    // e.preventDefault();
-    // var jqxhr = $.ajax({
-    //   url: updateParaphrases,
-    //   method: "GET",
-    //   dataType: "json",
-    //   data: x,
-
-    //   success: function() { 
-    //       alert("Posted this: "+ x)
-    //   }
-    // });
-});
-*/

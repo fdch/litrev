@@ -1,4 +1,4 @@
-var url = "https://fdch.github.io/litrev";
+var url = "https://fdch.github.io/litrev/fillout";
 var repo = "https://github.com/fdch/litrev";
 var email = "fch226@nyu.edu";
 var title = "Literature Review";
@@ -17,7 +17,6 @@ var titleData = "\
 <header>\
 <h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1>\
 <h2 onclick=\"location.href='" + url + "'\">" + subtitle + "</h2>\
-<h3>Go to live form <a href=\""+formURL+"\">here</a><a href=\"https://docs.google.com/forms/d/e/1FAIpQLSeYVfH2-GpPXjdQc5wtf1tWBV3JV3idptzmgem4YuXwZEdLBQ/viewform\"> .</a></h3>\
 </header>";
 var containers = "\
 <div id=menu></div>\
