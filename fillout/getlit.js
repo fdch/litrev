@@ -99,7 +99,7 @@ var jqxhr = $.ajax({
 //   });
 // }
 function getCurrentNum(sheet) {
-  var num;
+  var num = 0;
   loadJSON(sheet, function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
