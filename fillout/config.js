@@ -20,9 +20,7 @@ var titleData = "\
 var containers = "\
 <div id=menu></div>\
 <h3>Quotes</h3>\
-<div id=content></div>\
-<h3>Bibliography</h3>\
-<div id=biblio></div>";
+<div id=content></div>";
 var lit = https + spreadsheetID + "1" + altjson;
 var bib = https + spreadsheetID + "3" + altjson;
 
