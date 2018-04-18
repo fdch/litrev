@@ -126,13 +126,11 @@ function getLit(x, sheet)
       var uniqueSubmit = "thesubmit";
 
       var form = "\
-      <form id=\""+uniqueForm+"\">\
+      <form id=\""+uniqueForm+"\" action=\""+formAction+"\">\
       <div>\
-      <textarea name=\"quote\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
+      <textarea name=\""+formName[0]+"\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
       </div><div>\
-      <textarea name=\"paraphrase\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
-      </div><div>\
-      <input name=\"quoteIdName\" id=\"quoteID\" type=\"text\" cols=\"3\" rows=\"1\" value=\""+eqid+"\"/>\
+      <textarea name=\""+formName[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
       <input type=\"submit\" id=\""+uniqueSubmit+"\"value=\"Submit\">\
       </div>\
@@ -140,6 +138,9 @@ function getLit(x, sheet)
       
       /*
       onclick=\"alert($(\'"+uniqueForm+"\').serialize());event.preventDefault();\"
+      
+      </div><div>\
+      <input name=\"quoteIdName\" id=\"quoteID\" type=\"text\" cols=\"3\" rows=\"1\" value=\""+eqid+"\"/>\
 
 
       var formScript = "<script>\
