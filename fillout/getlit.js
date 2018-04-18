@@ -42,7 +42,6 @@ function getBib(x,sheet)
       booktitles.push(ebook);
       allBibs.push("<p id=eID"+i+"><span>["+i+"] </span>"+quote+"</p>");
     }
-    x.append(allBibs[0]);
   });
 }
 
@@ -182,6 +181,7 @@ $(\'"+uniqueForm+"\').submit(function(e){\
     }
   makeMenu($("#menu"));
   x.append(allForms[0]);
+  x.append(allBibs[eID]);
   });
 }
 
