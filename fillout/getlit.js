@@ -4,6 +4,7 @@ var keywords=[];
 var booktitles=[];
 var allForms=[];
 var allBibs=[];
+var alleID=[];
 var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
 
 
@@ -178,10 +179,11 @@ $(\'"+uniqueForm+"\').submit(function(e){\
      // if (keychange) x.append([open,form,close]);
       //else           x.append([form]);
       allForms.push(form);
+      alleID.push(eID);
     }
   makeMenu($("#menu"));
   x.append(allForms[0]);
-  x.append(allBibs[eID]);
+  x.append(allBibs[alleID[0]]);
   });
 }
 
