@@ -78,7 +78,7 @@ function getLit(x, sheet, formsheet)
       </div><div>\
       <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
-      <input type=\"submit\" id=\"thesubmit"\"value=\"Submit\">\
+      <input type=\"submit\" id=\"thesubmit\" value=\"Submit\">\
       </div>\
       </form>";
   
