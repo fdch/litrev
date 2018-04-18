@@ -185,7 +185,7 @@ $(\'"+uniqueForm+"\').submit(function(e){\
 
 
 
-$('#thesubmit').click(function(e){
+$('#thesubmit').submit(function(e){
     alert("you did something");
     e.preventDefault();
     // var x = $(this).closest('form').serializeObject();;
