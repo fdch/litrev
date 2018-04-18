@@ -130,10 +130,10 @@ function getLit(x, sheet)
       <div>\
       <label for=\"quoteId\" >Quote Id</label>\
       <input name=\"quoteIdName\" id=\"quoteID\" type=\"text\" cols=\"3\" rows=\"1\" value=\""+eqid+"\"/>\
-      </div><div style=\"float:left;\">\
+      </div><div>\
       <label for=\"quoteLabel\">Quote</label>\
       <textarea name=\"quote\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
-      </div><div style=\"float:left;\">\
+      </div><div>\
       <label for=\"paraphraseLabel\">Paraphrasing</label>\
       <textarea name=\"paraphrase\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div>\
