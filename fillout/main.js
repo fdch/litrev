@@ -2,10 +2,13 @@ $(document).ready(function(x) {
   if ((w = $(window).width()) >= 600) w = w*0.5;
   h = $(window).height();
   $("body").append([titleData, containers]);
-  
-$('#theform').submit(function(e){
+
+$( "#theform" ).submit( function(event)
+{
     alert("you did something");
-    e.preventDefault();
+    event.preventDefault();
+
+    
     // var x = $(this).closest('form').serializeObject();;
     // e.preventDefault();
     // var jqxhr = $.ajax({
