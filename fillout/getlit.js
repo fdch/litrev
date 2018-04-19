@@ -70,7 +70,7 @@ function getLit(x, sheet, formsheet)
       var eID = jQuery.inArray( ebook, booktitles );
       var ta_defs = "type=\"message\" rows=\"15\" cols=\"55\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
-
+      var currentNum = "<h3>#"+num+"</h3>";
       var form = "\
       <form id=\"theform\" action=\""+formAction+"\">\
       <div>\
