@@ -91,7 +91,7 @@ function getLit(x, sheet, formsheet, keysheet)
       var eqid = e.gsx$id.$t;
 
       var eID = jQuery.inArray( ebook, booktitles );
-      var ta_defs = "type=\"message\" rows=\"15\" cols=\"55\"";
+      var ta_defs = "type=\"message\" rows=\"25\" cols=\"45\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var form = "\
       <h3>#"+num+"</h3>\
