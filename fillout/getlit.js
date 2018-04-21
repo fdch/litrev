@@ -96,11 +96,11 @@ function getLit(x, sheet, formsheet, keysheet)
       var form = "\
       <h3>#"+num+"</h3>\
       <form id=\"theform\" action=\""+formAction+"\">\
-      <div>\
+      <div class=\"quote-container\">\
       <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
-      </div><div>\
+      </div><div class=\"paraph-container\">\
       <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
-      </div><div>\
+      </div><div class=\"slider-container\">\
       "+sliders+"\
       </div><div>\
       <input type=\"submit\" id=\"thesubmit\" value=\"Submit\">\
