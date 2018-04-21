@@ -41,8 +41,9 @@ function getBib(x,sheet)
   });
 }
 
-function getLit(x, sheet, formsheet)
+function getLit(x, sheet, formsheet, keysheet)
 {
+  //get current number from the formsheet
   var num = 0;
   loadJSON(formsheet, function(response) { 
     var f  =  JSON.parse(response);
@@ -52,8 +53,25 @@ function getLit(x, sheet, formsheet)
       num = e.gsx$currentnumber.$t;
     }
   })
+  //get all keywords from the 'keys' sheet
+  var sliders=[];
+  loadJSON(keysheet, function(response) { 
+    var f  =  JSON.parse(response);
+    var entry = f.feed.entry;
+    for (var i in entry){
+      var e = entry[i];
+      var slider = "\
+      <input \
+      type=\"range\"\
+      min=\"1\" max=\"100\" value=\"50\"\
+      id="+linkify(e.gsx$keywords.$t)+">";
+      sliders.push(slider);
+    }
+  })
 
+  
 
+  //get all entries from the quotes 'sheet'
   loadJSON(sheet, function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
@@ -77,6 +95,8 @@ function getLit(x, sheet, formsheet)
       <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
       </div><div>\
       <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
+      </div><div>\
+      "+sliders+"\
       </div><div>\
       <input type=\"submit\" id=\"thesubmit\" value=\"Submit\">\
       </div>\
