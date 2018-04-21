@@ -63,11 +63,11 @@ function getLit(x, sheet, formsheet, keysheet)
       var sliderName = e.gsx$keywords.$t;
       var sliderLink = linkify(sliderName);
       var slider = "\
-      <label>"+sliderName+"</label>\
+      <div style=\"display:inline\"><label>"+sliderName+"</label>\
       <input \
       type=\"range\"\
       min=\"1\" max=\"100\" value=\"50\"\
-      id="+sliderLink+">";
+      id="+sliderLink+"></div>";
       sliders.push(slider);
     }
   })
