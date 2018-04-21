@@ -101,7 +101,7 @@ function getLit(x, sheet, formsheet, keysheet)
       </div><div class=\"paraph-container\">\
       <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
       </div><div class=\"slider-container\">\
-      "+sliders+"\
+      "+sliders.join("")+"\
       </div><div>\
       <input type=\"submit\" id=\"thesubmit\" value=\"Submit\">\
       </div>\
