@@ -12,7 +12,7 @@ var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/";
 var formID = "1FAIpQLScijqg1IlmAWLsBgQ7jaUxEcCPUQqZroXG-9ZxXV4BvOKzbKg";
 var formURL = "https://docs.google.com/forms/d/e/"+formID+"/viewform";
 var formAction= "https://docs.google.com/forms/d/e/1FAIpQLSdJiLSpbJxsObKJOk0CcM_xTMfMSstLCv2kIDuJXLOh_CKC_Q/formResponse";
-var formNames = ["entry.176426125","entry.1679910861"];
+var formNames = ["entry.176426125","entry.1679910861","entry.619862762"];
 var titleData = "\
 <header>\
 <h1 onclick=\"location.href='"+ url + "'\">"+ title +"</h1>\

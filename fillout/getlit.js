@@ -2,6 +2,8 @@ var booktitles=[];
 var allForms=[];
 var allBibs=[];
 var alleID=[];
+var sliders=[];
+var slidersVals={};
 
 function getBib(x,sheet)
 {
@@ -41,6 +43,16 @@ function getBib(x,sheet)
   });
 }
 
+
+function getSliders(x){
+  var results = [];
+  for (i in x){
+    results.push(x[i].value);
+  }
+  return results;
+}
+
+
 function getLit(x, sheet, formsheet, keysheet)
 {
   //get current number from the formsheet
@@ -54,7 +66,6 @@ function getLit(x, sheet, formsheet, keysheet)
     }
   })
   //get all keywords from the 'keys' sheet
-  var sliders=[];
   loadJSON(keysheet, function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
@@ -63,18 +74,27 @@ function getLit(x, sheet, formsheet, keysheet)
       var sliderName = e.gsx$keywords.$t;
       var sliderLink = linkify(sliderName);
       var slider = "\
-      <div class=\"slider\">\
-      <input \
-      type=\"range\"\
-      min=\"1\" max=\"100\" value=\"50\"\
-      id="+sliderLink+">\
-      <label>"+sliderName+"</label>\
-      </div>";
+      <input type=\"range\" id=\""+sliderLink+"\" \
+      oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals($(\'#probs\'));\">\
+      <label>"+sliderName+"</label>\";"
+     
       sliders.push(slider);
+      slidersVals.sliderLink = "0";
+
     }
   })
+  var updateScript = "<script>\
+function changeVals(x,n) { slidersVals[x]=n;}\
+function updateVals(x) {\
+    var values=[];\
+    $.each( slidersVals, function( key, value ) {\
+        values.push(value);\
+    });\
+      $(x).val(values.join(\" \"));\
+};\
+</script>";
 
-  
+
 
   //get all entries from the quotes 'sheet'
   loadJSON(sheet, function(response) {
@@ -103,6 +123,8 @@ function getLit(x, sheet, formsheet, keysheet)
       </div><div class=\"slider-container\">\
       "+sliders.join("")+"\
       </div><div>\
+      <input name=\""+formNames[2]+"\" type=\"text\" id=\"probs\">\
+      </div>\<div>\
       <input type=\"submit\" id=\"thesubmit\" value=\"Submit\">\
       </div>\
       </form>";
