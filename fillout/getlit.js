@@ -68,7 +68,7 @@ function getLit(x, sheet, formsheet, keysheet)
       var slider = "\
       <label style=\"font-size:0.8em;\">"+sliderName+"</label>\
       <input class=\"slider\" type=\"range\" id=\""+sliderLink+"\" value=\""+rValue+"\"\
-      oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals($(\'#probs\'));\">"; 
+      oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals(\'probs\');\">"; 
       sliders.push(slider);
       slidersVals.push(rValue);
       slidersID.push(sliderLink);
@@ -97,7 +97,7 @@ function updateVals(x) { $(x).val( slidersVals.join(\" \") ) ; };\
       var eqid = e.gsx$id.$t;
 
       var eID = jQuery.inArray( ebook, booktitles );
-      var ta_defs = "type=\"message\" rows=\"60\" cols=\"40\"";
+      var ta_defs = "type=\"message\" rows=\"50\" cols=\"50\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var form = "\
       <h3>#"+num+"</h3>\
