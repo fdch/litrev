@@ -64,7 +64,7 @@ function getLit(x, sheet, formsheet, keysheet)
       var e = entry[i];
       var sliderName = e.gsx$keywords.$t;
       var sliderLink = linkify(sliderName);
-      var rValue = (int) (Math.random()*100);
+      var rValue = Math.floor((Math.random()*100));
       var slider = "\
       <input type=\"range\" id=\""+sliderLink+"\" value=\""+rValue+"\"\
       oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals($(\'#probs\'));\">\
