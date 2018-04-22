@@ -66,10 +66,9 @@ function getLit(x, sheet, formsheet, keysheet)
       var sliderLink = linkify(sliderName);
       var rValue = Math.floor((Math.random()*100));
       var slider = "\
+      <label style=\"font-size:0.8em;\">"+sliderName+"</label>\
       <input class=\"slider\" type=\"range\" id=\""+sliderLink+"\" value=\""+rValue+"\"\
-      oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals($(\'#probs\'));\">\
-      <label style=\"font-size:0.8em;\">"+sliderName+"</label>";
-     
+      oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals($(\'#probs\'));\">"; 
       sliders.push(slider);
       slidersVals.push(rValue);
       slidersID.push(sliderLink);
