@@ -127,7 +127,8 @@ function updateVals(x) {\
       </div>\<div>\
       <input type=\"submit\" id=\"thesubmit\" value=\"Submit\">\
       </div>\
-      </form>";
+      </form>\
+      "+updateScript+"";
   
       allForms.push(form);
       alleID.push(eID);
