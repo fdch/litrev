@@ -76,7 +76,7 @@ function getLit(x, sheet, formsheet, keysheet)
       var slider = "\
       <input type=\"range\" id=\""+sliderLink+"\" \
       oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals($(\'#probs\'));\">\
-      <label>"+sliderName+"</label>\";"
+      <label>"+sliderName+"</label>";
      
       sliders.push(slider);
       slidersVals.sliderLink = "0";
