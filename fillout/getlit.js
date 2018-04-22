@@ -77,8 +77,8 @@ function getLit(x, sheet, formsheet, keysheet)
     }
   })
   var updateScript = "<script>\
-function changeVals(x,n) { slidersVals[x]=n;}\
-function updateVals(x) { $(x).val(slidersVals.join(\" \");};\
+function changeVals(x,n) { slidersVals[x]=n; }\
+function updateVals(x) { $(x).val( slidersVals.join(\" \") ) ; };\
 </script>";
 
 
