@@ -104,7 +104,6 @@ function getLit(x, sheet, formsheet, keysheet)
       var ta_defs = "";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var form = "\
-      <h3>#"+num+"</h3>\
       <form id=\"theform\" action=\""+formAction+"\">\
       <div class=\"quote-container\">\
       <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" type=\"message\" \
@@ -127,7 +126,7 @@ function getLit(x, sheet, formsheet, keysheet)
       allForms.push(form);
       alleID.push(eID);
     }
-  x.append(allBibs[alleID[num]]);
+  x.append("<h3>#"+num+"</h3>"+allBibs[alleID[num]]);
   x.append(allForms[num]);
   updateVals($('#probs'));
   });
