@@ -76,9 +76,13 @@ function getLit(x, sheet, formsheet, keysheet)
     }
   })
   var updateScript = "<script>\
-function changeVals(x,n) { slidersVals[jQuery.inArray( x, slidersID )]=n; }\
-function updateVals(x) { $(x).val( slidersVals.join(\" \") ) ; };\
-</script>";
+      function changeVals(x,n) { \
+        slidersVals[jQuery.inArray( x, slidersID )]=n; \
+      }\
+      function updateVals(x) { \
+        $(x).val( slidersVals.join(\" \") ) ; \
+      }\
+  </script>";
 
 
 
@@ -97,15 +101,17 @@ function updateVals(x) { $(x).val( slidersVals.join(\" \") ) ; };\
       var eqid = e.gsx$id.$t;
 
       var eID = jQuery.inArray( ebook, booktitles );
-      var ta_defs = "type=\"message\" rows=\"20\" cols=\"80\"";
+      var ta_defs = "";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var form = "\
       <h3>#"+num+"</h3>\
       <form id=\"theform\" action=\""+formAction+"\">\
       <div class=\"quote-container\">\
-      <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" "+ta_defs+">"+equot+"\</textarea>\
+      <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" type=\"message\" \
+            rows=\"40\" cols=\"30\">"+equot+"\</textarea>\
       </div><div class=\"paraph-container\">\
-      <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" "+ta_defs+" >"+epara+"</textarea>\
+      <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" type=\"message\" \
+            rows=\"80\" cols=\"40\">"+epara+"</textarea>\
       </div><div class=\"slider-container\">\
       "+sliders.join("")+"\
       </div><div>\
