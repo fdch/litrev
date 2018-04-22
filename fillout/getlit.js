@@ -76,7 +76,7 @@ function getLit(x, sheet, formsheet, keysheet)
     }
   })
   var updateScript = "<script>\
-function changeVals(x,n) { slidersVals[x]=n; }\
+function changeVals(x,n) { slidersVals[jQuery.inArray( x, slidersID )]=n; }\
 function updateVals(x) { $(x).val( slidersVals.join(\" \") ) ; };\
 </script>";
 
