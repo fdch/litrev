@@ -97,7 +97,7 @@ function updateVals(x) { $(x).val( slidersVals.join(\" \") ) ; };\
       var eqid = e.gsx$id.$t;
 
       var eID = jQuery.inArray( ebook, booktitles );
-      var ta_defs = "type=\"message\" rows=\"50\" cols=\"50\"";
+      var ta_defs = "type=\"message\" rows=\"20\" cols=\"80\"";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       var form = "\
       <h3>#"+num+"</h3>\
