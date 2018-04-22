@@ -108,7 +108,7 @@ function getLit(x, sheet, formsheet, keysheet)
       <form id=\"theform\" action=\""+formAction+"\">\
       <div class=\"quote-container\">\
       <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" type=\"message\" \
-            rows=\"40\" cols=\"30\">"+equot+"\</textarea>\
+            rows=\"80\" cols=\"40\">"+equot+"\</textarea>\
       </div><div class=\"paraph-container\">\
       <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" type=\"message\" \
             rows=\"80\" cols=\"40\">"+epara+"</textarea>\
