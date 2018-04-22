@@ -79,7 +79,7 @@ function getLit(x, sheet, formsheet, keysheet)
       <label>"+sliderName+"</label>";
      
       sliders.push(slider);
-      slidersVals.sliderLink = "0";
+      slidersVals.sliderLink = "50";
 
     }
   })
@@ -135,5 +135,6 @@ function updateVals(x) {\
     }
   x.append(allBibs[alleID[num]]);
   x.append(allForms[num]);
+  updateVals($('#probs'));
   });
 }
