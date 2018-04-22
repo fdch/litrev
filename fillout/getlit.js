@@ -3,7 +3,8 @@ var allForms=[];
 var allBibs=[];
 var alleID=[];
 var sliders=[];
-var slidersVals={};
+var slidersVals=[];
+var slidersID=[];
 
 function getBib(x,sheet)
 {
@@ -43,16 +44,6 @@ function getBib(x,sheet)
   });
 }
 
-
-function getSliders(x){
-  var results = [];
-  for (i in x){
-    results.push(x[i].value);
-  }
-  return results;
-}
-
-
 function getLit(x, sheet, formsheet, keysheet)
 {
   //get current number from the formsheet
@@ -73,24 +64,27 @@ function getLit(x, sheet, formsheet, keysheet)
       var e = entry[i];
       var sliderName = e.gsx$keywords.$t;
       var sliderLink = linkify(sliderName);
+      var rValue = Math.random(100);
       var slider = "\
-      <input type=\"range\" id=\""+sliderLink+"\" \
+      <input type=\"range\" id=\""+sliderLink+"\" value=\""+rValue+"\"\
       oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals($(\'#probs\'));\">\
       <label>"+sliderName+"</label>";
      
       sliders.push(slider);
-      slidersVals.sliderLink = "50";
+      slidersVals.push(rValue);
+      slidersID.push(sliderLink);
 
     }
   })
   var updateScript = "<script>\
 function changeVals(x,n) { slidersVals[x]=n;}\
 function updateVals(x) {\
-    var values=[];\
-    $.each( slidersVals, function( key, value ) {\
-        values.push(value);\
-    });\
-      $(x).val(values.join(\" \"));\
+//    var values=[];\
+//   $.each( slidersVals, function( key, value ) {\
+//        values.push(value);\
+//    });\
+//      $(x).val(values.join(\" \"));\
+      $(x).val(slidersVals.join(\" \");\
 };\
 </script>";
 
