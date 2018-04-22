@@ -110,7 +110,9 @@ function updateVals(x) { $(x).val( slidersVals.join(\" \") ) ; };\
       "+sliders.join("")+"\
       </div><div>\
       <input name=\""+formNames[2]+"\" type=\"text\" id=\"probs\">\
-      </div>\<div>\
+      </div><div>\
+      <input name=\""+formNames[3]+"\" type=\"text\" id=\"quoteId\">\
+      </div><div>\
       <input type=\"submit\" id=\"thesubmit\" value=\"Submit\">\
       </div>\
       </form>\
