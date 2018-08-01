@@ -85,7 +85,7 @@ function getLit()
       section.appendChild(element('p',epara));
         var bq = element('blockquote',equot);
         bq.appendChild(quoteA);
-        bq.appendChild(quoteref.join(''));
+        bq.appendChild(element('p',quoteref.join('')));
       
       section.appendChild(bq);
       
