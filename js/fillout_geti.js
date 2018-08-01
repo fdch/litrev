@@ -163,6 +163,7 @@ function getLit(x)
       
       for (let i in quoter)
       {
+        var words=[];
         if(  !quoter[i].localeCompare('.') 
           || !quoter[i].localeCompare(';') 
           || !quoter[i].localeCompare(',')
@@ -172,30 +173,16 @@ function getLit(x)
         {
           curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=4";
           // console.log("DataMusing this: " + squote.join(''));
-          var words=[];
+          
           loadJSON(curl, function(response)
           { 
             // Object.assign(allSquote, JSON.parse(response));
             var f = JSON.parse(response);
             var fkey = Object.keys(f);
             console.log(fkey.length);
-            
-            for (var k in fkey)
-              words.push(f['word'][k]);
 
-
+            for (var k in fkey) words.push(f['word'][k]);
               // allSquote.push(f[fkey[k]]);
-
-            // var val=[];
-            // if(f.length)
-            // {
-            //   for (let j in f["word"])
-            //     val.push(f["word"][j]);
-              
-              // paraph.innerHTML = val.join(' ');
-            //   console.log(val.join(' '));
-            //   var val=[];
-            // }
           });
           squote=[];  
         } else 
