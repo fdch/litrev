@@ -1,11 +1,9 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
 var sliders=[],slidersVals=[],slidersID=[];
 
-function getLit() {
+function getLit(x) {
 
   getBib();
-
-  var x = document.getElementById(sections[1]+"-a");
 
   var num = 0;
 
