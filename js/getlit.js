@@ -4,9 +4,10 @@ var keywords=[];
 var booktitles=[];
 var fullquotes=[];
 var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
-function getBib(x,sheet)
+
+function getBib(x)
 {
-  loadJSON(sheet, function(response)
+  loadJSON(bib, function(response)
   {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
@@ -24,28 +25,51 @@ function getBib(x,sheet)
       var enumb = e.gsx$number.$t;
       var eslas = e.gsx$secondlastname.$t;
       var esfir = e.gsx$secondfirstname.$t;
-      var quote = eauth+", ";
-      quote += ename+". ";
-      quote += "<i>"+ebook+"</i>.";
+
+      var quote = new Array();
+
+      var eidnice = "["+i+"]";
+
+      quote.push(eidnice,": ", eauth,", ",ename);
+
+      if(eslas) quote.push(", & ", eslas,", ", esfir);
+      
+      quote.push(,". ",ebook,". ");
+      
       if (edito) {
-        quote += ", in ";
-        quote += "<i>"+ejour+"</i>. ";
-        quote += edito+" (Ed.) ";
-        if (evolu) quote += " Vol. "+evolu;
-        if (enumb) quote += " No. "+enumb;
+        quote.push(", in ",ejour,". ",edito," (Ed.) ");
+        if (evolu) quote.push("Vol. ", evolu);
+        if (enumb) quote.push("No. ", enumb);
       }
-      quote += " "+eyear+". ";
-      quote += epubl+". ";
+      
+      quote.push(eyear,". ", epubl, ".");
+
+      // var quote = eauth+", ";
+      // quote += ename+". ";
+      // quote += ebook+". ";
+      // if (edito) {
+      //   quote += ", in ";
+      //   quote += ejour+". ";
+      //   quote += edito+" (Ed.) ";
+      //   if (evolu) quote += "Vol. "+evolu;
+      //   if (enumb) quote += "No. "+enumb;
+      // }
+      // quote += eyear+". ";
+      // quote += epubl+". ";
+
+
       booktitles.push(ebook);
-      x.append("<p id=eID"+i+"><span>["+i+"] </span>"+quote+"</p>");
+
+      x.appendChild(element('li', quote.join(''), "eID"+i));
+
       fullquotes.push(quote);
     }
   });
 }
 
-function getLit(x, sheet)
+function getLit(x)
 {
-  loadJSON(sheet, function(response) {
+  loadJSON(lit, function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry)
