@@ -167,7 +167,7 @@ function getLit(x)
           )
         {
           curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=1";
-          console.log("DataMusing this: " + curl);
+          // console.log("DataMusing this: " + curl);
           
           loadJSON(curl, function(response)
           { 
@@ -175,7 +175,7 @@ function getLit(x)
             var val='';
             for (let j in f["word"]) val+=f["word"][j]+" ";
             paraph.innerHTML = val;
-            // console.log(val);
+            console.log(paraph.innerHTML);
           });
           squote=[];  
         } else 
