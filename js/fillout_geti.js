@@ -152,7 +152,7 @@ function getLit(x)
     var paraph = document.getElementById(formNames[1]);
     var quoteTag = document.getElementById(formNames[0]);
     var squote = [];
-    var allSquote={};
+    var allSquote=[];
     var quoter;
 
     if (!paraph.innerHTML) 
@@ -175,7 +175,11 @@ function getLit(x)
           
           loadJSON(curl, function(response)
           { 
-            Object.assign(allSquote, JSON.parse(response));
+            // Object.assign(allSquote, JSON.parse(response));
+            var f = JSON.parse(response);
+            for (let i=0;i<f['word'];i++)
+              allSquote.push(f['word'][i]);
+
             // var val=[];
             // if(f.length)
             // {
