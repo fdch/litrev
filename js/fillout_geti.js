@@ -157,7 +157,7 @@ function getLit(x)
 
     if (!paraph.innerHTML) 
     {
-      var val=[];
+
       quoter = quoteTag.innerHTML;
       quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
       
@@ -176,6 +176,7 @@ function getLit(x)
           loadJSON(curl, function(response)
           { 
             var f  =  JSON.parse(response);
+            var val=[];
             if(f.length)
             {
               for (let j in f["word"])
