@@ -7,6 +7,8 @@ var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
 
 function getBib(x)
 {
+  var ulTag = element('ul');
+  x.appendChild(ulTag);
   loadJSON(bib, function(response)
   {
     var f = JSON.parse(response);
@@ -30,7 +32,7 @@ function getBib(x)
 
       var eidnice = "["+i+"]";
 
-      quote.push(eidnice,": ", eauth,", ",ename);
+      quote.push(eidnice," ", eauth,", ",ename);
 
       if(eslas) quote.push(", & ", eslas,", ", esfir);
       
@@ -60,7 +62,7 @@ function getBib(x)
 
       booktitles.push(ebook);
 
-      x.appendChild(element('li', quote.join(''), "eID"+i));
+      ulTag.appendChild(element('li', quote.join(''), "eID"+i));
 
       fullquotes.push(quote);
     }
@@ -87,14 +89,32 @@ function getLit(x)
       var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
-      var eID = jQuery.inArray( ebook, booktitles );
+      // var eID = jQuery.inArray( ebook, booktitles );
+      var eID = booktitles.indexOf(ebook);
       var quoteref = fullquotes[eID]+" (p. "+epage+") <a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
+      
       var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
+      
       var intro = "<p>"+epara+"</p>";
       var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
+      
       var close = "</div>";
+
       if (keychange) x.append([open,intro,nevent, close]);
       else           x.append([intro,nevent])
+
+      if (keychange){
+        
+      }  
+
+
+
+
+
+
+
+
+
     }
   makeMenu($("#menu"));
   });
