@@ -24,7 +24,7 @@ function getLit() {
     for (var i in entry){
       var e = entry[i];
       var sliderName = e.gsx$keywords.$t;
-      var sliderLink = linkify(sliderName);
+      var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
       var rValue = 0;//Math.floor((Math.random()*100));
       var slider = "\
       <label style=\"font-size:0.8em;\">"+sliderName+"</label>\
@@ -39,7 +39,7 @@ function getLit() {
 
   var updateScript = "<script>\
       function changeVals(x,n) { \
-        slidersVals[jQuery.inArray( x, slidersID )]=n; \
+        slidersVals[slidersID.indexOf(x)]=n; \
       }\
       function updateVals(x) { \
         $(x).val( slidersVals.join(\" \") ) ; \
@@ -59,7 +59,7 @@ function getLit() {
       var epara = e.gsx$paraphrase.$t;
       var eqid = e.gsx$id.$t;
 
-      var eID = jQuery.inArray( ebook, booktitles );
+      var eID = booktitles.indexOf(ebook);
       var ta_defs = "";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
       
