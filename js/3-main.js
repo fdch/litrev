@@ -32,6 +32,7 @@ function main() {
   	h.appendChild(nav);
   	for (let i=0; i<keywords.length;i++){
   		let an = anchor(allekeyw[i],keywords[i]);
+  		console.log(an);
   		nav.appendChild(an);
   	}
 
