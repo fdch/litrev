@@ -65,6 +65,7 @@ function getLit()
         keychange=1;
         keyword=ekeyw;
         keywords.push(keyword);
+        console.log(keyword);
       } else keychange=0;
 
       var ebook = e.gsx$booktitle.$t;
