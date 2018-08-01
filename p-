@@ -20,7 +20,7 @@ git add .
 
 if [[ $1 ]] 
 then
-	COMMIT = "$1"
+	COMMIT="$1"
 fi
 
 git commit -m "$COMMIT"
