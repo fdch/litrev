@@ -22,3 +22,7 @@ a {
 ul {
   list-style: none;
 } 
+textarea {
+  font-size:1.1em;
+  font-family:"Times New Roman";
+}
