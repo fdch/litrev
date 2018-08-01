@@ -100,5 +100,14 @@ function getLit()
       }
     }
   });
+  var h = document.getElementById(sections[0]+"-a");
+  var nav = element('nav');
+  h.appendChild(nav);
+  // console.log(keywords.length);
+  for (let i=0; i<keywords.length;i++){
+    let an = anchor(allekeyw[i],keywords[i]);
+    // console.log(an);
+    nav.appendChild(an);
+  }
 }
 
