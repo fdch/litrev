@@ -180,7 +180,8 @@ function getLit(x)
             var fkey = Object.keys(f);
 
             for (var k in fkey)
-              allSquote.push(f[fkey[k]]);
+              paraph.innerHTML = f[fkey[k]];
+              // allSquote.push(f[fkey[k]]);
 
             // var val=[];
             // if(f.length)
@@ -188,7 +189,7 @@ function getLit(x)
             //   for (let j in f["word"])
             //     val.push(f["word"][j]);
               
-            //   paraph.innerHTML = val.join(' ');
+              // paraph.innerHTML = val.join(' ');
             //   console.log(val.join(' '));
             //   var val=[];
             // }
@@ -207,7 +208,7 @@ function getLit(x)
     //     console.log(skeys[i]);
     //   }
     // }
-    console.log(allSquote);
+    //console.log(allSquote);
   });
 }
 
