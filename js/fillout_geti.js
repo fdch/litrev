@@ -156,10 +156,9 @@ function getLit(x)
     {
       var quoter = quoteTag.innerHTML;
       quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
+      var squote = [];
       for (let i in quoter)
       {
-        var squote = [];
-
         if(  !quoter[i].localeCompare('.') 
           || !quoter[i].localeCompare(';') 
           || !quoter[i].localeCompare(',')
