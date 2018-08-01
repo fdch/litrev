@@ -48,7 +48,7 @@ function getLit(x) {
 
     }
   });
-
+  console.log(sliders.length);
   loadJSON(lit, function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
@@ -100,7 +100,7 @@ function getLit(x) {
           id:"thesubmit",
           value:"Submit"
       });
-
+      console.log(sliders.length);
       for (let i=0;i<sliders.length;i++){
         formTag.appendChild(sliders[i]);
       }
