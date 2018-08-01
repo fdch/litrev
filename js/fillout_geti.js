@@ -148,39 +148,39 @@ function getLit(x)
       // console.log(sliders[i]);
     
     updateVals(document.getElementById(formNames[2]));
-  });
-  
-  var paraph = document.getElementById(formNames[1]);
-  var quoteTag = document.getElementById(formNames[0]);
-  
-  if (!paraph.innerHTML) 
-  {
-    var quoter = quoteTag.innerHTML;
-    quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
-    for (let i in quoter)
+
+    var paraph = document.getElementById(formNames[1]);
+    var quoteTag = document.getElementById(formNames[0]);
+    
+    if (!paraph.innerHTML) 
     {
-      var squote = '';
-      if(!quoter[i].localeCompare('.') 
-        || !quoter[i].localeCompare(';') 
-        || !quoter[i].localeCompare(',')
-        || !quoter[i].localeCompare('-')
-        )
+      var quoter = quoteTag.innerHTML;
+      quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
+      for (let i in quoter)
       {
-        curl = "https://api.datamuse.com/words?ml="+squote+"&max=1";
-        console.log("DataMusing this: " + curl);
-        
-        loadJSON(curl, function(response)
-        { 
-          var f  =  JSON.parse(response);
-          var val='';
-          for (let j in f["word"]) val+=f["word"][j]+" ";
-          paraph.innerHTML = val;
-          // console.log(val);
-        });
-        squote='';  
-      } else squote+=quoter[i].replace(/ /g,"+");
+        var squote = '';
+        if(!quoter[i].localeCompare('.') 
+          || !quoter[i].localeCompare(';') 
+          || !quoter[i].localeCompare(',')
+          || !quoter[i].localeCompare('-')
+          )
+        {
+          curl = "https://api.datamuse.com/words?ml="+squote+"&max=1";
+          console.log("DataMusing this: " + curl);
+          
+          loadJSON(curl, function(response)
+          { 
+            var f  =  JSON.parse(response);
+            var val='';
+            for (let j in f["word"]) val+=f["word"][j]+" ";
+            paraph.innerHTML = val;
+            // console.log(val);
+          });
+          squote='';  
+        } else squote+=quoter[i].replace(/ /g,"+");
+      }
     }
-  }
+  });
 }
 
 
