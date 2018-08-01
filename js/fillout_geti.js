@@ -15,6 +15,12 @@ function getLit(x) {
       num = e.gsx$currentnumber.$t;
     }
   });
+  curl = "https://api.datamuse.com/words?ml=ringing+in+the+ears&max=4";
+  loadJSON(curl, function(response) { 
+    var f  =  JSON.parse(response);
+    console.log(f);
+  });
+
 
   loadJSON(keys, function(response) { 
     var f  =  JSON.parse(response);
