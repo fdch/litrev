@@ -182,7 +182,7 @@ function getLit(x)
             var f = JSON.parse(response);
             var wd = f.word;
             var tn = document.createTextNode(wd);
-            parse.appendChild(tn);
+            paraph.appendChild(tn);
             // var fkey = Object.keys(f);
             // console.log(fkey.length);
 
