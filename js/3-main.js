@@ -4,10 +4,10 @@ function main() {
 	var hstuff = new Array(0)
 
 	hstuff.push(
-		element("h1", title,    'titl', "window.open(\'"+url     +"\')"),
-		element("h2", subtitle, 'stit', "window.open(\'"+url     +"\')"),
-		element("h3", "Quote",  'quot', "window.open(\'"+formURL +"\')"),
-		element("h4", "Writer", 'writ', "window.open(\'"+formWurl+"\')")
+		element("h1", title,          'titl', "window.open(\'"+url     +"\')"),
+		element("h2", subtitle,       'stit', "window.open(\'"+url     +"\')"),
+		element("h3", "Quotes Form",  'quot', "window.open(\'"+formURL +"\')"),
+		element("h3", "Writer Form",  'writ', "window.open(\'"+formWurl+"\')")
 	);
 
 	for (let i in hstuff) headTag.appendChild(hstuff[i]);
@@ -18,7 +18,7 @@ function main() {
 		let sec = element('section','',sections[i]);
 		/////////header
 		let sech = element('header','',sections[i]+"-h");
-		sech.appendChild(element('h5',sections[i+sections.length/2]));
+		sech.appendChild(element('h4',sections[i+sections.length/2]));
 		sec.appendChild(sech);
 		/////////article
 		sec.appendChild(element('article','',sections[i]+"-a"));

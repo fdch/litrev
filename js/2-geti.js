@@ -1,3 +1,5 @@
+var keyword="blank", keychange=0;
+
 function getLit()
 {
   loadJSON(bib, function(response)
@@ -100,13 +102,12 @@ function getLit()
       }
     }
   });
-  var h = document.getElementById(sections[0]+"-a");
+
   var nav = element('nav');
-  h.appendChild(nav);
-  // console.log(keywords.length);
+  document.getElementById(sections[0]+"-a").appendChild(nav);
+  
   for (let i=0; i<allekeyw.length;i++){
     let an = anchor(allekeyw[i],keywords[i]);
-    // console.log(an);
     nav.appendChild(an);
   }
 }
