@@ -114,5 +114,5 @@ function getLit()
   });
 }
 function getValue(x) {
-  window.open("#"+allekeyw[keywords.indexOf(x.value)],'_top');
+  window.open("#"+keywords.replace(/ /g,"_").toLowerCase(),'_top');
 }
