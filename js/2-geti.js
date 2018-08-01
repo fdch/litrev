@@ -105,14 +105,15 @@ function getLit()
         }
       }
     }
+    makeDropdown('',
+      document.getElementById(sections[0]+"-a"),
+      keywords,
+      "getValue(this.value)",
+      "Keywords: "
+    );
   });
 
-  makeDropdown('',
-    document.getElementById(sections[0]+"-a"),
-    keywords,
-    "getValue(this.value)",
-    "Keywords: "
-  );
+
 
 }
 
