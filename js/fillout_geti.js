@@ -180,7 +180,7 @@ function getLit(x)
             var fkey = Object.keys(f);
 
             for (var k in fkey)
-              if(!fkey[k].localeCompare('word')) allSquote.push(f[fkey[k]]);
+              allSquote.push(f[fkey[k]]);
 
             // var val=[];
             // if(f.length)
