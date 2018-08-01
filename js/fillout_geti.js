@@ -186,8 +186,9 @@ function getLit(x)
             // for (var k in )
             // { 
               // let wd = f[k];
-              
-              words.push(f.word);
+            let wd = f.word;
+            console.log(wd);
+            words.push(wd);
             // }
               // allSquote.push(f[fkey[k]]);
           });
