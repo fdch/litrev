@@ -84,7 +84,7 @@ function getLit() {
           type:"message",
           rows:row,
           cols:col,
-          value:i==0?equot:epara
+          text:i==0?equot:epara
         });
       
       
