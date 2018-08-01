@@ -1,63 +1,24 @@
-var booktitles=[];
-var allForms=[];
-var allBibs=[];
-var alleID=[];
-var sliders=[];
-var slidersVals=[];
-var slidersID=[];
+var booktitles=[],allForms=[],fullquotes=[],alleID=[];
+var sliders=[],slidersVals=[],slidersID=[];
 
-function getBib(x,sheet)
-{
-  loadJSON(sheet, function(response)
-  {
-    var f = JSON.parse(response);
-    var entry = f.feed.entry;
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var eauth = e.gsx$lastname.$t;
-      var ename = e.gsx$firstname.$t;
-      var ebook = e.gsx$title.$t;
-      var eyear = e.gsx$year.$t;
-      var epubl = e.gsx$publisher.$t;
-      var edito = e.gsx$editor.$t;
-      var ejour = e.gsx$journal.$t;
-      var evolu = e.gsx$volume.$t;
-      var enumb = e.gsx$number.$t;
-      var eslas = e.gsx$secondlastname.$t;
-      var esfir = e.gsx$secondfirstname.$t;
-      var quote = eauth+", ";
-      quote += ename+". ";
-      quote += "<i>"+ebook+"</i>.";
-      if (edito) {
-        quote += ", in ";
-        quote += "<i>"+ejour+"</i>. ";
-        quote += edito+" (Ed.) ";
-        if (evolu) quote += " Vol. "+evolu;
-        if (enumb) quote += " No. "+enumb;
-      }
-      quote += " "+eyear+". ";
-      quote += epubl+". ";
-      booktitles.push(ebook);
-      allBibs.push("<p id=eID"+i+"><span>["+i+"] </span>"+quote+"</p>");
-    }
-  });
-}
+function getLit() {
 
-function getLit(x, sheet, formsheet, keysheet)
-{
-  //get current number from the formsheet
+  getBib();
+
+  var x = document.getElementById(sections[1]+"-a");
+
   var num = 0;
-  loadJSON(formsheet, function(response) { 
+
+  loadJSON(currentForm, function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry){
       var e = entry[i];
       num = e.gsx$currentnumber.$t;
     }
-  })
-  //get all keywords from the 'keys' sheet
-  loadJSON(keysheet, function(response) { 
+  });
+
+  loadJSON(keys, function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry){
@@ -74,7 +35,8 @@ function getLit(x, sheet, formsheet, keysheet)
       slidersID.push(sliderLink);
 
     }
-  })
+  });
+
   var updateScript = "<script>\
       function changeVals(x,n) { \
         slidersVals[jQuery.inArray( x, slidersID )]=n; \
@@ -84,10 +46,7 @@ function getLit(x, sheet, formsheet, keysheet)
       }\
   </script>";
 
-
-
-  //get all entries from the quotes 'sheet'
-  loadJSON(sheet, function(response) {
+  loadJSON(lit, function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry)

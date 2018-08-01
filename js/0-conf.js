@@ -22,3 +22,21 @@ var sections = [
 	'menu', 'content', 'biblio', 
 	"Menu", "Quotes", "Bibliography"
 ];
+
+var updateParaphrases = "\
+https://script.google.com/macros/s/\
+AKfycbwkysTS68G1h9qx_YCJ98pQsG3ietAkS-BOaNfp6W4tVxQrQBlu\
+/exec";
+
+var formResponse = "1FAIpQLSdJiLSpbJxsObKJOk0CcM_xTMfMSstLCv2kIDuJXLOh_CKC_Q";
+var formAction= formhttps+formResponse+"/formResponse";
+
+var formNames = [
+	"entry.176426125",
+	"entry.1679910861",
+	"entry.619862762",
+	"entry.1644345852"
+];
+
+var currentForm = https + spreadsheetID + "2" + altjson;
+var keys = https + spreadsheetID + "4" + altjson;

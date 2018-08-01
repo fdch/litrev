@@ -1,55 +1,15 @@
 var keyword="blank", keychange=0;
 var allekeyw=[],keywords=[],booktitles=[],fullquotes=[];
 
-function getLit()
-{
-  loadJSON(bib, function(response)
-  {
-    var f = JSON.parse(response);
-    var entry = f.feed.entry;
+function getLit() {
 
-    var ulTag = element('ul');
-    document.getElementById(sections[2]+"-a").appendChild(ulTag);
+  getBib();
+  var ulTag = element('ul');
+  document.getElementById(sections[2]+"-a").appendChild(ulTag);
+  for(let i in fullquotes)
+    ulTag.appendChild(element('li', fullquotes[i].join(''), "eID"+i));
 
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var eauth = e.gsx$lastname.$t;
-      var ename = e.gsx$firstname.$t;
-      var ebook = e.gsx$title.$t;
-      var eyear = e.gsx$year.$t;
-      var epubl = e.gsx$publisher.$t;
-      var edito = e.gsx$editor.$t;
-      var ejour = e.gsx$journal.$t;
-      var evolu = e.gsx$volume.$t;
-      var enumb = e.gsx$number.$t;
-      var eslas = e.gsx$secondlastname.$t;
-      var esfir = e.gsx$secondfirstname.$t;
 
-      var quote = new Array();
-
-      var eidnice = "["+i+"]";
-
-      quote.push(eidnice," ", eauth,", ",ename);
-
-      if(eslas) quote.push(", & ", eslas,", ", esfir);
-      
-      quote.push(". ",ebook,". ");
-
-      if (edito) {
-        quote.push(", in ",ejour,". ",edito," (Ed.) ");
-        if (evolu) quote.push("Vol. ", evolu);
-        if (enumb) quote.push("No. ", enumb);
-      }
-      
-      quote.push(eyear,". ", epubl, ".");
-
-      booktitles.push(ebook);
-      fullquotes.push(quote.join(''));
-
-      ulTag.appendChild(element('li', quote.join(''), "eID"+i));
-    }
-  });
 
   loadJSON(lit, function(response) {
     var f = JSON.parse(response);

@@ -129,7 +129,50 @@ function makeDropdown(id,target,list, onchange,label) {
   return selectTag;
 }
 
+function getBib() {
+    loadJSON(bib, function(response)
+  {
+    var f = JSON.parse(response);
+    var entry = f.feed.entry;
 
+    for (var i in entry)
+    {
+      var e = entry[i];
+      var eauth = e.gsx$lastname.$t;
+      var ename = e.gsx$firstname.$t;
+      var ebook = e.gsx$title.$t;
+      var eyear = e.gsx$year.$t;
+      var epubl = e.gsx$publisher.$t;
+      var edito = e.gsx$editor.$t;
+      var ejour = e.gsx$journal.$t;
+      var evolu = e.gsx$volume.$t;
+      var enumb = e.gsx$number.$t;
+      var eslas = e.gsx$secondlastname.$t;
+      var esfir = e.gsx$secondfirstname.$t;
+
+      var quote = new Array();
+
+      var eidnice = "["+i+"]";
+
+      quote.push(eidnice," ", eauth,", ",ename);
+
+      if(eslas) quote.push(", & ", eslas,", ", esfir);
+      
+      quote.push(". ",ebook,". ");
+
+      if (edito) {
+        quote.push(", in ",ejour,". ",edito," (Ed.) ");
+        if (evolu) quote.push("Vol. ", evolu);
+        if (enumb) quote.push("No. ", enumb);
+      }
+      
+      quote.push(eyear,". ", epubl, ".");
+
+      booktitles.push(ebook);
+      fullquotes.push(quote.join(''));
+    }
+  });
+}
 
 
 
