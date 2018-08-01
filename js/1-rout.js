@@ -62,11 +62,12 @@ function unique(array) {
         return index == $.inArray(el, array);
     });
 }
-function anchor(link,text,target){
+function anchor(link,text,target,title){
   let tag = document.createElement('a');
+  let ti = title || link.length>44?link.slice(0, 44)+ " ...":link;
 
   tag.setAttribute('href',link);
-  tag.setAttribute('title' ,link.length>44?link.slice(0, 44)+ " ...":link);
+  tag.setAttribute('title' ,ti);
   tag.setAttribute('rel', 'nofollow');
   tag.setAttribute('target', target?target:"_top");
 

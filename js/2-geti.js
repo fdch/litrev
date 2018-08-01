@@ -77,7 +77,7 @@ function getLit()
         fullquotes[eID],
         " (p. ",epage,") "
         );
-      var quoteA = anchor("#eID"+eID,"["+eID+"]");
+      var quoteA = anchor("#eID"+eID,"["+eID+"]",'',ebook);
 
       var ek = ekeyw.replace(/ /g,"_").toLowerCase();
       allekeyw.push(ek);
