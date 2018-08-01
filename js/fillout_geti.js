@@ -128,16 +128,18 @@ function getLit(x) {
     x.appendChild(element('h3', "#"+num));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
+    
+
     console.log(sliders.length);
 
-    
+
     for (let i=0;i<sliders.length;i++){
       formTag.appendChild(sliders[i]);
       // console.log(sliders[i]);
     }
 
 
-    var paraph = getElementById(formNames[1]).innerHTML;
+    var paraph = document.getElementById(formNames[1]).innerHTML;
     if (!paraph) {
 
       curl = "https://api.datamuse.com/words?ml="+quote.replace(/ /g,"+")+"&max=1";
