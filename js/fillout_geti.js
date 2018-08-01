@@ -70,8 +70,7 @@ function getLit() {
       
       var len = equot.length;
       var col = 30;
-      var row = len/cols+2;
-      var size = "rows=\""+rows+"\" cols=\""+cols+"\"";
+      var row = len/col+2;
 
       var formTag = makeInput(0, 'form', {
           id:"theform",
