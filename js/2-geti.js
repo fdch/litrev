@@ -4,6 +4,7 @@ var allekeyw=[],keywords=[],booktitles=[],fullquotes=[];
 function getLit() {
 
   getBib();
+  
   var ulTag = element('ul');
   document.getElementById(sections[2]+"-a").appendChild(ulTag);
   for(let i in fullquotes)

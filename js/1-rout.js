@@ -128,7 +128,34 @@ function makeDropdown(id,target,list, onchange,label) {
   target.appendChild(selectTag);
   return selectTag;
 }
-
+function makeInput(target,tag,obj) {
+  // console.log(tgt);
+  var t = document.createElement(tag);
+  for (var key in obj) {
+    if(obj.hasOwnProperty(key)) {
+      if(!key.localeCompare('label') && obj[key]) {
+        let lt = document.createTextNode( obj[key] );
+        let l = document.createElement('label');
+        l.appendChild(lt);
+        l.setAttribute("for",obj[key]);
+        if(target) target.appendChild(l);        
+      }
+      else if (!key.localeCompare('text') && obj[key]) {
+        let txt = document.createTextNode( obj[key] );
+        //let l = document.createElement('label');
+        //l.appendChild(lt);
+        //l.setAttribute("for",obj[key]);
+        t.appendChild(txt); 
+      }
+      else {
+        t.setAttribute(key, obj[key]);
+      }
+      // console.log (key+": "+obj[key]); 
+    }
+  }
+  if(target) target.appendChild(t);
+  return t;
+}
 function getBib() {
     loadJSON(bib, function(response)
   {
@@ -174,5 +201,11 @@ function getBib() {
   });
 }
 
+function changeVals(x,n) {
+  slidersVals[slidersID.indexOf(x)]=n;
+};
 
+function updateVals(x) { 
+  x.value = slidersVals.join(" ");
+};
 
