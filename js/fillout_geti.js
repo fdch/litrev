@@ -156,23 +156,23 @@ function getLit(x)
   if (!paraph) 
   {
     quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
-    for (let i in quoter) {
+    for (let i in quoter)
+    {
       var squote = '';
-      if(!quoter[i].localeCompare('.')) {
+      if(!quoter[i].localeCompare('.'))
+      {
         curl = "https://api.datamuse.com/words?ml="+squote+"&max=1";
         console.log("DataMusing this: " + curl);
         
-        loadJSON(curl, function(response) { 
+        loadJSON(curl, function(response)
+        { 
           var f  =  JSON.parse(response);
           var val='';
-          for (let j in f["word"]) {
-            val+=f["word"][j]+" ";
-          }
+          for (let j in f["word"]) val+=f["word"][j]+" ";
           paraph = val;
           // console.log(val);
         });
       } else squote+=quoter[i].replace(/ /g,"+");
-
     }
   }
 }
