@@ -83,14 +83,14 @@ function getLit()
       allekeyw.push(ek);
 
 
-      if (keychange) {
+      if (keychange && ek) {
         section = element('section','',ek);
         section.appendChild(element('h4',ekeyw, '', "window.load(\'#menu\')"));
       }        
       section.appendChild(element('p',epara));
         var bq = element('blockquote',equot);
         bq.appendChild(quoteA);
-        bq.appendChild(element('p',quoteref.join('')));
+        // bq.appendChild(element('p',quoteref.join('')));
       
       section.appendChild(bq);
       
