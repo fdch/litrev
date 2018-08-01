@@ -103,14 +103,15 @@ function getLit(x, sheet, formsheet, keysheet)
       var eID = jQuery.inArray( ebook, booktitles );
       var ta_defs = "";
       var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
+      var size = "";//"rows=\"100\" cols=\"50\"";
       var form = "\
       <form id=\"theform\" action=\""+formAction+"\">\
       <div class=\"quote-container\">\
       <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" type=\"message\" \
-            rows=\"100\" cols=\"50\">"+equot+"\</textarea>\
+            "+size+">"+equot+"\</textarea>\
       </div><div class=\"paraph-container\">\
       <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" type=\"message\" \
-            rows=\"100\" cols=\"50\">"+epara+"</textarea>\
+            "+size+">"+epara+"</textarea>\
       </div><div class=\"slider-container\">\
       "+sliders.join("")+"\
       </div><div>\
