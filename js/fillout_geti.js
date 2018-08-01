@@ -199,12 +199,12 @@ function getLit(x)
         }
       }
     }
-    var skeys=[];
-    if(skeys=Object.keys(allSquote)) {
-      for (var i in skeys) {
-        console.log(skeys[i]);
-      }
-    }
+    // var skeys=[];
+    // if(skeys=Object.keys(allSquote)) {
+    //   for (var i in skeys) {
+    //     console.log(skeys[i]);
+    //   }
+    // }
     console.log(allSquote);
   });
 }
