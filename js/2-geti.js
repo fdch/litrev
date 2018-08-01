@@ -66,6 +66,7 @@ function getLit()
         keyword=ekeyw;
         keywords.push(keyword);
       } else keychange=0;
+      
       var ebook = e.gsx$booktitle.$t;
       var epage = e.gsx$page.$t;
       var eauth = e.gsx$author.$t;
@@ -87,7 +88,7 @@ function getLit()
       if (ek){
         if (keychange) {
           section = element('section','',ek);
-          section.appendChild(element('h4',ekeyw, '', "window.load(\'#menu\')"));
+          section.appendChild(element('h5',ekeyw, '', "window.load(\'#menu\')"));
         }        
         section.appendChild(element('p',epara));
           var bq = element('blockquote',equot);
@@ -105,7 +106,7 @@ function getLit()
 
   var nav = element('nav');
   document.getElementById(sections[0]+"-a").appendChild(nav);
-  
+
   for (let i=0; i<allekeyw.length;i++){
     let an = anchor(allekeyw[i],keywords[i]);
     nav.appendChild(an);
