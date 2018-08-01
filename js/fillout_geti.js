@@ -201,6 +201,7 @@ function getLit(x)
         console.log(skeys[i]);
       }
     }
+    console.log(allSquote);
   });
 }
 
