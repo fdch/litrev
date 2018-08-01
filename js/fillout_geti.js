@@ -176,6 +176,7 @@ function getLit(x)
           paraph.innerHTML = val;
           // console.log(val);
         });
+        squote='';
       } else squote+=quoter[i].replace(/ /g,"+");
     }
   }
