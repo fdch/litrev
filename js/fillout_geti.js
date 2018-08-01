@@ -152,11 +152,12 @@ function getLit(x)
     var paraph = document.getElementById(formNames[1]);
     var quoteTag = document.getElementById(formNames[0]);
     var squote = [];
-    var val=[];
+
     var quoter;
 
     if (!paraph.innerHTML) 
     {
+      var val=[];
       quoter = quoteTag.innerHTML;
       quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
       
