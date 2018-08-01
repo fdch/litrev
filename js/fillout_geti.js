@@ -146,7 +146,7 @@ function getLit(x)
     for (let i=0;i<sliders.length;i++)
     {
       x.appendChild(sliders[i]);
-      console.log(sliders[i]);
+      // console.log(sliders[i]);
     }
 
     updateVals(document.getElementById(formNames[2]));
