@@ -26,10 +26,10 @@ textarea {
   font-size:1.1em;
   font-family:"Times New Roman";
   padding:2%;
-  border:1px solid grey;
+  border:0.1px solid grey;
   border-radius:5px;
 }
 textarea:focus{
   outline:none;
-  border:1px solid grey;
+  border:0.2px solid grey;
 }
