@@ -127,8 +127,8 @@ function getLit() {
       allForms.push(formTag);
       alleID.push(eID);
     }
-    x.appendChild(element('h3', "#"+num);
-    x.appendChild(element('h4', fullquotes[alleID[num]]);
+    x.appendChild(element('h3', "#"+num));
+    x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
     updateVals(document.getElementById(formNames[2]));
   });
