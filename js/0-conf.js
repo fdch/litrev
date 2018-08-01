@@ -18,8 +18,6 @@ var formWurl = formhttps+formW+"/viewform";
 var lit = https + spreadsheetID + "1" + altjson;
 var bib = https + spreadsheetID + "3" + altjson;
 
-var allekeyw=[],keywords=[],booktitles=[],fullquotes=[];
-
 var sections = [
 	'menu', 'content', 'biblio', 
 	"Menu", "Quotes", "Bibliography"

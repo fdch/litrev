@@ -1,4 +1,5 @@
 var keyword="blank", keychange=0;
+var allekeyw=[],keywords=[],booktitles=[],fullquotes=[];
 
 function getLit()
 {
@@ -108,10 +109,7 @@ function getLit()
 
   var nav = element('nav');
   document.getElementById(sections[0]+"-a").appendChild(nav);
-  console.log(keywords.length);
-  for (let i=0; i<keywords.length;i++){
-    let an = anchor(allekeyw[i],keywords[i]);
-    nav.appendChild(an);
-  }
+  makeDropdown('',nav,keywords,"getValue(this.value)","Keywords: ");
+
 }
 

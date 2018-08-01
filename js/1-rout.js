@@ -128,3 +128,12 @@ function makeDropdowns(id,target,list, onchange,label) {
   target.appendChild(selectTag);
   return selectTag;
 }
+
+function getValue(x) {
+  console.log(x.value);
+}
+
+
+
+
+
