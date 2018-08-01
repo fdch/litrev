@@ -108,8 +108,8 @@ function getLit()
     makeDropdown('keywords',
       document.getElementById(sections[0]+"-a"),
       keywords,
-      "getValue(this.value)",
-      "Keywords: "
+      "getValue(this)",
+      "Keywords"
     );
   });
 
