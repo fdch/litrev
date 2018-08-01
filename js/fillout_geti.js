@@ -91,7 +91,7 @@ function getLit() {
       allForms.push(form);
       alleID.push(eID);
     }
-  x.append("<h3>#"+num+"</h3>"+allBibs[alleID[num]]);
+  x.append("<h3>#"+num+"</h3>"+fullquotes[alleID[num]]);
   x.append(allForms[num]);
   updateVals($('#probs'));
   });
