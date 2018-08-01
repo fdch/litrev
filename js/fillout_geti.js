@@ -172,15 +172,18 @@ function getLit(x)
         {
           curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=4";
           // console.log("DataMusing this: " + squote.join(''));
-          
+          var words=[];
           loadJSON(curl, function(response)
           { 
             // Object.assign(allSquote, JSON.parse(response));
             var f = JSON.parse(response);
             var fkey = Object.keys(f);
-
+            console.log(fkey.length);
+            
             for (var k in fkey)
-              paraph.innerHTML = f[fkey[k]];
+              words.push(f['word'][k]);
+
+
               // allSquote.push(f[fkey[k]]);
 
             // var val=[];
@@ -200,6 +203,7 @@ function getLit(x)
           squote.push(quoter[i].replace(/ /g,"+"));
           //console.log(squote);
         }
+        paraph.innerHTML = words.join(' ');
       }
     }
     // var skeys=[];
