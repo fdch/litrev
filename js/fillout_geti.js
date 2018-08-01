@@ -15,11 +15,6 @@ function getLit(x) {
       num = e.gsx$currentnumber.$t;
     }
   });
-  curl = "https://api.datamuse.com/words?ml=ringing+in+the+ears&max=4";
-  loadJSON(curl, function(response) { 
-    var f  =  JSON.parse(response);
-    console.log(f);
-  });
 
 
   loadJSON(keys, function(response) { 
@@ -80,7 +75,7 @@ function getLit(x) {
           id:"theform",
           action:formAction
       });
- 
+
       for (let i=0; i<2; i++)
         makeInput(formTag,'textarea', {
           id:formNames[i],
@@ -134,10 +129,34 @@ function getLit(x) {
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
     console.log(sliders.length);
+
+    
     for (let i=0;i<sliders.length;i++){
       formTag.appendChild(sliders[i]);
       // console.log(sliders[i]);
     }
+
+
+    var paraph = getElementById(formNames[1]).innerHTML;
+    if (!paraph) {
+
+      curl = "https://api.datamuse.com/words?ml="+quote.replace(/ /g,"+")+"&max=1";
+      loadJSON(curl, function(response) { 
+      var f  =  JSON.parse(response);
+      var val='';
+      for (let i in f["word"]) {
+        val+=f["word"][i]+" ";
+      }
+      paraph.innerHTML = val;
+      console.log(val);
+      });
+    }
+
+
+
+
+
+
     updateVals(document.getElementById(formNames[2]));
   });
 }
