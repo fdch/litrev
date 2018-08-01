@@ -105,7 +105,7 @@ function getLit()
         }
       }
     }
-    makeDropdown('',
+    makeDropdown('keywords',
       document.getElementById(sections[0]+"-a"),
       keywords,
       "getValue(this.value)",
