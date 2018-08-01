@@ -177,8 +177,10 @@ function getLit(x)
           { 
             // Object.assign(allSquote, JSON.parse(response));
             var f = JSON.parse(response);
-            for (let i=0;i<f['word'];i++)
-              allSquote.push(f['word'][i]);
+            var fkey = Object.keys(f);
+
+            for (var k in fkey)
+              if(!fkey[k].localeCompare('word')) allSquote.push(f[fkey[k]]);
 
             // var val=[];
             // if(f.length)
