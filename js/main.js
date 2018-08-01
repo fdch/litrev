@@ -1,7 +1,7 @@
 function main() {
 
 	// $("body").append([titleData, containers]);
-	var headTag = document.getElementsByTag('header')[0];
+	var headTag = document.getElementsByTagName('header')[0];
 	var hstuff = new Array(0)
 
 	hstuff.push(
@@ -13,7 +13,7 @@ function main() {
 
 	for (let i in hstuff) headTag.appendChild(hstuff[i]);
 
-	var mainTag = document.getElementsByTag('main')[0];
+	var mainTag = document.getElementsByTagName('main')[0];
 
 	var sections = [
 	'menu', 'content', 'biblio', 
