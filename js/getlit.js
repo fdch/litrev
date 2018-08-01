@@ -34,8 +34,8 @@ function getBib(x)
 
       if(eslas) quote.push(", & ", eslas,", ", esfir);
       
-      quote.push(,". ",ebook,". ");
-      
+      quote.push(". ",ebook,". ");
+
       if (edito) {
         quote.push(", in ",ejour,". ",edito," (Ed.) ");
         if (evolu) quote.push("Vol. ", evolu);
