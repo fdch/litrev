@@ -163,6 +163,7 @@ function getLit(x)
           || !quoter[i].localeCompare(';') 
           || !quoter[i].localeCompare(',')
           || !quoter[i].localeCompare('-')
+          && !quoter[i].localeCompare(' ')
           )
         {
           curl = "https://api.datamuse.com/words?ml="+squote+"&max=1";
@@ -177,7 +178,11 @@ function getLit(x)
             // console.log(val);
           });
           squote='';  
-        } else squote+=quoter[i].replace(/ /g,"+");
+        } else 
+        {
+          squote+=quoter[i].replace(/ /g,"+");
+          console.log(squote);
+        }
       }
     }
   });
