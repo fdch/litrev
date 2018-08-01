@@ -158,7 +158,8 @@ function getLit(x)
       quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
       for (let i in quoter)
       {
-        var squote = '';
+        var squote = [];
+
         if(!quoter[i].localeCompare('.') 
           || !quoter[i].localeCompare(';') 
           || !quoter[i].localeCompare(',')
@@ -166,7 +167,7 @@ function getLit(x)
           && !quoter[i].localeCompare(' ')
           )
         {
-          curl = "https://api.datamuse.com/words?ml="+squote+"&max=1";
+          curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=1";
           console.log("DataMusing this: " + curl);
           
           loadJSON(curl, function(response)
@@ -177,11 +178,11 @@ function getLit(x)
             paraph.innerHTML = val;
             // console.log(val);
           });
-          squote='';  
+          squote=[];  
         } else 
         {
-          squote+=quoter[i].replace(/ /g,"+");
-          console.log(squote);
+          squote.push(quoter[i].replace(/ /g,"+"));
+          //console.log(squote);
         }
       }
     }
