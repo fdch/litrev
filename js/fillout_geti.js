@@ -93,8 +93,8 @@ function getLit() {
           id:formNames[i],
           name:formNames[i],
           type:"text",
-          cols:i==3?2:sliderVals.length/2,
-          value:i==3?num:sliderVals.join(' ')
+          cols:i==3?2:slidersVals.length/2,
+          value:i==3?num:slidersVals.join(' ')
         });
 
       makeInput(formTag,'input', {
