@@ -167,13 +167,13 @@ function getLit(x)
           )
         {
           curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=1";
-          // console.log("DataMusing this: " + curl);
+          console.log("DataMusing this: " + squote.join(''));
           var val=[];
           loadJSON(curl, function(response)
           { 
             var f  =  JSON.parse(response);
             if(f.length){
-              console.log(squote.join(''));
+              console.log(curl);
               console.log(f);
             }
             // for (let j in f["word"]) val.push(f["word"][j]);
