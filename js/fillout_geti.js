@@ -175,7 +175,7 @@ function getLit(x)
           
           loadJSON(curl, function(response)
           { 
-            allSquote.push(JSON.parse(response));
+            Object.assign(allSquote, JSON.parse(response));
             // var val=[];
             // if(f.length)
             // {
