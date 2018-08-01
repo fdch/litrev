@@ -73,13 +73,13 @@ function getLit() {
       var row = len/cols+2;
       var size = "rows=\""+rows+"\" cols=\""+cols+"\"";
 
-      var formTag = makeInput(0, 'form' {
+      var formTag = makeInput(0, 'form', {
           id:"theform",
           action:formAction
       });
  
       for (let i=0; i<2; i++)
-        makeInput(formTag,'textarea'{
+        makeInput(formTag,'textarea', {
           id:formNames[i],
           name:formNames[i],
           type:"message",
@@ -90,7 +90,7 @@ function getLit() {
         formTag.appendChild(sliders[i]);
       
       for (let i=2; i<4; i++)
-        makeInput(formTag,'input'{
+        makeInput(formTag,'input', {
           id:formNames[i],
           name:formNames[i],
           type:"text",
@@ -98,7 +98,7 @@ function getLit() {
           value:i==3?num:sliderVals.join(' ');
         });
 
-      makeInput(formTag,'input'{
+      makeInput(formTag,'input', {
           type:"submit",
           id:"thesubmit",
           value:"Submit"
