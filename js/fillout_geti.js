@@ -32,7 +32,7 @@ function getLit(x)
       var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
       var rValue = 0;//Math.floor((Math.random()*100));
 
-      var slider = makeInput(0,'input',{
+      makeInput(x,'input',{
          type:"range",
          name: sliderName,
          oninput:"changeVals(\'"+sliderLink+"\',this.value);\
@@ -49,7 +49,7 @@ function getLit(x)
       // <label style=\"font-size:0.8em;\">"+sliderName+"</label>\
       // <input class=\"slider\" type=\"range\" id=\""+sliderLink+"\" value=\""+rValue+"\"\
       // oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals(\'#probs\');\">"; 
-      sliders.push(slider);
+      // sliders.push(slider);
       slidersVals.push(rValue);
       slidersID.push(sliderLink);
 
@@ -145,11 +145,11 @@ function getLit(x)
     // console.log(sliders.length);
 
 
-    for (let i=0;i<sliders.length;i++)
-    {
-      x.appendChild(sliders[i]);
-      // console.log(sliders[i]);
-    }
+    // for (let i=0;i<sliders.length;i++)
+    // {
+    //   x.appendChild(sliders[i]);
+    //   // console.log(sliders[i]);
+    // }
 
     updateVals(document.getElementById(formNames[2]));
 
