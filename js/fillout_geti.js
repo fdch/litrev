@@ -151,10 +151,11 @@ function getLit(x)
   });
   
   var paraph = document.getElementById(formNames[1]);
-  var quoter = document.getElementById(formNames[0]).innerHTML;
+  var quoteTag = document.getElementById(formNames[0]);
   
   if (!paraph.innerHTML) 
   {
+    var quoter = quoteTag.innerHTML;
     quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
     for (let i in quoter)
     {
