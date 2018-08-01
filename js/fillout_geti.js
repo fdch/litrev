@@ -178,10 +178,14 @@ function getLit(x)
           { 
             // Object.assign(allSquote, JSON.parse(response));
             var f = JSON.parse(response);
-            var fkey = Object.keys(f);
-            console.log(fkey.length);
+            // var fkey = Object.keys(f);
+            // console.log(fkey.length);
 
-            for (var k in fkey) words.push(f['word'][k]);
+            for (var k=0;k<4;k++)
+            { 
+              let wd = f['word'][k];
+              if(wd) words.push(wd);
+            }
               // allSquote.push(f[fkey[k]]);
           });
           squote=[];  
