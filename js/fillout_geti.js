@@ -86,8 +86,7 @@ function getLit() {
           cols:col,
           value:i==0?equot:epara
         });
-      for (let i in sliders)
-        formTag.appendChild(sliders[i]);
+      
       
       for (let i=2; i<4; i++)
         makeInput(formTag,'input', {
@@ -103,6 +102,10 @@ function getLit() {
           id:"thesubmit",
           value:"Submit"
       });
+
+      for (let i=0;i<sliders.length;i++){
+        formTag.appendChild(sliders[i]);
+      }
 
       // var form = "\
       // <form id=\"theform\" action=\""+formAction+"\">\
