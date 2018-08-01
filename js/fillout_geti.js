@@ -83,7 +83,8 @@ function getLit() {
           name:formNames[i],
           type:"message",
           rows:row,
-          cols:col
+          cols:col,
+          value:i==0?equot:epara
         });
       for (let i in sliders)
         formTag.appendChild(sliders[i]);
