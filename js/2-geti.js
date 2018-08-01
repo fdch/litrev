@@ -114,5 +114,5 @@ function getLit()
   });
 }
 function getValue(x) {
-  window.open("#"+keywords.replace(/ /g,"_").toLowerCase(),'_top');
+  location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();
 }
