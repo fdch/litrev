@@ -100,11 +100,6 @@ function getLit(x) {
           id:"thesubmit",
           value:"Submit"
       });
-      console.log(sliders.length);
-      for (let i=0;i<sliders.length;i++){
-        formTag.appendChild(sliders[i]);
-        console.log(sliders[i]);
-      }
 
       // var form = "\
       // <form id=\"theform\" action=\""+formAction+"\">\
@@ -132,6 +127,11 @@ function getLit(x) {
     x.appendChild(element('h3', "#"+num));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
+    // console.log(sliders.length);
+    for (let i=0;i<sliders.length;i++){
+      formTag.appendChild(sliders[i]);
+      // console.log(sliders[i]);
+    }
     updateVals(document.getElementById(formNames[2]));
   });
 }
