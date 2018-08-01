@@ -100,7 +100,7 @@ function img(src,width,titl,id) {
   div.appendChild(anc);
   return div;      
 }
-function makeDropdowns(id,target,list, onchange,label) {
+function makeDropdown(id,target,list, onchange,label) {
   if (label) {
     let labelTag = document.createElement('label');
     labelTag.setAttribute('for',id);
