@@ -145,10 +145,10 @@ function getLit(x)
 
     for (let i=0;i<sliders.length;i++)
     {
-      formTag.appendChild(sliders[i]);
+      x.appendChild(sliders[i]);
       console.log(sliders[i]);
     }
-    
+
     updateVals(document.getElementById(formNames[2]));
 
     var paraph = document.getElementById(formNames[1]);
@@ -185,8 +185,9 @@ function getLit(x)
 
             for (var k=0;k<4;k++)
             { 
-              let wd = f[k];
-              if(wd) words.push(wd);
+              // let wd = f[k];
+              
+              words.push(f['word'][k]);
             }
               // allSquote.push(f[fkey[k]]);
           });
