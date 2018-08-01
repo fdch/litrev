@@ -141,6 +141,9 @@ function getLit(x) {
 
     var paraph = document.getElementById(formNames[1]).innerHTML;
     var quoter = document.getElementById(formNames[0]).innerHTML;
+
+    console.log(paraph);
+    console.log(quoter);
     if (!paraph) {
 
       curl = "https://api.datamuse.com/words?ml="+quoter.replace(/ /g,"+")+"&max=1";
