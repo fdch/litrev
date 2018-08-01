@@ -160,11 +160,11 @@ function getLit(x)
       {
         var squote = [];
 
-        if(!quoter[i].localeCompare('.') 
+        if(  !quoter[i].localeCompare('.') 
           || !quoter[i].localeCompare(';') 
           || !quoter[i].localeCompare(',')
           || !quoter[i].localeCompare('-')
-          && !quoter[i].localeCompare(' ')
+          //|| !quoter[i].localeCompare(' ')
           )
         {
           curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=1";
