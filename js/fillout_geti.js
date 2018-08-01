@@ -151,12 +151,14 @@ function getLit(x)
 
     var paraph = document.getElementById(formNames[1]);
     var quoteTag = document.getElementById(formNames[0]);
-    
+    var squote = [], val=[];
+    var quoter;
+
     if (!paraph.innerHTML) 
     {
-      var quoter = quoteTag.innerHTML;
+      quoter = quoteTag.innerHTML;
       quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
-      var squote = [];
+      
       for (let i in quoter)
       {
         if(  !quoter[i].localeCompare('.') 
@@ -166,20 +168,21 @@ function getLit(x)
           //|| !quoter[i].localeCompare(' ')
           )
         {
-          curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=1";
-          console.log("DataMusing this: " + squote.join(''));
-          var val=[];
+          curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=4";
+          // console.log("DataMusing this: " + squote.join(''));
+          
           loadJSON(curl, function(response)
           { 
             var f  =  JSON.parse(response);
-            if(f.length){
-              console.log(curl);
-              console.log(f);
+            if(f.length)
+            {
+              for (let j in f["word"])
+                val.push(f["word"][j]);
+              
+              paraph.innerHTML = val.join(' ');
+              console.log(val.join(' '));
+              var val=[];
             }
-            // for (let j in f["word"]) val.push(f["word"][j]);
-            // paraph.innerHTML = val.join(' ');
-            // console.log(val.join(' '));
-            // var val=[];
           });
           squote=[];  
         } else 
