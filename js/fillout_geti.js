@@ -92,7 +92,7 @@ function getLit(x) {
           id:formNames[i],
           name:formNames[i],
           type:"text",
-          width:(i==3?10:slidersVals.length*8)+"px",
+          size:(i==3?1:slidersVals.length/2),
           value:i==3?num:slidersVals.join(' ')
         });
 
