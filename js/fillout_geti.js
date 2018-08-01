@@ -48,7 +48,7 @@ function getLit(x) {
 
     }
   });
-  console.log(sliders.length);
+  // console.log(sliders.length);
   loadJSON(lit, function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
@@ -127,7 +127,7 @@ function getLit(x) {
     x.appendChild(element('h3', "#"+num));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
-    // console.log(sliders.length);
+    console.log(sliders.length);
     for (let i=0;i<sliders.length;i++){
       formTag.appendChild(sliders[i]);
       // console.log(sliders[i]);
