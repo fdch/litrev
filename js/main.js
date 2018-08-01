@@ -1,6 +1,5 @@
 function main() {
 
-	// $("body").append([titleData, containers]);
 	var headTag = document.getElementsByTagName('header')[0];
 	var hstuff = new Array(0)
 
@@ -32,8 +31,5 @@ function main() {
 		mainTag.appendChild(sec);
 	}
 
-
-  getBib(document.getElementById(sections[2]+"-a"));
-  getLit(document.getElementById(sections[1]+"-a"));
-  // makeTests($("header"), navmenu);
+  	getLit();
 }

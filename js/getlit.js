@@ -1,14 +1,8 @@
-var keyword="blank";
-var keychange=0;
-var keywords=[];
-var booktitles=[];
-var fullquotes=[];
-var backbut= "<a href=\"#menu\" alt=\"back to menu\">&#8679</a>";
-
-function getBib(x)
+function getLit()
 {
   var ulTag = element('ul');
-  x.appendChild(ulTag);
+  document.getElementById(sections[1]+"-a").appendChild(ulTag);
+
   loadJSON(bib, function(response)
   {
     var f = JSON.parse(response);
@@ -46,34 +40,17 @@ function getBib(x)
       
       quote.push(eyear,". ", epubl, ".");
 
-      // var quote = eauth+", ";
-      // quote += ename+". ";
-      // quote += ebook+". ";
-      // if (edito) {
-      //   quote += ", in ";
-      //   quote += ejour+". ";
-      //   quote += edito+" (Ed.) ";
-      //   if (evolu) quote += "Vol. "+evolu;
-      //   if (enumb) quote += "No. "+enumb;
-      // }
-      // quote += eyear+". ";
-      // quote += epubl+". ";
-
-
       booktitles.push(ebook);
+      fullquotes.push(quote);
 
       ulTag.appendChild(element('li', quote.join(''), "eID"+i));
-
-      fullquotes.push(quote);
     }
   });
-}
 
-function getLit(x)
-{
   loadJSON(lit, function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
+    var section;
     for (var i in entry)
     {
       var e = entry[i];
@@ -89,34 +66,31 @@ function getLit(x)
       var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
-      // var eID = jQuery.inArray( ebook, booktitles );
       var eID = booktitles.indexOf(ebook);
-      var quoteref = fullquotes[eID]+" (p. "+epage+") <a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
+
+      var quoteref = new Array();
+
+      quoteref.push(
+        fullquotes[eID],
+        " (p. ",epage,") "
+        );
+      var quoteA = anchor("#eID"+eID,"["+eID+"]");
+
+
+
+      if (keychange) {
+        section = element('section','',ekeyw.replace(/ /g,"_").toLowerCase());
+        section.appendChild(element('h4',ekeyw, '', "window.load(\'#menu\')"));
+      }        
+      section.appendChild(element('p',epara);
+        var bq = element('blockquote',equot);
+        bq.appendChild(quoteA);
+        bq.appendChild(quoteref.join(''));
       
-      var open = "<div id=\""+linkify(ekeyw)+"\"><h4>"+ekeyw+" "+backbut+"</h4>";
+      section.appendChild(bq);
       
-      var intro = "<p>"+epara+"</p>";
-      var nevent = "<blockquote>\""+equot+" \""+quoteref+"</blockquote>";
-      
-      var close = "</div>";
-
-      if (keychange) x.append([open,intro,nevent, close]);
-      else           x.append([intro,nevent])
-
-      if (keychange){
-        
-      }  
-
-
-
-
-
-
-
-
-
+      if (keychange) document.getElementById(sections[2]+"-a").appendChild(section);
     }
-  makeMenu($("#menu"));
   });
 }
 
