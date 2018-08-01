@@ -107,9 +107,12 @@ function getLit()
     }
   });
 
-  var nav = element('nav');
-  document.getElementById(sections[0]+"-a").appendChild(nav);
-  makeDropdown('',nav,keywords,"getValue(this.value)","Keywords: ");
+  makeDropdown('',
+    document.getElementById(sections[0]+"-a"),
+    keywords,
+    "getValue(this.value)",
+    "Keywords: "
+  );
 
 }
 
