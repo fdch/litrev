@@ -144,8 +144,10 @@ function getLit(x)
 
 
     for (let i=0;i<sliders.length;i++)
+    {
       formTag.appendChild(sliders[i]);
-      // console.log(sliders[i]);
+      console.log(sliders[i]);
+    }
     
     updateVals(document.getElementById(formNames[2]));
 
