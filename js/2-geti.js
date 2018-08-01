@@ -104,7 +104,7 @@ function getLit()
   var nav = element('nav');
   h.appendChild(nav);
   // console.log(keywords.length);
-  for (let i=0; i<keywords.length;i++){
+  for (let i=0; i<allekeyw.length;i++){
     let an = anchor(allekeyw[i],keywords[i]);
     // console.log(an);
     nav.appendChild(an);
