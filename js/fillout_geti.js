@@ -183,7 +183,7 @@ function getLit(x)
 
             for (var k=0;k<4;k++)
             { 
-              let wd = f['word'][k];
+              let wd = f[k];
               if(wd) words.push(wd);
             }
               // allSquote.push(f[fkey[k]]);
