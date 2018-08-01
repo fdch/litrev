@@ -42,7 +42,7 @@ function getLit()
       quote.push(eyear,". ", epubl, ".");
 
       booktitles.push(ebook);
-      fullquotes.push(quote);
+      fullquotes.push(quote.join(''));
 
       ulTag.appendChild(element('li', quote.join(''), "eID"+i));
     }
