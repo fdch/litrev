@@ -180,9 +180,15 @@ function getLit(x)
           { 
             // Object.assign(allSquote, JSON.parse(response));
             var f = JSON.parse(response);
+            console.log(f);
+
             var wd = f.word;
             var tn = document.createTextNode(wd);
             paraph.appendChild(tn);
+
+
+
+
             // var fkey = Object.keys(f);
             // console.log(fkey.length);
 
