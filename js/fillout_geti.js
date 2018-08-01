@@ -91,7 +91,7 @@ function getLit(x) {
           id:formNames[i],
           name:formNames[i],
           type:"text",
-          cols:i==3?2:slidersVals.length/2,
+          width:(i==3?10:slidersVals.length*8)+"px",
           value:i==3?num:slidersVals.join(' ')
         });
 
