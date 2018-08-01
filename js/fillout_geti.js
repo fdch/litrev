@@ -1,6 +1,8 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
 var sliders=[],slidersVals=[],slidersID=[];
 
+var maxQuery=4;
+
 function getLit(x)
 {
 
@@ -173,18 +175,18 @@ function getLit(x)
           //|| !quoter[i].localeCompare(' ')
           )
         {
-          curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=1";
+          curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max="+maxQuery;
           // console.log("DataMusing this: " + squote.join(''));
           
           loadJSON(curl, function(response)
           { 
             // Object.assign(allSquote, JSON.parse(response));
             var f = JSON.parse(response);
-            console.log(f);
+            // console.log(f);
 
-            var wd = f.word;
-            var tn = document.createTextNode(wd);
-            paraph.appendChild(tn);
+            for(let i=0; i<maxQuery; i++) {
+              paraph.appendChild(document.createTextNode(f[i]['word']+" "));
+            }
 
 
 
@@ -196,7 +198,7 @@ function getLit(x)
             // { 
               // let wd = f[k];
             
-            console.log(wd);
+            // console.log(wd);
             // words.push(wd);
             // }
               // allSquote.push(f[fkey[k]]);
@@ -207,7 +209,7 @@ function getLit(x)
           squote.push(quoter[i].replace(/ /g,"+"));
           //console.log(squote);
         }
-        paraph.innerHTML = words.join(' ');
+        // paraph.innerHTML = words.join(' ');
       }
     }
     // var skeys=[];
