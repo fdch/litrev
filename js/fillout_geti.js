@@ -184,9 +184,10 @@ function getLit(x)
             var f = JSON.parse(response);
             // console.log(f);
 
-            for(let i=0; i<maxQuery; i++) {
-              paraph.appendChild(document.createTextNode(f[i]['word']+" "));
-            }
+            for(let i=0; i<maxQuery; i++)
+              if(f[i])
+                paraph.appendChild(document.createTextNode(f[i]['word']+" "));
+            
 
 
 
