@@ -1,12 +1,13 @@
 function getLit()
 {
-  var ulTag = element('ul');
-  document.getElementById(sections[1]+"-a").appendChild(ulTag);
-
   loadJSON(bib, function(response)
   {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
+
+    var ulTag = element('ul');
+    document.getElementById(sections[2]+"-a").appendChild(ulTag);
+
     for (var i in entry)
     {
       var e = entry[i];
@@ -50,7 +51,9 @@ function getLit()
   loadJSON(lit, function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
+
     var section;
+    
     for (var i in entry)
     {
       var e = entry[i];
@@ -76,10 +79,12 @@ function getLit()
         );
       var quoteA = anchor("#eID"+eID,"["+eID+"]");
 
+      var ek = ekeyw.replace(/ /g,"_").toLowerCase();
+      allekeyw.push(ek);
 
 
       if (keychange) {
-        section = element('section','',ekeyw.replace(/ /g,"_").toLowerCase());
+        section = element('section','',ek);
         section.appendChild(element('h4',ekeyw, '', "window.load(\'#menu\')"));
       }        
       section.appendChild(element('p',epara));
@@ -89,7 +94,7 @@ function getLit()
       
       section.appendChild(bq);
       
-      if (keychange) document.getElementById(sections[2]+"-a").appendChild(section);
+      if (keychange) document.getElementById(sections[1]+"-a").appendChild(section);
     }
   });
 }

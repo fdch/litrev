@@ -18,7 +18,7 @@ var formWurl = formhttps+formW+"/viewform";
 var lit = https + spreadsheetID + "1" + altjson;
 var bib = https + spreadsheetID + "3" + altjson;
 
-var keyword="blank", keychange=0;
+var keyword="blank", keychange=0, allekeyw=[];
 var keywords=[],booktitles=[],fullquotes=[];
 
 var sections = [

@@ -27,4 +27,12 @@ function main() {
 	}
 
   	getLit();
+  	var h = document.getElementsById(sections[0]+"h");
+  	var nav = element('nav');
+  	h.appendChild(nav);
+  	for (let i=0; i<keywords.length;i++){
+  		let an = anchor(allekeyw[i],keywords[i]);
+  		nav.appendChild(na);
+  	}
+
 }
