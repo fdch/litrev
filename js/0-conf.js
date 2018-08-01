@@ -20,3 +20,8 @@ var bib = https + spreadsheetID + "3" + altjson;
 
 var keyword="blank", keychange=0;
 var keywords=[],booktitles=[],fullquotes=[];
+
+var sections = [
+	'menu', 'content', 'biblio', 
+	"Menu", "Quotes", "Bibliography"
+];

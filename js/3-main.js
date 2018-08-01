@@ -14,11 +14,6 @@ function main() {
 
 	var mainTag = document.getElementsByTagName('main')[0];
 
-	var sections = [
-	'menu', 'content', 'biblio', 
-	"Menu", "Quotes", "Bibliography"
-	];
-
 	for (let i=0; i<sections.length/2; i++) {
 		let sec = element('section','',sections[i]);
 		/////////header
