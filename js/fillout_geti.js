@@ -152,7 +152,7 @@ function getLit(x)
     var paraph = document.getElementById(formNames[1]);
     var quoteTag = document.getElementById(formNames[0]);
     var squote = [];
-
+    var allSquote={};
     var quoter;
 
     if (!paraph.innerHTML) 
@@ -175,17 +175,17 @@ function getLit(x)
           
           loadJSON(curl, function(response)
           { 
-            var f  =  JSON.parse(response);
-            var val=[];
-            if(f.length)
-            {
-              for (let j in f["word"])
-                val.push(f["word"][j]);
+            allSquote  =  JSON.parse(response);
+            // var val=[];
+            // if(f.length)
+            // {
+            //   for (let j in f["word"])
+            //     val.push(f["word"][j]);
               
-              paraph.innerHTML = val.join(' ');
-              console.log(val.join(' '));
-              var val=[];
-            }
+            //   paraph.innerHTML = val.join(' ');
+            //   console.log(val.join(' '));
+            //   var val=[];
+            // }
           });
           squote=[];  
         } else 
@@ -193,6 +193,12 @@ function getLit(x)
           squote.push(quoter[i].replace(/ /g,"+"));
           //console.log(squote);
         }
+      }
+    }
+    var skeys=[];
+    if(skeys=Object.keys(allSquote)) {
+      for (var i in skeys) {
+        console.log(skeys[i]);
       }
     }
   });
