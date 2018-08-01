@@ -114,7 +114,7 @@ function makeDropdown(id,target,list, onchange,label) {
   selectTag.setAttribute('name',id);
   selectTag.setAttribute('onchange', onchange);
 
-  var thelist = shuffleArray(list);
+  var thelist = list;
   
   for (let i in thelist) {
     let val = thelist[i];
