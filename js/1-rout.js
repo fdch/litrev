@@ -129,10 +129,6 @@ function makeDropdown(id,target,list, onchange,label) {
   return selectTag;
 }
 
-function getValue(x) {
-  console.log(x.value);
-}
-
 
 
 

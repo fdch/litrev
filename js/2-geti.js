@@ -109,11 +109,10 @@ function getLit()
       document.getElementById(sections[0]+"-a"),
       keywords,
       "getValue(this)",
-      "Keywords"
+      "Keywords "
     );
   });
-
-
-
 }
-
+function getValue(x) {
+  window.open(allekeyw[keywords.indexOf(x.value)]);
+}
