@@ -1,13 +1,15 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
 var sliders=[],slidersVals=[],slidersID=[];
 
-function getLit(x) {
+function getLit(x)
+{
 
   getBib();
 
   var num = 0;
 
-  loadJSON(currentForm, function(response) { 
+  loadJSON(currentForm, function(response) 
+  { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry){
@@ -17,10 +19,12 @@ function getLit(x) {
   });
 
 
-  loadJSON(keys, function(response) { 
+  loadJSON(keys, function(response) 
+  { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
-    for (var i in entry){
+    for (var i in entry)
+    {
       var e = entry[i];
       var sliderName = e.gsx$keywords.$t;
       var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
@@ -50,7 +54,8 @@ function getLit(x) {
     }
   });
   // console.log(sliders.length);
-  loadJSON(lit, function(response) {
+  loadJSON(lit, function(response) 
+  {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry)
@@ -71,13 +76,15 @@ function getLit(x) {
       var col = 30;
       var row = len/col+2;
 
-      var formTag = makeInput(0, 'form', {
+      var formTag = makeInput(0, 'form', 
+      {
           id:"theform",
           action:formAction
       });
 
       for (let i=0; i<2; i++)
-        makeInput(formTag,'textarea', {
+        makeInput(formTag,'textarea', 
+        {
           id:formNames[i],
           name:formNames[i],
           type:"message",
@@ -88,7 +95,8 @@ function getLit(x) {
       
       
       for (let i=2; i<4; i++)
-        makeInput(formTag,'input', {
+        makeInput(formTag,'input', 
+        {
           id:formNames[i],
           name:formNames[i],
           type:"text",
@@ -96,7 +104,8 @@ function getLit(x) {
           value:i==3?num:slidersVals.join(' ')
         });
 
-      makeInput(formTag,'input', {
+      makeInput(formTag,'input', 
+      {
           type:"submit",
           id:"thesubmit",
           value:"Submit"
@@ -125,47 +134,55 @@ function getLit(x) {
       allForms.push(formTag);
       alleID.push(eID);
     }
+
     x.appendChild(element('h3', "#"+num));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
     
 
-    console.log(sliders.length);
+    // console.log(sliders.length);
 
 
-    for (let i=0;i<sliders.length;i++){
+    for (let i=0;i<sliders.length;i++)
       formTag.appendChild(sliders[i]);
       // console.log(sliders[i]);
-    }
+    
 
 
     var paraph = document.getElementById(formNames[1]).innerHTML;
     var quoter = document.getElementById(formNames[0]).innerHTML;
 
-    if (!paraph) {
 
-
-      curl = "https://api.datamuse.com/words?ml="+
-      quoter.replace(/"/g,"").replace(/'/g,"").replace(/ /g,"+")+
-      "&max=1";
-
-      console.log("DataMusing this: " + curl);
-      loadJSON(curl, function(response) { 
-      var f  =  JSON.parse(response);
-      var val='';
-      for (let i in f["word"]) {
-        val+=f["word"][i]+" ";
-      }
-      paraph = val;
-      console.log(val);
-      });
-    }
-
-
-
-
-
-
+  
     updateVals(document.getElementById(formNames[2]));
   });
+  
+  if (!paraph) 
+  {
+    quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
+    for (let i in quoter) {
+      var squote = '';
+      if(!quoter[i].localeCompare('.')) {
+        curl = "https://api.datamuse.com/words?ml="+squote+"&max=1";
+        console.log("DataMusing this: " + curl);
+        
+        loadJSON(curl, function(response) { 
+          var f  =  JSON.parse(response);
+          var val='';
+          for (let j in f["word"]) {
+            val+=f["word"][j]+" ";
+          }
+          paraph = val;
+          // console.log(val);
+        });
+      } else squote+=quoter[i].replace(/ /g,"+");
+
+    }
+  }
 }
+
+
+
+
+
+
