@@ -4,10 +4,10 @@ function main() {
 	var hstuff = new Array(0)
 
 	hstuff.push(
-		element("h1", title,          'titl', "window.open(\'"+url     +"\')"),
-		element("h2", subtitle,       'stit', "window.open(\'"+url     +"\')"),
-		element("h3", "Quotes Form",  'quot', "window.open(\'"+formURL +"\')"),
-		element("h3", "Writer Form",  'writ', "window.open(\'"+formWurl+"\')")
+		element("h1", title,          'titl', "window.open(\'"+url     +"\',\'_top\')"),
+		element("h2", subtitle,       'stit', "window.open(\'"+url     +"\',\'_top\')"),
+		element("h3", "Quotes Form",  'quot', "window.open(\'"+formURL +"\',\'_top\')"),
+		element("h3", "Writer Form",  'writ', "window.open(\'"+formWurl+"\',\'_top\')")
 	);
 
 	for (let i in hstuff) headTag.appendChild(hstuff[i]);
