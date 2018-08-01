@@ -173,7 +173,7 @@ function getLit(x)
           //|| !quoter[i].localeCompare(' ')
           )
         {
-          curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=4";
+          curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=1";
           // console.log("DataMusing this: " + squote.join(''));
           
           loadJSON(curl, function(response)
@@ -183,12 +183,12 @@ function getLit(x)
             // var fkey = Object.keys(f);
             // console.log(fkey.length);
 
-            for (var k=0;k<4;k++)
-            { 
+            // for (var k in )
+            // { 
               // let wd = f[k];
               
-              words.push(f['word'][k]);
-            }
+              words.push(f['word']);
+            // }
               // allSquote.push(f[fkey[k]]);
           });
           squote=[];  
