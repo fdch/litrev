@@ -82,19 +82,22 @@ function getLit()
       var ek = ekeyw.replace(/ /g,"_").toLowerCase();
       allekeyw.push(ek);
 
-
-      if (keychange && ek) {
-        section = element('section','',ek);
-        section.appendChild(element('h4',ekeyw, '', "window.load(\'#menu\')"));
-      }        
-      section.appendChild(element('p',epara));
-        var bq = element('blockquote',equot);
-        bq.appendChild(quoteA);
-        // bq.appendChild(element('p',quoteref.join('')));
-      
-      section.appendChild(bq);
-      
-      if (keychange) document.getElementById(sections[1]+"-a").appendChild(section);
+      if (ek){
+        if (keychange) {
+          section = element('section','',ek);
+          section.appendChild(element('h4',ekeyw, '', "window.load(\'#menu\')"));
+        }        
+        section.appendChild(element('p',epara));
+          var bq = element('blockquote',equot);
+          bq.appendChild(quoteA);
+          // bq.appendChild(element('p',quoteref.join('')));
+        
+        section.appendChild(bq);
+        
+        if (keychange){ 
+          document.getElementById(sections[1]+"-a").appendChild(section);
+        }
+      }
     }
   });
 }
