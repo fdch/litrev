@@ -168,14 +168,15 @@ function getLit(x)
         {
           curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max=1";
           // console.log("DataMusing this: " + curl);
-          
+          var val=[];
           loadJSON(curl, function(response)
           { 
             var f  =  JSON.parse(response);
-            var val='';
-            for (let j in f["word"]) val+=f["word"][j]+" ";
-            paraph.innerHTML = val;
-            console.log(val);
+            
+            for (let j in f["word"]) val.push(f["word"][j]);
+            paraph.innerHTML = val.join(' ');
+            console.log(val.join(' '));
+            var val=[];
           });
           squote=[];  
         } else 
