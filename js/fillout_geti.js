@@ -175,7 +175,7 @@ function getLit(x)
             var val='';
             for (let j in f["word"]) val+=f["word"][j]+" ";
             paraph.innerHTML = val;
-            console.log(paraph.innerHTML);
+            console.log(val);
           });
           squote=[];  
         } else 
