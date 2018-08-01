@@ -82,7 +82,7 @@ function getLit()
         section = element('section','',ekeyw.replace(/ /g,"_").toLowerCase());
         section.appendChild(element('h4',ekeyw, '', "window.load(\'#menu\')"));
       }        
-      section.appendChild(element('p',epara);
+      section.appendChild(element('p',epara));
         var bq = element('blockquote',equot);
         bq.appendChild(quoteA);
         bq.appendChild(quoteref.join(''));
