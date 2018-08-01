@@ -172,7 +172,10 @@ function getLit(x)
           loadJSON(curl, function(response)
           { 
             var f  =  JSON.parse(response);
-            console.log(f);
+            if(f.length){
+              console.log(squote.join(''));
+              console.log(f);
+            }
             // for (let j in f["word"]) val.push(f["word"][j]);
             // paraph.innerHTML = val.join(' ');
             // console.log(val.join(' '));
