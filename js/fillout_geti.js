@@ -147,15 +147,11 @@ function getLit(x)
       formTag.appendChild(sliders[i]);
       // console.log(sliders[i]);
     
-
-
-    var paraph = document.getElementById(formNames[1]).innerHTML;
-    var quoter = document.getElementById(formNames[0]).innerHTML;
-
-
-  
     updateVals(document.getElementById(formNames[2]));
   });
+  
+  var paraph = document.getElementById(formNames[1]).innerHTML;
+  var quoter = document.getElementById(formNames[0]).innerHTML;
   
   if (!paraph) 
   {
