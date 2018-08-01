@@ -4,8 +4,6 @@ var email = "fch226@nyu.edu";
 var title = "Literature Review";
 var subtitle = "Towards The Holy Mountain of the Dissertation";
 
-var navmenu = ["tests","tests2"];
-
 var https = "https://spreadsheets.google.com/feeds/list/";
 var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/";
 var altjson = "/public/values?alt=json";
