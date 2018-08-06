@@ -23,8 +23,7 @@ function height(){
 }
 function articleWidth(maxW){
   var pw  = width();
-  var f = widthFactor;
-  if (pw >= maxW) {return maxW*f;} else {return pw*f;}
+  if (pw >= maxW) {return maxW;} else {return pw;}
 }
 
 function resized(){
