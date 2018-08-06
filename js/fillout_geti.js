@@ -128,6 +128,26 @@ function getLit(x)
   
   });
 }
+function isLetter(str) {
+  return str.length === 1 && str.match(/[a-z]/i);
+}
+
+function getWords(x) {
+  let p = new Array(x);
+  let word = new Array();
+  let wordList = new Array();
+  for (let i in p) {
+    let char = p[i];
+    if (!isLetter(char)) {
+      //it is a space
+      wordList.push(word);
+      word=[];
+    } else  {
+      word.push(char);
+    } 
+  }
+  return wordList;
+}
 
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
@@ -144,6 +164,15 @@ function fillPhrase()
 
   quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
   quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
+
+
+
+  var myWordList = getWords(quoter);
+  for (let i in myWordList) console.log(myWordList[i]);
+
+
+
+
   
   for (let i in quoter)
   {
