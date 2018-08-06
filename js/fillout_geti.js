@@ -133,9 +133,11 @@ function getLit(x)
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     
 
-    makeInput(x, 'button', {
-      value:"reMuse",
-      onclick:"fillPhrase()"
+    makeInput(x, 'input', {
+      type:"button",
+      // value:"reMuse",
+      onclick:"fillPhrase()",
+      text:"reMuse"
     });
 
     x.appendChild(allForms[num]);
