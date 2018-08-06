@@ -206,6 +206,8 @@ function stats(x) {
   let i = slidersID.indexOf(ind);
   slidersVals[i]=val;
   // console.log("Change Value of "+ind+" at ["+i+"] to: "+val);
-  document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
+  let sv = slidersVals.join(' ');
+  document.getElementById(formNames[2]).innerHTML = sv;
+  console.log(sv)
 };
 
