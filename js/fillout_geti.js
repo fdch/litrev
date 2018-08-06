@@ -134,6 +134,7 @@ function isLetter(str) {
 
 function getWords(x) {
   let p = new Array(x);
+  console.log(p);
   let word = new Array();
   let wordList = new Array();
   for (let i in p) {
