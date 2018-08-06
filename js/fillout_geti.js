@@ -133,7 +133,9 @@ function getLit(x)
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
     x.appendChild(sliDiv);
-    updateVals(document.getElementById(formNames[2]));
+    
+    // document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
+
 
 
     fillPhrase();
