@@ -167,7 +167,7 @@ function fillPhrase()
         for(let i=0; i<maxQuery; i++)
           if(f[i])
             p.appendChild(document.createTextNode(f[i]['word']+" "));
-        p.appendChild(document.createTextNode("; ");
+        p.appendChild(document.createTextNode("; "));
 
       });
       squote=[];  
