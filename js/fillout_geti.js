@@ -129,14 +129,19 @@ function getLit(x)
       alleID.push(eID);
     }
 
-    x.appendChild(element('h3', "#"+num));
+    x.appendChild(element('h3', "Quote Reference #"+num));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
+
+    makeInput(x, 'button', {
+      value:"reMuse",
+      onclick:"fillPhrase()"
+    });
+
+
     x.appendChild(sliDiv);
     
     // document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
-
-
 
     fillPhrase();
   
