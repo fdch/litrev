@@ -165,27 +165,26 @@ function fillPhrase()
   var squote = [];
   // console.log(quoter);
 
-  var quoter = q.value.split(' ');
-  
-  for (let i in quoter)
-  {
-    curl = "https://api.datamuse.com/words?ml="+
-            quoter[i]+
-            "&max="+
-            maxQuery;
-    // console.log("DataMusing this: " + squote.join(''));
-    loadJSON(curl, function(response)
-    { 
-      var f = JSON.parse(response);
+  var phrases = q.value.split('. ')
 
-      for(let i=0; i<maxQuery; i++)
-        if(f[i])
-          p.appendChild(document.createTextNode(f[i]['word']+" "));
-      p.appendChild(document.createTextNode("; "));
-
-    });
+  for (let j in phrases) {
+    var quoter = phrases[j].split(' ');
+    
+    for (let i in quoter)
+    {
+      curl = "https://api.datamuse.com/words?ml="+
+              quoter[i]+
+              "&max="+
+              maxQuery;
+      // console.log("DataMusing this: " + squote.join(''));
+      loadJSON(curl, function(response) { 
+        var f = JSON.parse(response);
+        if(f[0]) p.appendChild(document.createTextNode(f[0]['word']+" "));
+       
+      });
+    }
+    p.appendChild(document.createTextNode(". "));
   }
-
 
 
 
