@@ -72,7 +72,7 @@ function getLit(x)
 
       var formTag = makeInput(0, 'form', 
       {
-          id:"theform",
+          id:"form-"+eID,
           action:formAction
       });
 
@@ -104,26 +104,6 @@ function getLit(x)
           id:"thesubmit",
           value:"Submit"
       });
-
-      // var form = "\
-      // <form id=\"theform\" action=\""+formAction+"\">\
-      // <div class=\"quote-container\">\
-      // <textarea name=\""+formNames[0]+"\" id=\"quoteLabel\" type=\"message\" \
-      //       "+size+">"+equot+"\</textarea>\
-      // </div><div class=\"paraph-container\">\
-      // <textarea name=\""+formNames[1]+"\" id=\"paraphraseLabel\" type=\"message\" \
-      //       "+size+">"+epara+"</textarea>\
-      // </div><div class=\"slider-container\">\
-      // "+sliders.join("")+"\
-      // </div><div>\
-      // <input name=\""+formNames[2]+"\" type=\"text\" id=\"probs\">\
-      // </div><div>\
-      // <input name=\""+formNames[3]+"\" type=\"text\" id=\"quoteId\" value=\""+num+"\">\
-      // </div><div>\
-      // <input type=\"submit\" id=\"thesubmit\" value=\"Submit\">\
-      // </div>\
-      // </form>\
-      // "+updateScript+"";
   
       allForms.push(formTag);
       alleID.push(eID);
@@ -170,9 +150,9 @@ function fillPhrase()
     var words=[];
     if(  !quoter[i].localeCompare('.') 
       || !quoter[i].localeCompare(';') 
-      || !quoter[i].localeCompare(',')
+      // || !quoter[i].localeCompare(',')
       || !quoter[i].localeCompare('-')
-      //|| !quoter[i].localeCompare(' ')
+      || !quoter[i].localeCompare(':')
       )
     {
       curl = "https://api.datamuse.com/words?ml="+
@@ -180,7 +160,6 @@ function fillPhrase()
               "&max="+
               maxQuery;
       // console.log("DataMusing this: " + squote.join(''));
-      // squote.push("; ");
       loadJSON(curl, function(response)
       { 
         var f = JSON.parse(response);
@@ -188,6 +167,7 @@ function fillPhrase()
         for(let i=0; i<maxQuery; i++)
           if(f[i])
             p.appendChild(document.createTextNode(f[i]['word']+" "));
+        p.appendChild(document.createTextNode("; ");
 
       });
       squote=[];  
