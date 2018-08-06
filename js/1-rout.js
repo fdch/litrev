@@ -203,8 +203,9 @@ function getBib() {
 function stats(x) {
   let val = x.value;
   let ind = x.id;
-  slidersVals[slidersID.indexOf(ind)]=val;
-  console.log("Change Value of "+ind+" to: "+val);
+  let i = slidersID.indexOf(ind);
+  slidersVals[i]=val;
+  console.log("Change Value of "+ind+" at ["+i+"] to: "+val);
   updateVals();
 };
 
