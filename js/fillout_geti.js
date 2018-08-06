@@ -135,20 +135,23 @@ function getLit(x)
     x.appendChild(allForms[num]);
     x.appendChild(sliDiv);
     updateVals(document.getElementById(formNames[2]));
-    var p = document.getElementById(formNames[1]);
-    var q = document.getElementById(formNames[0]);
-    if (!p.innerHTML) fillPhrase(p,q);
+
+
+    fillPhrase();
   
   });
 }
 
 
-function fillPhrase(q, p)
+function fillPhrase()
 {
+  var p = document.getElementById(formNames[1]);
+  var q = document.getElementById(formNames[0]);
+  if (p.innerHTML) {console.log("is filled");return;}
   var squote = [];
   var quoter = q.innerHTML;
   console.log(quoter);
-  
+
   quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
   quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
   
