@@ -150,16 +150,16 @@ function getLit(x)
 }
 
 function killPhrase() {
-  document.getElementById(formNames[1]).innerHTML= '';
+  document.getElementById(formNames[1]).value= '';
 }
 
 function fillPhrase()
 {
   var p = document.getElementById(formNames[1]);
   var q = document.getElementById(formNames[0]);
-  if (p.innerHTML) {console.log("is filled");return;}
+  if (p.value) {console.log("is filled");return;}
   var squote = [];
-  var quoter = q.innerHTML;
+  var quoter = q.value;
   // console.log(quoter);
 
   quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
@@ -180,7 +180,7 @@ function fillPhrase()
               "&max="+
               maxQuery;
       // console.log("DataMusing this: " + squote.join(''));
-      
+      // squote.push("; ");
       loadJSON(curl, function(response)
       { 
         var f = JSON.parse(response);
