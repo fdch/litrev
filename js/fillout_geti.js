@@ -134,69 +134,51 @@ function getLit(x)
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
     x.appendChild(sliDiv);
-    
-
-    // console.log(sliders.length);
-
-
-    // for (let i=0;i<sliders.length;i++)
-    // {
-    //   x.appendChild(sliders[i]);
-    //   // console.log(sliders[i]);
-    // }
-
     updateVals(document.getElementById(formNames[2]));
-
-    var paraph = document.getElementById(formNames[1]);
-    var quoteTag = document.getElementById(formNames[0]);
-    var squote = [];
-    var allSquote=[];
-    var quoter;
-
-    if (!paraph.innerHTML) 
-    {
-
-      quoter = quoteTag.innerHTML;
-      quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
-      quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
-      
-      for (let i in quoter)
-      {
-        var words=[];
-        if(  !quoter[i].localeCompare('.') 
-          || !quoter[i].localeCompare(';') 
-          || !quoter[i].localeCompare(',')
-          || !quoter[i].localeCompare('-')
-          //|| !quoter[i].localeCompare(' ')
-          )
-        {
-          curl = "https://api.datamuse.com/words?ml="+
-                  squote.join('')+
-                  "&max="+
-                  maxQuery;
-          // console.log("DataMusing this: " + squote.join(''));
-          
-          loadJSON(curl, function(response)
-          { 
-            var f = JSON.parse(response);
-
-            for(let i=0; i<maxQuery; i++)
-              if(f[i])
-                paraph.appendChild(document.createTextNode(f[i]['word']+" "));
-
-          });
-          squote=[];  
-        } else 
-        {
-          squote.push(quoter[i].replace(/ /g,"+"));
-        }
-      }
-    }
+    var p = document.getElementById(formNames[1]);
+    var q = document.getElementById(formNames[0]);
+    if (!p.innerHTML) fillPhrase(p,q);
+  
   });
 }
 
 
+function fillPhrase(q, p)
+{
+  var squote = [];
+  var quoter = q.innerHTML;
+  quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
+  quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
+  
+  for (let i in quoter)
+  {
+    var words=[];
+    if(  !quoter[i].localeCompare('.') 
+      || !quoter[i].localeCompare(';') 
+      || !quoter[i].localeCompare(',')
+      || !quoter[i].localeCompare('-')
+      //|| !quoter[i].localeCompare(' ')
+      )
+    {
+      curl = "https://api.datamuse.com/words?ml="+
+              squote.join('')+
+              "&max="+
+              maxQuery;
+      // console.log("DataMusing this: " + squote.join(''));
+      
+      loadJSON(curl, function(response)
+      { 
+        var f = JSON.parse(response);
 
+        for(let i=0; i<maxQuery; i++)
+          if(f[i])
+            p.appendChild(document.createTextNode(f[i]['word']+" "));
 
-
-
+      });
+      squote=[];  
+    } else 
+    {
+      squote.push(quoter[i].replace(/ /g,"+"));
+    }
+  }
+}
