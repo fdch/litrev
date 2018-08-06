@@ -203,9 +203,11 @@ function getBib() {
 
 function changeVals(x,n) {
   slidersVals[slidersID.indexOf(x)]=n;
+  console.log(n);
 };
 
 function updateVals(x) { 
   x.value = slidersVals.join(" ");
+  console.log(x.value);
 };
 
