@@ -1,7 +1,7 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
 var sliders=[],slidersVals=[],slidersID=[];
 
-var maxQuery=4;
+var maxQuery=1;
 
 function getLit(x)
 {
@@ -128,9 +128,11 @@ function getLit(x)
   
   });
 }
-function isLetter(str) {
-  return str.length === 1 && str.match(/[a-z]/i);
-}
+
+
+// function isLetter(str) {
+//   return str.length === 1 && str.match(/[a-z]/i);
+// }
 
 // function getWords(x) {
 //   let p = new Array(x);
