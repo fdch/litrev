@@ -44,7 +44,7 @@ function getLit(x)
          max:100,
          label:sliderName,
          id:sliderLink,
-         class:"slider"
+         style:"display:block;width:"+articleWidth(500)+"px;"
       });
 
       slidersVals.push(rValue);

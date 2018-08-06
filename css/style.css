@@ -33,7 +33,3 @@ textarea:focus{
   outline:none;
   border:0.2px solid grey;
 }
-.slider {
-  display:block;
-  width:inherit;
-}
