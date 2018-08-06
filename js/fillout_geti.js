@@ -135,9 +135,8 @@ function getLit(x)
 
     makeInput(x, 'input', {
       type:"button",
-      // value:"reMuse",
-      onclick:"fillPhrase()",
-      text:"reMuse"
+      value:"reMuse",
+      onclick:"killPhrase();fillPhrase()"
     });
 
     x.appendChild(allForms[num]);
@@ -150,6 +149,9 @@ function getLit(x)
   });
 }
 
+function killPhrase() {
+  document.getElementById(formNames[1]).innerHTML= '';
+}
 
 function fillPhrase()
 {
