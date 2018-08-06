@@ -150,7 +150,7 @@ function fillPhrase()
   if (p.innerHTML) {console.log("is filled");return;}
   var squote = [];
   var quoter = q.innerHTML;
-  console.log(quoter);
+  // console.log(quoter);
 
   quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
   quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
@@ -169,7 +169,7 @@ function fillPhrase()
               squote.join('')+
               "&max="+
               maxQuery;
-      console.log("DataMusing this: " + squote.join(''));
+      // console.log("DataMusing this: " + squote.join(''));
       
       loadJSON(curl, function(response)
       { 
