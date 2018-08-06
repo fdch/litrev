@@ -141,6 +141,7 @@ function getWords(x) {
     if (!isLetter(char)) {
       //it is a space
       wordList.push(word);
+      console.log(word);
       word=[];
     } else  {
       word.push(char);
@@ -166,9 +167,9 @@ function fillPhrase()
   quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
 
 
-
-  var myWordList = getWords(quoter);
-  for (let i in myWordList) console.log(myWordList[i]);
+  getWords(quoter);
+  // var myWordList = getWords(quoter);
+  // for (let i in myWordList) console.log(myWordList[i]);
 
 
 
