@@ -42,20 +42,14 @@ function getLit(x)
          max:100,
          label:sliderName,
          id:sliderLink,
+         class:"slider"
       });
 
-
-      // var slider = "\
-      // <label style=\"font-size:0.8em;\">"+sliderName+"</label>\
-      // <input class=\"slider\" type=\"range\" id=\""+sliderLink+"\" value=\""+rValue+"\"\
-      // oninput=\"changeVals(\'"+sliderLink+"\',this.value);updateVals(\'#probs\');\">"; 
-      // sliders.push(slider);
       slidersVals.push(rValue);
       slidersID.push(sliderLink);
 
     }
   });
-  // console.log(sliders.length);
   loadJSON(lit, function(response) 
   {
     var f = JSON.parse(response);
@@ -71,9 +65,6 @@ function getLit(x)
       var eqid = e.gsx$id.$t;
 
       var eID = booktitles.indexOf(ebook);
-      // var ta_defs = "";
-      // var quoteref = "<a href=\"#eID"+eID+"\" title=\""+ebook+". "+eauth+".\">["+eID+"]</a>";
-      
       var len = equot.length;
       var col = 30;
       var row = len/col+2;
@@ -180,46 +171,20 @@ function getLit(x)
           
           loadJSON(curl, function(response)
           { 
-            // Object.assign(allSquote, JSON.parse(response));
             var f = JSON.parse(response);
-            // console.log(f);
 
             for(let i=0; i<maxQuery; i++)
               if(f[i])
                 paraph.appendChild(document.createTextNode(f[i]['word']+" "));
-            
 
-
-
-
-            // var fkey = Object.keys(f);
-            // console.log(fkey.length);
-
-            // for (var k in )
-            // { 
-              // let wd = f[k];
-            
-            // console.log(wd);
-            // words.push(wd);
-            // }
-              // allSquote.push(f[fkey[k]]);
           });
           squote=[];  
         } else 
         {
           squote.push(quoter[i].replace(/ /g,"+"));
-          //console.log(squote);
         }
-        // paraph.innerHTML = words.join(' ');
       }
     }
-    // var skeys=[];
-    // if(skeys=Object.keys(allSquote)) {
-    //   for (var i in skeys) {
-    //     console.log(skeys[i]);
-    //   }
-    // }
-    //console.log(allSquote);
   });
 }
 
