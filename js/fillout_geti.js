@@ -10,7 +10,7 @@ function getLit(x)
 
   var num = 0;
 
-  var sliDiv = element('div');
+  var sliDiv = element('div', '', 'sliDiv');
 
   loadJSON(currentForm, function(response) 
   { 
@@ -133,6 +133,7 @@ function getLit(x)
     x.appendChild(element('h3', "#"+num));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     x.appendChild(allForms[num]);
+    x.appendChild(sliDiv);
     
 
     // console.log(sliders.length);
@@ -156,7 +157,8 @@ function getLit(x)
     {
 
       quoter = quoteTag.innerHTML;
-      quoter = quoter.replace(/\"/g,"").replace(/\'/g,"").replace(/\(/g,"").replace(/\)/g,"");
+      quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
+      quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
       
       for (let i in quoter)
       {
@@ -168,7 +170,10 @@ function getLit(x)
           //|| !quoter[i].localeCompare(' ')
           )
         {
-          curl = "https://api.datamuse.com/words?ml="+squote.join('')+"&max="+maxQuery;
+          curl = "https://api.datamuse.com/words?ml="+
+                  squote.join('')+
+                  "&max="+
+                  maxQuery;
           // console.log("DataMusing this: " + squote.join(''));
           
           loadJSON(curl, function(response)
@@ -188,7 +193,6 @@ function getLit(x)
       }
     }
   });
-  x.appendChild(sliDiv);
 }
 
 
