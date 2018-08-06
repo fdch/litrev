@@ -1,7 +1,7 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
 var sliders=[],slidersVals=[],slidersID=[];
 
-var maxQuery=1;
+var maxQuery=10;
 
 function getLit(x)
 {
@@ -179,11 +179,14 @@ function fillPhrase()
       // console.log("DataMusing this: " + squote.join(''));
       loadJSON(curl, function(response) { 
         var f = JSON.parse(response);
-        if(f[0]) p.appendChild(document.createTextNode(f[0]['word']+" "));
+        var lucky = pdRandom(maxQuery);
+        if(f[lucky]) p.appendChild(document.createTextNode(f[lucky]['word']+" "));
        
       });
+
     }
     p.appendChild(document.createTextNode(". "));
+
   }
 
 
