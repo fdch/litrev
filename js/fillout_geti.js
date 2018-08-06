@@ -132,24 +132,24 @@ function isLetter(str) {
   return str.length === 1 && str.match(/[a-z]/i);
 }
 
-function getWords(x) {
-  let p = new Array(x);
-  console.log(p);
-  let word = new Array();
-  let wordList = new Array();
-  for (let i in p) {
-    let char = p[i];
-    if (!isLetter(char)) {
-      //it is a space
-      wordList.push(word);
-      console.log(word);
-      word=[];
-    } else  {
-      word.push(char);
-    } 
-  }
-  return wordList;
-}
+// function getWords(x) {
+//   let p = new Array(x);
+//   console.log(p);
+//   let word = new Array();
+//   let wordList = new Array();
+//   for (let i in p) {
+//     let char = p[i];
+//     if (!isLetter(char)) {
+//       //it is a space
+//       wordList.push(word);
+//       console.log(word);
+//       word=[];
+//     } else  {
+//       word.push(char);
+//     } 
+//   }
+//   return wordList;
+// }
 
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
@@ -161,14 +161,44 @@ function fillPhrase()
   var q = document.getElementById(formNames[0]);
   if (p.value) {console.log("is filled");return;}
   var squote = [];
-  var quoter = q.value;
   // console.log(quoter);
 
-  quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
-  quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
+  var quoter = q.value.split(' ');
+  
+  for (let i in quoter)
+  {
+    curl = "https://api.datamuse.com/words?ml="+
+            quoter[i]+
+            "&max="+
+            maxQuery;
+    // console.log("DataMusing this: " + squote.join(''));
+    loadJSON(curl, function(response)
+    { 
+      var f = JSON.parse(response);
+
+      for(let i=0; i<maxQuery; i++)
+        if(f[i])
+          p.appendChild(document.createTextNode(f[i]['word']+" "));
+      p.appendChild(document.createTextNode("; "));
+
+    });
+  }
 
 
-  getWords(quoter);
+
+
+
+  // var quoter = q.value;
+  
+
+  // quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
+  // quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
+  
+
+
+
+
+  // getWords(quoter);
   // var myWordList = getWords(quoter);
   // for (let i in myWordList) console.log(myWordList[i]);
 
@@ -176,35 +206,35 @@ function fillPhrase()
 
 
   
-  for (let i in quoter)
-  {
-    var words=[];
-    if(  !quoter[i].localeCompare('.') 
-      || !quoter[i].localeCompare(';') 
-      // || !quoter[i].localeCompare(',')
-      || !quoter[i].localeCompare('-')
-      || !quoter[i].localeCompare(':')
-      )
-    {
-      curl = "https://api.datamuse.com/words?ml="+
-              squote.join('')+
-              "&max="+
-              maxQuery;
-      // console.log("DataMusing this: " + squote.join(''));
-      loadJSON(curl, function(response)
-      { 
-        var f = JSON.parse(response);
+  // for (let i in quoter)
+  // {
+  //   var words=[];
+  //   if(  !quoter[i].localeCompare('.') 
+  //     || !quoter[i].localeCompare(';') 
+  //     // || !quoter[i].localeCompare(',')
+  //     || !quoter[i].localeCompare('-')
+  //     || !quoter[i].localeCompare(':')
+  //     )
+  //   {
+  //     curl = "https://api.datamuse.com/words?ml="+
+  //             squote.join('')+
+  //             "&max="+
+  //             maxQuery;
+  //     // console.log("DataMusing this: " + squote.join(''));
+  //     loadJSON(curl, function(response)
+  //     { 
+  //       var f = JSON.parse(response);
 
-        for(let i=0; i<maxQuery; i++)
-          if(f[i])
-            p.appendChild(document.createTextNode(f[i]['word']+" "));
-        p.appendChild(document.createTextNode("; "));
+  //       for(let i=0; i<maxQuery; i++)
+  //         if(f[i])
+  //           p.appendChild(document.createTextNode(f[i]['word']+" "));
+  //       p.appendChild(document.createTextNode("; "));
 
-      });
-      squote=[];  
-    } else 
-    {
-      squote.push(quoter[i].replace(/ /g,"+"));
-    }
-  }
+  //     });
+  //     squote=[];  
+  //   } else 
+  //   {
+  //     squote.push(quoter[i].replace(/ /g,"+"));
+  //   }
+  // }
 }
