@@ -113,11 +113,11 @@ function getLit(x)
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     
 
-    makeInput(x, 'input', {
-      type:"button",
-      value:"reMuse",
-      onclick:"killPhrase();fillPhrase()"
-    });
+    // makeInput(x, 'input', {
+    //   type:"button",
+    //   value:"reMuse",
+    //   onclick:"killPhrase();fillPhrase()"
+    // });
 
     x.appendChild(allForms[num]);
     x.appendChild(sliDiv);
