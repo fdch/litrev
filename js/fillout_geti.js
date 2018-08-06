@@ -37,8 +37,7 @@ function getLit(x)
       makeInput(sliDiv,'input',{
          type:"range",
          name: sliderName,
-         oninput:"changeVals(\'"+sliderLink+"\',this.value);\
-                  updateVals(\'"+formNames[2]+"\');",
+         oninput:"stats(this)",
          value: rValue,
          min:0,
          max:100,

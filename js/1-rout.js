@@ -200,13 +200,17 @@ function getBib() {
   });
 }
 
-function changeVals(x,n) {
-  slidersVals[slidersID.indexOf(x)]=n;
-  console.log(n);
+function stats(x) {
+  let val = x.value;
+  let ind = x.id;
+  slidersVals[slidersID.indexOf(ind)]=val;
+  console.log("Change Value of "+ind+" to: "+val);
+  updateVals();
 };
 
-function updateVals(x) { 
-  x.value = slidersVals.join(" ");
-  console.log(x.value);
+function updateVals() { 
+  let list = document.getElementById(formNames[2]);
+  list.innerHtml = slidersVals.join(" ");
+  console.log("updated values");
 };
 
