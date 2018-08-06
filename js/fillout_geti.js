@@ -147,6 +147,8 @@ function fillPhrase(q, p)
 {
   var squote = [];
   var quoter = q.innerHTML;
+  console.log(quoter);
+  
   quoter = quoter.replace(/\"/g,"").replace(/\'/g,"");
   quoter = quoter.replace(/\(/g,"").replace(/\)/g,"");
   
@@ -164,7 +166,7 @@ function fillPhrase(q, p)
               squote.join('')+
               "&max="+
               maxQuery;
-      // console.log("DataMusing this: " + squote.join(''));
+      console.log("DataMusing this: " + squote.join(''));
       
       loadJSON(curl, function(response)
       { 
