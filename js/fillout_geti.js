@@ -10,6 +10,8 @@ function getLit(x)
 
   var num = 0;
 
+  var sliDiv = element('div');
+
   loadJSON(currentForm, function(response) 
   { 
     var f  =  JSON.parse(response);
@@ -32,7 +34,7 @@ function getLit(x)
       var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
       var rValue = 0;//Math.floor((Math.random()*100));
 
-      makeInput(x,'input',{
+      makeInput(sliDiv,'input',{
          type:"range",
          name: sliderName,
          oninput:"changeVals(\'"+sliderLink+"\',this.value);\
@@ -186,6 +188,7 @@ function getLit(x)
       }
     }
   });
+  x.appendChild(sliDiv);
 }
 
 
