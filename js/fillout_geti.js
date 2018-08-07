@@ -126,7 +126,7 @@ function getLit(x)
 
     fillPhrase();
 
-    tagText("hello world");
+    tagText("text=hello world");
   
   });
 }
