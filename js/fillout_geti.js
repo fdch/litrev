@@ -174,7 +174,7 @@ function fillPhrase()
 
   for (let j in phrases) {
     var quoter = phrases[j].split(' ');
-    console.log(quoter.join(' '));
+    // console.log(quoter.join(' '));
     
     for (let i in quoter)
     {
