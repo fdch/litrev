@@ -77,7 +77,7 @@ function getLit(x)
       });
 
       for (let i=0; i<2; i++)
-        makeInput(formTag,'textarea', 
+        makeInput(sliDiv,'textarea', 
         {
           id:formNames[i],
           name:formNames[i],
@@ -89,7 +89,7 @@ function getLit(x)
       
       
       for (let i=2; i<4; i++)
-        makeInput(formTag,'input', 
+        makeInput(sliDiv,'input', 
         {
           id:formNames[i],
           name:formNames[i],
@@ -98,7 +98,7 @@ function getLit(x)
           value:i==3?num:slidersVals.join(' ')
         });
 
-      makeInput(formTag,'input', 
+      makeInput(sliDiv,'input', 
       {
           type:"submit",
           id:"thesubmit",
