@@ -70,14 +70,13 @@ function getLit(x)
       var col = 30;
       var row = len/col+2;
 
-      var formTag = makeInput(0, 'form', 
-      {
+      var formTag = makeInput(0, 'form', {
           id:"form-"+eID,
           action:formAction
       });
 
-      for (let i=0; i<2; i++)
-        makeInput(sliDiv,'textarea', 
+      for (let i=0; i<2; i++) {
+        makeInput(formTag,'textarea', 
         {
           id:formNames[i],
           name:formNames[i],
@@ -86,19 +85,20 @@ function getLit(x)
           cols:col,
           text:i==0?equot:epara
         });
+      }
       
-      
-      for (let i=2; i<4; i++)
-        makeInput(sliDiv,'input', 
+      for (let i=2; i<4; i++) {
+        makeInput(formTag,'input', 
         {
           id:formNames[i],
           name:formNames[i],
           type:"text",
           size:(i==3?1:slidersVals.length/2),
-          value:i==3?num:slidersVals.join(' ')
+          value:i==3?num:slidersVals.join(' '),
+          style:"display:block;margin:3px"
         });
-
-      makeInput(sliDiv,'input', 
+      }
+      makeInput(formTag,'input', 
       {
           type:"submit",
           id:"thesubmit",
