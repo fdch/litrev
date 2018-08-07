@@ -31,7 +31,7 @@ function resized(){
   h = height();
 }
 function tagText(postData) {
-  var url = "http://www.google.com/";
+  var url = "https://www.google.com/";
   var method = "POST";
   // var postData = "Some data";
 
