@@ -12,7 +12,7 @@ function getLit() {
 
 
 
-  loadJSON(lit, function(response) {
+  loadJSON(lit, "GET", function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
 

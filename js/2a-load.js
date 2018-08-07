@@ -1,7 +1,7 @@
 function loadAll(sheets) {
   loading = 1;
   //works
-  loadJSON(sheets[0], function(response) {
+  loadJSON(sheets[0], "GET", function(response) {
     var f, e, i, entry;
     f = JSON.parse(response);
     entry = f.feed.entry;
