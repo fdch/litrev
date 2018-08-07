@@ -93,7 +93,7 @@ function getLit(x)
           id:formNames[i],
           name:formNames[i],
           type:"text",
-          size:(i==3?1:slidersVals.length),
+          size:(i==3?1:slidersVals.length*1.5),
           value:i==3?num:slidersVals.join(' '),
           style:"display:block;margin:3px"
         });
