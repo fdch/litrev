@@ -83,7 +83,8 @@ function getLit(x)
           type:"message",
           rows:row,
           cols:col,
-          text:i==0?equot:epara
+          text:i==0?equot:epara,
+          style:"margin-right:5px;"
         });
       }
       
