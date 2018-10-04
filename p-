@@ -23,6 +23,11 @@ then
 	COMMIT="$1"
 fi
 
+if [[ $2 ]]
+then
+	URLTGT="/$2"
+fi
+
 git commit -m "$COMMIT"
 git push
 
@@ -36,6 +41,6 @@ do
 	i=$[$i-1]
 done
 
-open "$BASE/$REPO"
+open "$BASE/$REPO$URLTGT
 
 exit
