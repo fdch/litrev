@@ -29,7 +29,7 @@ function getLit(x)
       if (epara) {
         for (var j=0; j<=eprob.length; j++) {
           allKeys[iKey[j]]=[];
-          allKeys[iKey[j]][i].push(eprob[j]);
+          allKeys[iKey[j]][i]=eprob[j];
         }
         x.appendChild(element('p', epara));
       }
