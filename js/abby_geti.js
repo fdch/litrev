@@ -34,7 +34,7 @@ function getLit(x)
         x.appendChild(element('p', epara));
       }
     }
-    console.log(allKeys;
+    console.log(allKeys);
     // x.appendChild(element('p', allKeys.join('</p><p>')));
   });
 }
