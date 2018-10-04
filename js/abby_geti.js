@@ -26,17 +26,13 @@ function getLit(x)
       var epara = e.gsx$paraphrase.$t;
       var eqid = e.gsx$quoteid.$t;
       var eprob = e.gsx$probs.$t;
-      
-      makeInput(x, 'p', {
-        value:epara
-      });
+
       for (var j=0; j<=eprob.length; j++) {
         allKeys[iKey[j]]={};
         allKeys[iKey[j]][i]=eprob[j];
       }
+      element('p', epara);
     }
-    makeInput(x, 'p', {
-      value:allKeys.join('</p><p>')
-    });
+    element('p', allKeys.join('</p><p>'));
   });
 }
