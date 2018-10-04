@@ -15,8 +15,11 @@ var formID = "1FAIpQLScijqg1IlmAWLsBgQ7jaUxEcCPUQqZroXG-9ZxXV4BvOKzbKg";
 var formURL = formhttps+formID+"/viewform";
 var formWurl = formhttps+formW+"/viewform";
 
-var lit = https + spreadsheetID + "1" + altjson;
-var bib = https + spreadsheetID + "3" + altjson;
+var lit 		= https + spreadsheetID + "1" + altjson;
+var currentForm = https + spreadsheetID + "2" + altjson;
+var bib 		= https + spreadsheetID + "3" + altjson;
+var keys 		= https + spreadsheetID + "4" + altjson;
+var fil 		= https + spreadsheetID + "5" + altjson;
 
 var sections = [
 	'menu', 'content', 'biblio', 
@@ -37,6 +40,3 @@ var formNames = [
 	"entry.619862762",
 	"entry.1644345852"
 ];
-
-var currentForm = https + spreadsheetID + "2" + altjson;
-var keys = https + spreadsheetID + "4" + altjson;
