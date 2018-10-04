@@ -31,8 +31,8 @@ function getLit(x)
         allKeys[iKey[j]]={};
         allKeys[iKey[j]][i]=eprob[j];
       }
-      element('p', epara);
+      x.appendChild(element('p', epara));
     }
-    element('p', allKeys.join('</p><p>'));
+    x.appendChild(element('p', allKeys.join('</p><p>')));
   });
 }
