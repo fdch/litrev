@@ -32,7 +32,7 @@ function getLit(x)
         x.appendChild(element('p', epara));
       }
     }
-    x.appendChild(element('div',mikey.join()));
+    for (let i in mikey) x.appendChild(mikey[i]);
     // console.log(allKeys);
     // x.appendChild(element('p', allKeys.join('</p><p>')));
   });
