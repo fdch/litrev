@@ -41,6 +41,6 @@ do
 	i=$[$i-1]
 done
 
-open "$BASE/$REPO$URLTGT
+open "$BASE/$REPO$URLTGT"
 
 exit
