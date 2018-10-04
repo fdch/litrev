@@ -1,4 +1,4 @@
-var iKey=[], mikey=[];
+var iKey=[];
 
 function getLit(x)
 {
@@ -25,15 +25,14 @@ function getLit(x)
       var epara = e.gsx$paraphrase.$t;
       var eqid = e.gsx$quoteid.$t;
       var eprob = (e.gsx$probs.$t).split(' ');
+      mikey=[];
       if (epara) {
         for (var j=0; j<=eprob.length; j++) {
-          mikey.push(element('p', iKey[j] + ': ' + eprob[j]));
+          mikey.push(element('span', iKey[j] + ': ' + eprob[j]));
         }
         x.appendChild(element('p', epara));
+        for (let m in mikey) x.appendChild(mikey[m]);
       }
     }
-    for (let i in mikey) x.appendChild(mikey[i]);
-    // console.log(allKeys);
-    // x.appendChild(element('p', allKeys.join('</p><p>')));
   });
 }
