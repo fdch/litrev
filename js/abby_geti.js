@@ -26,13 +26,15 @@ function getLit(x)
       var epara = e.gsx$paraphrase.$t;
       var eqid = e.gsx$quoteid.$t;
       var eprob = e.gsx$probs.$t;
-
-      for (var j=0; j<=eprob.length; j++) {
-        allKeys[iKey[j]]={};
-        allKeys[iKey[j]][i]=eprob[j];
+      if (epara) {
+        for (var j=0; j<=eprob.length; j++) {
+          allKeys[iKey[j]]={};
+          allKeys[iKey[j]][i]=eprob[j];
+        }
+        x.appendChild(element('p', epara));
       }
-      x.appendChild(element('p', epara));
     }
-    x.appendChild(element('p', allKeys.join('</p><p>')));
+    console.log(allKeys.join());
+    // x.appendChild(element('p', allKeys.join('</p><p>')));
   });
 }
