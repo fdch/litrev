@@ -1,4 +1,4 @@
-var allKeys={}, iKey=[];
+var iKey=[], mikey=[];
 
 function getLit(x)
 {
@@ -12,7 +12,6 @@ function getLit(x)
       var e = entry[i];
       var k = (e.gsx$keywords.$t).replace(/ /g,'_').toLowerCase();
       iKey[i]=k;
-      allKeys[k]={};
     }
   });
   loadJSON(fil, "GET", function(response) 
@@ -28,13 +27,13 @@ function getLit(x)
       var eprob = e.gsx$probs.$t;
       if (epara) {
         for (var j=0; j<=eprob.length; j++) {
-          allKeys[iKey[j]]=[];
-          allKeys[iKey[j]][i]=eprob[j];
+          mikey.push(element('p', iKey[j] + ': ' + eprob[j]);
         }
         x.appendChild(element('p', epara));
       }
     }
-    console.log(allKeys);
+    x.appendChild(mikey.join());
+    // console.log(allKeys);
     // x.appendChild(element('p', allKeys.join('</p><p>')));
   });
 }
