@@ -24,7 +24,7 @@ function getLit(x)
       var equot = e.gsx$quote.$t;
       var epara = e.gsx$paraphrase.$t;
       var eqid = e.gsx$quoteid.$t;
-      var eprob = e.gsx$probs.$t;
+      var eprob = (e.gsx$probs.$t).split(' ');
       if (epara) {
         for (var j=0; j<=eprob.length; j++) {
           mikey.push(element('p', iKey[j] + ': ' + eprob[j]));
