@@ -28,7 +28,7 @@ function getLit(x)
       mikey=[];
       if (epara) {
         for (var j=0; j<=eprob.length-1; j++) {
-          mikey.push(element('span', iKey[j] + ': ' + eprob[j])+'. ');
+          mikey.push(element('span', iKey[j] + ': ' + eprob[j] + '. '));
         }
         x.appendChild(element('p', epara));
         for (let m in mikey) x.appendChild(mikey[m]);
