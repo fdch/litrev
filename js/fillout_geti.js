@@ -63,7 +63,7 @@ function getLit(x)
       var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
-      var eqid = e.gsx$id.$t;
+      var eqid = e.gsx$timestamp.$t;
 
       var eID = booktitles.indexOf(ebook);
       var len = equot.length;
@@ -95,7 +95,7 @@ function getLit(x)
           name:formNames[i],
           type:"text",
           size:(i==3?1:slidersVals.length*2),
-          value:i==3?num:slidersVals.join(' '),
+          value:i==3?eqid:slidersVals.join(' '),
           style:"display:block;margin:3px"
         });
       }
@@ -110,7 +110,7 @@ function getLit(x)
       alleID.push(eID);
     }
 
-    x.appendChild(element('h3', "Quote Reference #"+num));
+    x.appendChild(element('h3', "Quote Reference #"+eqid));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     
 
