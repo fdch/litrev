@@ -139,10 +139,10 @@ function getLit(x)
   });
 }
 
-function selQuote(q) {
-    console.log(g.value);
+function selQuote(x) {
+    console.log(x.value);
     console.log("-----------------");
-    console.log(allForms[g.value]);
+    console.log(allForms[x.value]);
 }
 
 // function isLetter(str) {
