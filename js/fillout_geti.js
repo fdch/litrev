@@ -105,7 +105,7 @@ function getLit(x)
           id:"thesubmit",
           value:"Submit"
       });
-  
+      
       allForms.push(formTag);
       alleID.push(eID);
     }
@@ -119,6 +119,13 @@ function getLit(x)
     //   value:"reMuse",
     //   onclick:"killPhrase();fillPhrase()"
     // });
+    makeDropdown(
+      "selQuoteID",
+      x,
+      alleID,
+      "selQuote(this)",
+      "Select Quote by Number:"
+    );
 
     x.appendChild(allForms[num]);
     x.appendChild(sliDiv);
@@ -132,6 +139,11 @@ function getLit(x)
   });
 }
 
+function selQuote(q) {
+    console.log(g.value);
+    console.log("-----------------");
+    console.log(allForms[g.value]);
+}
 
 // function isLetter(str) {
 //   return str.length === 1 && str.match(/[a-z]/i);
