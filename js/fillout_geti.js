@@ -67,7 +67,7 @@ function getLit(x)
 
       var eID = booktitles.indexOf(ebook);
       var len = equot.length;
-      var col = 30;
+      var col = 20;
       var row = len/col+2;
 
       var formTag = makeInput(0, 'form', {
@@ -110,7 +110,7 @@ function getLit(x)
       alleID.push(eID);
     }
 
-    x.appendChild(element('h3', "Quote Reference #"+eqid));
+    x.appendChild(element('h3', "Quote ID # "+eqid));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
     
 
