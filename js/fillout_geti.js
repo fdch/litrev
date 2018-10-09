@@ -144,13 +144,13 @@ function getLit(x)
 
 function selQuote(x,target) {
     // document.getElementById(cForm)
-    // let val = x.value;
-    // console.log(val);
-    // console.log("previous form: "+cForm);
-    // cForm="form-"+alleID[num];
-    // console.log("next form: "+cForm);
-    // console.log("-------"+alleID[val]+"----------");
-    // console.log(allForms[val]);
+    let val = x.value;
+    console.log(val);
+    console.log("previous form: "+cForm);
+    cForm="form-"+alleID[num];
+    console.log("next form: "+cForm);
+    console.log("-------"+alleID[val]+"----------");
+    console.log(allForms[val]);
 
     // fillPhrase();
 }
