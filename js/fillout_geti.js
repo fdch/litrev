@@ -67,7 +67,7 @@ function getLit(x)
 
       var eID = booktitles.indexOf(ebook);
       var len = equot.length;
-      var col = 20;
+      var col = 40;
       var row = len/col+2;
 
       var formTag = makeInput(0, 'form', {
