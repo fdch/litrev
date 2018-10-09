@@ -1,5 +1,6 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
 var sliders=[],slidersVals=[],slidersID=[];
+var cForm;
 
 var maxQuery=10;
 
@@ -112,6 +113,7 @@ function getLit(x)
 
     x.appendChild(element('h3', "Quote ID # "+eqid));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
+    cForm="form-"+alleID[num];
     
 
     // makeInput(x, 'input', {
@@ -123,7 +125,7 @@ function getLit(x)
       "selQuoteID",
       x,
       alleID,
-      "selQuote(this)",
+      "selQuote(this,"+x+")",
       "Select Quote by Number:"
     );
 
@@ -139,10 +141,17 @@ function getLit(x)
   });
 }
 
-function selQuote(x) {
-    console.log(x.value);
-    console.log("-----------------");
-    console.log(allForms[x.value]);
+function selQuote(x,target) {
+    // document.getElementById(cForm)
+    let val = x.value;
+    console.log(val);
+    console.log("previous form: "+cForm);
+    cForm="form-"+alleID[num];
+    console.log("next form: "+cForm);
+    console.log("-------"+alleID[val]+"----------");
+    console.log(allForms[val]);
+
+    // fillPhrase();
 }
 
 // function isLetter(str) {
