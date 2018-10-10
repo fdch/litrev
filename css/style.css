@@ -1,4 +1,6 @@
 body {
+  color:burlywood;
+  background:black;
   margin:20px;
   font-family:Helvetica;
 }
@@ -23,7 +25,9 @@ ul {
   list-style: none;
 } 
 textarea {
-  font-size:1.1em;
+  color:burlywood;
+  background:black;
+  font-size:1.3em;
   font-family:"Times New Roman";
   padding:2%;
   border:0.1px solid grey;
