@@ -33,6 +33,12 @@ textarea, input[type=text], input[type=submit] {
   border:0.1px solid grey;
   border-radius:5px;
 }
+input[type=submit]:hover {
+  cursor:pointer;
+  color:white;
+  text-decoration:underline;
+  border:1px dashed red;
+}
 textarea:focus{
   outline:none;
   border:0.2px solid grey;
