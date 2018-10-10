@@ -24,7 +24,7 @@ a {
 ul {
   list-style: none;
 } 
-textarea {
+textarea, input[type=text], input[type=submit] {
   color:burlywood;
   background:black;
   font-size:1.3em;
@@ -36,10 +36,4 @@ textarea {
 textarea:focus{
   outline:none;
   border:0.2px solid grey;
-}
-input[type=text] {
-  background:burlywood;
-}
-input[type=submit] {
-  background:burlywood;
 }
