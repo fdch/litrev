@@ -9,11 +9,9 @@ var spreadsheetID = "1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE/";
 var altjson = "/public/values?alt=json";
 
 var formhttps = "https://docs.google.com/forms/d/e/";
-var formW = "1FAIpQLSeYVfH2-GpPXjdQc5wtf1tWBV3JV3idptzmgem4YuXwZEdLBQ";
 var formID = "1FAIpQLScijqg1IlmAWLsBgQ7jaUxEcCPUQqZroXG-9ZxXV4BvOKzbKg";
 
 var formURL = formhttps+formID+"/viewform";
-var formWurl = formhttps+formW+"/viewform";
 
 var lit 		= https + spreadsheetID + "1" + altjson;
 var currentForm = https + spreadsheetID + "2" + altjson;
