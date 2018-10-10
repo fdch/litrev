@@ -1,0 +1,68 @@
+/*
+--------------------------------------------------------------
+  Remove Styles
+--------------------------------------------------------------
+*/
+input[type=range] {
+  /* Hides the slider so that custom slider can be made */
+  -webkit-appearance: none;
+  /* Specific width is required for Firefox. */
+  width: 100%; 
+  /* Otherwise white in Chrome */
+  background: transparent; 
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+input[type=range]:focus {
+  /*accessibility */
+  outline: 1px dashed red;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+/*
+--------------------------------------------------------------
+  Apply New Styles
+--------------------------------------------------------------
+*/
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /*border: 1px solid #000000;*/
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  /* You need to specify a margin in Chrome, 
+  but in Firefox and IE it is automatic */
+  cursor: pointer;
+  margin-top: -14px;
+  /* Add cool effects to your sliders! */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; 
+}
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  /*border: 1px solid #000000;*/
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  /*border: 1px solid #000000;*/
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
