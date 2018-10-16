@@ -159,7 +159,8 @@ function getQuotes() {
   });
 }
 function placeElements(x){
-  console.log(x);
+  console.log(filQuoteID.length);
+  console.log(filQuoteID);
   var lastQuote = filQuoteID.length - 1;
   x.appendChild(element('h3', "Quote ID # "+filQuoteID[lastQuote]));
   x.appendChild(element('h4', fullquotes[alleID[lastQuote]]));
