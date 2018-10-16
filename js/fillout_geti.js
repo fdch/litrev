@@ -305,29 +305,35 @@ function getLit(x) {
     console.log("Couldn't Fetch Bibliography!");
   } else {
     console.log("gotBib");
-    if (getNum()) {
+    var numcheck = getNum();
+    if (numcheck) {
       console.log("Couldn't Fetch Current Fillout Number!");
     } else {
       console.log("Num: "+num);
-      if (getFil()) {
+      var filcheck = getFil();
+      if (filcheck) {
         console.log("Couldn't Fetch Fillout Quote ID!");
       } else {
         console.log("QuoteID: "+filQuoteID.length);
-        if (getKeys()) {
+        var keycheck = getKeys();
+        if (keycheck) {
           console.log("Couldn't Fetch Keywords!");
         } else{
           console.log("Sliders: "+slidersVals.length);
-          if (getQuotes()) {
+          quocheck = getQuotes();
+          if (quocheck) {
             console.log("Couldn't Fetch Quotes!");
           } else {
             console.log("Forms: "+allForms.length)
             console.log("Everything was Fetched Smoothly :)");
             console.log("...now placing elements on page...");
-            if (placeElements(x)) {
+            var elecheck = placeElements(x);
+            if (elecheck) {
               console.log("Coudn't Place Elements!");
             } else {
               console.log("Placed everything... now filling phrase.");
-              if (fillPhrase()) {
+              phrcheck = fillPhrase();
+              if (phrcheck) {
                 console.log("Couldnt' fill the phrase!")
               } else {
                 console.log("Congrats! All is good with the world.")
