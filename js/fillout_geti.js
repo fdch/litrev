@@ -2,6 +2,7 @@ var booktitles=[],allForms=[],fullquotes=[],alleID=[],alleqID=[];
 var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[],remainQuotes=[];
 var cForm;
 
+var quoteTimeout=5000;
 var maxQuery=10;
 
 function getLit(x)
@@ -129,42 +130,33 @@ function getLit(x)
       alleqID.push(eqid);
     }
 
-    x.appendChild(element('h3', "Quote ID # "+eqid));
-    x.appendChild(element('h4', fullquotes[alleID[num]]));
-    cForm="form-"+alleID[num]; //current form
-    
-
     // makeInput(x, 'input', {
     //   type:"button",
     //   value:"reMuse",
     //   onclick:"killPhrase();fillPhrase()"
     // });
 
-
-
-
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
       console.log("Filled Quotes   : "+filQuoteID.length);
       console.log("Total Quotes    : "+alleqID.length);
       console.log("Remaining Quotes: "+remainQuotes.length);
-    
-    }, 5000);
-    // document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
-
-    x.appendChild(allForms[num]);
-    x.appendChild(sliDiv);
-    
-    fillPhrase();
-
-    makeDropdown(
+      
+      x.appendChild(element('h3', "Quote ID # "+eqid));
+      x.appendChild(element('h4', fullquotes[alleID[num]]));
+      cForm="form-"+alleID[num]; //current form
+      makeDropdown(
       "selQuoteID",
       x,
       remainQuotes,
       "selQuote(this,"+x+")",
       "Select Quote by Number:"
-    ); 
-     
+      ); 
+      x.appendChild(allForms[num]);
+      x.appendChild(sliDiv);
+      fillPhrase();
+    }, quoteTimeout);
+
   });
 }
 
