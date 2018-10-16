@@ -132,7 +132,7 @@ function getQuotes() {
       consoleLog(len);
       return 1;
     } else {
-      // setTimeout( function() {
+      setTimeout( function() {
         while(len) {
           len--;
           var e = entry[len];
@@ -193,7 +193,7 @@ function getQuotes() {
             return 0;
           }
         }
-      // }, quoteTimeout);
+      }, quoteTimeout);
     }
     /////////////////////////////////////////////////////////
     //   END MAIN LOOP
