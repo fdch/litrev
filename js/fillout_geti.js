@@ -35,8 +35,12 @@ function getLit(x)
       var quotid = e.gsx$quoteid.$t;
       // var dateid = new Date(quotid);
       filQuoteID.push(quotid);
+        //Post the array to console to check
+      console.log('length:  '+filQuoteID.length);
+      console.log('lastitem:'+filQuoteID[filQuoteID.length]);
     }
   });
+
 
 
 
@@ -157,8 +161,6 @@ function getLit(x)
       
   });
 
-  //Post the array to console to check
-  console.log(filQuoteID.length);
 }
 
 function selQuote(x,target) {
