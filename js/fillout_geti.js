@@ -150,7 +150,9 @@ function getLit(x)
     x.appendChild(sliDiv);
 
     remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
-    console.log("Remaining Quotes: "+remainQuotes.length)
+    console.log("Filled Quotes   : "+filQuoteID.length);
+    console.log("Total Quotes    : "+alleqID.length);
+    console.log("Remaining Quotes: "+remainQuotes.length);
     
     // document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
 
