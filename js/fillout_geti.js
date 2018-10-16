@@ -86,8 +86,10 @@ function getLit(x)
       var col = 40;
       var row = len/col+2;
 
+      var formID = "form-"+eID;
+
       var formTag = makeInput(0, 'form', {
-          id:"form-"+eID,
+          id:formID,
           action:formAction
       });
 
@@ -129,7 +131,7 @@ function getLit(x)
 
     x.appendChild(element('h3', "Quote ID # "+eqid));
     x.appendChild(element('h4', fullquotes[alleID[num]]));
-    cForm="form-"+alleID[num];
+    cForm="form-"+alleID[num]; //current form
     
 
     // makeInput(x, 'input', {
@@ -138,45 +140,37 @@ function getLit(x)
     //   onclick:"killPhrase();fillPhrase()"
     // });
 
-    makeDropdown(
-      "selQuoteID",
-      x,
-      alleID,
-      "selQuote(this,"+x+")",
-      "Select Quote by Number:"
-    );
 
-    x.appendChild(allForms[num]);
-    x.appendChild(sliDiv);
+
 
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
       console.log("Filled Quotes   : "+filQuoteID.length);
       console.log("Total Quotes    : "+alleqID.length);
       console.log("Remaining Quotes: "+remainQuotes.length);
-
+    
     }, 5000);
     // document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
 
+    x.appendChild(allForms[num]);
+    x.appendChild(sliDiv);
+    
     fillPhrase();
 
-    // tagText("text=hello world");
-      
+    makeDropdown(
+      "selQuoteID",
+      x,
+      remainQuotes,
+      "selQuote(this,"+x+")",
+      "Select Quote by Number:"
+    ); 
+     
   });
-
 }
 
 function selQuote(x,target) {
-    // document.getElementById(cForm)
     let val = x.value;
     console.log(val);
-    console.log("previous form: "+cForm);
-    cForm="form-"+alleID[num];
-    console.log("next form: "+cForm);
-    console.log("-------"+alleID[val]+"----------");
-    console.log(allForms[val]);
-
-    // fillPhrase();
 }
 
 // function isLetter(str) {
