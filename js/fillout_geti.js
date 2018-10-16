@@ -1,5 +1,5 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
-var sliders=[],slidersVals=[],slidersID=[];
+var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[];
 var cForm;
 
 var maxQuery=10;
@@ -22,6 +22,23 @@ function getLit(x)
       num = e.gsx$currentnumber.$t;
     }
   });
+
+  loadJSON(fil, "GET", function(response) 
+  { 
+    // Get all quoteIDS from filled out sheet and make
+    // an array of DATE objects to account for the
+    // unwanted quotes, because they are already filled out.
+    var f  =  JSON.parse(response);
+    var entry = f.feed.entry;
+    filQuoteID=[];
+    for (var i in entry){
+      var e = entry[i];
+      filQuoteID.push(new Date((e.gsx$quoteid.$t).replace(/\'/,'')));
+    }
+  });
+
+  //Post the array to console to check
+  console.log(filQuoteID.join());
 
 
   loadJSON(keys, "GET", function(response) 
