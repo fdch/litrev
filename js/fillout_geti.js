@@ -189,7 +189,7 @@ function getQuotes() {
           //   Push element ID to alleID array
           alleID.push(eID);
           if (len == lim) {
-            // consoleLog("Excellent, num is: "+num);
+            consoleLog("Excellent, allForms.length is: "+allForms.length);
             return 0;
           }
         }
