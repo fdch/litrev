@@ -26,7 +26,7 @@ function getNum() {
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////	
-    return n?0:console.log(n),1;
+    return n?0:consoleLog(n),1;
   });}
 function getFil() {
   loadJSON(fil, "GET", function(response) { 
@@ -42,13 +42,13 @@ function getFil() {
       var e = entry[i];
       var quotid = e.gsx$quoteid.$t;
       filQuoteID.push(new Date(quotid));
-      //	console.log('length:  '+filQuoteID.length);
-      //	console.log('lastitem:'+filQuoteID[filQuoteID.length-1]);
+      //	consoleLog('length:  '+filQuoteID.length);
+      //	consoleLog('lastitem:'+filQuoteID[filQuoteID.length-1]);
     }
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return filQuoteID.length?0:console.log(filQuoteID.length),1;
+    return filQuoteID.length?0:consoleLog(filQuoteID.length),1;
   });}
 function getKeys() {
   loadJSON(keys, "GET", function(response) { 
@@ -84,7 +84,7 @@ function getKeys() {
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return slidersVals.length?0:console.log(slidersVals.length),1;
+    return slidersVals.length?0:consoleLog(slidersVals.length),1;
   });}
 function getQuotes() {
   loadJSON(lit, "GET", function(response) {
@@ -152,7 +152,7 @@ function getQuotes() {
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return allForms.length?0:console.log(allForms.length),1;
+    return allForms.length?0:consoleLog(allForms.length),1;
   });}
 function placeElements(x){
   x.appendChild(element('h3', "Quote ID # "+filQuoteID[filQuoteID.length-1]));
@@ -173,24 +173,24 @@ function placeElements(x){
   if (allForms.length)
     x.appendChild(allForms[num]);
   else
-    return console.log(allForms),1;
+    return consoleLog(allForms),1;
   if (sliDiv.length)
     x.appendChild(sliDiv);
   else
-    return console.log(sliDiv),1;
+    return consoleLog(sliDiv),1;
   //  document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
   //  tagText("text=hello world"); 
-  return x?0:console.log(x),1;
+  return x?0:consoleLog(x),1;
 }
 function selQuote(x,target) {
   //  document.getElementById(cForm)
   let val = x.value;
-  console.log(val);
-  console.log("previous form: "+cForm);
+  consoleLog(val);
+  consoleLog("previous form: "+cForm);
   cForm="form-"+alleID[num];
-  console.log("next form: "+cForm);
-  console.log("-------"+alleID[val]+"----------");
-  console.log(allForms[val]);
+  consoleLog("next form: "+cForm);
+  consoleLog("-------"+alleID[val]+"----------");
+  consoleLog(allForms[val]);
   //  fillPhrase();
   return 0;}
 function killPhrase() {
@@ -202,14 +202,14 @@ function fillPhrase(){
   //  Get the Quotes Textarea
   var q = document.getElementById(formNames[0]);
   if (p.value) {
-      console.log("Paraphrase \'"+{p}+"\' is already Filled out. Skipping Phrase");
+      consoleLog("Paraphrase \'"+{p}+"\' is already Filled out. Skipping Phrase");
       return 1;
   } else {
     var squote = [];
     //  Get all Quotes into 'phrases' Array
     var phrases = q.value.split('. ');
     if (!phrases.length) {
-      console.log({phrases}+" was empty. Skipping auto-fill.");
+      consoleLog({phrases}+" was empty. Skipping auto-fill.");
       return 1;
     } else {
       //////////////////////////////////////////////////////////
@@ -219,7 +219,7 @@ function fillPhrase(){
         //  Split all Words from 'phrases' to 'quoter' Array
         var quoter = phrases[j].split(' ');
         if (!quoter.length) {
-          console.log({quoter}+" from "+{phrases}+" was empty. Skipping Datamuse.");
+          consoleLog({quoter}+" from "+{phrases}+" was empty. Skipping Datamuse.");
         } else {
           for (let i in quoter) {
             //  Fetch from datamuse.com
@@ -230,7 +230,7 @@ function fillPhrase(){
               if(f[lucky]){
                 p.appendChild(document.createTextNode(f[lucky]['word']+" "));
               } else {
-                console.log("Can't append with empty data in: "+{f});
+                consoleLog("Can't append with empty data in: "+{f});
               }
             });
           }
