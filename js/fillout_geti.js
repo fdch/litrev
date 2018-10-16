@@ -304,18 +304,23 @@ function getLit(x) {
   if (getBib()) {
     console.log("Couldn't Fetch Bibliography!");
   } else {
+    console.log("gotBib");
     if (getNum()) {
       console.log("Couldn't Fetch Current Fillout Number!");
     } else {
+      console.log("Num: "+num);
       if (getFil()) {
         console.log("Couldn't Fetch Fillout Quote ID!");
       } else {
+        console.log("QuoteID: "+filQuoteID.length);
         if (getKeys()) {
           console.log("Couldn't Fetch Keywords!");
         } else{
+          console.log("Sliders: "+slidersVals.length);
           if (getQuotes()) {
             console.log("Couldn't Fetch Quotes!");
           } else {
+            console.log("Forms: "+allForms.length)
             console.log("Everything was Fetched Smoothly :)");
             console.log("...now placing elements on page...");
             if (placeElements(x)) {
