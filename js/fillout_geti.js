@@ -34,7 +34,7 @@ function getLit(x)
       var e = entry[i];
       var quotid = e.gsx$quoteid.$t;
       var dateid = new Date(quotid);
-      filQuoteID.push(datid);
+      filQuoteID.push(dateid);
     }
   });
 
