@@ -1,5 +1,5 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
-var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[];
+var sliders=[],slidersVals=[],slidersID=[],filQuoteID={};
 var cForm;
 
 var maxQuery=10;
