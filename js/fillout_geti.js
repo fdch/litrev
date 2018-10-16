@@ -37,7 +37,7 @@ function getLit(x)
       // console.log('lastitem:'+filQuoteID[filQuoteID.length-1]);
     }
     //Post the array to console to check
-    console.log(filQuoteID);
+    // console.log(filQuoteID);
   });
   loadJSON(keys, "GET", function(response) 
   { 
