@@ -1,5 +1,6 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[],alleqID=[];
 var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[],remainQuotes=[];
+var allFormObjects={};
 var cForm;
 
 var quoteTimeout=5000;
@@ -125,6 +126,7 @@ function getLit(x)
           value:"Submit"
       });
       
+      allFormObjects[eqid]=formTag;
       allForms.push(formTag);
       alleID.push(eID);
       alleqID.push(eqid);
@@ -141,10 +143,13 @@ function getLit(x)
       console.log("Filled Quotes   : "+filQuoteID.length);
       console.log("Total Quotes    : "+alleqID.length);
       console.log("Remaining Quotes: "+remainQuotes.length);
+      console.log("All Form Objects");
+      console.log(allFormObjects);
       
       x.appendChild(element('h3', "Quote ID # "+eqid));
       x.appendChild(element('h4', fullquotes[alleID[num]]));
       cForm="form-"+alleID[num]; //current form
+      
       makeDropdown(
       "selQuoteID",
       x,
@@ -152,6 +157,7 @@ function getLit(x)
       "selQuote(this)",
       "Select Quote by Number:"
       ); 
+      
       x.appendChild(allForms[num]);
       x.appendChild(sliDiv);
       fillPhrase();
@@ -164,12 +170,6 @@ function selQuote(x,target) {
     let val = x.value;
     console.log(val);
 }
-
-// function isLetter(str) {
-//   return str.length === 1 && str.match(/[a-z]/i);
-// }
-
-
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
 }
