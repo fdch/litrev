@@ -1,5 +1,5 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
-var sliders=[],slidersVals=[],slidersID=[],filQuoteID={};
+var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[];
 var cForm;
 
 var maxQuery=10;
@@ -33,8 +33,8 @@ function getLit(x)
     for (var i in entry){
       var e = entry[i];
       var quotid = e.gsx$quoteid.$t;
-      var dateid = new Date(quotid);
-      filQuoteID.push(dateid);
+      // var dateid = new Date(quotid);
+      filQuoteID.push(quotid);
     }
   });
 
