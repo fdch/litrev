@@ -142,21 +142,7 @@ function getLit(x,y)
       console.log("Filled Quotes   : "+filQuoteID.length);
       console.log("Total Quotes    : "+alleqID.length);
       console.log("Remaining Quotes: "+remainQuotes.length);
-      // console.log("All Form Objects");
-      // console.log(allFormObjects);
-      makeDropdown(
-      "selQuoteID",
-      x,
-      remainQuotes,
-      "selQuote(this)",
-      "Select Quote by Number:"
-      ); 
-      
-      x.appendChild(allFormObjects[eqid]);
-      x.appendChild(sliDiv);
-      fillPhrase();
-      y.appendChild(element('h3', "Quote ID # "+eqid));
-      y.appendChild(element('h4', fullquotes[alleID[num]]));
+      selQuote(eqid);
     }, quoteTimeout);
 
   });
@@ -170,7 +156,16 @@ function selQuote(x) {
     for (let i in hstuff) headTag.appendChild(hstuff[i]);
     headTag.appendChild(element('h3', "Quote ID # "+val));
     headTag.appendChild(element('h4', fullquotes[alleID[num]]));
+    makeDropdown(
+      "selQuoteID",
+      x,
+      remainQuotes,
+      "selQuote(this)",
+      "Select Quote by Number:"
+      ); 
     mainTag.appendChild(allFormObjects[val]);
+    mainTag.appendChild(sliDiv);
+    fillPhrase();
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
