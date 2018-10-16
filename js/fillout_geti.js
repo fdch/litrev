@@ -27,7 +27,8 @@ function getNum() {
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////	
     return n?0:consoleLog(n),1;
-  });}
+  });
+}
 function getFil() {
   loadJSON(fil, "GET", function(response) { 
     //	Get all quoteIDS from filled out sheet and make
@@ -49,7 +50,8 @@ function getFil() {
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
     return filQuoteID.length?0:consoleLog(filQuoteID.length),1;
-  });}
+  });
+}
 function getKeys() {
   loadJSON(keys, "GET", function(response) { 
     var f  =  JSON.parse(response);
@@ -85,7 +87,8 @@ function getKeys() {
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
     return slidersVals.length?0:consoleLog(slidersVals.length),1;
-  });}
+  });
+}
 function getQuotes() {
   loadJSON(lit, "GET", function(response) {
     var f = JSON.parse(response);
@@ -153,9 +156,10 @@ function getQuotes() {
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
     return allForms.length?0:consoleLog(allForms.length),1;
-  });}
+  });
+}
 function placeElements(x){
-  var lastQuote = filQuoteID.length-1;
+  var lastQuote = num;
   x.appendChild(element('h3', "Quote ID # "+filQuoteID[lastQuote]));
   x.appendChild(element('h4', fullquotes[alleID[lastQuote]]));
   cForm="form-"+alleID[lastQuote];
@@ -179,7 +183,8 @@ function placeElements(x){
     x.appendChild(sliDiv);
   else
     return consoleLog(sliDiv),1;
-  return x?0:consoleLog(x),1;}
+  return x?0:consoleLog(x),1;
+}
 function selQuote(x,target) {
   //  document.getElementById(cForm)
   let val = x.value;
@@ -190,10 +195,12 @@ function selQuote(x,target) {
   consoleLog("-------"+alleID[val]+"----------");
   consoleLog(allForms[val]);
   //  fillPhrase();
-  return 0;}
+  return 0;
+}
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
-  return 0;}
+  return 0;
+}
 function fillPhrase(){
   //  Get the Paraphrase Textarea
   var p = document.getElementById(formNames[1]);
@@ -240,7 +247,8 @@ function fillPhrase(){
       //////////////////////////////////////////////////////////
       return 0;
     }
-  }}
+  }
+}
 /////////////////////////////////////////////////////////////////////////
 //  MAIN ROUTINE
 /////////////////////////////////////////////////////////////////////////
