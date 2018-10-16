@@ -30,7 +30,7 @@ function getNum() {
         var e = entry[len];
         num = e.gsx$currentnumber.$t;
         if (len == lim) {
-          // consoleLog("Excellent, num is: "+num);
+          consoleLog("Excellent, num is: "+num);
           return 0;
         }
       }
@@ -62,7 +62,7 @@ function getFil() {
         var quotid = e.gsx$quoteid.$t;
         filQuoteID.push(new Date(quotid));
         if (len == lim) {
-          // consoleLog("Excellent, num is: "+num);
+          consoleLog("Excellent, filQuoteID.length is: "+filQuoteID.length);
           return 0;
         }
       }
@@ -109,7 +109,7 @@ function getKeys() {
         //  Push Slider ID to its sliderLink Array to link it
         slidersID.push(sliderLink);
         if (len == lim) {
-          // consoleLog("Excellent, num is: "+num);
+          consoleLog("Excellent, slidersVals.length is: "+slidersVals.length);
           return 0;
         }
       }
