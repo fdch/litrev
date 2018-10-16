@@ -32,7 +32,9 @@ function getLit(x)
     var entry = f.feed.entry;
     for (var i in entry){
       var e = entry[i];
-      filQuoteID.push(new Date((e.gsx$quoteid.$t).replace(/\'/g,'')));
+      filQuoteID.push(new Date(e.gsx$quoteid.$t));
+
+      // filQuoteID.push(new Date((e.gsx$quoteid.$t).replace(/\'/g,'')));
     }
   });
 
@@ -154,7 +156,7 @@ function getLit(x)
     // tagText("text=hello world");
       
   });
-  
+
   //Post the array to console to check
   console.log(filQuoteID.join());
 }
