@@ -26,7 +26,7 @@ function getNum() {
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////	
-    return chequera(n);
+    return n?0:consoleLog(n),1;
   });}
 function getFil() {
   loadJSON(fil, "GET", function(response) { 
@@ -42,13 +42,13 @@ function getFil() {
       var e = entry[i];
       var quotid = e.gsx$quoteid.$t;
       filQuoteID.push(new Date(quotid));
-      //	console.log('length:  '+filQuoteID.length);
-      //	console.log('lastitem:'+filQuoteID[filQuoteID.length-1]);
+      //	consoleLog('length:  '+filQuoteID.length);
+      //	consoleLog('lastitem:'+filQuoteID[filQuoteID.length-1]);
     }
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
-    /////////////////////////////////////////////////////////	
-    return chequera(filQuoteID.length);
+    /////////////////////////////////////////////////////////
+    return filQuoteID.length?0:consoleLog(filQuoteID.length),1;
   });}
 function getKeys() {
   loadJSON(keys, "GET", function(response) { 
@@ -83,8 +83,8 @@ function getKeys() {
     }
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
-    /////////////////////////////////////////////////////////	
-    return chequera(slidersVals.length);
+    /////////////////////////////////////////////////////////
+    return slidersVals.length?0:consoleLog(slidersVals.length),1;
   });}
 function getQuotes() {
   loadJSON(lit, "GET", function(response) {
@@ -152,7 +152,7 @@ function getQuotes() {
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return chequera(allForms.length);
+    return allForms.length?0:consoleLog(allForms.length),1;
   });}
 function placeElements(x){
   x.appendChild(element('h3', "Quote ID # "+filQuoteID[filQuoteID.length-1]));
@@ -170,27 +170,27 @@ function placeElements(x){
     "selQuote(this,"+x+")",
     "Select Quote by Number:"
   );
-  if (!chequera(allForms.length))
+  if (allForms.length)
     x.appendChild(allForms[num]);
   else
-    return 1;
-  if (!chequera(sliDiv.length))
+    return consoleLog(allForms),1;
+  if (sliDiv.length)
     x.appendChild(sliDiv);
   else
-    return 1;
+    return consoleLog(sliDiv),1;
   //  document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
   //  tagText("text=hello world"); 
-  return chequera(x); 
+  return x?0:consoleLog(x),1;
 }
 function selQuote(x,target) {
   //  document.getElementById(cForm)
   let val = x.value;
-  console.log(val);
-  console.log("previous form: "+cForm);
+  consoleLog(val);
+  consoleLog("previous form: "+cForm);
   cForm="form-"+alleID[num];
-  console.log("next form: "+cForm);
-  console.log("-------"+alleID[val]+"----------");
-  console.log(allForms[val]);
+  consoleLog("next form: "+cForm);
+  consoleLog("-------"+alleID[val]+"----------");
+  consoleLog(allForms[val]);
   //  fillPhrase();
   return 0;}
 function killPhrase() {
@@ -202,14 +202,14 @@ function fillPhrase(){
   //  Get the Quotes Textarea
   var q = document.getElementById(formNames[0]);
   if (p.value) {
-      console.log("Paraphrase \'"+{p}+"\' is already Filled out. Skipping Phrase");
+      consoleLog("Paraphrase \'"+{p}+"\' is already Filled out. Skipping Phrase");
       return 1;
   } else {
     var squote = [];
     //  Get all Quotes into 'phrases' Array
     var phrases = q.value.split('. ');
     if (!phrases.length) {
-      console.log({phrases}+" was empty. Skipping auto-fill.");
+      consoleLog({phrases}+" was empty. Skipping auto-fill.");
       return 1;
     } else {
       //////////////////////////////////////////////////////////
@@ -219,7 +219,7 @@ function fillPhrase(){
         //  Split all Words from 'phrases' to 'quoter' Array
         var quoter = phrases[j].split(' ');
         if (!quoter.length) {
-          console.log({quoter}+" from "+{phrases}+" was empty. Skipping Datamuse.");
+          consoleLog({quoter}+" from "+{phrases}+" was empty. Skipping Datamuse.");
         } else {
           for (let i in quoter) {
             //  Fetch from datamuse.com
@@ -230,7 +230,7 @@ function fillPhrase(){
               if(f[lucky]){
                 p.appendChild(document.createTextNode(f[lucky]['word']+" "));
               } else {
-                console.log("Can't append with empty data in: "+{f});
+                consoleLog("Can't append with empty data in: "+{f});
               }
             });
           }
@@ -248,30 +248,30 @@ function fillPhrase(){
 /////////////////////////////////////////////////////////////////////////
 function getLit(x) {
   if (getBib()) {
-    console.log("Couldn't Fetch Bibliography!");
+    consoleLog("Couldn't Fetch Bibliography!");
   } else {
     if (getNum()) {
-      console.log("Couldn't Fetch Current Fillout Number!");
+      consoleLog("Couldn't Fetch Current Fillout Number!");
     } else {
       if (getFil()) {
-        console.log("Couldn't Fetch Fillout Quote ID!");
+        consoleLog("Couldn't Fetch Fillout Quote ID!");
       } else {
         if (getKeys()) {
-          console.log("Couldn't Fetch Keywords!");
+          consoleLog("Couldn't Fetch Keywords!");
         } else{
           if (getQuotes()) {
-            console.log("Couldn't Fetch Quotes!");
+            consoleLog("Couldn't Fetch Quotes!");
           } else {
-            console.log("Everything was Fetched Smoothly :)");
-            console.log("...now placing elements on page...");
+            consoleLog("Everything was Fetched Smoothly :)");
+            consoleLog("...now placing elements on page...");
             if (placeElements(x)) {
-              console.log("Coudn't Place Elements!");
+              consoleLog("Coudn't Place Elements!");
             } else {
-              console.log("Placed everything... now filling phrase.");
+              consoleLog("Placed everything... now filling phrase.");
               if (fillPhrase()) {
-                console.log("Couldnt' fill the phrase!")
+                consoleLog("Couldnt' fill the phrase!")
               } else {
-                console.log("Congrats! All is good with the world.")
+                consoleLog("Congrats! All is good with the world.")
               }
             }
           }

@@ -175,21 +175,6 @@ consoleLog = function(msg) {//See https://stackoverflow.com/a/27074218/470749
     console.log(msg, '          [' + stack[1] + ']');        
 }
 
-
-function chequera(x) {
-  //  IF THE NUMBER IN THE ARGUMENT IS GREATER THAN 0
-  //  THEN RETURN 0 WITH NO ERROR REPORTING
-  //  OTHERWISE REPORT ERROR MESSAGE
-  //  AND RETURN 1
-  if (x) {
-    return 0;
-  } else {
-    consoleLog("Chequera found something bad in:");
-    consoleLog({x});
-    return 1;
-  }
-}
-
 function getBib() {
     loadJSON(bib,"GET", function(response)
   {
@@ -232,7 +217,7 @@ function getBib() {
       booktitles.push(ebook);
       fullquotes.push(quote.join(''));
     }
-    return chequera(booktitles.length);
+    return booktitles.length?0:consoleLog(booktitles.length),1;
   });
 }
 
