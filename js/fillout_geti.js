@@ -218,7 +218,7 @@ function fillPhrase()
         //  Split all Words from 'phrases' to 'quoter' Array
         var quoter = phrases[j].split(' ');
         if (!quoter.length) {
-          console.log({quoter}+" from "+{phrases[j]}+" was empty. Skipping Datamuse.");
+          console.log({quoter}+" from "+{phrases}+" was empty. Skipping Datamuse.");
         } else {
           for (let i in quoter) {
             //  Fetch from datamuse.com
