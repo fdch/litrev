@@ -30,15 +30,12 @@ function getLit(x)
     // unwanted quotes, because they are already filled out.
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
-    filQuoteID=[];
     for (var i in entry){
       var e = entry[i];
-      filQuoteID.push(new Date((e.gsx$quoteid.$t).replace(/\'/,'')));
+      filQuoteID.push(new Date((e.gsx$quoteid.$t).replace(/\'/g,'')));
     }
   });
 
-  //Post the array to console to check
-  console.log(filQuoteID.join());
 
 
   loadJSON(keys, "GET", function(response) 
@@ -155,8 +152,11 @@ function getLit(x)
     fillPhrase();
 
     // tagText("text=hello world");
-  
+      
   });
+  
+  //Post the array to console to check
+  console.log(filQuoteID.join());
 }
 
 function selQuote(x,target) {
