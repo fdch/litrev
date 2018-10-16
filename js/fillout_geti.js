@@ -180,7 +180,7 @@ function placeElements(x){
     return 1;
   //  document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
   //  tagText("text=hello world"); 
-  return 0;//chequera(x); 
+  return chequera(x); 
 }
 function selQuote(x,target) {
   //  document.getElementById(cForm)

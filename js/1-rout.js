@@ -156,6 +156,25 @@ function makeInput(target,tag,obj) {
   return t;
 }
 
+consoleLog = function(msg) {//See https://stackoverflow.com/a/27074218/470749
+    var e = new Error();
+    if (!e.stack)
+        try {
+            // IE requires the Error to actually be thrown or else the 
+            // Error's 'stack' property is undefined.
+            throw e;
+        } catch (e) {
+            if (!e.stack) {
+                //return 0; // IE < 10, likely
+            }
+        }
+    var stack = e.stack.toString().split(/\r\n|\n/);
+    if (msg === '') {
+        msg = '""';
+    }
+    console.log(msg, '          [' + stack[1] + ']');        
+}
+
 
 function chequera(x) {
   //  IF THE NUMBER IN THE ARGUMENT IS GREATER THAN 0
@@ -165,8 +184,8 @@ function chequera(x) {
   if (x) {
     return 0;
   } else {
-    console.log("Chequera found something bad in:");
-    console.log({x});
+    consoleLog("Chequera found something bad in:");
+    consoleLog({x});
     return 1;
   }
 }
