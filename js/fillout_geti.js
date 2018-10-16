@@ -29,7 +29,7 @@ function getNum() {
         var e = entry[len];
         num = e.gsx$currentnumber.$t;
         if (len == lim) {
-          consoleLog("Excellent, num is: "+num);
+          // consoleLog("Excellent, num is: "+num);
           return 0;
         }
       }
@@ -46,127 +46,155 @@ function getFil() {
     //	unwanted quotes, because they are already filled out.
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
-
+    var len = entry.length;
+    var lim = len-1;
     /////////////////////////////////////////////////////////
-    //	 BEGIN MAIN LOOP
-    /////////////////////////////////////////////////////////
-    for (var i in entry){
-      var e = entry[i];
-      var quotid = e.gsx$quoteid.$t;
-      filQuoteID.push(new Date(quotid));
-      //	consoleLog('length:  '+filQuoteID.length);
-      //	consoleLog('lastitem:'+filQuoteID[filQuoteID.length-1]);
+    //   BEGIN MAIN LOOP
+    /////////////////////////////////////////////////////////   
+    if (!len) {
+      consoleLog(len);
+      return 1;
+    } else {
+        while(len) {
+        len--;
+        var e = entry[len];
+        var quotid = e.gsx$quoteid.$t;
+        filQuoteID.push(new Date(quotid));
+        if (len == lim) {
+          // consoleLog("Excellent, num is: "+num);
+          return 0;
+        }
+      }
     }
     /////////////////////////////////////////////////////////
-    //	 END MAIN LOOP
+    //   END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return filQuoteID.length?0:consoleLog(filQuoteID.length),1;
   });
 }
 function getKeys() {
   loadJSON(keys, "GET", function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
+    var len = entry.length;
+    var lim = len-1;
     /////////////////////////////////////////////////////////
-    //	 BEGIN MAIN LOOP
-    /////////////////////////////////////////////////////////	
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var sliderName = e.gsx$keywords.$t;
-      var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
-      // var slValue = Math.floor((Math.random()*100));
-      var slValue = 0;
-      //  Make a Slider input within the slider Div element
-      makeInput(sliDiv,'input',{
-         type:"range",
-         name: sliderName,
-         oninput:"stats(this)",
-         value: slValue,
-         min:0,
-         max:100,
-         label:sliderName,
-         id:sliderLink,
-         style:"display:block;width:"+articleWidth(500)+"px;"
-      });
-      //  Push slider Values to its corresponding Array
-      slidersVals.push(slValue);
-      //  Push Slider ID to its sliderLink Array to link it
-      slidersID.push(sliderLink);
+    //   BEGIN MAIN LOOP
+    /////////////////////////////////////////////////////////   
+    if (!len) {
+      consoleLog(len);
+      return 1;
+    } else {
+        while(len) {
+        len--;
+        var e = entry[len];
+        var sliderName = e.gsx$keywords.$t;
+        var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
+        // var slValue = Math.floor((Math.random()*100));
+        var slValue = 0;
+        //  Make a Slider input within the slider Div element
+        makeInput(sliDiv,'input',{
+           type:"range",
+           name: sliderName,
+           oninput:"stats(this)",
+           value: slValue,
+           min:0,
+           max:100,
+           label:sliderName,
+           id:sliderLink,
+           style:"display:block;width:"+articleWidth(500)+"px;"
+        });
+        //  Push slider Values to its corresponding Array
+        slidersVals.push(slValue);
+        //  Push Slider ID to its sliderLink Array to link it
+        slidersID.push(sliderLink);
+        if (len == lim) {
+          // consoleLog("Excellent, num is: "+num);
+          return 0;
+        }
+      }
     }
     /////////////////////////////////////////////////////////
-    //	 END MAIN LOOP
+    //   END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return slidersVals.length?0:consoleLog(slidersVals.length),1;
   });
 }
 function getQuotes() {
   loadJSON(lit, "GET", function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
+    var len = entry.length;
+    var lim = len-1;
     /////////////////////////////////////////////////////////
-    //	 BEGIN MAIN LOOP
-    /////////////////////////////////////////////////////////	
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var ebook = e.gsx$booktitle.$t;
-      var eauth = e.gsx$author.$t;
-      var equot = e.gsx$quickquote.$t;
-      var epara = e.gsx$paraphrase.$t;
-      var eqid  = (e.gsx$timestamp.$t).replace(/\'/g,'');
-      var eID = booktitles.indexOf(ebook);
-      var len = equot.length;
-      var col = 40;
-      var row = len/col+2;
-      //  Make the form Tag with corresponding formAction
-      var formTag = makeInput(0, 'form', {
-          id:"form-"+eID,
-          action:formAction
-      });
-      //  Go through both textareas and fill them with
-      //  either quote or paraphrase
-      for (let i=0; i<2; i++) {
-        makeInput(formTag,'textarea', 
-        {
-          id:formNames[i],
-          name:formNames[i],
-          type:"message",
-          rows:row,
-          cols:col,
-          text:i==0?equot:epara,
-          style:"margin-right:5px;"
+    //   BEGIN MAIN LOOP
+    /////////////////////////////////////////////////////////   
+    if (!len) {
+      consoleLog(len);
+      return 1;
+    } else {
+        while(len) {
+        len--;
+        var e = entry[len];
+        var ebook = e.gsx$booktitle.$t;
+        var eauth = e.gsx$author.$t;
+        var equot = e.gsx$quickquote.$t;
+        var epara = e.gsx$paraphrase.$t;
+        var eqid  = (e.gsx$timestamp.$t).replace(/\'/g,'');
+        var eID = booktitles.indexOf(ebook);
+        var len = equot.length;
+        var col = 40;
+        var row = len/col+2;
+        //  Make the form Tag with corresponding formAction
+        var formTag = makeInput(0, 'form', {
+            id:"form-"+eID,
+            action:formAction
         });
-      }      
-      //  Go through both inputs and fill them with
-      //  either quote id or slider values
-      for (let i=2; i<4; i++) {
+        //  Go through both textareas and fill them with
+        //  either quote or paraphrase
+        for (let i=0; i<2; i++) {
+          makeInput(formTag,'textarea', 
+          {
+            id:formNames[i],
+            name:formNames[i],
+            type:"message",
+            rows:row,
+            cols:col,
+            text:i==0?equot:epara,
+            style:"margin-right:5px;"
+          });
+        }      
+        //  Go through both inputs and fill them with
+        //  either quote id or slider values
+        for (let i=2; i<4; i++) {
+          makeInput(formTag,'input', 
+          {
+            id:formNames[i],
+            name:formNames[i],
+            type:"text",
+            size:(i==3?eqid.length:slidersVals.length*2),
+            value:i==3?eqid.replace(/\'/g,''):slidersVals.join(' '),
+            style:"display:block;margin:3px"
+          });
+        }
+        //  Finally, make the Submit button
         makeInput(formTag,'input', 
         {
-          id:formNames[i],
-          name:formNames[i],
-          type:"text",
-          size:(i==3?eqid.length:slidersVals.length*2),
-          value:i==3?eqid.replace(/\'/g,''):slidersVals.join(' '),
-          style:"display:block;margin:3px"
+            type:"submit",
+            id:"thesubmit",
+            value:"Submit"
         });
+        //  Push form Element to allForms array
+        allForms.push(formTag);
+        //   Push element ID to alleID array
+        alleID.push(eID);
+        if (len == lim) {
+          // consoleLog("Excellent, num is: "+num);
+          return 0;
+        }
       }
-      //	Finally, make the Submit button
-      makeInput(formTag,'input', 
-      {
-          type:"submit",
-          id:"thesubmit",
-          value:"Submit"
-      });
-      //	Push form Element to allForms array
-      allForms.push(formTag);
-      //	 Push element ID to alleID array
-      alleID.push(eID);
     }
     /////////////////////////////////////////////////////////
-    //	 END MAIN LOOP
+    //   END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return allForms.length?0:consoleLog(allForms.length),1;
   });
 }
 function placeElements(x){
