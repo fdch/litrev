@@ -171,16 +171,16 @@ function placeElements(x){
     "Select Quote by Number:"
   );
   if (!chequera(allForms.length))
-    x.appendChild(allForms[num])
+    x.appendChild(allForms[num]);
   else
     return 1;
   if (!chequera(sliDiv.length))
-    x.appendChild(sliDiv)
+    x.appendChild(sliDiv);
   else
     return 1;
   //  document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
   //  tagText("text=hello world"); 
-  return chequera(x); 
+  return 0;//chequera(x); 
 }
 function selQuote(x,target) {
   //  document.getElementById(cForm)
