@@ -64,7 +64,7 @@ function getLit(x)
       var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
-      var eqid = e.gsx$timestamp.$t;
+      var eqid  = (e.gsx$timestamp.$t).replace(/\'/g,'');
 
       var eID = booktitles.indexOf(ebook);
       var len = equot.length;
@@ -96,7 +96,7 @@ function getLit(x)
           name:formNames[i],
           type:"text",
           size:(i==3?eqid.length:slidersVals.length*2),
-          value:i==3?eqid:slidersVals.join(' '),
+          value:i==3?eqid.replace(/\'/g,''):slidersVals.join(' '),
           style:"display:block;margin:3px"
         });
       }
@@ -121,7 +121,7 @@ function getLit(x)
     //   value:"reMuse",
     //   onclick:"killPhrase();fillPhrase()"
     // });
-    
+
     makeDropdown(
       "selQuoteID",
       x,
