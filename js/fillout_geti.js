@@ -16,6 +16,8 @@ function getNum() {
   loadJSON(currentForm, "GET", function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
+    var len = entry.length;
+    console.log(len);
     /////////////////////////////////////////////////////////
     //	 BEGIN MAIN LOOP
     /////////////////////////////////////////////////////////	
@@ -36,6 +38,7 @@ function getFil() {
     //	unwanted quotes, because they are already filled out.
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
+
     /////////////////////////////////////////////////////////
     //	 BEGIN MAIN LOOP
     /////////////////////////////////////////////////////////
