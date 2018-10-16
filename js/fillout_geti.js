@@ -32,7 +32,7 @@ function getLit(x)
     for (var i in entry){
       var e = entry[i];
       var quotid = e.gsx$quoteid.$t;
-      filQuoteID.push(quotid);
+      filQuoteID.push(new Date(quotid));
       // console.log('length:  '+filQuoteID.length);
       // console.log('lastitem:'+filQuoteID[filQuoteID.length-1]);
     }
