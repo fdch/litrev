@@ -32,7 +32,7 @@ function getLit(x)
     var entry = f.feed.entry;
     for (var i in entry){
       var e = entry[i];
-      filQuoteID.push({e.gsx$quoteid.$t,'entry '+i});
+      filQuoteID.push(['entry '+i,e.gsx$quoteid.$t]);
       // filQuoteID.push(new Date((e.gsx$quoteid.$t).replace(/\'/g,'')));
     }
   });
