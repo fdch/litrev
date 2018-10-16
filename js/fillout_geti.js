@@ -143,8 +143,8 @@ function getLit(x)
       console.log("Filled Quotes   : "+filQuoteID.length);
       console.log("Total Quotes    : "+alleqID.length);
       console.log("Remaining Quotes: "+remainQuotes.length);
-      console.log("All Form Objects");
-      console.log(allFormObjects);
+      // console.log("All Form Objects");
+      // console.log(allFormObjects);
       
       x.appendChild(element('h3', "Quote ID # "+eqid));
       x.appendChild(element('h4', fullquotes[alleID[num]]));
@@ -166,9 +166,9 @@ function getLit(x)
   });
 }
 
-function selQuote(x,target) {
+function selQuote(x) {
     let val = x.value;
-    console.log(val);
+    console.log(allFormObjects[val]);
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
