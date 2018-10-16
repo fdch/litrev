@@ -149,7 +149,7 @@ function getLit(x)
       "selQuoteID",
       x,
       remainQuotes,
-      "selQuote(this,"+x+")",
+      "selQuote(this)",
       "Select Quote by Number:"
       ); 
       x.appendChild(allForms[num]);
