@@ -39,4 +39,4 @@ var formNames = [
 	"entry.1644345852"
 ];
 
-var headTag,mainTag;
+var headTag,mainTag,hstuff=[];

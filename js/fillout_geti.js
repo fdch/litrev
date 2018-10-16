@@ -1,17 +1,16 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[],alleqID=[];
 var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[],remainQuotes=[];
 var allFormObjects={};
-var cForm;
+var cForm, num;
 
 var quoteTimeout=5000;
 var maxQuery=10;
 
-function getLit(x)
+function getLit(x,y)
 {
 
   getBib();
 
-  var num = 0;
   var sliDiv = element('div', '', 'sliDiv');
 
   loadJSON(currentForm, "GET", function(response) 
@@ -153,7 +152,7 @@ function getLit(x)
       "Select Quote by Number:"
       ); 
       
-      x.appendChild(allForms[num]);
+      x.appendChild(allFormObjects[eqid]);
       x.appendChild(sliDiv);
       fillPhrase();
       y.appendChild(element('h3', "Quote ID # "+eqid));
@@ -168,6 +167,7 @@ function selQuote(x) {
     console.log(allFormObjects[val]);
     removeChilds(mainTag);
     removeChilds(headTag);
+    for (let i in hstuff) headTag.appendChild(hstuff[i]);
     headTag.appendChild(element('h3', "Quote ID # "+val));
     headTag.appendChild(element('h4', fullquotes[alleID[num]]));
     mainTag.appendChild(allFormObjects[val]);
