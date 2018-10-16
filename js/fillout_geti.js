@@ -155,7 +155,7 @@ function getQuotes() {
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return allForms[0].length?0:consoleLog(allForms[0].length),1;
+    return allForms.length?0:consoleLog(allForms.length),1;
   });
 }
 function placeElements(x){
@@ -175,18 +175,18 @@ function placeElements(x){
     "selQuote(this,"+x+")",
     "Select Quote by Number:"
   );
-  if (allForms[0].length >= 1){
+  // if (allForms.length >= 1){
     x.appendChild(allForms[lastQuote]);
-  } else {
-    console.log(allForms[0].length);
-    return consoleLog(allForms),1;
-  }
-  if (sliDiv[0].length >= 1) {
+  // } else {
+  //   console.log(allForms.length);
+  //   return consoleLog(allForms),1;
+  // }
+  // if (sliDiv.length >= 1) {
     x.appendChild(sliDiv);
-  }
-  else {
-    return consoleLog(sliDiv),1;
-  }
+  // }
+  // else {
+  //   return consoleLog(sliDiv),1;
+  // }
   return x?0:consoleLog(x),1;
 }
 function selQuote(x,target) {
