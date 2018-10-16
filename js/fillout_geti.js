@@ -29,6 +29,7 @@ function getNum() {
         num = e.gsx$currentnumber.$t;
         len--;
         if (len == lim) {
+          consoleLog("Excellent, num is: "+num);
           return 0;
         }
       }
