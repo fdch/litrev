@@ -4,6 +4,8 @@ var cFormm,num;
 
 var maxQuery=10;
 
+var sliDiv = element('div','', 'sliDiv');
+
 function getNum() {
   var n;
   loadJSON(currentForm, "GET", function(response) { 
@@ -45,9 +47,7 @@ function getFil() {
     return chequera(filQuoteID.length);
   });
 }
-function getKeys() {
-  var sliDiv = element('div','', 'sliDiv');
- 
+function getKeys() { 
   loadJSON(keys, "GET", function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
@@ -154,7 +154,7 @@ function getQuotes() {
   });//end loadJSON
 }
 function placeElements(x){
-  x.appendChild(element('h3', "Quote ID # "+eqid));
+  x.appendChild(element('h3', "Quote ID # "+filQuoteID[filQuoteID.length-1]));
   x.appendChild(element('h4', fullquotes[alleID[num]]));
   cForm="form-"+alleID[num];
   //  makeInput(x, 'input', {
