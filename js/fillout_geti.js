@@ -158,7 +158,7 @@ function getLit(x)
   });
 
   //Post the array to console to check
-  console.log(filQuoteID.join());
+  console.log(filQuoteID.length);
 }
 
 function selQuote(x,target) {
