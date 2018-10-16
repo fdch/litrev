@@ -1,11 +1,16 @@
+/////////////////////////////////////////////////////////////////////////
+//  EDITABLE VARIABLES
+/////////////////////////////////////////////////////////////////////////
+var maxQuery=10;
+/////////////////////////////////////////////////////////////////////////
+//  GLOBALS
+/////////////////////////////////////////////////////////////////////////
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
 var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[];
-var cFormm,num;
-
-var maxQuery=10;
-
-var sliDiv = element('div','', 'sliDiv');
-
+var cFormm,num=-1,sliDiv = element('div','', 'sliDiv');
+/////////////////////////////////////////////////////////////////////////
+//  ROUTINES
+/////////////////////////////////////////////////////////////////////////
 function getNum() {
   var n;
   loadJSON(currentForm, "GET", function(response) { 
@@ -22,8 +27,7 @@ function getNum() {
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////	
     return chequera(n);
-  });
-}
+  });}
 function getFil() {
   loadJSON(fil, "GET", function(response) { 
     //	Get all quoteIDS from filled out sheet and make
@@ -45,9 +49,8 @@ function getFil() {
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////	
     return chequera(filQuoteID.length);
-  });
-}
-function getKeys() { 
+  });}
+function getKeys() {
   loadJSON(keys, "GET", function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
@@ -82,8 +85,7 @@ function getKeys() {
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////	
     return chequera(slidersVals.length);
-  });
-}
+  });}
 function getQuotes() {
   loadJSON(lit, "GET", function(response) {
     var f = JSON.parse(response);
@@ -151,8 +153,7 @@ function getQuotes() {
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
     return chequera(allForms.length);
-  });//end loadJSON
-}
+  });}
 function placeElements(x){
   x.appendChild(element('h3', "Quote ID # "+filQuoteID[filQuoteID.length-1]));
   x.appendChild(element('h4', fullquotes[alleID[num]]));
@@ -169,12 +170,11 @@ function placeElements(x){
     "selQuote(this,"+x+")",
     "Select Quote by Number:"
   );
-  x.appendChild(allForms[num]);
-  x.appendChild(sliDiv);
+  if (!chequera(allForms.length)) x.appendChild(allForms[num]);
+  if (!chequera(sliDiv.length)) x.appendChild(sliDiv);
   //  document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
-
-  return chequera(x);
-  //  tagText("text=hello world");   
+  //  tagText("text=hello world"); 
+  return chequera(x); 
 }
 function selQuote(x,target) {
   //  document.getElementById(cForm)
@@ -185,17 +185,12 @@ function selQuote(x,target) {
   console.log("next form: "+cForm);
   console.log("-------"+alleID[val]+"----------");
   console.log(allForms[val]);
-
   //  fillPhrase();
-}
-//  function isLetter(str) {
-//    return str.length === 1 && str.match(/[a-z]/i);
-//  }
+  return 0;}
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
-}
-function fillPhrase()
-{
+  return 0;}
+function fillPhrase(){
   //  Get the Paraphrase Textarea
   var p = document.getElementById(formNames[1]);
   //  Get the Quotes Textarea
@@ -241,11 +236,11 @@ function fillPhrase()
       //////////////////////////////////////////////////////////
       return 0;
     }
-  }
-}
-
-function getLit(x)
-{
+  }}
+/////////////////////////////////////////////////////////////////////////
+//  MAIN ROUTINE
+/////////////////////////////////////////////////////////////////////////
+function getLit(x) {
   if (getBib()) {
     console.log("Couldn't Fetch Bibliography!");
   } else {

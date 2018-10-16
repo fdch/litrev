@@ -158,6 +158,10 @@ function makeInput(target,tag,obj) {
 
 
 function chequera(x) {
+  //  IF THE NUMBER IN THE ARGUMENT IS GREATER THAN 0
+  //  THEN RETURN 0 WITH NO ERROR REPORTING
+  //  OTHERWISE REPORT ERROR MESSAGE
+  //  AND RETURN 1
   if (x) {
     return 0;
   } else {
@@ -223,7 +227,9 @@ function stats(x) {
   document.getElementById(formNames[2]).value = sv;
   // console.log(sv)
 };
-
+function isLetter(str) {
+ return str.length === 1 && str.match(/[a-z]/i);
+}
 // function tagText(postData) {
 //   var url = "https://text-processing.com/api/tag/";
 //   var method = "POST";
