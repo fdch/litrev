@@ -12,23 +12,30 @@ var cFormm,num=-1,sliDiv = element('div','', 'sliDiv');
 //  ROUTINES
 /////////////////////////////////////////////////////////////////////////
 function getNum() {
-  var n;
   loadJSON(currentForm, "GET", function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
     var len = entry.length;
-    console.log(len);
+    var lim = len-1;
     /////////////////////////////////////////////////////////
     //	 BEGIN MAIN LOOP
-    /////////////////////////////////////////////////////////	
-    for (var i in entry){
-      var e = entry[i];
-      n = e.gsx$currentnumber.$t;
+    /////////////////////////////////////////////////////////	  
+    if (!len) {
+      consoleLog(len);
+      return 1;
+    } else {
+        while(len) {
+        var e = entry[len];
+        num = e.gsx$currentnumber.$t;
+        len--;
+        if (len == lim) {
+          return 0;
+        }
+      }
     }
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////	
-    return n?0:consoleLog(n),1;
   });
 }
 function getFil() {
