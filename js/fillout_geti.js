@@ -155,11 +155,11 @@ function getQuotes() {
     /////////////////////////////////////////////////////////
     //	 END MAIN LOOP
     /////////////////////////////////////////////////////////
-    return allForms.length?0:consoleLog(allForms.length),1;
+    return allForms[0].length?0:consoleLog(allForms[0].length),1;
   });
 }
 function placeElements(x){
-  var lastQuote = num;
+  var lastQuote = filQuoteID.length - 1;
   x.appendChild(element('h3', "Quote ID # "+filQuoteID[lastQuote]));
   x.appendChild(element('h4', fullquotes[alleID[lastQuote]]));
   cForm="form-"+alleID[lastQuote];
@@ -175,13 +175,13 @@ function placeElements(x){
     "selQuote(this,"+x+")",
     "Select Quote by Number:"
   );
-  if (allForms.length >= 1){
+  if (allForms[0].length >= 1){
     x.appendChild(allForms[lastQuote]);
   } else {
-    console.log(allForms.length);
+    console.log(allForms[0].length);
     return consoleLog(allForms),1;
   }
-  if (sliDiv.length >= 1) {
+  if (sliDiv[0].length >= 1) {
     x.appendChild(sliDiv);
   }
   else {
