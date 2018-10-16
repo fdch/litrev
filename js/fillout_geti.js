@@ -145,11 +145,6 @@ function getLit(x)
       console.log("Remaining Quotes: "+remainQuotes.length);
       // console.log("All Form Objects");
       // console.log(allFormObjects);
-      
-      x.appendChild(element('h3', "Quote ID # "+eqid));
-      x.appendChild(element('h4', fullquotes[alleID[num]]));
-      cForm="form-"+alleID[num]; //current form
-      
       makeDropdown(
       "selQuoteID",
       x,
@@ -161,6 +156,8 @@ function getLit(x)
       x.appendChild(allForms[num]);
       x.appendChild(sliDiv);
       fillPhrase();
+      y.appendChild(element('h3', "Quote ID # "+eqid));
+      y.appendChild(element('h4', fullquotes[alleID[num]]));
     }, quoteTimeout);
 
   });
@@ -169,6 +166,11 @@ function getLit(x)
 function selQuote(x) {
     let val = x.value;
     console.log(allFormObjects[val]);
+    removeChilds(mainTag);
+    removeChilds(headTag);
+    headTag.appendChild(element('h3', "Quote ID # "+val));
+    headTag.appendChild(element('h4', fullquotes[alleID[num]]));
+    mainTag.appendChild(allFormObjects[val]);
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';

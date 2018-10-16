@@ -38,3 +38,5 @@ var formNames = [
 	"entry.619862762",
 	"entry.1644345852"
 ];
+
+var headTag,mainTag;
