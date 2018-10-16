@@ -37,8 +37,9 @@ function getLit(x)
       filQuoteID.push(quotid);
         //Post the array to console to check
       console.log('length:  '+filQuoteID.length);
-      console.log('lastitem:'+filQuoteID[filQuoteID.length]);
+      console.log('lastitem:'+filQuoteID[filQuoteID.length-1]);
     }
+    console.log(filQuoteID);
   });
 
 
