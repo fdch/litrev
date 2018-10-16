@@ -133,6 +133,7 @@ function getQuotes() {
       return 1;
     } else {
       setTimeout( function() {
+        console.log("Starting getQuotes loop");
         while(len) {
           len--;
           var e = entry[len];
