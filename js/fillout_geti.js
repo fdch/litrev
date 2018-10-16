@@ -158,7 +158,7 @@ function selQuote(x) {
     headTag.appendChild(element('h4', fullquotes[alleID[num]]));
     makeDropdown(
       "selQuoteID",
-      x,
+      mainTag,
       remainQuotes,
       "selQuote(this)",
       "Select Quote by Number:"
