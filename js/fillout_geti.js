@@ -1,18 +1,14 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[],alleqID=[];
 var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[],remainQuotes=[];
 var allFormObjects={};
+var sliDiv = element('div', '', 'sliDiv');
 var cForm, num;
 
 var quoteTimeout=5000;
 var maxQuery=10;
 
-function getLit(x,y)
-{
-
+function getLit(x,y) {
   getBib();
-
-  var sliDiv = element('div', '', 'sliDiv');
-
   loadJSON(currentForm, "GET", function(response) 
   { 
     var f  =  JSON.parse(response);
