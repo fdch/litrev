@@ -1,5 +1,5 @@
-var booktitles=[],allForms=[],fullquotes=[],alleID=[];
-var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[];
+var booktitles=[],allForms=[],fullquotes=[],alleID=[],alleqID=[];
+var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[],remainQuotes=[];
 var cForm;
 
 var maxQuery=10;
@@ -21,7 +21,7 @@ function getLit(x)
       num = e.gsx$currentnumber.$t;
     }
   });
-  
+
   loadJSON(fil, "GET", function(response) 
   { 
     // Get all quoteIDS from filled out sheet and make
@@ -79,7 +79,7 @@ function getLit(x)
       var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
-      var eqid  = (e.gsx$timestamp.$t).replace(/\'/g,'');
+      var eqid  = e.gsx$timestamp.$t;
 
       var eID = booktitles.indexOf(ebook);
       var len = equot.length;
@@ -124,6 +124,7 @@ function getLit(x)
       
       allForms.push(formTag);
       alleID.push(eID);
+      alleqID.push(new Date(eqid));
     }
 
     x.appendChild(element('h3', "Quote ID # "+eqid));
@@ -147,6 +148,9 @@ function getLit(x)
 
     x.appendChild(allForms[num]);
     x.appendChild(sliDiv);
+
+    remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
+    console.log("Remaining Quotes: "+remainQuotes.length)
     
     // document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
 
