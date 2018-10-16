@@ -135,6 +135,7 @@ function getQuotes() {
         while(len) {
         len--;
         var e = entry[len];
+        consoleLog(e);
         var ebook = e.gsx$booktitle.$t;
         var eauth = e.gsx$author.$t;
         var equot = e.gsx$quickquote.$t;
