@@ -171,11 +171,11 @@ function placeElements(x){
     "selQuote(this,"+x+")",
     "Select Quote by Number:"
   );
-  if (allForms.length)
+  if (allForms.length >= 1)
     x.appendChild(allForms[lastQuote]);
   else
     return consoleLog(allForms),1;
-  if (sliDiv.length)
+  if (sliDiv.length >= 1)
     x.appendChild(sliDiv);
   else
     return consoleLog(sliDiv),1;
