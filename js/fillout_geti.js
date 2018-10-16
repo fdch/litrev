@@ -150,7 +150,7 @@ function getLit(x)
     x.appendChild(sliDiv);
 
     setTimeout(function() {    
-      remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
+      remainQuotes= filQuoteID.filter(f => !alleqID.includes(f));
       console.log("Filled Quotes   : "+filQuoteID.length);
       console.log("Total Quotes    : "+alleqID.length);
       console.log("Remaining Quotes: "+remainQuotes.length);
