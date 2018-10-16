@@ -175,14 +175,18 @@ function placeElements(x){
     "selQuote(this,"+x+")",
     "Select Quote by Number:"
   );
-  if (allForms.length >= 1)
+  if (allForms.length >= 1){
     x.appendChild(allForms[lastQuote]);
-  else
+  } else {
+    console.log(allForms.length);
     return consoleLog(allForms),1;
-  if (sliDiv.length >= 1)
+  }
+  if (sliDiv.length >= 1) {
     x.appendChild(sliDiv);
-  else
+  }
+  else {
     return consoleLog(sliDiv),1;
+  }
   return x?0:consoleLog(x),1;
 }
 function selQuote(x,target) {
