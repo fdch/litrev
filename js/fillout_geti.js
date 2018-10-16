@@ -1,6 +1,6 @@
 var booktitles=[],allForms=[],fullquotes=[],alleID=[];
 var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[];
-var cFormm num;
+var cFormm,num;
 
 var maxQuery=10;
 
