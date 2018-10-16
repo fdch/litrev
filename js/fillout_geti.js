@@ -41,6 +41,8 @@ function getLit(x)
     }
     console.log(filQuoteID);
   });
+  console.log(filQuoteID.length);
+  console.log(filQuoteID);
 
 
 
