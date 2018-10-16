@@ -155,9 +155,10 @@ function getQuotes() {
     return allForms.length?0:consoleLog(allForms.length),1;
   });}
 function placeElements(x){
-  x.appendChild(element('h3', "Quote ID # "+filQuoteID[filQuoteID.length-1]));
-  x.appendChild(element('h4', fullquotes[alleID[num]]));
-  cForm="form-"+alleID[num];
+  var lastQuote = filQuoteID.length-1;
+  x.appendChild(element('h3', "Quote ID # "+filQuoteID[lastQuote]));
+  x.appendChild(element('h4', fullquotes[alleID[lastQuote]]));
+  cForm="form-"+alleID[lastQuote];
   //  makeInput(x, 'input', {
   //    type:"button",
   //    value:"reMuse",
@@ -171,17 +172,14 @@ function placeElements(x){
     "Select Quote by Number:"
   );
   if (allForms.length)
-    x.appendChild(allForms[num]);
+    x.appendChild(allForms[lastQuote]);
   else
     return consoleLog(allForms),1;
   if (sliDiv.length)
     x.appendChild(sliDiv);
   else
     return consoleLog(sliDiv),1;
-  //  document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
-  //  tagText("text=hello world"); 
-  return x?0:consoleLog(x),1;
-}
+  return x?0:consoleLog(x),1;}
 function selQuote(x,target) {
   //  document.getElementById(cForm)
   let val = x.value;
