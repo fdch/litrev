@@ -142,7 +142,18 @@ function getLit(x,y)
       console.log("Filled Quotes   : "+filQuoteID.length);
       console.log("Total Quotes    : "+alleqID.length);
       console.log("Remaining Quotes: "+remainQuotes.length);
-      selQuote(eqid);
+      headTag.appendChild(element('h3', "Quote ID # "+eqid));
+      headTag.appendChild(element('h4', fullquotes[alleID[num]]));
+      makeDropdown(
+        "selQuoteID",
+        mainTag,
+        remainQuotes,
+        "selQuote(this)",
+        "Select Quote by Number:"
+        ); 
+      mainTag.appendChild(allFormObjects[eqid]);
+      mainTag.appendChild(sliDiv);
+      fillPhrase();
     }, quoteTimeout);
 
   });
