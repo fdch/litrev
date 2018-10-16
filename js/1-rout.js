@@ -155,6 +155,18 @@ function makeInput(target,tag,obj) {
   if(target) target.appendChild(t);
   return t;
 }
+
+
+function chequera(x) {
+  if (x) {
+    return 0;
+  } else {
+    console.log("Chequera found something bad in:");
+    console.log({x});
+    return 1;
+  }
+}
+
 function getBib() {
     loadJSON(bib,"GET", function(response)
   {
@@ -197,6 +209,7 @@ function getBib() {
       booktitles.push(ebook);
       fullquotes.push(quote.join(''));
     }
+    return chequera(booktitles.length);
   });
 }
 
