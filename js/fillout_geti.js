@@ -229,7 +229,7 @@ function fillPhrase()
               if(f[lucky]){
                 p.appendChild(document.createTextNode(f[lucky]['word']+" "));
               } else {
-                console.log("Can't append with empty data in: "+{f[lucky]});
+                console.log("Can't append with empty data in: "+{f});
               }
             });
           }
