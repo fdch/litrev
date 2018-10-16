@@ -32,7 +32,7 @@ function getLit(x)
     for (var i in entry){
       var e = entry[i];
       var quotid = e.gsx$quoteid.$t;
-      filQuoteID.push(new Date(quotid));
+      filQuoteID.push(quotid);
       // console.log('length:  '+filQuoteID.length);
       // console.log('lastitem:'+filQuoteID[filQuoteID.length-1]);
     }
@@ -149,11 +149,13 @@ function getLit(x)
     x.appendChild(allForms[num]);
     x.appendChild(sliDiv);
 
-    remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
-    console.log("Filled Quotes   : "+filQuoteID.length);
-    console.log("Total Quotes    : "+alleqID.length);
-    console.log("Remaining Quotes: "+remainQuotes.length);
-    
+    setTimeout(function() {    
+      remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
+      console.log("Filled Quotes   : "+filQuoteID.length);
+      console.log("Total Quotes    : "+alleqID.length);
+      console.log("Remaining Quotes: "+remainQuotes.length);
+
+    }, 5000);
     // document.getElementById(formNames[2]).innerHTML = slidersVals.join(" ");
 
     fillPhrase();
