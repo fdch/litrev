@@ -25,9 +25,9 @@ function getNum() {
       return 1;
     } else {
         while(len) {
+        len--;
         var e = entry[len];
         num = e.gsx$currentnumber.$t;
-        len--;
         if (len == lim) {
           consoleLog("Excellent, num is: "+num);
           return 0;
