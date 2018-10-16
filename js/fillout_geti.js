@@ -131,6 +131,7 @@ function getQuotes() {
       consoleLog(len);
       return 1;
     } else {
+        consoleLog(len);
         while(len) {
         len--;
         var e = entry[len];
