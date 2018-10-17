@@ -92,6 +92,7 @@ function comp(a,b) {
 }
 
 function analyze() {
+  var dirty=0;
   //  Place all slider names into 'sliderObject' for keyword search
   var sliderObject={};
   for (let s in slidersID){
@@ -124,6 +125,7 @@ function analyze() {
           var kw = sliderObject[w][x];
           //  If there is a match, post it, and increment 30 the keyword value
           if(!comp(wd,kw)) {
+            dirty=1;
             console.log("\'"+wd+"\' === \'"+kw+"\'!!");
             slidersVals[slidersID.indexOf(sliderObject[w][k])]+=30;
             //  Update values of the Input elmement holding 'slidersVals'
@@ -133,6 +135,7 @@ function analyze() {
       }
     }
   }
+  if (!dirty) console.log(this,"Well... couldn't find any matches...")
 }
 
 function getLit(x,y) {
