@@ -95,7 +95,7 @@ function analyze() {
   var squote = [];
   var phrases = q.value;
   var ph = phrases.replace(/\<|\>|\[|\]|\'|\"|\/|[ ]i[ ]|[ ]ul[ ]|[ ]li[ ]|[ ]ul[ ]|\,|\./g,'');
-  console.log(ph);
+  // console.log(ph);
   var arr=[];
 
   arr=ph.split(' ');
@@ -106,7 +106,7 @@ function analyze() {
   //   let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
   //   sarray[slidersID[s]].push(sname.split(' '));
   // }
-  console.log(arr);
+  // console.log(arr);
 
   var freqMap = {};
   for (var i in arr) {
@@ -116,8 +116,11 @@ function analyze() {
     freqMap[arr[i]] += 1;
   }
 
-  console.log(freqMap);
+  arrSort = Object.keys(freqMap).sort(function(a,b){return freqMap[a]-freqMap[b]});
 
+
+  //console.log(freqMap);
+  console.log(arrSort);
 
 
   // for (let j in phrases) {
