@@ -136,8 +136,8 @@ function analyze() {
       }
     }
   }
-  if (!dirty) console.log(this,"Well... couldn't find any matches...")
-    else console.log("Result:").log(found.join(/\n/));
+  if (!dirty) console.log("analyze(): Well... couldn't find any matches...")
+    else {console.log("Result:");console.log(found.join(/\n/));}
 }
 
 function getLit(x,y) {
