@@ -97,7 +97,7 @@ function analyze() {
           if(f[k]) {
             for (let w in sarray) { 
               for (let x in sarray[w]) {
-                if(!f[k]['word'].localeCompatre(sarray[w][x])) {
+                if(!f[k]['word'].localeCompare(sarray[w][x])) {
                   slidersVals[slidersID.indexOf(sarray[w])]+=30;
                 }
               }
