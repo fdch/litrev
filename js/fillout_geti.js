@@ -125,15 +125,15 @@ function analyze() {
       }
     }
     if (wordIsPrep) {
-      console.log("Word is Prep or Connector: "+ arrSort[i]);
+      // console.log("Word is Prep or Connector: "+ arrSort[i]);
     } else {
       for (let w in sarray) { 
         for (let x in sarray[w]) {
           var wd = arrSort[i];
           var kw = sarray[w][x];
-          console.log("Comparing \'"+wd+"\' with \'"+kw+"\'...");
+          
           if(!wd.localeCompare(kw,'en', {sensitivity: 'base'})) {
-            console.log("... and they match!");
+            console.log("\'"+wd+"\' === \'"+kw+"\'!!");
             slidersVals[slidersID.indexOf(sarray[w])]+=30;
           }
         }

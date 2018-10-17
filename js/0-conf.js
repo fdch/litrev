@@ -114,4 +114,4 @@ var preps = ["the","of","with","at","from","into","during","including","until",
 "on","once","only","or","otherwise","provided","providing","since",
 "so","spite","still","such","then","therefore","though","unless",
 "until","upon","when","whenever","where","whereas","whether","while",
-"yet", "a", "be", "is", "was", "were", " "];
+"yet", "a", "be", "is", "was", "were", " ", "an", "that", "its", "Thus"];
