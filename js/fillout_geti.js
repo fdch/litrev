@@ -95,7 +95,7 @@ function analyze() {
   var squote = [];
   var phrases = q.value;
   phrases.replace(/<|>|\[|\]|\'|\"|\/| i | ul | li | ul |\,|./g,'');
-  phrases.split(/\s/);
+  var arr = phrases.split(/' '/);
   //  Place all slider names into sarray for keyword search
   // var sarray={};
   // for (let s in slidersID){
@@ -103,8 +103,8 @@ function analyze() {
   //   let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
   //   sarray[slidersID[s]].push(sname.split(' '));
   // }
-  console.log(phrases);
-  console.log(wordFreq(phrases));
+  console.log(arr);
+  console.log(wordFreq(arr));
 
 
 
