@@ -92,7 +92,7 @@ function comp(a,b) {
 }
 
 function analyze() {
-  var dirty=0;
+  var dirty=0,found=[];
   //  Place all slider names into 'sliderObject' for keyword search
   var sliderObject={};
   for (let s in slidersID){
@@ -126,7 +126,7 @@ function analyze() {
           //  If there is a match, post it, and increment 30 the keyword value
           if(!comp(wd,kw)) {
             dirty=1;
-            console.log("\'"+wd+"\' === \'"+kw+"\'!!");
+            found.push(kw);
             slidersVals[slidersID.indexOf(sliderObject[w][x])]+=30;
             //  Update values of the Input elmement holding 'slidersVals'
             document.getElementById(formNames[2]).value = slidersVals.join(' ');;
@@ -136,6 +136,7 @@ function analyze() {
     }
   }
   if (!dirty) console.log(this,"Well... couldn't find any matches...")
+    else console.log("Result:").log(found.join(/\n/));
 }
 
 function getLit(x,y) {
