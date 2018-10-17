@@ -99,6 +99,10 @@ var booktitles		= [],	//	getBib book title
 	remainQuotes	= [],	//	The remaining, unfilled quotes
 	allFormObjects	= {};	//	All Form Objects (id, form, author, etc)	
 var cForm, num, sliDiv;
+var sections 		= [
+	'menu', 'content', 'biblio', 
+	"Menu", "Quotes", "Bibliography"
+];
 var dMuse 			= "https://api.datamuse.com/words?ml=";
 //	https://www.talkenglish.com/vocabulary/top-50-prepositions.aspx
 var preps = ["the","of","with","at","from","into","during","including","until",
