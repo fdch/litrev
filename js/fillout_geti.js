@@ -94,8 +94,11 @@ function analyze() {
 
   var squote = [];
   var phrases = q.value;
-  phrases.replace(/<|>|\[|\]|\'|\"|\/| i | ul | li | ul |\,|./g,'');
-  var arr = phrases.split(/' '/);
+  var ph = phrases.replace(/<|>|\[|\]|\'|\"|\/| i | ul | li | ul |\,|./g,'');
+  
+  var arr=[];
+
+  arr=ph.split(/' '/);
   //  Place all slider names into sarray for keyword search
   // var sarray={};
   // for (let s in slidersID){
@@ -104,7 +107,16 @@ function analyze() {
   //   sarray[slidersID[s]].push(sname.split(' '));
   // }
   console.log(arr);
-  console.log(wordFreq(arr));
+
+  var freqMap = {};
+  for (var i in arr) {
+    if (!freqMap[arr[i]]) {
+      freqMap[arr[i]] = 0;
+    }
+    freqMap[arr[i]] += 1;
+  }
+
+  console.log(freqMap);
 
 
 
