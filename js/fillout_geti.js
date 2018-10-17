@@ -90,25 +90,33 @@ function analyze() {
   for (let j in phrases) {
     var quoter = phrases[j].split(' ');
     for (let i in quoter) {
-      curl = dMuse + quoter[i] + "&max=" + maxQuery;
-      loadJSON(curl, "GET", function(response) { 
-        var f = JSON.parse(response);
-        for (let k in f) {
-          if(f[k]) {
-            for (let w in sarray) { 
-              for (let x in sarray[w]) {
-                var wd = f[k]['word'];
-                var kw = sarray[w][x];
-                console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
-                if(!wd.localeCompare(kw)) {
-                  console.log("They Match!");
-                  slidersVals[slidersID.indexOf(sarray[w])]+=30;
+      for (let w in sarray) { 
+        for (let x in sarray[w]) {
+          var wd = quoter[i];
+          var kw = sarray[w][x];
+          console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
+          if(!wd.localeCompare(kw)) {
+            console.log("They Match!");
+            slidersVals[slidersID.indexOf(sarray[w])]+=30;
+          } else {
+            console.log("Datamusing \'"+ quoter[i] +"\' for close match...")
+            curl = dMuse + quoter[i] + "&max=2";
+            loadJSON(curl, "GET", function(response) { 
+              var f = JSON.parse(response);
+              for (let k in f) {
+                if(f[k]) {
+                  var wd = f[k]['word'];
+                  console.log("Comparing DataMused \'"+wd+"\' with \'"+kw+"\'");
+                  if(!wd.localeCompare(kw)) {
+                      console.log("They Match!");
+                      slidersVals[slidersID.indexOf(sarray[w])]+=30;
+                  }
                 }
               }
-            }
+            });
           }
         }
-      });
+      }
     }
   }
   var values = slidersVals;
