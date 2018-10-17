@@ -55,6 +55,26 @@ function purgeHTML(string) {
   v=u.replace(/[ ]i[ ]|[ ]ul[ ]|[ ]li[ ]|[ ]ul[ ]|\,|\./g,'');
   return v;
 }
+function wordFreq(x) {
+    var words = x;
+    var freqMap = {};
+    words.forEach(function(w) {
+        if (!freqMap[w]) {
+            freqMap[w] = 0;
+        }
+        freqMap[w] += 1;
+    });
+
+    return freqMap;
+}
+
+function comp(a,b) {
+  return a.localeCompare(b,'en', {
+                                    sensitivity: 'base', 
+                                    usage: 'search',
+                                    ignorePunctuation: 'true'
+                                });
+}
 
 function getUniqueCategories(x){
   var cats = new Array();

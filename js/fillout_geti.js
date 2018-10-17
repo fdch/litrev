@@ -38,7 +38,8 @@ function selQuote(x) {
     let val = x.value;
     console.log(allFormObjects[val][0]);
     removeQuote(headTag,mainTag,hstuff);
-    makeQuote(headTag,mainTag,val); 
+    for (var i in slidersVals) slidersVals[i]=0;
+    makeQuote(headTag,mainTag,val);
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
@@ -73,28 +74,6 @@ function randomSliders(){
   let sv = slidersVals.join(' ');
   document.getElementById(formNames[2]).value = sv;
 }
-
-function wordFreq(x) {
-    var words = x;
-    var freqMap = {};
-    words.forEach(function(w) {
-        if (!freqMap[w]) {
-            freqMap[w] = 0;
-        }
-        freqMap[w] += 1;
-    });
-
-    return freqMap;
-}
-
-function comp(a,b) {
-  return a.localeCompare(b,'en', {
-                                    sensitivity: 'base', 
-                                    usage: 'search',
-                                    ignorePunctuation: 'true'
-                                });
-}
-
 function analyze() {
   var dirty=0,found=[];
   //  Place all slider names into 'sliderObject' for keyword search
@@ -147,7 +126,6 @@ function analyze() {
   if (!dirty) console.log("analyze(): Well... couldn't find any matches...")
     else {    console.log("Result:"); for (var i in found) console.log(found[i]);}
 }
-
 function getLit(x,y) {
   getBib();
   loadJSON(currentForm, "GET", function(response) 
@@ -159,7 +137,6 @@ function getLit(x,y) {
       num = e.gsx$currentnumber.$t;
     }
   });
-
   loadJSON(fil, "GET", function(response) 
   { 
     // Get all quoteIDS from filled out sheet and make
@@ -187,7 +164,6 @@ function getLit(x,y) {
       var sliderName = e.gsx$keywords.$t;
       var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
       var rValue = 0;//Math.floor((Math.random()*100));
-
       makeInput(sliDiv,'input',{
          type:"range",
          name: sliderName,
@@ -200,10 +176,8 @@ function getLit(x,y) {
          id:sliderLink,
          style:"display:block;width:"+articleWidth(500)+"px;"
       });
-
       slidersVals.push(rValue);
       slidersID.push(sliderLink);
-
     }
   });
   loadJSON(lit, "GET", function(response) 
@@ -288,6 +262,5 @@ function getLit(x,y) {
       makeQuote(y,x,eqid);
       
     }, quoteTimeout);
-
   });
 }
