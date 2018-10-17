@@ -266,9 +266,9 @@ function isLetter(str) {
 
 function welcome() {
   console.log("|-----------------------------------------------|");
-  console.log("| "+title+"                            |");
+  console.log("| "+title+"                             |");
   console.log("|-----------------------------------------------|");
-  console.log("| "+subtitle+"   |");
+  console.log("| "+subtitle+" |");
   console.log("|-----------------------------------------------|");
 }
 
