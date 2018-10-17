@@ -120,10 +120,12 @@ function getLit(x,y) {
           id:"thesubmit",
           value:"Submit"
       });
-      
-      allFormObjects[eqid]=formTag;
-      allForms.push(formTag);
-      alleID.push(eID);
+
+      allFormObjects[eqid]={};
+      allFormObjects[eqid][0]=formTag;
+      allFormObjects[eqid][1]=eID;
+      // allForms.push(formTag);
+      // alleID.push(eID);
       alleqID.push(eqid);
     }
 
@@ -132,47 +134,45 @@ function getLit(x,y) {
     //   value:"reMuse",
     //   onclick:"killPhrase();fillPhrase()"
     // });
-
+    console.log("Waiting "+quoteTimeout+"msec for correct loading.");
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
       console.log("Filled Quotes   : "+filQuoteID.length);
       console.log("Total Quotes    : "+alleqID.length);
       console.log("Remaining Quotes: "+remainQuotes.length);
-      headTag.appendChild(element('h3', "Quote ID # "+eqid));
-      headTag.appendChild(element('h4', fullquotes[alleID[num]]));
-      makeDropdown(
-        "selQuoteID",
-        mainTag,
-        remainQuotes,
-        "selQuote(this)",
-        "Select Quote by Number:"
-        ); 
-      mainTag.appendChild(allFormObjects[eqid]);
-      mainTag.appendChild(sliDiv);
-      fillPhrase();
+      
+      makeQuote(y,x,eqid);
+      
     }, quoteTimeout);
 
   });
 }
 
+function removeQuote(head,main,stuff){
+  var h = head, m = main, s = stuff;
+  removeChilds(h);removeChilds(m);
+  for (let i in s) h.appendChild(s[i]);
+}
+function makeQuote(head,main,id) {
+  var h = head, m = main, e = id;
+  makeDropdown(
+    "selQuoteID",
+    m,
+    remainQuotes,
+    "selQuote(this)",
+    "Select Quote by Number:"
+  ); 
+  h.appendChild(element('h3', "Quote ID # "+e));
+  h.appendChild(element('h4', fullquotes[allFormObjects[e][1]]));
+  m.appendChild(allFormObjects[e][0]);
+  m.appendChild(sliDiv);
+  fillPhrase();
+}
 function selQuote(x) {
     let val = x.value;
-    console.log(allFormObjects[val]);
-    removeChilds(mainTag);
-    removeChilds(headTag);
-    for (let i in hstuff) headTag.appendChild(hstuff[i]);
-    headTag.appendChild(element('h3', "Quote ID # "+val));
-    headTag.appendChild(element('h4', fullquotes[alleID[num]]));
-    makeDropdown(
-      "selQuoteID",
-      mainTag,
-      remainQuotes,
-      "selQuote(this)",
-      "Select Quote by Number:"
-      ); 
-    mainTag.appendChild(allFormObjects[val]);
-    mainTag.appendChild(sliDiv);
-    fillPhrase();
+    console.log(allFormObjects[val][1]);
+    removeQuote(headTag,mainTag,hstuff);
+    makequote(headTag,mainTag,val); 
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
