@@ -127,6 +127,7 @@ function getLit(x,y) {
          type:"range",
          name: sliderName,
          oninput:"stats(this)",
+         onchange:"stats(this)",
          value: rValue,
          min:0,
          max:100,
