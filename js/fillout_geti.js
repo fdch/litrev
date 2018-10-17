@@ -19,6 +19,12 @@ function makeQuote(head,main,id) {
   h.appendChild(element('h3', "Quote ID # "+e));
   h.appendChild(element('h4', fullquotes[allFormObjects[e][1]]));
   m.appendChild(allFormObjects[e][0]);
+  makeInput(x,'input',{
+    type:'button',
+    id:'rSliders',
+    value:'randomSliders',
+    onclick:'randomSliders()'
+  })
   m.appendChild(sliDiv);
   fillPhrase();
 }
@@ -180,12 +186,7 @@ function getLit(x,y) {
           id:"thesubmit",
           value:"Submit"
       });
-      makeInput(x,'input',{
-        type:'button',
-        id:'rSliders',
-        value:'randomSliders',
-        onclick:'randomSliders()'
-      })
+      
       allFormObjects[eqid]={};
       allFormObjects[eqid][0]=formTag;
       allFormObjects[eqid][1]=eID;
@@ -200,6 +201,7 @@ function getLit(x,y) {
     //   value:"reMuse",
     //   onclick:"killPhrase();fillPhrase()"
     // });
+    
     console.log("Waiting "+quoteTimeout+"msec for correct loading.");
 
     setTimeout(function() {    
