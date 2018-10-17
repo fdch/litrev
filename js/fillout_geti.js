@@ -172,7 +172,7 @@ function selQuote(x) {
     let val = x.value;
     console.log(allFormObjects[val][1]);
     removeQuote(headTag,mainTag,hstuff);
-    makequote(headTag,mainTag,val); 
+    makeQuote(headTag,mainTag,val); 
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
