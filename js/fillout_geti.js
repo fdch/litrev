@@ -116,18 +116,15 @@ function analyze() {
   //  Fetch up to 10 words and compare
   var len = (arrSort.length < maxQuery)?arrSort.length:maxQuery; 
   for (var i=0; i<=len; i++) {
-    //make text-processing call
-    var curl="https://text-processing.com/api/tag/text?="+arrSort[i];
-    loadJSON(curl, "GET", function(response) { 
-      var f = JSON.parse(response);
-      console.log(f);
-      //     if(!wd.localeCompare(kw)) {
-      //         console.log("They Match!");
-      //         slidersVals[slidersID.indexOf(sarray[w])]+=30;
-    });  
-
-    var wordIsPrep=1;
-
+    var wordIsPrep=0;
+    for (var j in preps) {
+      if (!arrSort[i].localeCompare(preps[j])) {
+        wordIsPrep=1;
+        break;
+      } else {
+        wordIsPrep=0;
+      }
+    }
     if (wordIsPrep) {
       console.log("Word is Prep: "+ arrSort[i]);
     } else {
@@ -135,9 +132,9 @@ function analyze() {
         for (let x in sarray[w]) {
           var wd = arrSort[i];
           var kw = sarray[w][x];
-          console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
+          console.log("Comparing \'"+wd+"\' with \'"+kw+"\'...");
           if(!wd.localeCompare(kw)) {
-            console.log("They Match!");
+            console.log("... and they match!");
             slidersVals[slidersID.indexOf(sarray[w])]+=30;
           }
         }
