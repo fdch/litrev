@@ -87,98 +87,52 @@ function wordFreq(x) {
     return freqMap;
 }
 
+function comp(a,b) {
+  return a.localeCompare(b,'en', {sensitivity: 'base'});
+}
+
 function analyze() {
-  // var p = document.getElementById(formNames[1]);
-
-  //  Get the Quote into phrases string
-  var q = document.getElementById(formNames[0]);
-  var phrases = q.value;
-  
-  //  Trim the text for unwanted chars
-  var ph = purgeHTML(phrases);
-  
-  //  Get Word Frequency
-  var arr     = wordFreq(ph.split(' '));
-
-  //  Sort the object based on values and return its keys
-  var arrSort = Object.keys(arr).sort(function(a,b){return arr[b]-arr[a]});
-
-
-  //  Place all slider names into sarray for keyword search
-  var sarray={};
+  //  Place all slider names into 'sliderObject' for keyword search
+  var sliderObject={};
   for (let s in slidersID){
-    sarray[slidersID[s]]=[];
+    sliderObject[slidersID[s]]=[];
     let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
-    sarray[slidersID[s]].push(sname.split(' '));
+    sliderObject[slidersID[s]].push(sname.split(' '));
   }
-
-  //  Fetch up to 10 words and compare
+  //  Get the Quote into 'phrases' string
+  var phrases = document.getElementById(formNames[0]).value;
+  //  Trim the text for unwanted chars into the 'ph' array
+  var ph = purgeHTML(phrases);
+  //  Get Word Frequency into the 'arr' Object
+  var arr     = wordFreq(ph.split(' '));
+  //  Sort the 'arr' object based on values and return its keys
+  var arrSort = Object.keys(arr).sort(function(a,b){return arr[b]-arr[a]});
+  //  Limit fetch up to 10 word candidates
   var len = (arrSort.length < maxQuery)?arrSort.length:maxQuery; 
+  //  Loop through all candidates
   for (var i=0; i<=len; i++) {
-    var wordIsPrep=0;
-    for (var j in preps) {
-      if (!arrSort[i].localeCompare(preps[j],'en', {sensitivity: 'base'})) {
-        wordIsPrep=1;
-        break;
-      } else {
-        wordIsPrep=0;
-      }
-    }
-    if (wordIsPrep) {
-      // console.log("Word is Prep or Connector: "+ arrSort[i]);
-    } else {
-      for (let w in sarray) { 
-        for (let x in sarray[w]) {
+    var unwanted=0;
+    //  Skip analysis if word appears in 'preps' array
+    for (var j in preps)
+      if (!comp(arrSort[i],preps[j])) {unwanted=1; break;} else {unwanted=0;}
+    if (unwanted) { continue; } //  Skip it
+    else {
+      //  Check against all slider IDs in 'sliderObject'
+      for (let w in sliderObject) { 
+        for (let x in sliderObject[w]) {
           var wd = arrSort[i];
-          var kw = sarray[w][x];
-          
-          if(!wd.localeCompare(kw,'en', {sensitivity: 'base'})) {
+          var kw = sliderObject[w][x];
+          //  If there is a match, post it, and increment 30 the keyword value
+          if(!comp(wd,kw)) {
             console.log("\'"+wd+"\' === \'"+kw+"\'!!");
-            slidersVals[slidersID.indexOf(sarray[w])]+=30;
+            slidersVals[slidersID.indexOf(sliderObject[w][k])]+=30;
+            //  Update values of the Input elmement holding 'slidersVals'
+            document.getElementById(formNames[2]).value = slidersVals.join(' ');;
           }
         }
       }
     }
   }
-
-
-  // for (let j in phrases) {
-  //   var quoter = phrases[j].split(' ');
-    // for (let i in quoter) {
-    //   for (let w in sarray) { 
-    //     for (let x in sarray[w]) {
-    //       var wd = quoter[i];
-    //       var kw = sarray[w][x];
-    //       console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
-    //       if(!wd.localeCompare(kw)) {
-    //         console.log("They Match!");
-    //         slidersVals[slidersID.indexOf(sarray[w])]+=30;
-    //       } else {
-    //         console.log("Datamusing \'"+ quoter[i] +"\' for close match...")
-    //         curl = dMuse + quoter[i] + "&max=2";
-    //         loadJSON(curl, "GET", function(response) { 
-    //           var f = JSON.parse(response);
-    //           for (let k in f) {
-    //             if(f[k]) {
-    //               var wd = f[k]['word'];
-    //               console.log("Comparing DataMused \'"+wd+"\' with \'"+kw+"\'");
-    //               if(!wd.localeCompare(kw)) {
-    //                   console.log("They Match!");
-    //                   slidersVals[slidersID.indexOf(sarray[w])]+=30;
-    //               }
-    //             }
-    //           }
-    //         });
-    //       }
-    //     }
-    //   }
-    // }
-  //}
-  // var values = slidersVals;
-  // for (var sid in slidersID) {
-  //   document.getElementById(slidersID[sid]).value=values[sid];
-  // }
-  // document.getElementById(formNames[2]).value = values.join(' ');;
 }
 
 function getLit(x,y) {
