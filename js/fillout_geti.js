@@ -73,57 +73,76 @@ function randomSliders(){
   let sv = slidersVals.join(' ');
   document.getElementById(formNames[2]).value = sv;
 }
+
+function wordFreq(string) {
+    var words = string.replace(/[.]/g, '').split(/\s/);
+    var freqMap = {};
+    words.forEach(function(w) {
+        if (!freqMap[w]) {
+            freqMap[w] = 0;
+        }
+        freqMap[w] += 1;
+    });
+
+    return freqMap;
+}
+
+
 function analyze() {
-  var p = document.getElementById(formNames[1]);
+  // var p = document.getElementById(formNames[1]);
   var q = document.getElementById(formNames[0]);
 
   var squote = [];
   var phrases = q.value.split('. ')
 
   //  Place all slider names into sarray for keyword search
-  var sarray={};
-  for (let s in slidersID){
-    sarray[slidersID[s]]=[];
-    let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
-    sarray[slidersID[s]].push(sname.split(' '));
-  }
-  for (let j in phrases) {
-    var quoter = phrases[j].split(' ');
-    for (let i in quoter) {
-      for (let w in sarray) { 
-        for (let x in sarray[w]) {
-          var wd = quoter[i];
-          var kw = sarray[w][x];
-          console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
-          if(!wd.localeCompare(kw)) {
-            console.log("They Match!");
-            slidersVals[slidersID.indexOf(sarray[w])]+=30;
-          } else {
-            console.log("Datamusing \'"+ quoter[i] +"\' for close match...")
-            curl = dMuse + quoter[i] + "&max=2";
-            loadJSON(curl, "GET", function(response) { 
-              var f = JSON.parse(response);
-              for (let k in f) {
-                if(f[k]) {
-                  var wd = f[k]['word'];
-                  console.log("Comparing DataMused \'"+wd+"\' with \'"+kw+"\'");
-                  if(!wd.localeCompare(kw)) {
-                      console.log("They Match!");
-                      slidersVals[slidersID.indexOf(sarray[w])]+=30;
-                  }
-                }
-              }
-            });
-          }
-        }
-      }
-    }
-  }
-  var values = slidersVals;
-  for (var sid in slidersID) {
-    document.getElementById(slidersID[sid]).value=values[sid];
-  }
-  document.getElementById(formNames[2]).value = values.join(' ');;
+  // var sarray={};
+  // for (let s in slidersID){
+  //   sarray[slidersID[s]]=[];
+  //   let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
+  //   sarray[slidersID[s]].push(sname.split(' '));
+  // }
+  console.log(wordFreq(phrases));
+
+
+
+  // for (let j in phrases) {
+  //   var quoter = phrases[j].split(' ');
+    // for (let i in quoter) {
+    //   for (let w in sarray) { 
+    //     for (let x in sarray[w]) {
+    //       var wd = quoter[i];
+    //       var kw = sarray[w][x];
+    //       console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
+    //       if(!wd.localeCompare(kw)) {
+    //         console.log("They Match!");
+    //         slidersVals[slidersID.indexOf(sarray[w])]+=30;
+    //       } else {
+    //         console.log("Datamusing \'"+ quoter[i] +"\' for close match...")
+    //         curl = dMuse + quoter[i] + "&max=2";
+    //         loadJSON(curl, "GET", function(response) { 
+    //           var f = JSON.parse(response);
+    //           for (let k in f) {
+    //             if(f[k]) {
+    //               var wd = f[k]['word'];
+    //               console.log("Comparing DataMused \'"+wd+"\' with \'"+kw+"\'");
+    //               if(!wd.localeCompare(kw)) {
+    //                   console.log("They Match!");
+    //                   slidersVals[slidersID.indexOf(sarray[w])]+=30;
+    //               }
+    //             }
+    //           }
+    //         });
+    //       }
+    //     }
+    //   }
+    // }
+  //}
+  // var values = slidersVals;
+  // for (var sid in slidersID) {
+  //   document.getElementById(slidersID[sid]).value=values[sid];
+  // }
+  // document.getElementById(formNames[2]).value = values.join(' ');;
 }
 
 function getLit(x,y) {
