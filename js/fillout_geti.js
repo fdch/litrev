@@ -136,8 +136,15 @@ function analyze() {
     }
   }
   //  Give out a responsive console message after analysis is done.
-  if (!dirty) console.log("analyze(): Well... couldn't find any matches...")
-    else {    console.log("Result:"); for (var i in found) console.log(found[i]);}
+  if (!dirty){
+    console.log("analyze(): Well... couldn't find any matches...")
+    consoleLine();
+  } else {
+    consoleLine();
+    console.log("analyze(): result:");
+    for (var i in found) console.log(found[i]);
+    consoleLine();
+  }
 }
 function getLit(x,y) {
   getBib();
