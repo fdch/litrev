@@ -88,7 +88,11 @@ function wordFreq(x) {
 }
 
 function comp(a,b) {
-  return a.localeCompare(b,'en', {sensitivity: 'base'});
+  return a.localeCompare(b,'en', {
+                                    sensitivity: 'base', 
+                                    usage: 'search',
+                                    ignorePunctuation: 'true'
+                                });
 }
 
 function analyze() {
@@ -108,8 +112,8 @@ function analyze() {
   var arr     = wordFreq(ph.split(' '));
   //  Sort the 'arr' object based on values and return its keys
   var arrSort = Object.keys(arr).sort(function(a,b){return arr[b]-arr[a]});
-  //  Limit fetch up to 10 word candidates
-  var len = (arrSort.length < maxQuery)?arrSort.length:maxQuery; 
+  //  Limit fetch up to 20 word candidates
+  var len = (arrSort.length < maxQuery*2)?arrSort.length:maxQuery*2; 
   //  Loop through all candidates
   for (var i=0; i<=len; i++) {
     var unwanted=0;
@@ -124,7 +128,7 @@ function analyze() {
           var wd = arrSort[i];
           var kw = sliderObject[w][x];
           //  If there is a match, post it, and increment 30 the keyword value
-          if(!comp(wd,kw)) {
+          if(!comp(wd,kw)||!comp(wd+"s",kw)) {
             dirty=1;
             found.push(kw);
             let index = slidersID.indexOf(sliderObject[w][x][0]);
@@ -141,7 +145,7 @@ function analyze() {
   }
   //  Give out a responsive console message after analysis is done.
   if (!dirty) console.log("analyze(): Well... couldn't find any matches...")
-    else {    console.log("Result:");console.log(found.join(/\n/));}
+    else {    console.log("Result:"); for (var i in found) console.log(found[i]);}
 }
 
 function getLit(x,y) {
