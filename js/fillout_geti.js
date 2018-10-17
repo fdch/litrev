@@ -127,7 +127,7 @@ function analyze() {
           if(!comp(wd,kw)) {
             dirty=1;
             console.log("\'"+wd+"\' === \'"+kw+"\'!!");
-            slidersVals[slidersID.indexOf(sliderObject[w][k])]+=30;
+            slidersVals[slidersID.indexOf(sliderObject[w][x])]+=30;
             //  Update values of the Input elmement holding 'slidersVals'
             document.getElementById(formNames[2]).value = slidersVals.join(' ');;
           }
