@@ -74,8 +74,8 @@ function randomSliders(){
   document.getElementById(formNames[2]).value = sv;
 }
 
-function wordFreq(string) {
-    var words = string.replace(/[.]/g, '').split(/\s/);
+function wordFreq(x) {
+    var words = x;
     var freqMap = {};
     words.forEach(function(w) {
         if (!freqMap[w]) {
