@@ -100,7 +100,7 @@ var booktitles		= [],	//	getBib book title
 var cForm, num, sliDiv;
 var dMuse 			= "https://api.datamuse.com/words?ml=";
 //	https://www.talkenglish.com/vocabulary/top-50-prepositions.aspx
-var preps = ["of","with","at","from","into","during","including","until",
+var preps = ["the","of","with","at","from","into","during","including","until",
 "against","among","throughout","despite","towards","upon","concerning","to",
 "in","for","on","by","about","like","through",
 "over","before","between","after","since","without","under",

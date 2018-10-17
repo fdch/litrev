@@ -87,7 +87,6 @@ function wordFreq(x) {
     return freqMap;
 }
 
-
 function analyze() {
   // var p = document.getElementById(formNames[1]);
 
@@ -96,7 +95,7 @@ function analyze() {
   var phrases = q.value;
   
   //  Trim the text for unwanted chars
-  var ph = phrases.replace(/\<|\>|\[|\]|\'|\"|\/|[ ]i[ ]|[ ]ul[ ]|[ ]li[ ]|[ ]ul[ ]|\,|\./g,'');
+  var ph = purgeHTML(phrases);
   
   //  Get Word Frequency
   var arr     = wordFreq(ph.split(' '));

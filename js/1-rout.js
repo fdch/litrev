@@ -47,6 +47,15 @@ function pdRandom(range,offset){
   return Math.floor(Math.random() * range) + offset;
 }
 
+function purgeHTML(string) {
+ //  Trim the string for unwanted HTML chars
+  var s = string,t,u,v;
+  t=s.replace(/\<|\>|\[|\]|\'|\"|\/|[ ]b[ ]/g,'');
+  u=t.replace(/\(|\)|\{|\}|[0-9]|[00-99]|[000-999]/g,'');
+  v=u.replace(/[ ]i[ ]|[ ]ul[ ]|[ ]li[ ]|[ ]ul[ ]|\,|\./g,'');
+  return v;
+}
+
 function getUniqueCategories(x){
   var cats = new Array();
   for (var i in x){
