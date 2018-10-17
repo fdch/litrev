@@ -117,7 +117,7 @@ function analyze() {
   var len = (arrSort.length < maxQuery)?arrSort.length:maxQuery; 
   for (var i=0; i<=len; i++) {
     //make text-processing call
-    var curl="http://text-processing.com/api/tag/text?="+arrSort[i];
+    var curl="https://text-processing.com/api/tag/text?="+arrSort[i];
     loadJSON(curl, "GET", function(response) { 
       var f = JSON.parse(response);
       console.log(f);
