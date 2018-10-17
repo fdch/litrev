@@ -19,11 +19,17 @@ function makeQuote(head,main,id) {
   h.appendChild(element('h3', "Quote ID # "+e));
   h.appendChild(element('h4', fullquotes[allFormObjects[e][1]]));
   m.appendChild(allFormObjects[e][0]);
-  makeInput(x,'input',{
+  makeInput(m,'input',{
     type:'button',
     id:'rSliders',
     value:'randomSliders',
     onclick:'randomSliders()'
+  })
+  makeInput(m,'input',{
+    type:'button',
+    id:'analyze',
+    value:'analyze',
+    onclick:'analyze()'
   })
   m.appendChild(sliDiv);
   fillPhrase();
@@ -73,6 +79,9 @@ function randomSliders(){
   for (var i in slidersID) {
     document.getElementById(slidersID[i]).value=pdRandom(100);
   }
+}
+function analyze() {
+
 }
 function getLit(x,y) {
   getBib();
