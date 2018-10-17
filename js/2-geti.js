@@ -73,6 +73,7 @@ function getLit() {
       "Keywords "
     );
   });
+  welcome();
 }
 function getValue(x) {
   location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();

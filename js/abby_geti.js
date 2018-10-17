@@ -35,4 +35,5 @@ function getLit(x)
       }
     }
   });
+  welcome();
 }
