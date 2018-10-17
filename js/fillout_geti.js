@@ -75,7 +75,7 @@ function randomSliders(){
 }
 
 function wordFreq(x) {
-    var words = x;
+    var words = x.split(/\s/);
     var freqMap = {};
     words.forEach(function(w) {
         if (!freqMap[w]) {
@@ -102,6 +102,7 @@ function analyze() {
   //   let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
   //   sarray[slidersID[s]].push(sname.split(' '));
   // }
+  console.log(phrases);
   console.log(wordFreq(phrases));
 
 
