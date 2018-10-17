@@ -90,15 +90,25 @@ function wordFreq(x) {
 
 function analyze() {
   // var p = document.getElementById(formNames[1]);
+
+  //  Get the Quote into phrases string
   var q = document.getElementById(formNames[0]);
-
-  var squote = [];
   var phrases = q.value;
+  
+  //  Trim the text for unwanted chars
   var ph = phrases.replace(/\<|\>|\[|\]|\'|\"|\/|[ ]i[ ]|[ ]ul[ ]|[ ]li[ ]|[ ]ul[ ]|\,|\./g,'');
-  // console.log(ph);
-  var arr=[];
+  
+  //  Get Word Frequency
+  var arr     = wordFreq(ph.split(' '));
 
-  arr=wordFreq(ph.split(' '));
+  //  Sort the object based on values and return its keys
+  var arrSort = Object.keys(arr).sort(function(a,b){return arr[b]-arr[a]});
+
+
+  console.log(arrSort);
+
+
+
   //  Place all slider names into sarray for keyword search
   // var sarray={};
   // for (let s in slidersID){
@@ -116,12 +126,10 @@ function analyze() {
   //   freqMap[arr[i]] += 1;
   // }
 
-  //  Sort the object based on values and return its keys
-  arrSort = Object.keys(freqMap).sort(function(a,b){return freqMap[b]-freqMap[a]});
+  
 
 
   //console.log(freqMap);
-  console.log(arrSort);
 
 
   // for (let j in phrases) {
