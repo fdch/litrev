@@ -127,14 +127,8 @@ function analyze() {
           if(!comp(wd,kw)) {
             dirty=1;
             found.push(kw);
-            console.log(slidersVals);
-            console.log(sliderObject[w]);
-            console.log(sliderObject[w][x]);
-            console.log(slidersID);
-            console.log(slidersID.indexOf(sliderObject[w]));
-            console.log(slidersID.indexOf(sliderObject[w][x]));
-            console.log(slidersVals[slidersID.indexOf(sliderObject[w][x])]);
-            slidersVals[slidersID.indexOf(sliderObject[w][x])]+=30;
+            console.log(slidersVals[slidersID.indexOf(sliderObject[w][x][0])]);
+            slidersVals[slidersID.indexOf(sliderObject[w][x][0])]+=30;
             //  Update values of the Input elmement holding 'slidersVals'
             document.getElementById(formNames[2]).value = slidersVals.join(' ');;
           }
