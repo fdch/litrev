@@ -75,7 +75,7 @@ function randomSliders(){
 }
 
 function wordFreq(x) {
-    var words = x.split(/\s/);
+    var words = x;
     var freqMap = {};
     words.forEach(function(w) {
         if (!freqMap[w]) {
@@ -93,8 +93,10 @@ function analyze() {
   var q = document.getElementById(formNames[0]);
 
   var squote = [];
-  var phrases = q.value.split('. ')
-
+  var phrases = q.value;
+  phrases.replace(/[<]|[>]|[\[]|[\]]|[']|["]|[/]|
+                  [ i ]|[ ul ]|[ li ]|[ ul ]|[,]|[.]/g,'');
+  phrases.split(/\s/);
   //  Place all slider names into sarray for keyword search
   // var sarray={};
   // for (let s in slidersID){
