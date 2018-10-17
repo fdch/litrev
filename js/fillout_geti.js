@@ -97,7 +97,11 @@ function analyze() {
           if(f[k]) {
             for (let w in sarray) { 
               for (let x in sarray[w]) {
-                if(!f[k]['word'].localeCompare(sarray[w][x])) {
+                var wd = f[k]['word'];
+                var kw = sarray[w][x];
+                console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
+                if(!wd.localeCompare(kw)) {
+                  console.log("They Match!");
                   slidersVals[slidersID.indexOf(sarray[w])]+=30;
                 }
               }
