@@ -76,12 +76,17 @@ function fillPhrase()
   }
 }
 function randomSliders(){
+  var arr=[];
   for (var i in slidersID) {
-    document.getElementById(slidersID[i]).value=pdRandom(100);
+    var r = pdRandom(100);
+    document.getElementById(slidersID[i]).value=r;
+    arr.push(r);
   }
+  let sv = arr.join(' ');
+  document.getElementById(formNames[2]).value = sv;
 }
 function analyze() {
-
+  console.log(this);
 }
 function getLit(x,y) {
   getBib();
