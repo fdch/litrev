@@ -98,7 +98,7 @@ function analyze() {
   
   var arr=[];
 
-  arr=ph.split(/' '/);
+  arr=ph.split(' ');
   //  Place all slider names into sarray for keyword search
   // var sarray={};
   // for (let s in slidersID){
