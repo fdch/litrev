@@ -1,11 +1,68 @@
-var booktitles=[],fullquotes=[],alleqID=[];
-var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[],remainQuotes=[];
-var allFormObjects={};
-var sliDiv = element('div', '', 'sliDiv');
-var cForm, num;
+function removeQuote(head,main,stuff){
+  var h = head, m = main, s = stuff;
+  removeChilds(h);removeChilds(m);
+  for (let i in s) h.appendChild(s[i]);
+}
+function makeQuote(head,main,id) {
+  var h = head, m = main, e = id;
+  // var authors = [];
+  // for (var i in remainQuotes) {
+  //   authors.push(allFormObjects[remainQuotes[i]][2]);
+  // }
+  makeDropdown(
+    "selQuoteID",
+    m,
+    remainQuotes,
+    "selQuote(this)",
+    "Select Quote by Number:"
+  ); 
+  h.appendChild(element('h3', "Quote ID # "+e));
+  h.appendChild(element('h4', fullquotes[allFormObjects[e][1]]));
+  m.appendChild(allFormObjects[e][0]);
+  m.appendChild(sliDiv);
+  fillPhrase();
+}
+function selQuote(x) {
+    let val = x.value;
+    console.log(allFormObjects[val][0]);
+    removeQuote(headTag,mainTag,hstuff);
+    makeQuote(headTag,mainTag,val); 
+}
+function killPhrase() {
+  document.getElementById(formNames[1]).value= '';
+}
+function fillPhrase()
+{
+  var p = document.getElementById(formNames[1]);
+  var q = document.getElementById(formNames[0]);
+  if (p.value) {console.log("is filled");return;}
+  var squote = [];
+  // console.log(quoter);
 
-var quoteTimeout=5000;
-var maxQuery=10;
+  var phrases = q.value.split('. ')
+
+  for (let j in phrases) {
+    var quoter = phrases[j].split(' ');
+    // console.log(quoter.join(' '));
+    
+    for (let i in quoter)
+    {
+      curl = "https://api.datamuse.com/words?ml="+
+              quoter[i]+
+              "&max="+
+              maxQuery;
+      // console.log("DataMusing this: " + squote.join(''));
+      loadJSON(curl, "GET", function(response) { 
+        var f = JSON.parse(response);
+        var lucky = pdRandom(maxQuery);
+        if(f[lucky]) p.appendChild(document.createTextNode(f[lucky]['word']+" "));
+        
+      });
+
+    }
+    p.appendChild(document.createTextNode(". "));
+  }
+}
 
 function getLit(x,y) {
   getBib();
@@ -148,70 +205,4 @@ function getLit(x,y) {
     }, quoteTimeout);
 
   });
-}
-
-function removeQuote(head,main,stuff){
-  var h = head, m = main, s = stuff;
-  removeChilds(h);removeChilds(m);
-  for (let i in s) h.appendChild(s[i]);
-}
-function makeQuote(head,main,id) {
-  var h = head, m = main, e = id;
-  // var authors = [];
-  // for (var i in remainQuotes) {
-  //   authors.push(allFormObjects[remainQuotes[i]][2]);
-  // }
-  makeDropdown(
-    "selQuoteID",
-    m,
-    remainQuotes,
-    "selQuote(this)",
-    "Select Quote by Number:"
-  ); 
-  h.appendChild(element('h3', "Quote ID # "+e));
-  h.appendChild(element('h4', fullquotes[allFormObjects[e][1]]));
-  m.appendChild(allFormObjects[e][0]);
-  m.appendChild(sliDiv);
-  fillPhrase();
-}
-function selQuote(x) {
-    let val = x.value;
-    console.log(allFormObjects[val][0]);
-    removeQuote(headTag,mainTag,hstuff);
-    makeQuote(headTag,mainTag,val); 
-}
-function killPhrase() {
-  document.getElementById(formNames[1]).value= '';
-}
-function fillPhrase()
-{
-  var p = document.getElementById(formNames[1]);
-  var q = document.getElementById(formNames[0]);
-  if (p.value) {console.log("is filled");return;}
-  var squote = [];
-  // console.log(quoter);
-
-  var phrases = q.value.split('. ')
-
-  for (let j in phrases) {
-    var quoter = phrases[j].split(' ');
-    // console.log(quoter.join(' '));
-    
-    for (let i in quoter)
-    {
-      curl = "https://api.datamuse.com/words?ml="+
-              quoter[i]+
-              "&max="+
-              maxQuery;
-      // console.log("DataMusing this: " + squote.join(''));
-      loadJSON(curl, "GET", function(response) { 
-        var f = JSON.parse(response);
-        var lucky = pdRandom(maxQuery);
-        if(f[lucky]) p.appendChild(document.createTextNode(f[lucky]['word']+" "));
-        
-      });
-
-    }
-    p.appendChild(document.createTextNode(". "));
-  }
 }

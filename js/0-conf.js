@@ -40,3 +40,11 @@ var formNames = [
 ];
 
 var headTag,mainTag,hstuff=[];
+var booktitles=[],fullquotes=[],alleqID=[];
+var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[],remainQuotes=[];
+var allFormObjects={};
+var sliDiv = element('div', '', 'sliDiv');
+var cForm, num;
+
+var quoteTimeout=5000;
+var maxQuery=10;
