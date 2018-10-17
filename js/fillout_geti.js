@@ -16,32 +16,40 @@ function makeQuote(head,main,id) {
     "selQuote(this)",
     "Select Quote by Number:"
   ); 
+
   h.appendChild(element('h3', "Quote ID # "+e));
   h.appendChild(element('h4', fullquotes[allFormObjects[e][1]]));
   m.appendChild(allFormObjects[e][0]);
+  //  Empty 'slidersVals'
+  for (var i in slidersVals)
+    slidersVals[i]=0;
+
   makeInput(m,'input',{
     type:'button',
     id:'rSliders',
     value:'randomSliders',
     onclick:'randomSliders()'
-  })
+  });
+
   makeInput(m,'input',{
     type:'button',
     id:'analyze',
     value:'analyze',
     onclick:'analyze()'
-  })
+  });
+
   m.appendChild(sliDiv);
+  //  Empty slider element values
+  for (var i in slidersID)
+    document.getElementById(slidersID[i]).value=0;
+
   fillPhrase();
+  analyze();
 }
 function selQuote(x) {
     let val = x.value;
     removeQuote(headTag,mainTag,hstuff);
     makeQuote(headTag,mainTag,val);
-    //  Empty 'slidersVals' and slider element values
-    for (var i in slidersVals) slidersVals[i]=0;
-    for (var i in slidersID) document.getElementById(slidersID[i]).value=0;
-    analyze();
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
