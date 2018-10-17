@@ -87,7 +87,11 @@ function randomSliders(){
   document.getElementById(formNames[2]).value = sv;
 }
 function analyze() {
-  console.log(this);
+  console.log("analyze");
+  
+
+
+  
 }
 function getLit(x,y) {
   getBib();
