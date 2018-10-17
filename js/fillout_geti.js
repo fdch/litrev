@@ -263,22 +263,22 @@ function getLit(x,y) {
     //   value:"reMuse",
     //   onclick:"killPhrase();fillPhrase()"
     // });
+
+    welcome();
     
     console.log("Waiting "+quoteTimeout+"msec for correct loading.");
-
+    var time=quoteTimeout/1000;
+    var countdown = setInterval(myTimer(time--), 1000);
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
-      console.log("|----------------------------------------------|");
-      console.log("| "+title);
-      console.log("|----------------------------------------------|");
-      console.log("| "+subtitle);
-      console.log("|----------------------------------------------|");
-      console.log("| Filled Quotes   : "+filQuoteID.length  +"         |");
-      console.log("| Total Quotes    : "+alleqID.length     +"         |");
-      console.log("| Remaining Quotes: "+remainQuotes.length+"         |");
-      
+      clearInterval(countdown);
+      console.log("Filled Quotes     : "+filQuoteID.length);
+      console.log("Total Quotes      : "+alleqID.length);
+      console.log("Remaining Quotes  : "+remainQuotes.length);
       makeQuote(y,x,eqid);
-      
+
     }, quoteTimeout);
   });
 }
+function myTimer(t) { console.log(t); }
+

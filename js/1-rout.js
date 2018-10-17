@@ -263,6 +263,16 @@ function stats(x) {
 function isLetter(str) {
  return str.length === 1 && str.match(/[a-z]/i);
 }
+
+function welcome() {
+  console.log("|-----------------------------------------------|");
+  console.log("| "+title+"                            |");
+  console.log("|-----------------------------------------------|");
+  console.log("| "+subtitle+"   |");
+  console.log("|-----------------------------------------------|");
+}
+
+
 // function tagText(postData) {
 //   var url = "https://text-processing.com/api/tag/";
 //   var method = "POST";
