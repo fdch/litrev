@@ -41,6 +41,7 @@ function selQuote(x) {
     //  Empty 'slidersVals' and slider element values
     for (var i in slidersVals) slidersVals[i]=0;
     for (var i in slidersID) document.getElementById(slidersID[i]).value=0;
+    analyze();
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
