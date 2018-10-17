@@ -63,7 +63,11 @@ function fillPhrase()
     p.appendChild(document.createTextNode(". "));
   }
 }
-
+function randomSliders(){
+  for (var i in slidersID) {
+    document.getElementById(slidersID[i]).value=pdRandom(100);
+  }
+}
 function getLit(x,y) {
   getBib();
   loadJSON(currentForm, "GET", function(response) 
@@ -171,13 +175,17 @@ function getLit(x,y) {
           style:"display:block;margin:3px"
         });
       }
-      makeInput(formTag,'input', 
-      {
+      makeInput(formTag,'input', {
           type:"submit",
           id:"thesubmit",
           value:"Submit"
       });
-
+      makeInput(x,'input',{
+        type:'button',
+        id:'rSliders',
+        value:'randomSliders',
+        onclick:'randomSliders()'
+      })
       allFormObjects[eqid]={};
       allFormObjects[eqid][0]=formTag;
       allFormObjects[eqid][1]=eID;
