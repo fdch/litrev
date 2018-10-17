@@ -84,7 +84,7 @@ function analyze() {
   var sarray={};
   for (let s in slidersID){
     sarray[slidersID[s]]=[];
-    let sname = slidersID[s].replace(/-/g,/ /).replace(/_/g,/ /);
+    let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
     sarray[slidersID[s]].push(sname.split(' '));
   }
   for (let j in phrases) {
