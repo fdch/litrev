@@ -127,6 +127,12 @@ function analyze() {
           if(!comp(wd,kw)) {
             dirty=1;
             found.push(kw);
+            console.log(slidersVals);
+            console.log(sliderObject[w]);
+            console.log(sliderObject[w][x]);
+            console.log(slidersID);
+            console.log(slidersID.indexOf(sliderObject[w]));
+            console.log(slidersID.indexOf(sliderObject[w][x]));
             console.log(slidersVals[slidersID.indexOf(sliderObject[w][x])]);
             slidersVals[slidersID.indexOf(sliderObject[w][x])]+=30;
             //  Update values of the Input elmement holding 'slidersVals'
@@ -137,7 +143,7 @@ function analyze() {
     }
   }
   if (!dirty) console.log("analyze(): Well... couldn't find any matches...")
-    else {console.log("Result:");console.log(found.join(/\n/));}
+    else {    console.log("Result:");console.log(found.join(/\n/));}
 }
 
 function getLit(x,y) {
