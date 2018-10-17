@@ -36,10 +36,11 @@ function makeQuote(head,main,id) {
 }
 function selQuote(x) {
     let val = x.value;
-    console.log(allFormObjects[val][0]);
     removeQuote(headTag,mainTag,hstuff);
-    for (var i in slidersVals) slidersVals[i]=0;
     makeQuote(headTag,mainTag,val);
+    //  Empty 'slidersVals' and slider element values
+    for (var i in slidersVals) slidersVals[i]=0;
+    for (var i in slidersID) document.getElementById(slidersID[i]).value=0;
 }
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
