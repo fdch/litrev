@@ -43,34 +43,21 @@ function selQuote(x) {
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
 }
-function fillPhrase()
-{
+function fillPhrase() {
   var p = document.getElementById(formNames[1]);
   var q = document.getElementById(formNames[0]);
   if (p.value) {console.log("is filled");return;}
   var squote = [];
-  // console.log(quoter);
-
   var phrases = q.value.split('. ')
-
   for (let j in phrases) {
     var quoter = phrases[j].split(' ');
-    // console.log(quoter.join(' '));
-    
-    for (let i in quoter)
-    {
-      curl = "https://api.datamuse.com/words?ml="+
-              quoter[i]+
-              "&max="+
-              maxQuery;
-      // console.log("DataMusing this: " + squote.join(''));
+    for (let i in quoter) {
+      curl = dMuse + quoter[i] + "&max=" + maxQuery;
       loadJSON(curl, "GET", function(response) { 
         var f = JSON.parse(response);
         var lucky = pdRandom(maxQuery);
-        if(f[lucky]) p.appendChild(document.createTextNode(f[lucky]['word']+" "));
-        
+        if(f[lucky]) p.appendChild(document.createTextNode(f[lucky]['word']+" "));  
       });
-
     }
     p.appendChild(document.createTextNode(". "));
   }
@@ -87,11 +74,44 @@ function randomSliders(){
   document.getElementById(formNames[2]).value = sv;
 }
 function analyze() {
-  console.log("analyze");
-  
+  var p = document.getElementById(formNames[1]);
+  var q = document.getElementById(formNames[0]);
 
+  var squote = [];
+  var phrases = q.value.split('. ')
 
-  
+  //  Place all slider names into sarray for keyword search
+  var sarray={};
+  for (let s in slidersID){
+    sarray[slidersID[s]]=[];
+    let sname = slidersID[s].replace(/-/g,/ /).replace(/_/g,/ /);
+    sarray[slidersID[s]].push(sname.split(' '));
+  }
+  for (let j in phrases) {
+    var quoter = phrases[j].split(' ');
+    for (let i in quoter) {
+      curl = dMuse + quoter[i] + "&max=" + maxQuery;
+      loadJSON(curl, "GET", function(response) { 
+        var f = JSON.parse(response);
+        for (let k in f) {
+          if(f[k]) {
+            for (let w in sarray) { 
+              for (let x in sarray[w]) {
+                if(!f[k]['word'].localeCompatre(sarray[w][x]) {
+                  slidersVals[slidersID.indexOf(sarray[w])]+=30;
+                }
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+  var values = slidersVals;
+  for (var sid in slidersID) {
+    document.getElementById(slidersID[sid]).value=values[sid];
+  }
+  document.getElementById(formNames[2]).value = values.join(' ');;
 }
 function getLit(x,y) {
   getBib();
