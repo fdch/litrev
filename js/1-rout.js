@@ -264,12 +264,16 @@ function isLetter(str) {
  return str.length === 1 && str.match(/[a-z]/i);
 }
 
+function consoleLine() {
+  console.log("|-----------------------------------------------|");
+}
+
 function welcome() {
-  console.log("|-----------------------------------------------|");
+  consoleLine();
   console.log("| "+title+"                             |");
-  console.log("|-----------------------------------------------|");
+  consoleLine();
   console.log("| "+subtitle+" |");
-  console.log("|-----------------------------------------------|");
+  consoleLine();
 }
 
 
