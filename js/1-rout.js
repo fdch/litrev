@@ -113,7 +113,7 @@ function makeDropdown(id,target,list, onchange,label) {
   selectTag.setAttribute('name',id);
   selectTag.setAttribute('onchange', onchange);
 
-  var thelist = list;
+  var thelist = list.sort();
   
   for (let i in thelist) {
     let val = thelist[i];

@@ -1,4 +1,4 @@
-var booktitles=[],allForms=[],fullquotes=[],alleID=[],alleqID=[];
+var booktitles=[],fullquotes=[],alleqID=[];
 var sliders=[],slidersVals=[],slidersID=[],filQuoteID=[],remainQuotes=[];
 var allFormObjects={};
 var sliDiv = element('div', '', 'sliDiv');
@@ -124,8 +124,9 @@ function getLit(x,y) {
       allFormObjects[eqid]={};
       allFormObjects[eqid][0]=formTag;
       allFormObjects[eqid][1]=eID;
-      // allForms.push(formTag);
-      // alleID.push(eID);
+      allFormObjects[eqid][2]=eauth;
+      allFormObjects[eqid][3]=ebook;
+
       alleqID.push(eqid);
     }
 
@@ -135,6 +136,7 @@ function getLit(x,y) {
     //   onclick:"killPhrase();fillPhrase()"
     // });
     console.log("Waiting "+quoteTimeout+"msec for correct loading.");
+
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
       console.log("Filled Quotes   : "+filQuoteID.length);
@@ -155,6 +157,10 @@ function removeQuote(head,main,stuff){
 }
 function makeQuote(head,main,id) {
   var h = head, m = main, e = id;
+  // var authors = [];
+  // for (var i in remainQuotes) {
+  //   authors.push(allFormObjects[remainQuotes[i]][2]);
+  // }
   makeDropdown(
     "selQuoteID",
     m,
@@ -170,7 +176,7 @@ function makeQuote(head,main,id) {
 }
 function selQuote(x) {
     let val = x.value;
-    console.log(allFormObjects[val][1]);
+    console.log(allFormObjects[val][0]);
     removeQuote(headTag,mainTag,hstuff);
     makeQuote(headTag,mainTag,val); 
 }
