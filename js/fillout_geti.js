@@ -94,7 +94,7 @@ function analyze() {
 
   var squote = [];
   var phrases = q.value;
-  var ph = phrases.replace(/<|>|\[|\]|\'|\"|\/| i | ul | li | ul |\,|./g,'');
+  var ph = phrases.replace(/\<|\>|\[|\]|\'|\"|\/|[ ]i[ ]|[ ]ul[ ]|[ ]li[ ]|[ ]ul[ ]|\,|\./g,'');
   console.log(ph);
   var arr=[];
 
