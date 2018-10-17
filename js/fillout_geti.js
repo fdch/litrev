@@ -57,7 +57,10 @@ function killPhrase() {
 function fillPhrase() {
   var p = document.getElementById(formNames[1]);
   var q = document.getElementById(formNames[0]);
-  if (p.value) {console.log("is filled");return;}
+  if (p.value) {
+      console.log("This quote is already filled");
+      return;
+  }
   var squote = [];
   var phrases = q.value.split('. ')
   for (let j in phrases) {
@@ -265,9 +268,14 @@ function getLit(x,y) {
 
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
-      console.log("Filled Quotes   : "+filQuoteID.length);
-      console.log("Total Quotes    : "+alleqID.length);
-      console.log("Remaining Quotes: "+remainQuotes.length);
+      console.log("|----------------------------------------------|");
+      console.log("| "+title);
+      console.log("|----------------------------------------------|");
+      console.log("| "+subtitle);
+      console.log("|----------------------------------------------|");
+      console.log("| Filled Quotes   : "+filQuoteID.length  +"         |");
+      console.log("| Total Quotes    : "+alleqID.length     +"         |");
+      console.log("| Remaining Quotes: "+remainQuotes.length+"         |");
       
       makeQuote(y,x,eqid);
       
