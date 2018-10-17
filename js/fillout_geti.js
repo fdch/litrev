@@ -94,8 +94,7 @@ function analyze() {
 
   var squote = [];
   var phrases = q.value;
-  phrases.replace(/[<]|[>]|[\[]|[\]]|[']|["]|[/]|
-                  [ i ]|[ ul ]|[ li ]|[ ul ]|[,]|[.]/g,'');
+  phrases.replace(/[<]|[>]|[\[]|[\]]|[']|["]|[/]|[ i ]|[ ul ]|[ li ]|[ ul ]|[,]|[.]/g,'');
   phrases.split(/\s/);
   //  Place all slider names into sarray for keyword search
   // var sarray={};
