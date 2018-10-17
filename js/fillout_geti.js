@@ -82,7 +82,8 @@ function randomSliders(){
     document.getElementById(slidersID[i]).value=r;
     arr.push(r);
   }
-  let sv = arr.join(' ');
+  sliderVals = arr;
+  let sv = sliderVals.join(' ');
   document.getElementById(formNames[2]).value = sv;
 }
 function analyze() {
