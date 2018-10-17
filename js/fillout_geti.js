@@ -117,7 +117,7 @@ function analyze() {
   for (var i=0; i<=len; i++) {
     var wordIsPrep=0;
     for (var j in preps) {
-      if (!arrSort[i].localeCompare(preps[j])) {
+      if (!arrSort[i].localeCompare(preps[j],'en', {sensitivity: 'base'})) {
         wordIsPrep=1;
         break;
       } else {
@@ -132,7 +132,7 @@ function analyze() {
           var wd = arrSort[i];
           var kw = sarray[w][x];
           console.log("Comparing \'"+wd+"\' with \'"+kw+"\'...");
-          if(!wd.localeCompare(kw)) {
+          if(!wd.localeCompare(kw,'en', {sensitivity: 'base'})) {
             console.log("... and they match!");
             slidersVals[slidersID.indexOf(sarray[w])]+=30;
           }
