@@ -126,7 +126,7 @@ function analyze() {
       }
     }
     if (wordIsPrep) {
-      console.log("Word is Prep: "+ arrSort[i]);
+      console.log("Word is Prep or Connector: "+ arrSort[i]);
     } else {
       for (let w in sarray) { 
         for (let x in sarray[w]) {

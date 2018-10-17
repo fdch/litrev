@@ -99,17 +99,19 @@ var booktitles		= [],	//	getBib book title
 	allFormObjects	= {};	//	All Form Objects (id, form, author, etc)	
 var cForm, num, sliDiv;
 var dMuse 			= "https://api.datamuse.com/words?ml=";
+//	https://www.talkenglish.com/vocabulary/top-50-prepositions.aspx
 var preps = ["of","with","at","from","into","during","including","until",
 "against","among","throughout","despite","towards","upon","concerning","to",
-"in","for","on","by","about","like","through","over","before","between","after",
-"since","without","under","within","along","following","across","behind",
-"beyond","plus","except","but","up","out","around","down","off","above","near"];
-
-
-
-
-
-
-
-
-
+"in","for","on","by","about","like","through",
+"over","before","between","after","since","without","under",
+"within","along","following","across","behind","beyond",
+"plus","except","but","up","out","around","down","off","above","near",
+//https://staff.washington.edu/marynell/grammar/logicalconnectors.html
+"after","afterwards","although","and","anyway","as",
+"because","before","beforehand","but","by","consequently","despite",
+"due","during","else","even","following","however","if","in",
+"inasmuch","meanwhile","nevertheless","next","nonetheless","now",
+"on","once","only","or","otherwise","provided","providing","since",
+"so","spite","still","such","then","therefore","though","unless",
+"until","upon","when","whenever","where","whereas","whether","while",
+"yet"];
