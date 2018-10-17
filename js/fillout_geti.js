@@ -127,15 +127,19 @@ function analyze() {
           if(!comp(wd,kw)) {
             dirty=1;
             found.push(kw);
-            console.log(slidersVals[slidersID.indexOf(sliderObject[w][x][0])]);
-            slidersVals[slidersID.indexOf(sliderObject[w][x][0])]+=30;
-            //  Update values of the Input elmement holding 'slidersVals'
-            document.getElementById(formNames[2]).value = slidersVals.join(' ');;
+            let index = slidersID.indexOf(sliderObject[w][x][0]);
+            //  Update Slider Element Value
+            document.getElementById(slidersID[index]).value += confidence;
+            //  Update Slider Value Array
+            slidersVals[index] += confidence;
+            //  Update values of the Form Input elmement holding 'slidersVals'
+            document.getElementById(formNames[2]).value = slidersVals.join(' ');
           }
         }
       }
     }
   }
+  //  Give out a responsive console message after analysis is done.
   if (!dirty) console.log("analyze(): Well... couldn't find any matches...")
     else {    console.log("Result:");console.log(found.join(/\n/));}
 }

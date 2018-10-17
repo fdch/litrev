@@ -10,32 +10,33 @@
 	FEDE CAMARA HALAC (FDCH)
 */
 
-
 ///////////////////////////////////////////////////////////////////////////////
 //	EDITABLE STUFF
 ///////////////////////////////////////////////////////////////////////////////
 
-
-/*
-
-	Timeout in milliseconds to prevent incorrect loading
-
-*/
-
+//	Timeout in msec to prevent incorrect loading
 var quoteTimeout 	=	5000;
 
-/*
-
-	This is the upper limit of the Datamuse Query.
-	A random number from 0-maxQuery is selected 
-	out of the pool of maxQuery words obtained from the request.
-
-*/
-
+//	Upper limit of the Datamuse Query random selection.
 var maxQuery 		=	10;
 
-/*
+//	Increment value for the found keywords in analyzed quotes.
+var confidence 		=	35;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 	GLOBAL VARIABLES THAT YOU WILL PROBABLY NEVER EDIT
 
