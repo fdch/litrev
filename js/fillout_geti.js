@@ -113,22 +113,38 @@ function analyze() {
     sarray[slidersID[s]].push(sname.split(' '));
   }
 
-
   //  Fetch up to 10 words and compare
   var len = (arrSort.length < maxQuery)?arrSort.length:maxQuery; 
   for (var i=0; i<=len; i++) {
-    for (let w in sarray) { 
-      for (let x in sarray[w]) {
-        var wd = arrSort[i];
-        var kw = sarray[w][x];
-        console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
-        if(!wd.localeCompare(kw)) {
-          console.log("They Match!");
-          slidersVals[slidersID.indexOf(sarray[w])]+=30;
+    //make text-processing call
+    var curl="http://text-processing.com/api/tag/text?="+arrSort[i];
+    loadJSON(curl, "GET", function(response) { 
+      var f = JSON.parse(response);
+      console.log(f);
+      //     if(!wd.localeCompare(kw)) {
+      //         console.log("They Match!");
+      //         slidersVals[slidersID.indexOf(sarray[w])]+=30;
+    });  
+
+    var wordIsPrep=1;
+
+    if (wordIsPrep) {
+      console.log("Word is Prep: "+ arrSort[i]);
+    } else {
+      for (let w in sarray) { 
+        for (let x in sarray[w]) {
+          var wd = arrSort[i];
+          var kw = sarray[w][x];
+          console.log("Comparing \'"+wd+"\' with \'"+kw+"\'");
+          if(!wd.localeCompare(kw)) {
+            console.log("They Match!");
+            slidersVals[slidersID.indexOf(sarray[w])]+=30;
+          }
         }
       }
     }
   }
+
 
   // for (let j in phrases) {
   //   var quoter = phrases[j].split(' ');
