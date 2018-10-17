@@ -93,9 +93,9 @@ function analyze() {
   var q = document.getElementById(formNames[0]);
 
   var squote = [];
-  var phrases = q.value.split('. ');
+  var phrases = q.value;
   var ph = phrases.replace(/<|>|\[|\]|\'|\"|\/| i | ul | li | ul |\,|./g,'');
-  
+  console.log(ph);
   var arr=[];
 
   arr=ph.split(' ');
