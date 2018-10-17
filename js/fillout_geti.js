@@ -93,7 +93,7 @@ function analyze() {
   var q = document.getElementById(formNames[0]);
 
   var squote = [];
-  var phrases = q.value;
+  var phrases = q.value.split('. ');
   var ph = phrases.replace(/<|>|\[|\]|\'|\"|\/| i | ul | li | ul |\,|./g,'');
   
   var arr=[];
