@@ -89,11 +89,13 @@ function getLit() {
     );
   });
   welcome();
-  if(fullquotes.length) {
-    for (var i=0; i<=fullquotes.length-1; i++) {
-      document.getElementById(sections[2]+"-a").appendChild(element('p',fullquotes[i]));
+  setTimeout(function () {
+    if(fullquotes.length) {
+      for (var i=0; i<=fullquotes.length-1; i++) {
+        document.getElementById(sections[2]+"-a").appendChild(element('p',fullquotes[i]));
+      }
     }
-  }
+  }, quoteTimeout);
 }
 /*
 
