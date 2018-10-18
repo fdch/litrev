@@ -247,7 +247,7 @@ function displayBib(elementID) {
     if  (year)      fullbib+=year+".";
 
     // if (!fullbib.localeCompare("")) {
-    console.log(fullbib);
+    // console.log(fullbib);
     document.getElementById(eid).appendChild(element('p',fullbib,id));
     // }
   }
