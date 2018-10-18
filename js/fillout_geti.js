@@ -14,6 +14,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 //  QUOTE DISPLAY
 ///////////////////////////////////////////////////////////////////////////////
+
+var currQuote;
+
 function makeQuote(head,main,id) {
   var h = head, m = main, e = id;
   // var authors = [];
@@ -59,6 +62,7 @@ function makeQuote(head,main,id) {
 
   fillPhrase(e);
   analyze(e);
+  currQuote=e;
 }
 function removeQuote(head,main,stuff){
   var h = head, m = main, s = stuff;
@@ -108,7 +112,7 @@ function killPhrase() {
 //  QUOTE KEYWORD ANALYZER
 ///////////////////////////////////////////////////////////////////////////////
 function analyze(quote) {
-  var q = quote || remainQuotes[pdRandom(remainQuotes.length)];
+  var q = quote || currQuote;
   var dirty=0,found=[],sliderObject={};
   //  Place all slider names into 'sliderObject' for keyword search
   if (slidersID.length) {
