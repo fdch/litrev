@@ -11,58 +11,6 @@
 
   
 */
-function getBib() {
-    loadJSON(bib,"GET", function(response)
-  {
-    var f = JSON.parse(response);
-    var entry = f.feed.entry;
-
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var eauth = e.gsx$lastname.$t;
-      var ename = e.gsx$firstname.$t;
-      var ebook = e.gsx$title.$t;
-      var eyear = e.gsx$year.$t;
-      var epubl = e.gsx$publisher.$t;
-      var edito = e.gsx$editor.$t;
-      var ejour = e.gsx$journal.$t;
-      var evolu = e.gsx$volume.$t;
-      var enumb = e.gsx$number.$t;
-      var eslas = e.gsx$secondlastname.$t;
-      var esfir = e.gsx$secondfirstname.$t;
-
-      var quote = new Array();
-
-      var eidnice = "["+i+"]";
-
-      quote.push(eidnice," ", eauth,", ",ename);
-
-      if(eslas) quote.push(", & ", eslas,", ", esfir);
-      
-      quote.push(". ",ebook,". ");
-
-      if (edito) {
-        quote.push(", in ",ejour,". ",edito," (Ed.) ");
-        if (evolu) quote.push("Vol. ", evolu);
-        if (enumb) quote.push("No. ", enumb);
-      }
-      
-      quote.push(eyear,". ", epubl, ".");
-
-      booktitles.push(ebook);
-      fullquotes.push(quote.join(''));
-    }
-    return booktitles.length?0:consoleLog(booktitles.length),1;
-  });
-}
-
-function removeChilds(x) {
-  while (x.firstChild) {
-      x.removeChild(x.firstChild);
-  } 
-  if(!x.firstChild) return 1;
-}
 ///////////////////////////////////////////////////////////////////////////////
 //  HELPER FUNCTIONS
 ///////////////////////////////////////////////////////////////////////////////
@@ -80,6 +28,12 @@ function comp(a,b) {
   return a.localeCompare(b,'en', {
     sensitivity: 'base', usage: 'search', ignorePunctuation: 'true'
   });
+}
+function removeChilds(x) {
+  while (x.firstChild) {
+      x.removeChild(x.firstChild);
+  } 
+  if(!x.firstChild) return 1;
 }
 ///////////////////////////////////////////////////////////////////////////////
 //  XMLHTTPREQUEST INTO JSON
@@ -150,6 +104,7 @@ function element(tag,text,id,onclick,width) {
   return elem;
 }
 function makeDropdown(id,target,list, onchange,label) {
+  var thelist = list;
   if (label) {
     let labelTag = document.createElement('label');
     labelTag.setAttribute('for',id);
@@ -157,25 +112,25 @@ function makeDropdown(id,target,list, onchange,label) {
     labelTag.appendChild(labelText);
     target.appendChild(labelTag);
   }
-
   let selectTag = document.createElement('select');
   selectTag.setAttribute('id',id);
   selectTag.setAttribute('name',id);
   selectTag.setAttribute('onchange', onchange);
-
-  var thelist = list;
-  
-  for (let i in thelist) {
-    let val = thelist[i];
-    let elemTxt = document.createTextNode(val);
-    let elemTag = document.createElement('option');
-    elemTag.setAttribute('value', val);
-    elemTag.appendChild(elemTxt);
-    selectTag.appendChild(elemTag);
+  if(thelist.length){
+    for (let i in thelist) {
+      let val = thelist[i];
+      let elemTxt = document.createTextNode(val);
+      let elemTag = document.createElement('option');
+      elemTag.setAttribute('value', val);
+      elemTag.appendChild(elemTxt);
+      selectTag.appendChild(elemTag);
+    }
+    target.appendChild(selectTag);
+    return selectTag;
+  } else {
+    console.error({thelist});
+    return 0;
   }
-  
-  target.appendChild(selectTag);
-  return selectTag;
 }
 function makeInput(target,tag,obj) {
   // console.log(tgt);
@@ -258,7 +213,55 @@ consoleLog = function(msg) {//See https://stackoverflow.com/a/27074218/470749
     if (msg === '') {
         msg = '""';
     }
-    console.log(msg, '          [' + stack[1] + ']');        
+    console.log(msg, '          [' + stack[1] + ']');
+}
+///////////////////////////////////////////////////////////////////////////////
+//  GET BIBLIOGRAPHY
+///////////////////////////////////////////////////////////////////////////////
+function getBib() {
+    loadJSON(bib,"GET", function(response)
+  {
+    var f = JSON.parse(response);
+    var entry = f.feed.entry;
+
+    for (var i in entry)
+    {
+      var e     = entry[i];
+      var eauth = e.gsx$lastname.$t;
+      var ename = e.gsx$firstname.$t;
+      var ebook = e.gsx$title.$t;
+      var eyear = e.gsx$year.$t;
+      var epubl = e.gsx$publisher.$t;
+      var edito = e.gsx$editor.$t;
+      var ejour = e.gsx$journal.$t;
+      var evolu = e.gsx$volume.$t;
+      var enumb = e.gsx$number.$t;
+      var eslas = e.gsx$secondlastname.$t;
+      var esfir = e.gsx$secondfirstname.$t;
+
+      var quote = [];
+
+      var eidnice = "["+i+"]";
+
+      quote.push(eidnice," ", eauth,", ",ename);
+
+      if(eslas) quote.push(", & ", eslas,", ", esfir);
+      
+      quote.push(". ",ebook,". ");
+
+      if (edito) {
+        quote.push(", in ",ejour,". ",edito," (Ed.) ");
+        if (evolu) quote.push("Vol. ", evolu);
+        if (enumb) quote.push("No. ", enumb);
+      }
+      
+      quote.push(eyear,". ", epubl, ".");
+
+      booktitles.push(ebook);
+      fullquotes.push(quote.join(''));
+    }
+    return booktitles.length?0:consoleLog(booktitles.length),1;
+  });
 }
 /*
 
