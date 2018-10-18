@@ -37,7 +37,7 @@ a {
 ul {
   list-style: none;
 } 
-textarea, input[type=text], input[type=submit],, input[type=button] {
+textarea, input[type=text], input[type=submit], input[type=button] {
   color:burlywood;
   background:black;
   font-size:1.3em;
@@ -46,7 +46,7 @@ textarea, input[type=text], input[type=submit],, input[type=button] {
   border:1px solid grey;
   border-radius:5px;
 }
-input[type=submit]:hover,input[type=button]:hover {
+input[type=submit]:hover, input[type=button]:hover {
   cursor:pointer;
   color:white;
   text-decoration:underline;
