@@ -43,8 +43,8 @@ function makeQuote(head,main,id) {
   for (var i in slidersID)
     document.getElementById(slidersID[i]).value=0;
 
-  fillPhrase();
-  analyze();
+  fillPhrase(e);
+  analyze(e);
 }
 function selQuote(x) {
     let val = x.value;
@@ -54,11 +54,11 @@ function selQuote(x) {
 function killPhrase() {
   document.getElementById(formNames[1]).value= '';
 }
-function fillPhrase() {
+function fillPhrase(x) {
   var p = document.getElementById(formNames[1]);
   var q = document.getElementById(formNames[0]);
   if (p.value) {
-      console.log("This quote is already filled");
+      console.log("\'"+x+"\' is already filled");
       return;
   }
   var squote = [];
@@ -87,7 +87,9 @@ function randomSliders(){
   let sv = slidersVals.join(' ');
   document.getElementById(formNames[2]).value = sv;
 }
-function analyze() {
+function analyze(quote) {
+  var q = quote | remainQuotes[pdRandom(remainQuotes.length)];
+
   var dirty=0,found=[];
   //  Place all slider names into 'sliderObject' for keyword search
   var sliderObject={};
@@ -137,11 +139,11 @@ function analyze() {
   }
   //  Give out a responsive console message after analysis is done.
   if (!dirty){
-    console.log("analyze(): Well... couldn't find any matches...")
+    console.log("| analyze(\'"+q+"\') --> Couldn't find matches...")
     consoleLine();
   } else {
     consoleLine();
-    console.log("analyze(): result:");
+    console.log("| analyze(\'"+q+"\') --> Result:");
     for (var i in found) console.log(found[i]);
     consoleLine();
   }
@@ -273,7 +275,7 @@ function getLit(x,y) {
 
     welcome();
     
-    console.log("Waiting "+quoteTimeout/1000+" seconds for correct loading.");
+    console.log("| Waiting "+quoteTimeout/1000+" seconds for correct loading.     |");
     var countdown = setInterval(consoleLine, 1000);
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
