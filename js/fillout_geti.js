@@ -274,7 +274,7 @@ function getLit(x,y) {
     welcome();
     
     console.log("Waiting "+quoteTimeout/1000+" seconds for correct loading.");
-    var countdown = setInterval(myTimer, 1000);
+    var countdown = setInterval(consoleLine(), 1000);
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
       remainQuotes.sort(function(a,b){return a.getTime() - b.getTime()});
@@ -288,9 +288,4 @@ function getLit(x,y) {
 
     }, quoteTimeout);
   });
-}
-function myTimer() { 
-  var d = new Date();
-  var t = d.toLocaleTimeString();
-  console.log(t);
 }
