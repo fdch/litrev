@@ -229,19 +229,23 @@ function displayBib(element) {
     var number    =fullquotes[key]["number"];
     var id = last.slice(0,3)+year.slice(2);
 
-    var fullbib = "\\bibitem{"+id+"}"+
-    name.slice(0,1)+". "+last+
-    sname?(", "+sname.slice(0,1)+". "+slast):""+
-    ", \\emph{"+title+"}, "+
-    editor?("in "+editor+" (Ed.)"):""+
-    publisher?(publisher+", "):""+
-    journal?("in "+journal+", "):""+
-    volume?("Vol. "+volume+", "):""+
-    number?("Num. "+number+", "):""+
-    year?(year+", "):"";
+    var fullbib;
 
-    console.log(fullbib);
-    element.appendChild(element('p',fullbib,id));
+    if  (id)        fullbib   +=  "\\bibitem{"+id+"}";
+    if  (name)      fullbib   +=  name.slice(0,1)+". "+last;
+    if  (sname)     fullbib   +=  ", "+sname.slice(0,1)+". "+slast;
+    if  (title)     fullbib   +=  ", \\emph{"+title+"}, ";
+    if  (editor)    fullbib   +=  "in "+editor+" (Ed.)";
+    if  (publisher) fullbib   +=  publisher+", ";
+    if  (journal)   fullbib   +=  "in "+journal+", ";
+    if  (volume)    fullbib   +=  "Vol. "+volume+", ";
+    if  (number)    fullbib   +=  "Num. "+number+", ";
+    if  (year)      fullbib   +=  year+", ";
+
+    if (!fulbib.localeCompare("")) {
+      console.log(fullbib);
+      element.appendChild(element('p',fullbib,id));
+    }
   }
 }
 ///////////////////////////////////////////////////////////////////////////////
