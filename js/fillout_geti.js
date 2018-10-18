@@ -48,6 +48,8 @@ function makeQuote(head,main,id) {
 }
 function selQuote(x) {
     let val = x.value;
+    console.log("| Fetched: \'"+val+"\'");
+    consoleLine();
     removeQuote(headTag,mainTag,hstuff);
     makeQuote(headTag,mainTag,val);
 }
