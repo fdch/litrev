@@ -155,7 +155,7 @@ function analyze(quote) {
             var kw = sliderObject[w][x];
             //  If there is a match, post it,
             //  and increment 30 the keyword value
-            if(!comp(wd,kw)||!comp(wd+"s",kw)!comp(wd.slice(5),kw)) {
+            if(!comp(wd,kw)||!comp(wd+"s",kw)||!comp(wd.slice(5),kw)) {
               dirty=1;
               found.push(kw);
               let index = slidersID.indexOf(sliderObject[w][x][0]);
