@@ -112,10 +112,12 @@ function analyze(quote) {
   var q = quote || remainQuotes[pdRandom(remainQuotes.length)];
   var dirty=0,found=[],sliderObject={};
   //  Place all slider names into 'sliderObject' for keyword search
-  for (let s in slidersID){
-    sliderObject[slidersID[s]]=[];
-    let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
-    sliderObject[slidersID[s]].push(sname.split(' '));
+  if (slidersID.length) {
+    for (let s in slidersID){
+      sliderObject[slidersID[s]]=[];
+      let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
+      sliderObject[slidersID[s]].push(sname.split(' '));
+    }
   }
   //  Get the Quote into 'phrases' string
   var phrases = document.getElementById(formNames[0]).value;
@@ -128,33 +130,40 @@ function analyze(quote) {
   //  Limit fetch up to 20 word candidates
   var len = (arrSort.length < maxQuery*2)?arrSort.length:maxQuery*2; 
   //  Loop through all candidates
-  for (var i=0; i<=len; i++) {
-    var unwanted=0;
-    //  Skip analysis if word appears in 'preps' array
-    for (var j in preps)
-      if (!comp(arrSort[i],preps[j])) {unwanted=1; break;} else {unwanted=0;}
-    if (unwanted) { continue; } //  Skip it
-    else {
-      //  Check against all slider IDs in 'sliderObject'
-      for (let w in sliderObject) { 
-        for (let x in sliderObject[w]) {
-          var wd = arrSort[i];
-          var kw = sliderObject[w][x];
-          //  If there is a match, post it, and increment 30 the keyword value
-          if(!comp(wd,kw)||!comp(wd+"s",kw)) {
-            dirty=1;
-            found.push(kw);
-            let index = slidersID.indexOf(sliderObject[w][x][0]);
-            //  Update Slider Element Value
-            document.getElementById(slidersID[index]).value += confidence;
-            //  Update Slider Value Array
-            slidersVals[index] += confidence;
-            //  Update values of the Form Input elmement holding 'slidersVals'
-            document.getElementById(formNames[2]).value = slidersVals.join(' ');
+  if (len) {
+    for (var i=0; i<=len; i++) {
+      var unwanted=0;
+      //  Skip analysis if word appears in 'preps' array
+      for (var j in preps)
+        if (!comp(arrSort[i],preps[j])) {unwanted=1; break;}
+        else {unwanted=0;}
+      if (unwanted) { continue; } //  Skip it
+      else {
+        //  Check against all slider IDs in 'sliderObject'
+        for (let w in sliderObject) { 
+          for (let x in sliderObject[w]) {
+            var wd = arrSort[i];
+            var kw = sliderObject[w][x];
+            //  If there is a match, post it,
+            //  and increment 30 the keyword value
+            if(!comp(wd,kw)||!comp(wd+"s",kw)) {
+              dirty=1;
+              found.push(kw);
+              let index = slidersID.indexOf(sliderObject[w][x][0]);
+              //  Update Slider Element Value
+              document.getElementById(slidersID[index]).value += confidence;
+              //  Update Slider Value Array
+              slidersVals[index] += confidence;
+              //  Update values of the Form Input elmement
+              //  which is holding 'slidersVals'
+              document.getElementById(formNames[2]).value = slidersVals.join(' ');
+            }
           }
         }
       }
     }
+  } else {
+    console.error({len});
   }
   //  Give out a responsive console message after analysis is done.
   if (!dirty){
