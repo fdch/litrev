@@ -184,38 +184,6 @@ function resized(){
   h = height();
 }
 ///////////////////////////////////////////////////////////////////////////////
-//  CONSOLE LOGGING
-///////////////////////////////////////////////////////////////////////////////
-function consoleLine() {
-  console.log("|-----------------------------------------------|");
-}
-
-function welcome() {
-  consoleLine();
-  console.log("| "+title+"                             |");
-  consoleLine();
-  console.log("| "+subtitle+" |");
-  consoleLine();
-}
-consoleLog = function(msg) {//See https://stackoverflow.com/a/27074218/470749
-    var e = new Error();
-    if (!e.stack)
-        try {
-            // IE requires the Error to actually be thrown or else the 
-            // Error's 'stack' property is undefined.
-            throw e;
-        } catch (e) {
-            if (!e.stack) {
-                //return 0; // IE < 10, likely
-            }
-        }
-    var stack = e.stack.toString().split(/\r\n|\n/);
-    if (msg === '') {
-        msg = '""';
-    }
-    console.log(msg, '          [' + stack[1] + ']');
-}
-///////////////////////////////////////////////////////////////////////////////
 //  GET BIBLIOGRAPHY
 ///////////////////////////////////////////////////////////////////////////////
 function getBib() {
@@ -262,6 +230,40 @@ function getBib() {
     }
     return booktitles.length?0:consoleLog(booktitles.length),1;
   });
+}
+///////////////////////////////////////////////////////////////////////////////
+//  CONSOLE LOGGING
+///////////////////////////////////////////////////////////////////////////////
+consoleLog = function(msg) {//See https://stackoverflow.com/a/27074218/470749
+    var e = new Error();
+    if (!e.stack)
+        try {
+            // IE requires the Error to actually be thrown or else the 
+            // Error's 'stack' property is undefined.
+            throw e;
+        } catch (e) {
+            if (!e.stack) {
+                //return 0; // IE < 10, likely
+            }
+        }
+    var stack = e.stack.toString().split(/\r\n|\n/);
+    if (msg === '') {
+        msg = '""';
+    }
+    console.log(msg, '          [' + stack[1] + ']');
+}
+function consoleLine() {
+  console.log("|-----------------------------------------------|");
+}
+function welcome() {
+  consoleLine();
+  console.log("| "+title+"                             |");
+  consoleLine();
+  console.log("| "+subtitle+" |");
+  consoleLine();
+  console.log("| quoteTimeout  : "+quoteTimeout/1000+" seconds");
+  console.log("| maxQuery      : "+maxQuery         +" words");
+  console.log("| confidence    : "+confidence       +" %");
 }
 /*
 
