@@ -90,7 +90,7 @@ function getLit() {
   });
   welcome();
   setTimeout(function () {
-    displayBib(document.getElementById(sections[2]+"-a"));
+    displayBib(sections[2]+"-a");
   }, quoteTimeout);
 }
 /*
