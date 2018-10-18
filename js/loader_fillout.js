@@ -95,7 +95,8 @@ function fillPhrase(quote) {
       return;
   } else {
     console.log("| Datamusing \'"+x+"\'...");
-    var phrases = q.value.split('. ')
+    var phrases = q.value.split('. ');
+    console.log(phrases);
     for (let j in phrases) {
       var quoter = phrases[j].split(' ');
       for (let i in quoter) {
@@ -111,9 +112,10 @@ function fillPhrase(quote) {
     }
   }
 }
-function refillPhrase() {
+function refillPhrase(quote) {
+  var q = quote || currQuote;
   document.getElementById(formNames[1]).value= '';
-  fillPhrase();
+  fillPhrase(q);
 }
 ///////////////////////////////////////////////////////////////////////////////
 //  QUOTE KEYWORD ANALYZER
