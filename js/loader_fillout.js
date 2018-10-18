@@ -45,14 +45,18 @@ function makeQuote(head,main,id) {
     value:'randomSliders',
     onclick:'randomSliders()'
   });
-
   makeInput(m,'input',{
     type:'button',
     id:'analyze',
     value:'analyze',
     onclick:'analyze()'
   });
-
+  makeInput(m,'input',{
+    type:"button",
+    id:'refill',
+    value:"Refill Phrase",
+    onclick:"killPhrase();fillPhrase()"
+  });
   m.appendChild(sliDiv);
   
   //  Empty slider element values
@@ -286,12 +290,7 @@ function getLit(x,y) {
       var col     = 40;
       var row     = len/col+2;
 
-      var formID  = "form-"+eID;
-
-      var formTag = makeInput(0, 'form', {
-          id:formID,
-          action:formAction
-      });
+      var formTag = makeInput(0, 'form', {action:formAction});
 
       for (let i=0; i<2; i++) {
         makeInput(formTag,'textarea', 
@@ -331,12 +330,6 @@ function getLit(x,y) {
 
       alleqID.push(eqid);
     }
-
-    // makeInput(x, 'input', {
-    //   type:"button",
-    //   value:"reMuse",
-    //   onclick:"killPhrase();fillPhrase()"
-    // });
 
     welcome();
     
