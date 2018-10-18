@@ -242,10 +242,10 @@ function displayBib(element) {
     if  (number)    fullbib   +=  "Num. "+number+", ";
     if  (year)      fullbib   +=  year+", ";
 
-    if (!fullbib.localeCompare("")) {
-      console.log(fullbib);
-      element.appendChild(element('p',fullbib,id));
-    }
+    // if (!fullbib.localeCompare("")) {
+    console.log(fullbib);
+    element.appendChild(element('p',fullbib,id));
+    // }
   }
 }
 ///////////////////////////////////////////////////////////////////////////////
