@@ -88,7 +88,7 @@ function randomSliders(){
   document.getElementById(formNames[2]).value = sv;
 }
 function analyze(quote) {
-  var q = quote | remainQuotes[pdRandom(remainQuotes.length)];
+  var q = quote || remainQuotes[pdRandom(remainQuotes.length)];
 
   var dirty=0,found=[];
   //  Place all slider names into 'sliderObject' for keyword search
