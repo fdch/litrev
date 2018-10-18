@@ -37,7 +37,8 @@ function getLit(x)
       abbyQuote[qid] = {
         "quote"         : e.gsx$quote.$t,
         "paraphrase"    : e.gsx$paraphrase.$t,
-        "id"            : e.gsx$quoteid.$t
+        "id"            : e.gsx$quoteid.$t,
+        "probabilities" : {}
       };
       var probs = (e.gsx$probs.$t).split(' ');
       for (var j=0; j<=probs.length-1; j++) {
