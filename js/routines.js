@@ -24,7 +24,8 @@ function pdRandom(range,offset){
   offset = offset || 0;
   return Math.floor(Math.random() * range) + offset;
 }
-function comp(a,b) {
+function comp(first,second) {
+  var a = first, b = second;
   return a.localeCompare(b,'en', {
     sensitivity: 'base', usage: 'search', ignorePunctuation: 'true'
   });
