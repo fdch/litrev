@@ -90,14 +90,11 @@ function getLit() {
   });
   welcome();
   setTimeout(function () {
-    if(fullquotes.length) {
+
       for (var i=0; i<=fullquotes.length-1; i++) {
         // document.getElementById(sections[2]+"-a").appendChild(element('p',fullquotes[i]));
         console.log(fullquotes[i]);
       }
-    } else {
-      console.log(fullquotes);
-    }
   }, quoteTimeout);
 }
 /*
