@@ -12,6 +12,7 @@
 
 */
 var iKey=[];
+var abbyQuote={};
 function getLit(x)
 {
   // getBib();
@@ -30,24 +31,24 @@ function getLit(x)
   {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
-    for (var i in entry)
-    {
+    for (var i in entry) {
       var e = entry[i];
-      var equot = e.gsx$quote.$t;
-      var epara = e.gsx$paraphrase.$t;
-      var eqid = e.gsx$quoteid.$t;
-      var eprob = (e.gsx$probs.$t).split(' ');
-      mikey=[];
-      if (epara) {
-        for (var j=0; j<=eprob.length-1; j++) {
-          mikey.push(element('span', iKey[j] + ': ' + eprob[j] + '. '));
+      var qid = e.gsx$timestamp.$t;
+      abbyQuote[qid] = {
+        "quote"         : e.gsx$quote.$t,
+        "paraphrase"    : e.gsx$paraphrase.$t,
+        "id"            : e.gsx$quoteid.$t
+      };
+      var probs = (e.gsx$probs.$t).split(' ');
+      for (var j=0; j<=probs.length-1; j++) {
+        abbyQuote[qid]["probabilities"] = {
+          iKey[j] : probs[j]
         }
-        x.appendChild(element('p', epara));
-        for (let m in mikey) x.appendChild(mikey[m]);
       }
     }
   });
   welcome();
+  console.log(abbyQuote);
 }
 /*
 
