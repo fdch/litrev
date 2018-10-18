@@ -47,18 +47,20 @@ function getLit() {
 
       var ebook = e.gsx$booktitle.$t;
       var epage = e.gsx$page.$t;
+      var year  = e.gsx$year.$t;
       var eauth = e.gsx$author.$t;
       var equot = e.gsx$quickquote.$t;
       var epara = e.gsx$paraphrase.$t;
       var eID = booktitles.indexOf(ebook);
-
-      var quoteref = new Array();
+      var id = eauth.slice(0,3)+year.slice(2);
+      var quoteref = [];
 
       quoteref.push(
         fullquotes[eID],
         " (p. ",epage,") "
         );
-      var quoteA = anchor("#eID"+eID,"["+eID+"]",'',ebook);
+
+      var quoteA = anchor("#"+id,"["+eID+"]",'',ebook+", "+eauth);
 
       var ek = ekeyw.replace(/ /g,"_").toLowerCase();
       allekeyw.push(ek);
