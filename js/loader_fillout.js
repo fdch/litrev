@@ -19,10 +19,6 @@ var currQuote;  //  Store current quote Timestamp
 
 function makeQuote(head,main,id) {
   var h = head, m = main, e = id;
-  // var authors = [];
-  // for (var i in remainQuotes) {
-  //   authors.push(allFormObjects[remainQuotes[i]][2]);
-  // }
   makeDropdown(
     "selQuoteID",
     m,
@@ -51,12 +47,12 @@ function makeQuote(head,main,id) {
     value:'analyze',
     onclick:'analyze()'
   });
-  makeInput(m,'input',{
-    type:"button",
-    id:'refill',
-    value:"Refill Phrase",
-    onclick:"refillPhrase()"
-  });
+  // makeInput(m,'input',{
+  //   type:"button",
+  //   id:'refill',
+  //   value:"Refill Phrase",
+  //   onclick:"refillPhrase()"
+  // });
   m.appendChild(sliDiv);
   
   //  Empty slider element values
@@ -96,7 +92,7 @@ function fillPhrase(quote) {
   } else {
     console.log("| Datamusing \'"+x+"\'...");
     var phrases = q.value.split('. ');
-    console.log(phrases);
+    // console.log(phrases);
     for (let j in phrases) {
       var quoter = phrases[j].split(' ');
       for (let i in quoter) {
