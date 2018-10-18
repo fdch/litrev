@@ -94,6 +94,7 @@ function fillPhrase(quote) {
       console.log("| \'"+x+"\' is already filled");
       return;
   } else {
+    console.log("| Datamusing \'"+x+"\'...");
     var phrases = q.value.split('. ')
     for (let j in phrases) {
       var quoter = phrases[j].split(' ');
