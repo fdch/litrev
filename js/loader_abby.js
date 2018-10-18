@@ -46,7 +46,11 @@ function getLit(x)
     }
   });
   welcome();
-  console.log(abbyQuote);
+  setTimeout(function() {
+    for (var key in abbyQuote) {
+      x.appendChild(element('p',abbyQuote[key][paraphrase]));
+    }
+  }, quoteTimeout);
 }
 /*
 
