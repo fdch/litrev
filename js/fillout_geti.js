@@ -29,7 +29,7 @@ function makeQuote(head,main,id) {
   ); 
 
   h.appendChild(element('h3', "Quote ID # "+e));
-  h.appendChild(element('h4', fullquotes[allFormObjects[e][1]]));
+  h.appendChild(element('h4', booktitles[allFormObjects[e][1]]));
   m.appendChild(allFormObjects[e][0]);
   //  Empty 'slidersVals'
   if(slidersVals.length)
