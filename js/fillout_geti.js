@@ -1,8 +1,19 @@
-function removeQuote(head,main,stuff){
-  var h = head, m = main, s = stuff;
-  removeChilds(h);removeChilds(m);
-  for (let i in s) h.appendChild(s[i]);
-}
+/*
+
+  LITREV FILLOUT LOADER FILE
+
+  
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+  
+*/
+///////////////////////////////////////////////////////////////////////////////
+//  QUOTE DISPLAY
+///////////////////////////////////////////////////////////////////////////////
 function makeQuote(head,main,id) {
   var h = head, m = main, e = id;
   // var authors = [];
@@ -21,8 +32,9 @@ function makeQuote(head,main,id) {
   h.appendChild(element('h4', fullquotes[allFormObjects[e][1]]));
   m.appendChild(allFormObjects[e][0]);
   //  Empty 'slidersVals'
-  for (var i in slidersVals)
-    slidersVals[i]=0;
+  if(slidersVals.length)
+    for (var i in slidersVals)
+      slidersVals[i]=0;
 
   makeInput(m,'input',{
     type:'button',
@@ -39,13 +51,23 @@ function makeQuote(head,main,id) {
   });
 
   m.appendChild(sliDiv);
+  
   //  Empty slider element values
-  for (var i in slidersID)
-    document.getElementById(slidersID[i]).value=0;
+  if(slidersID.length)
+    for (var i in slidersID)
+      document.getElementById(slidersID[i]).value=0;
 
   fillPhrase(e);
   analyze(e);
 }
+function removeQuote(head,main,stuff){
+  var h = head, m = main, s = stuff;
+  removeChilds(h);removeChilds(m);
+  if(s.length) for (let i in s) h.appendChild(s[i]);
+}
+///////////////////////////////////////////////////////////////////////////////
+//  QUOTE SELECTOR
+///////////////////////////////////////////////////////////////////////////////
 function selQuote(x) {
     let val = x.value;
     console.log("| Fetched: \'"+val+"\'");
@@ -53,48 +75,43 @@ function selQuote(x) {
     removeQuote(headTag,mainTag,hstuff);
     makeQuote(headTag,mainTag,val);
 }
-function killPhrase() {
-  document.getElementById(formNames[1]).value= '';
-}
+///////////////////////////////////////////////////////////////////////////////
+//  PARAPHRASING TOOL
+///////////////////////////////////////////////////////////////////////////////
 function fillPhrase(x) {
   var p = document.getElementById(formNames[1]);
   var q = document.getElementById(formNames[0]);
   if (p.value) {
       console.log("| \'"+x+"\' is already filled");
       return;
-  }
-  var squote = [];
-  var phrases = q.value.split('. ')
-  for (let j in phrases) {
-    var quoter = phrases[j].split(' ');
-    for (let i in quoter) {
-      curl = dMuse + quoter[i] + "&max=" + maxQuery;
-      loadJSON(curl, "GET", function(response) { 
-        var f = JSON.parse(response);
-        var lucky = pdRandom(maxQuery);
-        if(f[lucky]) p.appendChild(document.createTextNode(f[lucky]['word']+" "));  
-      });
+  } else {
+    var squote = [];
+    var phrases = q.value.split('. ')
+    for (let j in phrases) {
+      var quoter = phrases[j].split(' ');
+      for (let i in quoter) {
+        curl = dMuse + quoter[i] + "&max=" + maxQuery;
+        loadJSON(curl, "GET", function(response) { 
+          var f = JSON.parse(response);
+          var lucky = pdRandom(maxQuery);
+          if(f[lucky])
+            p.appendChild(document.createTextNode(f[lucky]['word']+" "));
+        });
+      }
+      p.appendChild(document.createTextNode(". "));
     }
-    p.appendChild(document.createTextNode(". "));
   }
 }
-function randomSliders(){
-  var arr=[];
-  for (var i in slidersID) {
-    var r = pdRandom(100);
-    document.getElementById(slidersID[i]).value=r;
-    arr.push(r);
-  }
-  slidersVals = arr;
-  let sv = slidersVals.join(' ');
-  document.getElementById(formNames[2]).value = sv;
+function killPhrase() {
+  document.getElementById(formNames[1]).value= '';
 }
+///////////////////////////////////////////////////////////////////////////////
+//  QUOTE KEYWORD ANALYZER
+///////////////////////////////////////////////////////////////////////////////
 function analyze(quote) {
   var q = quote || remainQuotes[pdRandom(remainQuotes.length)];
-
-  var dirty=0,found=[];
+  var dirty=0,found=[],sliderObject={};
   //  Place all slider names into 'sliderObject' for keyword search
-  var sliderObject={};
   for (let s in slidersID){
     sliderObject[slidersID[s]]=[];
     let sname = slidersID[s].replace(/-/g,' ').replace(/_/g,' ');
@@ -151,6 +168,33 @@ function analyze(quote) {
     consoleLine();
   }
 }
+///////////////////////////////////////////////////////////////////////////////
+//  SLIDERS FUNCTIONS
+///////////////////////////////////////////////////////////////////////////////
+function stats(x) {
+  let val = x.value;
+  let ind = x.id;
+  let i = slidersID.indexOf(ind);
+  slidersVals[i]=val;
+  // console.log("Change Value of "+ind+" at ["+i+"] to: "+val);
+  let sv = slidersVals.join(' ');
+  document.getElementById(formNames[2]).value = sv;
+  // console.log(sv)
+}
+function randomSliders(){
+  var arr=[];
+  for (var i in slidersID) {
+    var r = pdRandom(100);
+    document.getElementById(slidersID[i]).value=r;
+    arr.push(r);
+  }
+  slidersVals = arr;
+  let sv = slidersVals.join(' ');
+  document.getElementById(formNames[2]).value = sv;
+}
+///////////////////////////////////////////////////////////////////////////////
+//  GET ALL QUOTES
+///////////////////////////////////////////////////////////////////////////////
 function getLit(x,y) {
   getBib();
   loadJSON(currentForm, "GET", function(response) 
@@ -296,3 +340,10 @@ function getLit(x,y) {
     }, quoteTimeout);
   });
 }
+/*
+
+
+  END LOADER FILE
+
+  
+*/

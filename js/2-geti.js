@@ -1,5 +1,22 @@
+/*
+
+  LITREV LOADER FILE
+
+  
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+  
+*/
 var keyword="blank", keychange=0;
 var allekeyw=[],keywords=[],booktitles=[],fullquotes=[];
+
+function getValue(x) {
+  location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();
+}
 
 function getLit() {
 
@@ -9,8 +26,6 @@ function getLit() {
   document.getElementById(sections[2]+"-a").appendChild(ulTag);
   for(let i in fullquotes)
     ulTag.appendChild(element('li', fullquotes[i].join(''), "eID"+i));
-
-
 
   loadJSON(lit, "GET", function(response) {
     var f = JSON.parse(response);
@@ -75,6 +90,10 @@ function getLit() {
   });
   welcome();
 }
-function getValue(x) {
-  location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();
-}
+/*
+
+
+  END LOADER FILE
+
+  
+*/

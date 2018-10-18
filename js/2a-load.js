@@ -1,3 +1,16 @@
+/*
+
+  LITREV LOADER FILE
+
+  
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+  
+*/
 function loadAll(sheets) {
   loading = 1;
   //works
@@ -47,3 +60,10 @@ function loadAll(sheets) {
 
   return 1; //actually not checking if stuf loaded...
 }
+/*
+
+
+  END LOADER FILE
+
+  
+*/

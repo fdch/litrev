@@ -8,6 +8,8 @@
 
 
 	FEDE CAMARA HALAC (FDCH)
+
+
 */
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -120,3 +122,10 @@ var preps = ["the","of","with","at","from","into","during","including","until",
 "so","spite","still","such","then","therefore","though","unless",
 "until","upon","when","whenever","where","whereas","whether","while",
 "yet", "a", "be", "is", "was", "were", " ", "an", "that", "its", "Thus"];
+/*
+
+
+	END CONFIGURATION FILE
+
+	
+*/

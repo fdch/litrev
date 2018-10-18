@@ -1,3 +1,16 @@
+/*
+
+  LITREV FILLOUT MAIN FILE
+
+  
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+  
+*/
 function main() {
 
 	url = url+"/fillout";
@@ -16,3 +29,10 @@ function main() {
   	getLit(mainTag, headTag);
 
 }
+/*
+
+
+  END MAIN FILE
+
+  
+*/

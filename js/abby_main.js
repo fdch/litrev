@@ -1,3 +1,16 @@
+/*
+
+  LITREV ABBY MAIN FILE
+
+  
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+  
+*/
 function main() {
 
 	url = url+"/abby";
@@ -12,3 +25,10 @@ function main() {
 
   	getLit(mainTag);
 }
+/*
+
+
+  END MAIN FILE
+
+  
+*/

@@ -1,35 +1,89 @@
+/*
+
+  LITREV ROUTINES FILE
+
+  
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+  
+*/
+function getBib() {
+    loadJSON(bib,"GET", function(response)
+  {
+    var f = JSON.parse(response);
+    var entry = f.feed.entry;
+
+    for (var i in entry)
+    {
+      var e = entry[i];
+      var eauth = e.gsx$lastname.$t;
+      var ename = e.gsx$firstname.$t;
+      var ebook = e.gsx$title.$t;
+      var eyear = e.gsx$year.$t;
+      var epubl = e.gsx$publisher.$t;
+      var edito = e.gsx$editor.$t;
+      var ejour = e.gsx$journal.$t;
+      var evolu = e.gsx$volume.$t;
+      var enumb = e.gsx$number.$t;
+      var eslas = e.gsx$secondlastname.$t;
+      var esfir = e.gsx$secondfirstname.$t;
+
+      var quote = new Array();
+
+      var eidnice = "["+i+"]";
+
+      quote.push(eidnice," ", eauth,", ",ename);
+
+      if(eslas) quote.push(", & ", eslas,", ", esfir);
+      
+      quote.push(". ",ebook,". ");
+
+      if (edito) {
+        quote.push(", in ",ejour,". ",edito," (Ed.) ");
+        if (evolu) quote.push("Vol. ", evolu);
+        if (enumb) quote.push("No. ", enumb);
+      }
+      
+      quote.push(eyear,". ", epubl, ".");
+
+      booktitles.push(ebook);
+      fullquotes.push(quote.join(''));
+    }
+    return booktitles.length?0:consoleLog(booktitles.length),1;
+  });
+}
+
 function removeChilds(x) {
   while (x.firstChild) {
       x.removeChild(x.firstChild);
   } 
-  if(!x.firstChild) return 1
+  if(!x.firstChild) return 1;
 }
-
+///////////////////////////////////////////////////////////////////////////////
+//  HELPER FUNCTIONS
+///////////////////////////////////////////////////////////////////////////////
+function isLetter(str) {
+ return str.length === 1 && str.match(/[a-z]/i);
+}
 function makeID(x){
   return x.replace(/ /g,'_').toLowerCase().slice(0,7);
 }
-
-function width(){
-   return window.innerWidth 
-       || document.documentElement.clientWidth 
-       || document.body.clientWidth 
-       || 0;
+function pdRandom(range,offset){
+  offset = offset || 0;
+  return Math.floor(Math.random() * range) + offset;
 }
-function height(){
-   return window.innerHeight 
-       || document.documentElement.clientHeight 
-       || document.body.clientHeight 
-       || 0;
+function comp(a,b) {
+  return a.localeCompare(b,'en', {
+    sensitivity: 'base', usage: 'search', ignorePunctuation: 'true'
+  });
 }
-function articleWidth(maxW){
-  var pw  = width();
-  if (pw >= maxW) {return maxW;} else {return pw;}
-}
-
-function resized(){
-  w = width();
-  h = height();
-}
+///////////////////////////////////////////////////////////////////////////////
+//  XMLHTTPREQUEST INTO JSON
+///////////////////////////////////////////////////////////////////////////////
 function loadJSON(theUrl,method,callback) {
   var xobj = new XMLHttpRequest();
   xobj.overrideMimeType("application/json");
@@ -41,20 +95,20 @@ function loadJSON(theUrl,method,callback) {
   };
   xobj.send(null);  
 }
-
-function pdRandom(range,offset){
-  offset = offset || 0;
-  return Math.floor(Math.random() * range) + offset;
-}
-
+///////////////////////////////////////////////////////////////////////////////
+//  REMOVE UNWANTED HTML CHARS
+///////////////////////////////////////////////////////////////////////////////
 function purgeHTML(string) {
  //  Trim the string for unwanted HTML chars
   var s = string,t,u,v;
-  t=s.replace(/\<|\>|\[|\]|\'|\"|\/|[ ]b[ ]/g,'');
+  t=s.replace(/<|\>|\[|\]|\'|\"|\/|[ ]b[ ]/g,'');
   u=t.replace(/\(|\)|\{|\}|[0-9]|[00-99]|[000-999]/g,'');
   v=u.replace(/[ ]i[ ]|[ ]ul[ ]|[ ]li[ ]|[ ]ul[ ]|\,|\./g,'');
   return v;
 }
+///////////////////////////////////////////////////////////////////////////////
+//  WORD FREQUENCY
+///////////////////////////////////////////////////////////////////////////////
 function wordFreq(x) {
     var words = x;
     var freqMap = {};
@@ -67,29 +121,9 @@ function wordFreq(x) {
 
     return freqMap;
 }
-
-function comp(a,b) {
-  return a.localeCompare(b,'en', {
-                                    sensitivity: 'base', 
-                                    usage: 'search',
-                                    ignorePunctuation: 'true'
-                                });
-}
-
-function getUniqueCategories(x){
-  var cats = new Array();
-  for (var i in x){
-    let st = new String(x[i]);
-    cats.push(st.replace(/\W/g,' '));
-  }
-  return unique(unique(cats));
-}
-
-function unique(array) {
-    return $.grep(array, function(el, index) {
-        return index == $.inArray(el, array);
-    });
-}
+///////////////////////////////////////////////////////////////////////////////
+//  HTML ELEMENT TAGS
+///////////////////////////////////////////////////////////////////////////////
 function anchor(link,text,target,title){
   let tag = document.createElement('a');
   let ti;
@@ -114,19 +148,6 @@ function element(tag,text,id,onclick,width) {
   elem.setAttribute('style',"width:"+(width?width+"px;":'inherit;'));
   elem.appendChild(node);
   return elem;
-}
-function img(src,width,titl,id) {
-  let tag = document.createElement('img');
-  let div = document.createElement('div');
-  let anc = anchor(src);
-  if (id)    tag.setAttribute('id',id);
-  if (src)   tag.setAttribute('src', src);
-  if (width) tag.setAttribute('width', width);
-  if (titl)  tag.setAttribute('title', titl);
-  div.setAttribute('style',"width:inherit;overflow:hidden;border-radius:15px;");
-  anc.appendChild(tag);
-  div.appendChild(anc);
-  return div;      
 }
 function makeDropdown(id,target,list, onchange,label) {
   if (label) {
@@ -184,7 +205,43 @@ function makeInput(target,tag,obj) {
   if(target) target.appendChild(t);
   return t;
 }
+///////////////////////////////////////////////////////////////////////////////
+//  PAGE DIMENSIONS
+///////////////////////////////////////////////////////////////////////////////
+function width(){
+   return window.innerWidth 
+       || document.documentElement.clientWidth 
+       || document.body.clientWidth 
+       || 0;
+}
+function height(){
+   return window.innerHeight 
+       || document.documentElement.clientHeight 
+       || document.body.clientHeight 
+       || 0;
+}
+function articleWidth(maxW){
+  var pw  = width();
+  if (pw >= maxW) {return maxW;} else {return pw;}
+}
+function resized(){
+  w = width();
+  h = height();
+}
+///////////////////////////////////////////////////////////////////////////////
+//  CONSOLE LOGGING
+///////////////////////////////////////////////////////////////////////////////
+function consoleLine() {
+  console.log("|-----------------------------------------------|");
+}
 
+function welcome() {
+  consoleLine();
+  console.log("| "+title+"                             |");
+  consoleLine();
+  console.log("| "+subtitle+" |");
+  consoleLine();
+}
 consoleLog = function(msg) {//See https://stackoverflow.com/a/27074218/470749
     var e = new Error();
     if (!e.stack)
@@ -203,118 +260,10 @@ consoleLog = function(msg) {//See https://stackoverflow.com/a/27074218/470749
     }
     console.log(msg, '          [' + stack[1] + ']');        
 }
-
-function getBib() {
-    loadJSON(bib,"GET", function(response)
-  {
-    var f = JSON.parse(response);
-    var entry = f.feed.entry;
-
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var eauth = e.gsx$lastname.$t;
-      var ename = e.gsx$firstname.$t;
-      var ebook = e.gsx$title.$t;
-      var eyear = e.gsx$year.$t;
-      var epubl = e.gsx$publisher.$t;
-      var edito = e.gsx$editor.$t;
-      var ejour = e.gsx$journal.$t;
-      var evolu = e.gsx$volume.$t;
-      var enumb = e.gsx$number.$t;
-      var eslas = e.gsx$secondlastname.$t;
-      var esfir = e.gsx$secondfirstname.$t;
-
-      var quote = new Array();
-
-      var eidnice = "["+i+"]";
-
-      quote.push(eidnice," ", eauth,", ",ename);
-
-      if(eslas) quote.push(", & ", eslas,", ", esfir);
-      
-      quote.push(". ",ebook,". ");
-
-      if (edito) {
-        quote.push(", in ",ejour,". ",edito," (Ed.) ");
-        if (evolu) quote.push("Vol. ", evolu);
-        if (enumb) quote.push("No. ", enumb);
-      }
-      
-      quote.push(eyear,". ", epubl, ".");
-
-      booktitles.push(ebook);
-      fullquotes.push(quote.join(''));
-    }
-    return booktitles.length?0:consoleLog(booktitles.length),1;
-  });
-}
-
-function stats(x) {
-  let val = x.value;
-  let ind = x.id;
-  let i = slidersID.indexOf(ind);
-  slidersVals[i]=val;
-  // console.log("Change Value of "+ind+" at ["+i+"] to: "+val);
-  let sv = slidersVals.join(' ');
-  document.getElementById(formNames[2]).value = sv;
-  // console.log(sv)
-};
-function isLetter(str) {
- return str.length === 1 && str.match(/[a-z]/i);
-}
-
-function consoleLine() {
-  console.log("|-----------------------------------------------|");
-}
-
-function welcome() {
-  consoleLine();
-  console.log("| "+title+"                             |");
-  consoleLine();
-  console.log("| "+subtitle+" |");
-  consoleLine();
-}
+/*
 
 
-// function tagText(postData) {
-//   var url = "https://text-processing.com/api/tag/";
-//   var method = "POST";
-//   // var postData = "Some data";
+  END ROUTINES FILE
 
-//   // You REALLY want shouldBeAsync = true.
-//   // Otherwise, it'll block ALL execution waiting for server response.
-//   var shouldBeAsync = true;
-
-//   var request = new XMLHttpRequest();
-
-//   // Before we send anything, we first have to say what we will do when the
-//   // server responds. This seems backwards (say how we'll respond before we send
-//   // the request? huh?), but that's how Javascript works.
-//   // This function attached to the XMLHttpRequest "onload" property specifies how
-//   // the HTTP response will be handled. 
-//   request.onload = function () {
-
-//      // Because of javascript's fabulous closure concept, the XMLHttpRequest "request"
-//      // object declared above is available in this function even though this function
-//      // executes long after the request is sent and long after this function is
-//      // instantiated. This fact is CRUCIAL to the workings of XHR in ordinary
-//      // applications.
-
-//      // You can get all kinds of information about the HTTP response.
-//      var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-//      var data = request.responseText; // Returned data, e.g., an HTML document.
-//      if (status==200) {
-//       console.log(data);
-//      }
-//   }
-
-//   request.open(method, url, shouldBeAsync);
-
-//   request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-//   // Or... request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-//   // Or... whatever
-
-//   // Actually sends the request to the server.
-//   request.send(postData);
-// }
+  
+*/

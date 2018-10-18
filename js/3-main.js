@@ -1,5 +1,17 @@
-function main() {
+/*
 
+  LITREV MAIN FILE
+
+  
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+  
+*/
+function main() {
 	headTag = document.getElementsByTagName('header')[0];
 	hstuff.push(
 		element("h1", title,          'titl', "window.open(\'"+url     +"\',\'_top\')"),
@@ -20,7 +32,12 @@ function main() {
 
 		mainTag.appendChild(sec);
 	}
-
   	getLit();
-
 }
+/*
+
+
+  END MAIN FILE
+
+  
+*/

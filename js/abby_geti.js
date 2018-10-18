@@ -1,5 +1,17 @@
-var iKey=[];
+/*
 
+  LITREV ABBY LOADER FILE
+
+  
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+  
+*/
+var iKey=[];
 function getLit(x)
 {
   // getBib();
@@ -37,3 +49,10 @@ function getLit(x)
   });
   welcome();
 }
+/*
+
+
+  END LOADER FILE
+
+  
+*/
