@@ -95,6 +95,8 @@ function getLit() {
         // document.getElementById(sections[2]+"-a").appendChild(element('p',fullquotes[i]));
         console.log(fullquotes[i]);
       }
+    } else {
+      console.log(fullquotes);
     }
   }, quoteTimeout);
 }
