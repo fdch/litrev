@@ -136,12 +136,12 @@ function analyze(quote) {
   //  Sort the 'arr' object based on values and return its keys
   var arrSort = Object.keys(arr).sort(function(a,b){return arr[b]-arr[a]});
   //  Limit fetch up to 100 word candidates
-  var len     = (phar.length < maxQuery*10)?phar.length:maxQuery*10; 
+  var len     = (phar.length <= maxQuery*10)?phar.length:maxQuery*10; 
   //  Loop through all candidates
   if (len) {
     for (var i=0; i<=len-1; i++) {
       var wd = arrSort[i];
-      console.log(wd);
+      // console.log(wd);
       var unwanted=0;
       //  Skip analysis if word appears in 'preps' array
       for (var j in preps)
