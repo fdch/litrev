@@ -32,7 +32,7 @@ function makeQuote(head,main,id) {
   ); 
 
   h.appendChild(element('h3', "Quote ID # "+e));
-  h.appendChild(element('h4', allFormObjects[e][2]+". "+allFormObjects[e][3]));
+  h.appendChild(element('h4', allFormObjects[e][3]+". "+allFormObjects[e][2]));
   m.appendChild(allFormObjects[e][0]);
   //  Empty 'slidersVals'
   if(slidersVals.length)
