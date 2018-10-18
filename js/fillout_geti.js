@@ -58,7 +58,7 @@ function fillPhrase(x) {
   var p = document.getElementById(formNames[1]);
   var q = document.getElementById(formNames[0]);
   if (p.value) {
-      console.log("\'"+x+"\' is already filled");
+      console.log("| \'"+x+"\' is already filled");
       return;
   }
   var squote = [];
