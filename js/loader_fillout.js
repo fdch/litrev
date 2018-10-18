@@ -131,14 +131,12 @@ function analyze(quote) {
   var ph      = purgeHTML(phrases);
   //  Split 'ph' into array 'phar'
   var phar    = ph.split(' ');
-  console.log(phar.length);
-  console.log(phar);
   //  Get Word Frequency of 'phar' into the 'arr' Object
   var arr     = wordFreq(phar);
   //  Sort the 'arr' object based on values and return its keys
   var arrSort = Object.keys(arr).sort(function(a,b){return arr[b]-arr[a]});
   //  Limit fetch up to 100 word candidates
-  var len     = (phar.length < maxQuery*10)?arrSort.length:maxQuery*20; 
+  var len     = (phar.length < maxQuery*10)?phar.length:maxQuery*20; 
   //  Loop through all candidates
   if (len) {
     for (var i=0; i<=len; i++) {
