@@ -208,32 +208,41 @@ function getBib() {
           "volume"      : e.gsx$volume.$t,
           "number"      : e.gsx$number.$t
         }
-
-
-        // var quote = [];
-
-        // var eidnice = "["+i+"]";
-
-        // quote.push(eidnice," ", eauth,", ",ename);
-
-        // if(eslas) quote.push(", & ", eslas,", ", esfir);
-        
-        // quote.push(". ",ebook,". ");
-
-        // if (edito) {
-        //   quote.push(", in ",ejour,". ",edito," (Ed.) ");
-        //   if (evolu) quote.push("Vol. ", evolu);
-        //   if (enumb) quote.push("No. ", enumb);
-        // }
-        
-        // quote.push(eyear,". ", epubl, ".");
-
-        
-        // fullquotes.push(quote.join(''));
       }
     }
     return booktitles.length?0:console.error({booktitles}),1;
   });
+}
+function displayBib(element) {
+  console.log("Displaying Bib");
+  for (var key in fullquotes) {
+    var name      =fullquotes[key]["author"]["name"];
+    var last      =fullquotes[key]["author"]["lastname"];
+    var sname     =fullquotes[key]["secondauthor"]["name"];
+    var slast     =fullquotes[key]["secondauthor"]["lastname"];
+    var title     =fullquotes[key]["title"];
+    var year      =fullquotes[key]["year"];
+    var editor    =fullquotes[key]["editor"];
+    var publisher =fullquotes[key]["publisher"];
+    var journal   =fullquotes[key]["journal"];
+    var volume    =fullquotes[key]["volume"];
+    var number    =fullquotes[key]["number"];
+    var id = last.slice(0,3)+year.slice(2);
+
+    var fullbib = "\\bibitem{"+id+"}"+
+    name.slice(0,1)+". "+last+
+    sname?(", "+sname.slice(0,1)+". "+slast):""+
+    ", \\emph{"+title+"}, "+
+    editor?("in "+editor+" (Ed.)"):""+
+    publisher?(publisher+", "):""+
+    journal?("in "+journal+", "):""+
+    volume?("Vol. "+volume+", "):""+
+    number?("Num. "+number+", "):""+
+    year?(year+", "):"";
+
+    console.log(fullbib);
+    //element.appendChild(element('p',fullbib,'id'));
+  }
 }
 ///////////////////////////////////////////////////////////////////////////////
 //  CONSOLE LOGGING
