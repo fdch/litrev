@@ -48,7 +48,7 @@ function getLit(x)
   welcome();
   setTimeout(function() {
     for (var key in abbyQuote) {
-      x.appendChild(element('p',abbyQuote[key][paraphrase]));
+      x.appendChild(element('p',abbyQuote[key]["paraphrase"]));
     }
   }, quoteTimeout);
 }
