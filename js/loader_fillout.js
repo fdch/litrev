@@ -124,18 +124,21 @@ function analyze(quote) {
     }
   }
   //  slider Element ID in the Form
-  var slElem = formNames[2];
+  var slElem  = formNames[2];
   //  Get the Quote into 'phrases' string
   var phrases = document.getElementById(formNames[0]).value;
   //  Trim the text for unwanted chars into the 'ph' array
-  var ph = purgeHTML(phrases);
-  //  Get Word Frequency into the 'arr' Object
-  var arr     = wordFreq(ph.split(' '));
+  var ph      = purgeHTML(phrases);
+  //  Split 'ph' into array 'phar'
+  var phar    = ph.split(' ');
+  console.log(phar.length);
+  console.log(phar);
+  //  Get Word Frequency of 'phar' into the 'arr' Object
+  var arr     = wordFreq(phar);
   //  Sort the 'arr' object based on values and return its keys
   var arrSort = Object.keys(arr).sort(function(a,b){return arr[b]-arr[a]});
-  console.log(arrSort);
   //  Limit fetch up to 100 word candidates
-  var len = (arrSort.length < maxQuery*10)?arrSort.length:maxQuery*20; 
+  var len     = (phar.length < maxQuery*10)?arrSort.length:maxQuery*20; 
   //  Loop through all candidates
   if (len) {
     for (var i=0; i<=len; i++) {
