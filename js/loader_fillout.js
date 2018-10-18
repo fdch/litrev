@@ -55,7 +55,7 @@ function makeQuote(head,main,id) {
     type:"button",
     id:'refill',
     value:"Refill Phrase",
-    onclick:"killPhrase();fillPhrase()"
+    onclick:"refillPhrase()"
   });
   m.appendChild(sliDiv);
   
@@ -110,8 +110,9 @@ function fillPhrase(quote) {
     }
   }
 }
-function killPhrase() {
+function refillPhrase() {
   document.getElementById(formNames[1]).value= '';
+  fillPhrase();
 }
 ///////////////////////////////////////////////////////////////////////////////
 //  QUOTE KEYWORD ANALYZER
