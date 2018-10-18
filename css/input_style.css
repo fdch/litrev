@@ -23,7 +23,9 @@ input[type=range] {
   /* Specific width is required for Firefox. */
   width: 100%; 
   /* Otherwise white in Chrome */
-  background: burlywood; 
+  background: burlywood;
+  height:1px;
+  margin:20px;
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
