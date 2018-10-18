@@ -43,7 +43,7 @@ textarea, input[type=text], input[type=submit] {
   font-size:1.3em;
   font-family:"Times New Roman";
   padding:2%;
-  border:0.1px solid grey;
+  border:1px solid grey;
   border-radius:5px;
 }
 input[type=submit]:hover {
@@ -54,7 +54,7 @@ input[type=submit]:hover {
 }
 textarea:focus{
   outline:none;
-  border:0.2px solid grey;
+  border:1px solid grey;
 }
 /*
 
