@@ -234,6 +234,8 @@ function displayBib(elementID) {
     var number    = fullquotes[key]["number"];
     var id        = last.slice(0,3)+year.slice(2);
 
+    if (!last.localeCompare("zzzzzz")) continue;
+
     var fullbib = "";
 
     if  (id)        fullbib+="\\bibitem{"+id+"} ";
