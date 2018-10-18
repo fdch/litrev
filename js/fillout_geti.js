@@ -277,7 +277,9 @@ function getLit(x,y) {
     var countdown = setInterval(consoleLine(), 1000);
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
-      remainQuotes.sort(function(a,b){return a.getTime() - b.getTime()});
+      remainQuotes.sort( function(a,b) {
+        return (new Date(a)).getTime() - (new Date(b)).getTime();
+      });
       clearInterval(countdown);
       consoleLine();
       console.log("Filled Quotes     : "+filQuoteID.length);
