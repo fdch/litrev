@@ -43,7 +43,7 @@ function getLit(x)
       var probs = (e.gsx$probs.$t).split(' ');
       for (var j=0; j<=probs.length-1; j++) {
         abbyQuote[qid]["probabilities"] = {
-          iKey[j] : probs[j]
+          [iKey[j].toString()]: probs[j]
         }
       }
     }
