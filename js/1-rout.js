@@ -242,7 +242,7 @@ function displayBib(element) {
     if  (number)    fullbib   +=  "Num. "+number+", ";
     if  (year)      fullbib   +=  year+", ";
 
-    if (!fulbib.localeCompare("")) {
+    if (!fullbib.localeCompare("")) {
       console.log(fullbib);
       element.appendChild(element('p',fullbib,id));
     }
