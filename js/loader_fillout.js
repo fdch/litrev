@@ -140,17 +140,18 @@ function analyze(quote) {
   //  Loop through all candidates
   if (len) {
     for (var i=0; i<=len; i++) {
+      var wd = arrSort[i];
+      console.log(wd);
       var unwanted=0;
       //  Skip analysis if word appears in 'preps' array
       for (var j in preps)
-        if (!comp(arrSort[i],preps[j])) {unwanted=1; break;}
+        if (!comp(wd,preps[j])) {unwanted=1; break;}
         else {unwanted=0;}
       if (unwanted) { continue; } //  Skip it
       else {
         //  Check against all slider IDs in 'sliderObject'
         for (let w in sliderObject) { 
           for (let x in sliderObject[w]) {
-            var wd = arrSort[i];
             var kw = sliderObject[w][x];
             //  If there is a match, post it,
             //  and increment 30 the keyword value
