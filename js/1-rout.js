@@ -241,7 +241,7 @@ function displayBib(element) {
     year?(year+", "):"";
 
     console.log(fullbib);
-    //element.appendChild(element('p',fullbib,'id'));
+    element.appendChild(element('p',fullbib,id));
   }
 }
 ///////////////////////////////////////////////////////////////////////////////
