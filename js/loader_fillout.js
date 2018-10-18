@@ -139,7 +139,7 @@ function analyze(quote) {
   var len     = (phar.length < maxQuery*10)?phar.length:maxQuery*10; 
   //  Loop through all candidates
   if (len) {
-    for (var i=0; i<=len; i++) {
+    for (var i=0; i<=len-1; i++) {
       var wd = arrSort[i];
       console.log(wd);
       var unwanted=0;
