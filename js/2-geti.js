@@ -23,6 +23,8 @@ function getLit() {
   if(getBib()) {
     console.error("getBib Failed to load");
   } else {
+    console.log("gotBib");
+    console.log(fullquotes);
     document.getElementById(sections[2]+"-a").value = fullquotes.join();
   }
   
