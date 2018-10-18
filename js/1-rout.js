@@ -215,7 +215,8 @@ function getBib() {
 }
 function displayBib(elementID) {
   var eid = elementID;
-  console.log("Displaying Bib");
+  console.log("| Displaying Bibliography in \'"+eid+"\'");
+  consoleLine();
   for (var key in fullquotes) {
     // console.log(key);
     // console.log(fullquotes[key]);
