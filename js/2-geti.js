@@ -90,11 +90,33 @@ function getLit() {
   });
   welcome();
   setTimeout(function () {
+    for (var key in fullquotes) {
+      // document.getElementById(sections[2]+"-a").appendChild(element('p',fullquotes[i]));
+      var name      =fullquotes[key]["author"]["name"];
+      var last      =fullquotes[key]["author"]["lastname"];
+      var sname     =fullquotes[key]["secondauthor"]["name"];
+      var slast     =fullquotes[key]["secondauthor"]["lastname"];
+      var title     =fullquotes[key]["title"];
+      var year      =fullquotes[key]["year"];
+      var editor    =fullquotes[key]["editor"];
+      var publisher =fullquotes[key]["publisher"];
+      var journal   =fullquotes[key]["journal"];
+      var volume    =fullquotes[key]["volume"];
+      var number    =fullquotes[key]["number"];
 
-      for (var i=0; i<=fullquotes.length-1; i++) {
-        // document.getElementById(sections[2]+"-a").appendChild(element('p',fullquotes[i]));
-        console.log(fullquotes[i]);
-      }
+      var fullbib = "\\bibitem{"+id+"}"+
+      name.split(1)+". "+last+
+      sname?(", "+sname.split(1)+". "+slast):""+
+      ", \\emph{"+title+"}, "+
+      editor?("in "+editor+" (Ed.)"):""+
+      publisher?(publisher+", "):""+
+      journal?("in "+journal+", "):""+
+      volume?("Vol. "+volume+", "):""+
+      number?("Num. "+number+", "):""+
+      year?(year+", "):"";
+
+      console.log(fullbib);
+    }
   }, quoteTimeout);
 }
 /*
