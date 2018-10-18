@@ -20,14 +20,8 @@ function getValue(x) {
 
 function getLit() {
 
-  if(getBib()) {
-    console.error("getBib Failed to load");
-  } else {
-    console.log("gotBib");
-    console.log(fullquotes);
-    document.getElementById(sections[2]+"-a").value = fullquotes.join();
-  }
-  
+  getBib();
+
   var ulTag = element('ul');
   document.getElementById(sections[2]+"-a").appendChild(ulTag);
   for(let i in fullquotes)
@@ -95,6 +89,11 @@ function getLit() {
     );
   });
   welcome();
+  if(fullquotes.length) {
+    for (var i=0; i<=fullquotes.length-1; i++) {
+      document.getElementById(sections[2]+"-a").appendChild(element('p',fullquotes[i]));
+    }
+  }
 }
 /*
 
