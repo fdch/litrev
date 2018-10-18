@@ -12,7 +12,7 @@
   
 */
 var keyword="blank", keychange=0;
-var allekeyw=[],keywords=[],booktitles=[],fullquotes=[];
+var allekeyw=[],keywords=[];
 
 function getValue(x) {
   location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();
@@ -20,7 +20,11 @@ function getValue(x) {
 
 function getLit() {
 
-  getBib();
+  if(getBib()) {
+    console.error("getBib Failed to load");
+  } else {
+    document.getElementById(sections[2]+"-a").value = fullquotes.join();
+  }
   
   var ulTag = element('ul');
   document.getElementById(sections[2]+"-a").appendChild(ulTag);
