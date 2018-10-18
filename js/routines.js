@@ -26,6 +26,8 @@ function pdRandom(range,offset){
 }
 function comp(first,second) {
   var a = first, b = second;
+  if (a === undefined || a === null) return 1;
+  if (b === undefined || b === null) return 1;
   return a.localeCompare(b,'en', {
     sensitivity: 'base', usage: 'search', ignorePunctuation: 'true'
   });
