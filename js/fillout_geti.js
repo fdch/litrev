@@ -140,7 +140,7 @@ function analyze(quote) {
   //  Give out a responsive console message after analysis is done.
   if (!dirty){
     console.log("| analyze(\'"+q+"\')");
-    console.log("|         --> Couldn't find matches <--         |");
+    console.log("|        --> Couldn't find matches <--        |");
     consoleLine();
   } else {
     consoleLine();
@@ -276,7 +276,7 @@ function getLit(x,y) {
 
     welcome();
     
-    console.log("| Waiting "+quoteTimeout/1000+" seconds for correct loading.        |");
+    console.log("| Waiting "+quoteTimeout/1000+" seconds for correct loading.       |");
     var countdown = setInterval(consoleLine, 1000);
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
