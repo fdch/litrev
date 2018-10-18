@@ -9,7 +9,7 @@
 
   FEDE CAMARA HALAC (FDCH)
 
-  
+
 */
 ///////////////////////////////////////////////////////////////////////////////
 //  QUOTE DISPLAY
@@ -85,12 +85,11 @@ function fillPhrase(x) {
       console.log("| \'"+x+"\' is already filled");
       return;
   } else {
-    var squote = [];
     var phrases = q.value.split('. ')
     for (let j in phrases) {
       var quoter = phrases[j].split(' ');
       for (let i in quoter) {
-        curl = dMuse + quoter[i] + "&max=" + maxQuery;
+        var curl = dMuse + quoter[i] + "&max=" + maxQuery;
         loadJSON(curl, "GET", function(response) { 
           var f = JSON.parse(response);
           var lucky = pdRandom(maxQuery);
@@ -354,5 +353,9 @@ function getLit(x,y) {
 
   END LOADER FILE
 
-  
+
 */
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////

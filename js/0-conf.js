@@ -100,12 +100,16 @@ var booktitles		= [],	//	getBib book title
 	filQuoteID 		= [],	//	all Filled Quotes Timestamps
 	remainQuotes	= [],	//	The remaining, unfilled quotes
 	allFormObjects	= {};	//	All Form Objects (id, form, author, etc)	
-var cForm, num, sliDiv;
+var cForm, num, sliDiv;		//	Stuff that should go somewhere...
+var w,h;					//	Page Dimensions: Width and Height
 var sections 		= [
 	'menu', 'content', 'biblio', 
 	"Menu", "Quotes", "Bibliography"
 ];
 var dMuse 			= "https://api.datamuse.com/words?ml=";
+///////////////////////////////////////////////////////////////////////////////
+//	WORDS THAT ARE DEFINITELY NOT KEYWORDS
+///////////////////////////////////////////////////////////////////////////////
 //	https://www.talkenglish.com/vocabulary/top-50-prepositions.aspx
 var preps = ["the","of","with","at","from","into","during","including","until",
 "against","among","throughout","despite","towards","upon","concerning","to",
@@ -127,5 +131,9 @@ var preps = ["the","of","with","at","from","into","during","including","until",
 
 	END CONFIGURATION FILE
 
-	
+
 */
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
