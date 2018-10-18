@@ -217,39 +217,39 @@ function displayBib(elementID) {
   var eid = elementID;
   console.log("Displaying Bib");
   for (var key in fullquotes) {
-    console.log(key);
-    console.log(fullquotes[key]);
+    // console.log(key);
+    // console.log(fullquotes[key]);
 
-    // var name      = fullquotes[key]["author"]["name"];
-    // var last      = fullquotes[key]["author"]["lastname"];
-    // var sname     = fullquotes[key]["secondauthor"]["name"];
-    // var slast     = fullquotes[key]["secondauthor"]["lastname"];
-    // var title     = fullquotes[key]["title"];
-    // var year      = fullquotes[key]["year"];
-    // var editor    = fullquotes[key]["editor"];
-    // var publisher = fullquotes[key]["publisher"];
-    // var journal   = fullquotes[key]["journal"];
-    // var volume    = fullquotes[key]["volume"];
-    // var number    = fullquotes[key]["number"];
-    // var id = last.slice(0,3)+year.slice(2);
+    var name      = fullquotes[key]["author"]["name"];
+    var last      = fullquotes[key]["author"]["lastname"];
+    var sname     = fullquotes[key]["secondauthor"]["name"];
+    var slast     = fullquotes[key]["secondauthor"]["lastname"];
+    var title     = fullquotes[key]["title"];
+    var year      = fullquotes[key]["year"];
+    var editor    = fullquotes[key]["editor"];
+    var publisher = fullquotes[key]["publisher"];
+    var journal   = fullquotes[key]["journal"];
+    var volume    = fullquotes[key]["volume"];
+    var number    = fullquotes[key]["number"];
+    var id        = last.slice(0,3)+year.slice(2);
 
-    // var fullbib;
+    var fullbib;
 
-    // if  (id)        fullbib   +=  "\\bibitem{"+id+"}";
-    // if  (name)      fullbib   +=  name.slice(0,1)+". "+last;
-    // if  (sname)     fullbib   +=  ", "+sname.slice(0,1)+". "+slast;
-    // if  (title)     fullbib   +=  ", \\emph{"+title+"}, ";
-    // if  (editor)    fullbib   +=  "in "+editor+" (Ed.)";
-    // if  (publisher) fullbib   +=  publisher+", ";
-    // if  (journal)   fullbib   +=  "in "+journal+", ";
-    // if  (volume)    fullbib   +=  "Vol. "+volume+", ";
-    // if  (number)    fullbib   +=  "Num. "+number+", ";
-    // if  (year)      fullbib   +=  year+", ";
+    if  (id)        fullbib   +=  "\\bibitem{"+id+"}";
+    if  (name)      fullbib   +=  name.slice(0,1)+". "+last;
+    if  (sname)     fullbib   +=  ", "+sname.slice(0,1)+". "+slast;
+    if  (title)     fullbib   +=  ", \\emph{"+title+"}, ";
+    if  (editor)    fullbib   +=  "in "+editor+" (Ed.)";
+    if  (publisher) fullbib   +=  publisher+", ";
+    if  (journal)   fullbib   +=  "in "+journal+", ";
+    if  (volume)    fullbib   +=  "Vol. "+volume+", ";
+    if  (number)    fullbib   +=  "Num. "+number+", ";
+    if  (year)      fullbib   +=  year+", ";
 
-    // // if (!fullbib.localeCompare("")) {
-    // console.log(fullbib);
-    // document.getElementById(eid).appendChild(element('p',fullbib,id));
-    // // }
+    // if (!fullbib.localeCompare("")) {
+    console.log(fullbib);
+    document.getElementById(eid).appendChild(element('p',fullbib,id));
+    // }
   }
 }
 ///////////////////////////////////////////////////////////////////////////////
