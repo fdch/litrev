@@ -187,46 +187,50 @@ function resized(){
 //  GET BIBLIOGRAPHY
 ///////////////////////////////////////////////////////////////////////////////
 function getBib() {
-    loadJSON(bib,"GET", function(response)
-  {
+  loadJSON(bib,"GET", function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
+    if (entry.length) {
+      for (var i in entry) {
+        var e     = entry[i];
+        var ebook = e.gsx$title.$t;
+        booktitles.push(ebook);
+        fullquotes[i] = { 
+          "author"      : { "name"      : e.gsx$firstname.$t,
+                            "lastname"  : e.gsx$lastname.$t},
+          "secondauthor": { "name"      : e.gsx$secondfirstname.$t,
+                            "lastname"  : e.gsx$secondlastname.$t},
+          "title"       : ebook,
+          "year"        : e.gsx$year.$t,
+          "editor"      : e.gsx$editor.$t,
+          "publisher"   : e.gsx$publisher.$t,
+          "journal"     : e.gsx$journal.$t,
+          "volume"      : e.gsx$volume.$t,
+          "number"      : e.gsx$number.$t
+        }
 
-    for (var i in entry)
-    {
-      var e     = entry[i];
-      var eauth = e.gsx$lastname.$t;
-      var ename = e.gsx$firstname.$t;
-      var ebook = e.gsx$title.$t;
-      var eyear = e.gsx$year.$t;
-      var epubl = e.gsx$publisher.$t;
-      var edito = e.gsx$editor.$t;
-      var ejour = e.gsx$journal.$t;
-      var evolu = e.gsx$volume.$t;
-      var enumb = e.gsx$number.$t;
-      var eslas = e.gsx$secondlastname.$t;
-      var esfir = e.gsx$secondfirstname.$t;
 
-      var quote = [];
+        // var quote = [];
 
-      var eidnice = "["+i+"]";
+        // var eidnice = "["+i+"]";
 
-      quote.push(eidnice," ", eauth,", ",ename);
+        // quote.push(eidnice," ", eauth,", ",ename);
 
-      if(eslas) quote.push(", & ", eslas,", ", esfir);
-      
-      quote.push(". ",ebook,". ");
+        // if(eslas) quote.push(", & ", eslas,", ", esfir);
+        
+        // quote.push(". ",ebook,". ");
 
-      if (edito) {
-        quote.push(", in ",ejour,". ",edito," (Ed.) ");
-        if (evolu) quote.push("Vol. ", evolu);
-        if (enumb) quote.push("No. ", enumb);
+        // if (edito) {
+        //   quote.push(", in ",ejour,". ",edito," (Ed.) ");
+        //   if (evolu) quote.push("Vol. ", evolu);
+        //   if (enumb) quote.push("No. ", enumb);
+        // }
+        
+        // quote.push(eyear,". ", epubl, ".");
+
+        
+        // fullquotes.push(quote.join(''));
       }
-      
-      quote.push(eyear,". ", epubl, ".");
-
-      booktitles.push(ebook);
-      fullquotes.push(quote.join(''));
     }
     return booktitles.length?0:console.error({booktitles}),1;
   });

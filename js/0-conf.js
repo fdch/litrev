@@ -92,7 +92,7 @@ var headTag				,	//	<header>
 //	DATA OBJECTS
 ///////////////////////////////////////////////////////////////////////////////
 var booktitles		= [],	//	getBib book title
-	fullquotes 		= [],	//	getBib book author
+	fullquotes 		= {},	//	all bibliography data
 	sliders    		= [],	//	array for sliders
 	slidersVals		= [],	//	keep all values of sliders
 	slidersID  		= [],	//	keep all ids of sliders
