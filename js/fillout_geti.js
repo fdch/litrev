@@ -277,13 +277,14 @@ function getLit(x,y) {
     var countdown = setInterval(myTimer, 1000);
     setTimeout(function() {    
       remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
+      remainQuotes.sort(function(a,b){return a.getTime() - b.getTime()});
       clearInterval(countdown);
       consoleLine();
       console.log("Filled Quotes     : "+filQuoteID.length);
       console.log("Total Quotes      : "+alleqID.length);
       console.log("Remaining Quotes  : "+remainQuotes.length);
       consoleLine();
-      makeQuote(y,x,eqid);
+      makeQuote(y,x,remainQuotes[pdRandom(remainQuotes.length)]);
 
     }, quoteTimeout);
   });
