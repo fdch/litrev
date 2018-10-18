@@ -1,4 +1,18 @@
 /*
+
+  FILLOUT INPUT STYLES
+
+
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+
+*/
+
+/*
 --------------------------------------------------------------
   Remove Styles
 --------------------------------------------------------------
@@ -66,3 +80,10 @@ input[type=range]::-ms-thumb {
   background: #ffffff;
   cursor: pointer;
 }
+/*
+
+
+  END INPUT STYLES
+
+
+*/

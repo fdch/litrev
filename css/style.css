@@ -1,3 +1,16 @@
+/*
+
+  LITREV STYLES
+
+
+  THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
+  FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
+
+
+  FEDE CAMARA HALAC (FDCH)
+
+
+*/
 body {
   color:burlywood;
   background:black;
@@ -43,3 +56,10 @@ textarea:focus{
   outline:none;
   border:0.2px solid grey;
 }
+/*
+
+
+  END STYLES
+
+
+*/

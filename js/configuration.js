@@ -93,7 +93,6 @@ var headTag				,	//	<header>
 ///////////////////////////////////////////////////////////////////////////////
 var booktitles		= [],	//	getBib book title
 	fullquotes 		= {},	//	all bibliography data
-	sliders    		= [],	//	array for sliders
 	slidersVals		= [],	//	keep all values of sliders
 	slidersID  		= [],	//	keep all ids of sliders
 	alleqID    		= [],	//	all Unique Timestamp ID of quotes

@@ -2,7 +2,7 @@
 
   LITREV FILLOUT LOADER FILE
 
-  
+
   THIS FILE IS PART OF FDCH.GITHUB.IO/LITREV
   FOR ANY INFORMATION CONTACT FCH226@NYU.EDU
 
@@ -15,7 +15,7 @@
 //  QUOTE DISPLAY
 ///////////////////////////////////////////////////////////////////////////////
 
-var currQuote;
+var currQuote;  //  Store current quote Timestamp
 
 function makeQuote(head,main,id) {
   var h = head, m = main, e = id;
@@ -82,7 +82,8 @@ function selQuote(x) {
 ///////////////////////////////////////////////////////////////////////////////
 //  PARAPHRASING TOOL
 ///////////////////////////////////////////////////////////////////////////////
-function fillPhrase(x) {
+function fillPhrase(quote) {
+  var x = quote || currQuote;
   var p = document.getElementById(formNames[1]);
   var q = document.getElementById(formNames[0]);
   if (p.value) {
@@ -122,6 +123,8 @@ function analyze(quote) {
       sliderObject[slidersID[s]].push(sname.split(' '));
     }
   }
+  //  slider Element ID in the Form
+  var slElem = formNames[2];
   //  Get the Quote into 'phrases' string
   var phrases = document.getElementById(formNames[0]).value;
   //  Trim the text for unwanted chars into the 'ph' array
@@ -130,8 +133,8 @@ function analyze(quote) {
   var arr     = wordFreq(ph.split(' '));
   //  Sort the 'arr' object based on values and return its keys
   var arrSort = Object.keys(arr).sort(function(a,b){return arr[b]-arr[a]});
-  //  Limit fetch up to 20 word candidates
-  var len = (arrSort.length < maxQuery*2)?arrSort.length:maxQuery*2; 
+  //  Limit fetch up to 100 word candidates
+  var len = (arrSort.length < maxQuery*10)?arrSort.length:maxQuery*20; 
   //  Loop through all candidates
   if (len) {
     for (var i=0; i<=len; i++) {
@@ -159,7 +162,7 @@ function analyze(quote) {
               slidersVals[index] += confidence;
               //  Update values of the Form Input elmement
               //  which is holding 'slidersVals'
-              document.getElementById(formNames[2]).value = slidersVals.join(' ');
+              document.getElementById(slElem).value=slidersVals.join(' ');
             }
           }
         }
@@ -269,18 +272,18 @@ function getLit(x,y) {
     {
       var e = entry[i];
 
-      var ebook = e.gsx$booktitle.$t;
-      var eauth = e.gsx$author.$t;
-      var equot = e.gsx$quickquote.$t;
-      var epara = e.gsx$paraphrase.$t;
-      var eqid  = e.gsx$timestamp.$t;
+      var ebook   = e.gsx$booktitle.$t;
+      var eauth   = e.gsx$author.$t;
+      var equot   = e.gsx$quickquote.$t;
+      var epara   = e.gsx$paraphrase.$t;
+      var eqid    = e.gsx$timestamp.$t;
 
-      var eID = booktitles.indexOf(ebook);
-      var len = equot.length;
-      var col = 40;
-      var row = len/col+2;
+      var eID     = booktitles.indexOf(ebook);
+      var len     = equot.length;
+      var col     = 40;
+      var row     = len/col+2;
 
-      var formID = "form-"+eID;
+      var formID  = "form-"+eID;
 
       var formTag = makeInput(0, 'form', {
           id:formID,
