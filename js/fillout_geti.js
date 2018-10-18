@@ -140,7 +140,7 @@ function analyze(quote) {
   //  Give out a responsive console message after analysis is done.
   if (!dirty){
     console.log("| analyze(\'"+q+"\')");
-    console.log("|         --> Couldn't find matches <--        |");
+    console.log("|         --> Couldn't find matches <--         |");
     consoleLine();
   } else {
     consoleLine();
