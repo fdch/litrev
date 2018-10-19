@@ -47,9 +47,14 @@ function getLit(x)
   });
   welcome();
   setTimeout(function() {
-    for (var key in abbyQuote) {
-      x.appendChild(element('p',abbyQuote[key]["paraphrase"]));
-    }
+    
+    for (var key in abbyQuote)
+      for (var mikey in abbyQuote["probabilities"]) {
+        var ranking = helper.arr.multisort(abbyQuote, [abbyQuote["probabilities"][mikey]]);
+        console.log(ranking);
+        consoleLine();
+      }
+      // x.appendChild(element('p',abbyQuote[key]["paraphrase"]));
   }, quoteTimeout);
 }
 /*
