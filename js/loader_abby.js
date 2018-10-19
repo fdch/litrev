@@ -47,10 +47,13 @@ function getLit(x)
   });
   welcome();
   setTimeout(function() {
-    
+    console.log("| Testing multisort");
+    consoleLine();
     for (var key in abbyQuote)
       for (var mikey in abbyQuote["probabilities"]) {
-        var ranking = helper.arr.multisort(abbyQuote, [abbyQuote["probabilities"][mikey]]);
+        console.log(abbyQuote[key]["probabilities"][mikey]);
+        consoleLine();
+        var ranking = helper.arr.multisort(abbyQuote, [abbyQuote[key]["probabilities"][mikey]]);
         console.log(ranking);
         consoleLine();
       }
