@@ -72,16 +72,58 @@ var fil 		= https + ssID + "5" + altjson;
 //	The form ID to input quotes, and the form ID to make the formAction
 var formID 		= "1FAIpQLScijqg1IlmAWLsBgQ7jaUxEcCPUQqZroXG-9ZxXV4BvOKzbKg";
 var formRe 		= "1FAIpQLSdJiLSpbJxsObKJOk0CcM_xTMfMSstLCv2kIDuJXLOh_CKC_Q";
+var formKw		= "1FAIpQLScygxUIFRzLSRhSgThfwUm5i-yS28XbzxTJZ0-GDHei3M8Fcg";
 //	Form address paraphernalia
 var formhttps 	= "https://docs.google.com/forms/d/e/";
 //	The full URL for both Forms
 var formURL 	= formhttps	+ formID + "/viewform";
 var formAction	= formhttps	+ formRe + "/formResponse";
+var formKwAction= formhttps	+ formKw + "/formResponse";
 //	These are the fields on the formAction form to Submit a Fillout
 var formNames 	= [ "entry.176426125" ,
 					"entry.1679910861",
 					"entry.619862762" ,
 					"entry.1644345852"];
+var formKwNames = [
+		"entry.94893427"	,	//	Actor-Network Theory
+		"entry.1972147430"	,	//	Aesthetics
+		"entry.1260955177"	,	//	Agency
+		"entry.443141163"	,	//	Archive
+		"entry.2142082675"	,	//	Authorship
+		"entry.1045883857"	,	//	Community
+		"entry.887360350"	,	//	Conceptual Art
+		"entry.897207819"	,	//	Consciousness
+		"entry.1737655902"	,	//	Crisis
+		"entry.710623461"	,	//	Data
+		"entry.103440945"	,	//	Database
+		"entry.1280826390"	,	//	Dialectic
+		"entry.1919751320"	,	//	Différance
+		"entry.2098745294"	,	//	Embodiment
+		"entry.1624370293"	,	//	Gender
+		"entry.891433028"	,	//	Image
+		"entry.1236797540"	,	//	Inoperativity
+		"entry.571852680"	,	//	Installation
+		"entry.705278410"	,	//	Interaction
+		"entry.1748612122"	,	//	Intermedia
+		"entry.345829619"	,	//	Listening
+		"entry.588232398"	,	//	Memory
+		"entry.1196800037"	,	//	Multimedia
+		"entry.1839034127"	,	//	New Media Theory
+		"entry.1517576382"	,	//	Open-Source
+		"entry.653596505"	,	//	Postmodernism
+		"entry.1547080003"	,	//	Praxis
+		"entry.51675904"	,	//	Repetition
+		"entry.1270789286"	,	//	Singularity
+		"entry.1710475381"	,	//	Software
+		"entry.1804082891"	,	//	Sonification
+		"entry.1855406529"	,	//	Sound
+		"entry.214743445"	,	//	Stochastics
+		"entry.1921030820"	,	//	Technology
+		"entry.1129216671"	,	//	Tensegrity
+		"entry.1880230486"	,	//	Visual Art
+		"entry.625664494"	,	//	Work
+		"entry.859872630"		//	Writing
+];
 ///////////////////////////////////////////////////////////////////////////////
 //	GLOBAL HTML ELEMENT TAGS
 ///////////////////////////////////////////////////////////////////////////////
