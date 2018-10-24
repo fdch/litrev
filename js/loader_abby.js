@@ -53,11 +53,12 @@ function getLit(x)
 
   
   setTimeout(function() {
-    console.log("| Testing multisort");
+    // console.log("| Testing multisort");
     consoleLine();
-    for (var key in abbyQuote)
-
+    for (var key in abbyQuote) {
+      console.log(abbyQuote[key]["paraphrase"]);
       x.appendChild(element('p',abbyQuote[key]["paraphrase"]));
+    }
       // for (var mikey in abbyQuote["probabilities"]) {
         // console.log(abbyQuote[key]["probabilities"][mikey]);
         // consoleLine();
