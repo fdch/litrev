@@ -12,13 +12,13 @@ function makeLine() {
 	local sleepytime=$1
 	while [ $i -lt 80 ]
 	do
-		sleep $sleepytime
+		sleep "$sleepytime"
 		echo -ne "$(tput setaf 2)="
 		i=$[$i+1]
 	done
 }
 
-makeLine "0"
+makeLine 0
 
 echo "$(tput sgr 0)"
 
@@ -44,7 +44,7 @@ echo "$(tput setaf 2)
 Committed $COMMIT to $REPO on $DATE $(tput sgr 0)
 "
 
-makeLine "0.5"
+makeLine 0.5
 
 open "$BASE/$REPO$URLTGT"
 
