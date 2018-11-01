@@ -15,7 +15,7 @@
 BASE="http://fdch.github.io"
 REPO=$(basename `git rev-parse --show-toplevel`)
 DATE=$(date +"%D %T")
-COMMIT="updates"
+COMMIT="...updates"
 USAGE="$ ./p- [\"commit msg\"], [\"/optional/html/target\"], [<boolean>]"
 #==============================================================================
 function makeLine() {
