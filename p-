@@ -16,14 +16,10 @@ function makeLine() {
 	then
 		sleepytime=$1
 	fi
-	if [[ $2 ]]
-	then
-		color=$2
-	fi
 	while [ $i -lt 80 ]
 	do
 		sleep "$sleepytime"
-		echo -ne "$(tput setaf $color)="
+		echo -ne "$(tput setaf $RANDOM)="
 		i=$[$i+1]
 	done
 	echo "$(tput sgr 0)"
@@ -53,7 +49,7 @@ echo "$(tput setaf 2)
 Committed $COMMIT to $REPO on $DATE $(tput sgr 0)
 "
 
-makeLine 0.3 5
+makeLine 0.3
 
 open "$BASE/$REPO$URLTGT"
 
