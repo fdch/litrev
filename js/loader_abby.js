@@ -33,7 +33,8 @@ function getLit(x)
     var entry = f.feed.entry;
     for (var i in entry) {
       var e = entry[i];
-      var qid = e.gsx$timestamp.$t;
+      // var qid = e.gsx$timestamp.$t;
+      var qid = i;
       abbyQuote[qid] = {
         "quote"         : e.gsx$quote.$t,
         "paraphrase"    : e.gsx$paraphrase.$t,
@@ -54,8 +55,9 @@ function getLit(x)
   
   setTimeout(function() {
     consoleLine();
-    for (var key in quoteOrder) {
-      x.appendChild(element('p',abbyQuote[key]["paraphrase"]));
+    for (var i in quoteOrder) {
+      x.appendChild(element('p',i));
+      x.appendChild(element('p',abbyQuote[i]["paraphrase"]));
     }
   }, quoteTimeout);
 }
