@@ -8,39 +8,42 @@ REPO=$(basename `git rev-parse --show-toplevel`)
 DATE=$(date +"%D %T")
 COMMIT="updates"
 
-while [ $i -lt 80 ]
-do
-	echo -ne "$(tput setaf 2)="
-	i=$[$i+1]
-done
+function makeLine() {
+	local sleepytime=$1
+	while [ $i -lt 80 ]
+	do
+		sleep $sleepytime
+		echo -ne "$(tput setaf 2)="
+		i=$[$i+1]
+	done
+}
+
+makeLine 
 
 echo "$(tput sgr 0)"
-
-git add .
 
 if [[ $1 ]] 
 then
 	COMMIT="$1"
 fi
-
 if [[ $2 ]]
 then
 	URLTGT="/$2"
 fi
+if [[ $3 ]]
+then
+	cd abby_quote_order
+	sh run
+	cd ..
+fi
 
+git add .
 git commit -m "$COMMIT"
 git push
-
 echo "$(tput setaf 2)
 Committed $COMMIT to $REPO on $DATE $(tput sgr 0)
 "
-while [ $i -gt 0 ]
-do
-	sleep 0.3
-	echo -ne "="
-	i=$[$i-1]
-done
-
+makeLine 0.3
 open "$BASE/$REPO$URLTGT"
 
-exit
+exit 0
