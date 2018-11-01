@@ -25,7 +25,7 @@ function makeLine() {
 	if [[ $1 ]] ; then
 		sleepytime=$1
 	fi 
-	if [ $2 = 0 ] ; then
+	if [[ $2 = 0 ]] ; then
 		color="sgr 0"
 	else
 		color="setaf 2"
