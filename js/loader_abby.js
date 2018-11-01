@@ -56,8 +56,8 @@ function getLit(x)
   setTimeout(function() {
     consoleLine();
     for (var i in quoteOrder) {
-      x.appendChild(element('p',"Quote ID=["+i+"]"));
-      x.appendChild(element('p',abbyQuote[i]["paraphrase"]));
+      x.appendChild(element('p',"Quote ID=["+quoteOrder[i]+"]"));
+      x.appendChild(element('p',abbyQuote[quoteOrder[i]]["paraphrase"]));
     }
   }, quoteTimeout);
 }
