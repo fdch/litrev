@@ -33,7 +33,7 @@ fi
 if [[ $3 ]]
 then
 	cd abby_quote_order
-	sh run
+	sh run.sh
 	cd ..
 fi
 
