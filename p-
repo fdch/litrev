@@ -25,13 +25,15 @@ function makeLine() {
 	if [[ $1 ]] ; then
 		sleepytime=$1
 	fi 
-	if [[ $2 ]] ; then
-		color=$2
-	fi 
+	if [ $2 = 0 ] ; then
+		color="sgr $2"
+	else
+		color="setaf $2"
+	fi
 	while [ $i -lt 80 ]
 	do
 		sleep "$sleepytime"
-		echo -ne "$(tput setaf $color)="
+		echo -ne "$(tput $color)="
 		i=$[$i+1]
 	done
 	echo "$(tput sgr 0)"
