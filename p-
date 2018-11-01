@@ -26,9 +26,9 @@ function makeLine() {
 		sleepytime=$1
 	fi 
 	if [ $2 = 0 ] ; then
-		color="sgr $2"
+		color="sgr 0"
 	else
-		color="setaf $2"
+		color="setaf 2"
 	fi
 	while [ $i -lt 80 ]
 	do
