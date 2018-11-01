@@ -19,7 +19,8 @@ function makeLine() {
 	while [ $i -lt 80 ]
 	do
 		sleep "$sleepytime"
-		echo -ne "$(tput setaf $RANDOM)="
+		color=$[$RANDOM/32768*16]
+		echo -ne "$(tput setaf $col)="
 		i=$[$i+1]
 	done
 	echo "$(tput sgr 0)"
