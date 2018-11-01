@@ -18,7 +18,7 @@ function makeLine() {
 	done
 }
 
-makeLine 0
+makeLine "0"
 
 echo "$(tput sgr 0)"
 
@@ -44,7 +44,7 @@ echo "$(tput setaf 2)
 Committed $COMMIT to $REPO on $DATE $(tput sgr 0)
 "
 
-makeLine 0.5
+makeLine "0.5"
 
 open "$BASE/$REPO$URLTGT"
 
