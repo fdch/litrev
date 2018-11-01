@@ -15,7 +15,7 @@ var iKey=[];
 var abbyQuote={};
 function getLit(x)
 {
-  // getBib();
+  getBib();
   loadJSON(keys, "GET", function(response) 
   { 
     var f  =  JSON.parse(response);
@@ -53,20 +53,10 @@ function getLit(x)
 
   
   setTimeout(function() {
-    // console.log("| Testing multisort");
     consoleLine();
-    for (var key in abbyQuote) {
-      // console.log(abbyQuote[key]["paraphrase"]);
+    for (var key in quoteOrder) {
       x.appendChild(element('p',abbyQuote[key]["paraphrase"]));
     }
-      // for (var mikey in abbyQuote["probabilities"]) {
-        // console.log(abbyQuote[key]["probabilities"][mikey]);
-        // consoleLine();
-        // var ranking = helper.arr.multisort(abbyQuote, [abbyQuote[key]["probabilities"][mikey]]);
-        // console.log(ranking);
-        // consoleLine();
-      // }
-      // x.appendChild(element('p',abbyQuote[key]["paraphrase"]));
   }, quoteTimeout);
 }
 /*
