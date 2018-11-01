@@ -2,25 +2,34 @@
 #
 # This script commits to github, just run $ ./p- "optional commit msg"
 #
-i=0
+
 BASE="http://fdch.github.io"
 REPO=$(basename `git rev-parse --show-toplevel`)
 DATE=$(date +"%D %T")
 COMMIT="updates"
 
 function makeLine() {
-	local sleepytime=$1
+	local i=0
+	local sleepytime=0
+	local color=2
+	if [[ $1 ]]
+	then
+		sleepytime=$1
+	fi
+	if [[ $2 ]]
+	then
+		color=$2
+	fi
 	while [ $i -lt 80 ]
 	do
 		sleep "$sleepytime"
-		echo -ne "$(tput setaf 2)="
+		echo -ne "$(tput setaf $color)="
 		i=$[$i+1]
 	done
+	echo "$(tput sgr 0)"
 }
 
 makeLine 0
-
-echo "$(tput sgr 0)"
 
 if [[ $1 ]] 
 then
@@ -44,7 +53,7 @@ echo "$(tput setaf 2)
 Committed $COMMIT to $REPO on $DATE $(tput sgr 0)
 "
 
-makeLine 0.5
+makeLine 0.3 5
 
 open "$BASE/$REPO$URLTGT"
 
