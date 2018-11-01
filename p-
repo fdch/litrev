@@ -11,16 +11,14 @@ COMMIT="updates"
 function makeLine() {
 	local i=0
 	local sleepytime=0
-	local color=2
 	if [[ $1 ]]
 	then
 		sleepytime=$1
-	fi
+	fi 
 	while [ $i -lt 80 ]
 	do
 		sleep "$sleepytime"
-		color=$[$RANDOM/32768*16]
-		echo -ne "$(tput setaf $col)="
+		echo -ne "$(tput setaf 2)="
 		i=$[$i+1]
 	done
 	echo "$(tput sgr 0)"
