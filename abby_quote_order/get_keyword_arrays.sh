@@ -5,4 +5,4 @@ then
 	source config.sh
 fi
 
-curl $gs/$id/5/$js -o $JSONKEYWORDARRAYS
+curl $SHEETID -o $JSONKEYWORDARRAYS

@@ -1,12 +1,22 @@
 #!/bin/bash
 
-ABBYQUOTEORDER=~/Documents/litrev/js/abby_quote_order.js
+ABBYQUOTEORDER=../js/abby_quote_order.js
+CNFIG=../js/configuration.js
 
-gs=https://spreadsheets.google.com/feeds/list
-id=1tMkdssQlN_wbGS1SjfORS7AOBspKvvun7_AvzxctMrE
-js=public/values?alt=json
+https=`grep "var https" "$CNFIG" | 
+cut -d= -f2 | cut -d";" -f1 |
+sed 's/"//g;s/ //g'`
+
+ssID=`grep "var ssID" "$CNFIG" | 
+cut -d= -f2 | cut -d";" -f1 |
+sed 's/"//g;s/ //g'`
+
+altjson=`grep "var altjson" "$CNFIG" | 
+cut -d= -f2 | cut -d";" -f1 |
+sed 's/"//g;s/ //g'`
+
+SHEETID="$https$ssID"5"$altjson=json"
 PROBSENTRY="\"gsx\$probs\""
-
 
 JSONPROBS=probs.json
 JSONKEYWORDARRAYS=keyword_arrays.json

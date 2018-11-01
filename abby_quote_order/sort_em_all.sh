@@ -51,6 +51,4 @@ cat $SORTEDPROBS | cut -d= -f2 > $SORTEDID
 cat $SORTEDPROBS | cut -dI -f1 > $SORTEDPROBS-temp
 mv $SORTEDPROBS-temp $SORTEDPROBS
 #	Get rid of temp file
-rm probs_temp*
-
-exit 
+rm probs_temp* 
