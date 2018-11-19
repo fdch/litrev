@@ -313,7 +313,7 @@ function makeBibTex(elementID) {
       case "inbook":
       case "incollection":
         bibquote="\
-        @Book{"+id+",\
+        @Inbook{"+id+",\
          author= \""+name+" {"+last+"} "+sauth(sname,slast)+"\",\
          title = \""+title+"\",\
          booktitle = \""+journal+"\",\
