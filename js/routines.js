@@ -294,7 +294,7 @@ function makeBibTex(elementID) {
     if (!last.localeCompare("zzzzzz")) continue;
 
     switch(type) {
-      case article:
+      case "article":
         bibquote="\
         @Article{"+id+",\
          author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
@@ -307,7 +307,7 @@ function makeBibTex(elementID) {
         }\
         ";
         break;
-      case incollection:
+      case "incollection":
         bibquote="\
         @Book{"+id+",\
          author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
@@ -318,7 +318,7 @@ function makeBibTex(elementID) {
         }\
         ";
         break;
-      case phdthesis:
+      case "phdthesis":
         bibquote="\
         @phdthesis{"+id+",\
          author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
@@ -328,10 +328,10 @@ function makeBibTex(elementID) {
         }\
         ";
         break;
-      case inbook:
-      case inproceedings:
-      case unpublished:
-      case manual:
+      case "inbook":
+      case "inproceedings":
+      case "unpublished":
+      case "manual":
       default:
         bibquote="\
         @Book{"+id+",\
