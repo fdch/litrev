@@ -310,6 +310,7 @@ function makeBibTex(elementID) {
         }\
         ";
         break;
+      case "inbook":
       case "incollection":
         bibquote="\
         @Book{"+id+",\
@@ -331,7 +332,6 @@ function makeBibTex(elementID) {
         }\
         ";
         break;
-      case "inbook":
       case "inproceedings":
       case "unpublished":
       case "manual":
