@@ -297,7 +297,7 @@ function makeBibTex(elementID) {
       case article:
         bibquote="\
         @Article{"+id+",\
-         author= "+name+" {"+last+"} "++";\
+         author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
          title = "+title+",\
          journal = "+journal+",\
          year  = "+year+",\
