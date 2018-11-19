@@ -44,7 +44,7 @@ function getLit() {
       var id      = eauth.slice(0,3)+(e.gsx$year.$t).slice(2);
       var quoteA  = anchor(
         "#"+id,
-        "["+id+":"+e.gsx$page.$t+"]",
+        "["+eauth+" ("+id"):"+e.gsx$page.$t+"]",
         '',
         e.gsx$booktitle.$t+", "+eauth
       );
