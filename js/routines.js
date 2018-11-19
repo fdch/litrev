@@ -259,6 +259,16 @@ function displayBib(elementID) {
     // }
   }
 }
+
+
+function sauth(s,a) {
+  if (s && a) return " and "+s+" {"+a+"}";
+}
+
+
+
+
+
 function makeBibTex(elementID) {
   var eid = elementID;
   console.log("| Making BibTex in \'"+eid+"\'");
@@ -287,7 +297,7 @@ function makeBibTex(elementID) {
       case article:
         bibquote="\
         @Article{"+id+",\
-         author= "+name+" {"+last+"} "+sname?" and "+sname+" {"+slast+"}":;+";\
+         author= "+name+" {"+last+"} "++";\
          title = "+title+",\
          journal = "+journal+",\
          year  = "+year+",\
@@ -300,7 +310,7 @@ function makeBibTex(elementID) {
       case incollection:
         bibquote="\
         @Book{"+id+",\
-         author= "+name+" {"+last+"} "+sname?" and "+sname+" {"+slast+"}":;+";\
+         author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
          title = "+title+",\
          booktitle = "+journal+",\
          publisher = "+publisher+",\
@@ -311,7 +321,7 @@ function makeBibTex(elementID) {
       case phdthesis:
         bibquote="\
         @phdthesis{"+id+",\
-         author= "+name+" {"+last+"} "+sname?" and "+sname+" {"+slast+"}":;+";\
+         author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
          title = "+title+",\
          publisher = "+publisher+",\
          year  = "+year+",\
@@ -325,7 +335,7 @@ function makeBibTex(elementID) {
       default:
         bibquote="\
         @Book{"+id+",\
-         author= "+name+" {"+last+"} "+sname?" and "+sname+" {"+slast+"}":;+";\
+         author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
          title = "+title+",\
          publisher = "+publisher+",\
          year  = "+year+",\
