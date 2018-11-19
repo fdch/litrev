@@ -262,7 +262,10 @@ function displayBib(elementID) {
 
 
 function sauth(s,a) {
-  if (s && a) return " and "+s+" {"+a+"}";
+  if (s && a) 
+    return " and "+s+" {"+a+"}";
+  else
+    return "";
 }
 
 
@@ -297,34 +300,34 @@ function makeBibTex(elementID) {
       case "article":
         bibquote="\
         @Article{"+id+",\
-         author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
-         title = "+title+",\
-         journal = "+journal+",\
-         year  = "+year+",\
-         publisher = "+publisher+",\
-         volume = "+volume+",\
-         number = "+number+",\
+         author= \""+name+" {"+last+"} "+sauth(sname,slast)+"\",\
+         title = \""+title+"\",\
+         journal = \""+journal+"\",\
+         year  = \""+year+"\",\
+         publisher = \""+publisher+"\",\
+         volume = \""+volume+"\",\
+         number = \""+number+"\",\
         }\
         ";
         break;
       case "incollection":
         bibquote="\
         @Book{"+id+",\
-         author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
-         title = "+title+",\
-         booktitle = "+journal+",\
-         publisher = "+publisher+",\
-         year  = "+year+",\
+         author= \""+name+" {"+last+"} "+sauth(sname,slast)+"\",\
+         title = \""+title+"\",\
+         booktitle = \""+journal+"\",\
+         publisher = \""+publisher+"\",\
+         year  = \""+year+"\",\
         }\
         ";
         break;
       case "phdthesis":
         bibquote="\
         @phdthesis{"+id+",\
-         author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
-         title = "+title+",\
-         publisher = "+publisher+",\
-         year  = "+year+",\
+         author= \""+name+" {"+last+"} "+sauth(sname,slast)+"\",\
+         title = \""+title+"\",\
+         publisher = \""+publisher+"\",\
+         year  = \""+year+"\",\
         }\
         ";
         break;
@@ -335,10 +338,10 @@ function makeBibTex(elementID) {
       default:
         bibquote="\
         @Book{"+id+",\
-         author= "+name+" {"+last+"} "+sauth(sname,slast)+";\
-         title = "+title+",\
-         publisher = "+publisher+",\
-         year  = "+year+",\
+         author= \""+name+" {"+last+"} "+sauth(sname,slast)+"\",\
+         title = \""+title+"\",\
+         publisher = \""+publisher+"\",\
+         year  = \""+year+"\",\
         }\
         ";
     } 
