@@ -209,7 +209,8 @@ function getBib() {
           "publisher"   : e.gsx$publisher.$t,
           "journal"     : e.gsx$journal.$t,
           "volume"      : e.gsx$volume.$t,
-          "number"      : e.gsx$number.$t
+          "number"      : e.gsx$number.$t,
+          "type"      : e.gsx$type.$t
         }
       }
     }
@@ -255,6 +256,85 @@ function displayBib(elementID) {
     // if (!fullbib.localeCompare("")) {
     // console.log(fullbib);
     document.getElementById(eid).appendChild(element('p',fullbib,id));
+    // }
+  }
+}
+function makeBibTex(elementID) {
+  var eid = elementID;
+  console.log("| Making BibTex in \'"+eid+"\'");
+  consoleLine();
+  for (var key in fullquotes) {
+    // console.log(key);
+    // console.log(fullquotes[key]);
+
+    var name      = fullquotes[key]["author"]["name"];
+    var last      = fullquotes[key]["author"]["lastname"];
+    var sname     = fullquotes[key]["secondauthor"]["name"];
+    var slast     = fullquotes[key]["secondauthor"]["lastname"];
+    var title     = fullquotes[key]["title"];
+    var year      = fullquotes[key]["year"];
+    var editor    = fullquotes[key]["editor"];
+    var publisher = fullquotes[key]["publisher"];
+    var journal   = fullquotes[key]["journal"];
+    var volume    = fullquotes[key]["volume"];
+    var number    = fullquotes[key]["number"];
+    var type      = fullquotes[key]["type"];
+    var id        = last.slice(0,3)+year.slice(2);
+
+    if (!last.localeCompare("zzzzzz")) continue;
+
+    switch(type) {
+      case article:
+        bibquote="\
+        @Article{"+id+",\
+         author= "+name+" {"+last+"} "+sname?" and "+sname+" {"+slast+"}":;+";\
+         title = "+title+",\
+         journal = "+journal+",\
+         year  = "+year+",\
+         publisher = "+publisher+",\
+         volume = "+volume+",\
+         number = "+number+",\
+        }\
+        ";
+        break;
+      case incollection:
+        bibquote="\
+        @Book{"+id+",\
+         author= "+name+" {"+last+"} "+sname?" and "+sname+" {"+slast+"}":;+";\
+         title = "+title+",\
+         booktitle = "+journal+",\
+         publisher = "+publisher+",\
+         year  = "+year+",\
+        }\
+        ";
+        break;
+      case phdthesis:
+        bibquote="\
+        @phdthesis{"+id+",\
+         author= "+name+" {"+last+"} "+sname?" and "+sname+" {"+slast+"}":;+";\
+         title = "+title+",\
+         publisher = "+publisher+",\
+         year  = "+year+",\
+        }\
+        ";
+        break;
+      case inbook:
+      case inproceedings:
+      case unpublished:
+      case manual:
+      default:
+        bibquote="\
+        @Book{"+id+",\
+         author= "+name+" {"+last+"} "+sname?" and "+sname+" {"+slast+"}":;+";\
+         title = "+title+",\
+         publisher = "+publisher+",\
+         year  = "+year+",\
+        }\
+        ";
+    } 
+    // if (!fullbib.localeCompare("")) {
+    // console.log(fullbib);
+    document.getElementById(eid).appendChild(element('p',bibquote,id));
     // }
   }
 }

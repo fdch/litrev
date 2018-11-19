@@ -91,7 +91,7 @@ function getLit() {
   });
   welcome();
   setTimeout(function () {
-    displayBib(sections[2]+"-a");
+    makeBibTex(sections[2]+"-a");
   }, quoteTimeout);
 }
 /*
