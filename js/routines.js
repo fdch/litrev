@@ -316,7 +316,7 @@ function makeBibTex(elementID) {
         @Article{"+id+",\
          author= \""+name+" {"+last+"} "+sauth(sname,slast)+"\",\
          title = \""+title+"\",\
-         booktitle = \""+journal+"\",\
+         journal = \""+journal+"\",\
          publisher = \""+publisher+"\",\
          year  = \""+year+"\",\
         }\
