@@ -306,7 +306,7 @@ function makeBibTex(elementID) {
          year  = \""+year+"\",\
          publisher = \""+publisher+"\",\
          volume = \""+volume+"\",\
-         number = \""+number+"\",\
+         number = \""+number+"\"\
         }\
         ";
         break;
@@ -318,7 +318,7 @@ function makeBibTex(elementID) {
          title = \""+title+"\",\
          journal = \""+journal+"\",\
          publisher = \""+publisher+"\",\
-         year  = \""+year+"\",\
+         year  = \""+year+"\"\
         }\
         ";
         break;
@@ -328,7 +328,7 @@ function makeBibTex(elementID) {
          author= \""+name+" {"+last+"} "+sauth(sname,slast)+"\",\
          title = \""+title+"\",\
          publisher = \""+publisher+"\",\
-         year  = \""+year+"\",\
+         year  = \""+year+"\"\
         }\
         ";
         break;
@@ -341,7 +341,7 @@ function makeBibTex(elementID) {
          author= \""+name+" {"+last+"} "+sauth(sname,slast)+"\",\
          title = \""+title+"\",\
          publisher = \""+publisher+"\",\
-         year  = \""+year+"\",\
+         year  = \""+year+"\"\
         }\
         ";
     } 
