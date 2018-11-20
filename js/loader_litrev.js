@@ -42,9 +42,11 @@ function getLit() {
       var ek      = ekeyw.replace(/ /g,"_").toLowerCase();
       var eauth   = e.gsx$author.$t;
       var id      = eauth.slice(0,3)+(e.gsx$year.$t).slice(2);
+      
+// \cite{Man02} (p. 28)
       var quoteA  = anchor(
         "#"+id,
-        "["+eauth+" ("+id+"):"+e.gsx$page.$t+"]",
+        "\\cite{"+id+"} (p. "+e.gsx$page.$t+")",
         '',
         e.gsx$booktitle.$t+", "+eauth
       );
