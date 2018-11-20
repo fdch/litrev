@@ -292,7 +292,7 @@ function makeBibTex(elementID) {
     var volume    = fullquotes[key]["volume"];
     var number    = fullquotes[key]["number"];
     var type      = fullquotes[key]["type"];
-    var id        = last.slice(0,3)+year.slice(2)+":"+title.slice(3);
+    var id        = last.slice(0,3)+year.slice(2)+":"+title.slice(0,3);
 
     if (!last.localeCompare("zzzzzz")) continue;
 
