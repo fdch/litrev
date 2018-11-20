@@ -41,14 +41,15 @@ function getLit() {
       }
       var ek      = ekeyw.replace(/ /g,"_").toLowerCase();
       var eauth   = e.gsx$author.$t;
-      var id      = eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+title.slice(0,3);
+      var btitl   =e.gsx$booktitle.$t;
+      var id      = eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3);
       
 // \cite{Man02} (p. 28)
       var quoteA  = anchor(
         "#"+id,
         "\\cite{"+id+"} (p. "+e.gsx$page.$t+")",
         '',
-        e.gsx$booktitle.$t+", "+eauth
+       btitl+", "+eauth
       );
       //  Check if keyword exists
       if (ek){
