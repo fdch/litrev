@@ -17,6 +17,12 @@ function getValue(x) {
   location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();
 }
 
+function getCopy(x) {
+  var eid="#" + x.value.replace(/ /g,"_").toLowerCase()
+  copy(document.getElementById(eid).innerHTML);
+}
+
+
 function getLit() {
 
   getBib();
@@ -90,6 +96,12 @@ function getLit() {
       keywords,
       "getValue(this)",
       "Keywords "
+    );
+    makeDropdown('keywordcopy',
+      document.getElementById(sections[0]+"-a"),
+      keywords,
+      "getCopy(this)",
+      "Copy Keyword Text "
     );
   });
   welcome();
