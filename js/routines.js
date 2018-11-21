@@ -351,7 +351,7 @@ function makeBibTex(elementID) {
     // }
   }
 }
-function copy(x) {
+function fdcopy(x) {
   /* Get the text field */
   var copyText = x.innerHTML;
 
