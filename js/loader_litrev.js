@@ -18,9 +18,19 @@ function getValue(x) {
 }
 
 function getCopy(x) {
+
   var eid="#" + x.value.replace(/ /g,"_").toLowerCase();
-  
-  fdcopy(document.getElementById(eid));
+
+  var copyText = document.getElementById(eid).innerHTML;
+
+  /* Select the text field */
+  copyText.select();
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text from: " + x.id);
 
 }
 
