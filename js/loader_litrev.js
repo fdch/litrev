@@ -19,11 +19,11 @@ function getValue(x) {
 function selectText(containerid) {
     if (document.selection) { // IE
         var range = document.body.createTextRange();
-        range.moveToElementText(document.getElementById(containerid));
+        range.moveToElementText(document.getElementById(containerid).innerHTML);
         range.select();
     } else if (window.getSelection) {
         var range = document.createRange();
-        range.selectNode(document.getElementById(containerid));
+        range.selectNode(document.getElementById(containerid).innerHTML);
         window.getSelection().removeAllRanges();
         window.getSelection().addRange(range);
     }
