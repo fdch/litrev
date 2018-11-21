@@ -16,14 +16,25 @@ var keyword="blank",keychange=0,keywords=[];
 function getValue(x) {
   location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();
 }
-
+function selectText(containerid) {
+    if (document.selection) { // IE
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById(containerid));
+        range.select();
+    } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById(containerid));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+    }
+}
 function getCopy(x) {
 
   var eid="'#" + x.value.replace(/ /g,"_").toLowerCase()+"'";
 
   console.log(eid);
   
-  var copyText = document.getElementById(eid).innerHTML.execCommand("copy");
+  selectText(eid);
 
 
 }
