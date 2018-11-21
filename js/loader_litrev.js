@@ -21,7 +21,7 @@ function getCopy(x) {
 
   var eid="'#" + x.value.replace(/ /g,"_").toLowerCase()+"'";
 
-  console.log("copy(document.getElementById("+eid+"));";
+  console.log("copy(document.getElementById("+eid+"));");
   
 }
 
