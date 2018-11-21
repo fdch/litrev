@@ -21,6 +21,8 @@ function getCopy(x) {
 
   var eid="#" + x.value.replace(/ /g,"_").toLowerCase();
 
+  console.log(eid);
+  
   var copyText = document.getElementById(eid).innerHTML;
 
   /* Select the text field */
