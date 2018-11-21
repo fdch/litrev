@@ -351,6 +351,20 @@ function makeBibTex(elementID) {
     // }
   }
 }
+function copy(x) {
+  /* Get the text field */
+  var copyText = x.innerHTML;
+
+  /* Select the text field */
+  copyText.select();
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text from: " + x.id);
+} 
+
 ///////////////////////////////////////////////////////////////////////////////
 //  CONSOLE LOGGING
 ///////////////////////////////////////////////////////////////////////////////

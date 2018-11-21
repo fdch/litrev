@@ -19,7 +19,8 @@ function getValue(x) {
 
 function getCopy(x) {
   var eid="#" + x.value.replace(/ /g,"_").toLowerCase()
-  copy(document.getElementById(eid).innerHTML);
+  copy(document.getElementById(eid));
+
 }
 
 
