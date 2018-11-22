@@ -13,7 +13,7 @@
 */
 var keyword="blank",keychange=0,keywords=[];
 
-var dictionary={};
+var dictionary=[];
 
 function getValue(x) {
   location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();
