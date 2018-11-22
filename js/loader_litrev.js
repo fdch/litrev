@@ -29,13 +29,13 @@ function getCopy(x) {
 
 function addWord(arr){
   var s=arr; // local array
-  var len=s.length; //length of local array
+  var len=s.length-1; //length of local array
   //  flag to see if entry exists
   flag=0;
   //  Array to store local indices
   var lind=[];
   
-  if (0==len) {
+  if (0>=len) {
       return 1;//  return if word array is empty
   } else {
     if (1<dictionary.length) //  dictionary has some words
