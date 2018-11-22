@@ -43,7 +43,7 @@ function addWord(arr){
     if (1<dictionary.length) //  dictionary has some words
       for (var i in dictionary) { // look up through the dictionary entries
         var entry=dictionary[i];
-        console.log("Is "entry+" = "+s[len]+"?");
+        console.log("Is "+entry+" = "+s[len]+"?");
         if (entry.localeCompare(s[len])){ // compare words
           flag++;// Word exists. 
           break;
