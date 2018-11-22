@@ -36,11 +36,14 @@ function addWord(arr){
   var lind=[];
   
   if (0>=len) {
+      console.log("empty array");
       return 1;//  return if word array is empty
   } else {
+      console.log("array still has words")
     if (1<dictionary.length) //  dictionary has some words
       for (var i in dictionary) { // look up through the dictionary entries
         var entry=dictionary[i];
+        console.log("Is "entry+" = "+s[len]+"?");
         if (entry.localeCompare(s[len])){ // compare words
           flag++;// Word exists. 
           break;
