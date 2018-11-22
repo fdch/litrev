@@ -44,13 +44,13 @@ function addWord(arr){
       for (var i in dictionary) { // look up through the dictionary entries
         var entry=dictionary[i];
         // console.log("Is "+entry+" = "+s[len]+"?");
-        if (entry.localeCompare(s[len])){ // compare words
+        if (!entry.localeCompare(s[len])){ // compare words
           flag++;// Word exists. 
-          // break;
+          break;
         }
       }
     //  otherwise dictionary is empty, so we fill it anyway
-    if (!flag) dictionary.push(s[len]);// Word exits, add it as new entry    
+    if (flag) dictionary[dictionary.length] = s[len];//add nonexisting entry   
     //  remove last word locally
     s.splice(len,1);
     //  Recurse with word array-1
