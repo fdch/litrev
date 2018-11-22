@@ -13,6 +13,8 @@
 */
 var keyword="blank",keychange=0,keywords=[];
 
+var dictionary={};
+
 function getValue(x) {
   location.hash = "#" + x.value.replace(/ /g,"_").toLowerCase();
 }
@@ -23,6 +25,43 @@ function getCopy(x) {
 
   console.log("copy(document.getElementById("+eid+"));");
   
+}
+
+function addWord(arr){
+  var s=arr; // local array
+  var len=s.length; //length of local array
+  //  flag to see if entry exists
+  flag=0;
+  //  Array to store local indices
+  var lind=[];
+  
+  if (0==len) {
+      return 1;//  return if word array is empty
+  } else {
+    if (dictionary.length) //  dictionary has some words
+      for (var i in dictionary) // look up through the dictionary entries
+        if (dictionary[i].localeCompare(s[len])){ // compare words
+          flag++;// Word exists. 
+          break;
+        }
+    //  otherwise dictionary is empty, so we fill it anyway
+    if (!flag)// word exist
+      dictionary.push(s[len]);//  add the last word as new entry    
+    if (len)// check to make sure we are not splicing an empty array
+      s.splice(len,1);//  remove last word locally
+    //  Recurse with word array-1
+    addWord(s)
+  }
+}
+
+
+function addWords(str) {
+  //  Wipe all non-word|num characters and split into array 's'
+  var st=str;
+  var st=thequote.replace(/[^a-zA-Z0-9]/g, "");
+  var s=st.split(' ');
+  //  Begin filling dictionary
+  return addWord(s);
 }
 
 
@@ -50,9 +89,11 @@ function getLit() {
       }
       var ek      = ekeyw.replace(/ /g,"_").toLowerCase();
       var eauth   = e.gsx$author.$t;
+      var thequote=e.gsx$quickquote.$t;
+      var paraphra=e.gsx$paraphrase.$t;
       var btitl   =e.gsx$booktitle.$t;
       var id      = eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3);
-      
+
 // \cite{Man02} (p. 28)
       var quoteA  = anchor(
         "#"+id,
@@ -73,12 +114,12 @@ function getLit() {
         //  THE PARAPHRASE
         ///////////////////////////////////////////////////////////////////////
         //  Print the Paraphrasing as a simple paragraph
-        section.appendChild(element('p',e.gsx$paraphrase.$t));
+        section.appendChild(element('p',paraphra));
         ///////////////////////////////////////////////////////////////////////
         //  THE QUOTE
         ///////////////////////////////////////////////////////////////////////
         //  Blockquote element with the Quote
-        var bq = element('blockquote',e.gsx$quickquote.$t);
+        var bq = element('blockquote',thequote);
         //  Append Quote Reference to blockquote
         bq.appendChild(quoteA);
         //  Print Blockquote Element
@@ -89,6 +130,13 @@ function getLit() {
           document.getElementById(sections[1]+"-a").appendChild(section);
         }
       }
+
+      if(!addWords(thequote)){
+        console.log("Something was seriously wrong with addWords()");
+      } else {
+        
+      }
+      // addWords(paraphra);
     }
     ///////////////////////////////////////////////////////////////////////////
     //  END ENTRY LOOP
@@ -110,6 +158,7 @@ function getLit() {
   welcome();
   setTimeout(function () {
     makeBibTex(sections[2]+"-a");
+    console.log(dictionary)
   }, quoteTimeout);
 }
 /*
