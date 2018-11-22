@@ -63,7 +63,7 @@ function addWords(str) {
   //  Wipe all non-word|num characters and split into array 's'
   var st=str.replace(/[^a-zA-Z0-9] /g, "");
   var s=st.split(' ');
-  console.log(s.join(' ');
+  console.log(s.join(' '));
   //  Begin filling dictionary
   // return addWord(s);
 }
