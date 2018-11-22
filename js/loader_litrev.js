@@ -57,8 +57,7 @@ function addWord(arr){
 
 function addWords(str) {
   //  Wipe all non-word|num characters and split into array 's'
-  var st=str;
-  var st=thequote.replace(/[^a-zA-Z0-9]/g, "");
+  var st=str.replace(/[^a-zA-Z0-9]/g, "");
   var s=st.split(' ');
   //  Begin filling dictionary
   return addWord(s);
@@ -89,8 +88,8 @@ function getLit() {
       }
       var ek      = ekeyw.replace(/ /g,"_").toLowerCase();
       var eauth   = e.gsx$author.$t;
-      var thequote=e.gsx$quickquote.$t;
-      var paraphra=e.gsx$paraphrase.$t;
+      var thequote = e.gsx$quickquote.$t;
+      var paraphra = e.gsx$paraphrase.$t;
       var btitl   =e.gsx$booktitle.$t;
       var id      = eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3);
 
