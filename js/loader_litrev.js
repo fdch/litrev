@@ -36,7 +36,7 @@ function addWord(arr){
   var lind=[];
   
   if (0>=len) {
-      console.log("empty array");
+      console.log("empty array: "+s.join(' '));
       return 1;//  return if word array is empty
   } else {
       console.log("array still has words")
