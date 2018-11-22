@@ -35,7 +35,7 @@ function addWord(arr){
   //  Array to store local indices
   var lind=[];
   
-  if (0>=len) {
+  if (0>len) {
       console.log("empty array: "+s.join(' '));
       return 1;//  return if word array is empty
   } else {
@@ -46,7 +46,7 @@ function addWord(arr){
         // console.log("Is "+entry+" = "+s[len]+"?");
         if (entry.localeCompare(s[len])){ // compare words
           flag++;// Word exists. 
-          break;
+          // break;
         }
       }
     //  otherwise dictionary is empty, so we fill it anyway
