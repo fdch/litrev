@@ -38,7 +38,7 @@ function addWord(arr){
   if (0==len) {
       return 1;//  return if word array is empty
   } else {
-    if (dictionary.length) //  dictionary has some words
+    if (1<dictionary.length) //  dictionary has some words
       for (var i in dictionary) // look up through the dictionary entries
         if (dictionary[i].localeCompare(s[len])){ // compare words
           flag++;// Word exists. 
