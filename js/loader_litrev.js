@@ -39,11 +39,13 @@ function addWord(arr){
       return 1;//  return if word array is empty
   } else {
     if (1<dictionary.length) //  dictionary has some words
-      for (var i in dictionary) // look up through the dictionary entries
-        if (dictionary[i].localeCompare(s[len])){ // compare words
+      for (var i in dictionary) { // look up through the dictionary entries
+        var entry=dictionary[i];
+        if (entry.localeCompare(s[len])){ // compare words
           flag++;// Word exists. 
           break;
         }
+      }
     //  otherwise dictionary is empty, so we fill it anyway
     if (!flag) dictionary.push(s[len]);// Word exits, add it as new entry    
     //  remove last word locally
