@@ -45,10 +45,9 @@ function addWord(arr){
           break;
         }
     //  otherwise dictionary is empty, so we fill it anyway
-    if (!flag)// word exist
-      dictionary.push(s[len]);//  add the last word as new entry    
-    if (1<len)// check to make sure we are not splicing an empty array
-      s.splice(len,1);//  remove last word locally
+    if (!flag) dictionary.push(s[len]);// Word exits, add it as new entry    
+    //  remove last word locally
+    s.splice(len,1);
     //  Recurse with word array-1
     addWord(s)
   }
