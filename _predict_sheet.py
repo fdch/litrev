@@ -98,6 +98,13 @@ model = build_model(
   batch_size=BATCH_SIZE)
 
 
+
+for input_example_batch, target_example_batch in dataset.take(1): 
+  example_batch_predictions = model(input_example_batch)
+  print(example_batch_predictions.shape, "# (batch_size, sequence_length, vocab_size)")
+
+
+
 model.summary()
 
 
