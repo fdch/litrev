@@ -26,36 +26,16 @@ function getCopy(x) {
   console.log("copy(document.getElementById("+eid+"));");
   
 }
-
+// localstring=[];
 function addWord(arr){
   var s=arr; // local array
-  var len=s.length-1; //length of local array
-  //  flag to see if entry exists
-  flag=0;
-  //  Array to store local indices
-  var lind=[];
-  
-  if (0>len) {
-      console.log("empty array: "+s.join(' '));
-      return 1;//  return if word array is empty
-  } else {
-      // console.log("array still has words")
-    if (1<dictionary.length) //  dictionary has some words
-      for (var i in dictionary) { // look up through the dictionary entries
-        var entry=dictionary[i];
-        // console.log("Is "+entry+" = "+s[len]+"?");
-        if (!entry.localeCompare(s[len])){ // compare words
-          flag++;// Word exists. 
-          break;
-        }
-      }
-    //  otherwise dictionary is empty, so we fill it anyway
-    if (flag) dictionary[dictionary.length] = s[len];//add nonexisting entry   
-    //  remove last word locally
-    s.splice(len,1);
-    //  Recurse with word array-1
-    addWord(s)
-  }
+  var len=s.length; //length of local array
+  if (0>len) return;
+  var word=s[0];
+  var flag=dictionary.lastIndexOf(word);// flag to see if entry exists
+  // var lind=[];//  Array to store local indices
+  if (flag==-1) dictionary.push(s[0]);//add nonexisting entry if not in array
+  addWord(s.shift());//  Recurse with word array-1
 }
 
 
