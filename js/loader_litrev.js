@@ -116,11 +116,11 @@ function getLit() {
         }
       }
 
-      if(!addWords(thequote)){
-        console.log("Something was seriously wrong with addWords()");
-      } else {
+      // if(!addWords(thequote)){
+      //   console.log("Something was seriously wrong with addWords()");
+      // } else {
         
-      }
+      // }
       // addWords(paraphra);
     }
     ///////////////////////////////////////////////////////////////////////////

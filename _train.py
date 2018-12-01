@@ -136,15 +136,6 @@ checkpoint_callback=tf.keras.callbacks.ModelCheckpoint(
 
 
 
-EPOCHS=5
-
-
-
-history = model.fit(dataset.repeat(), epochs=EPOCHS, steps_per_epoch=steps_per_epoch, callbacks=[checkpoint_callback])
-
-
-
-
 
 tf.train.latest_checkpoint(checkpoint_dir)
 
