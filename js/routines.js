@@ -313,7 +313,7 @@ function getLitRev() {
         }
         
         //  If object does not have the key, create it
-        if (!(id in allSections)) allSections[ek][id]=[];
+        if (id in allSections) allSections[ek][id]=[];
  
         allSections[ek][id].push([paraphra,thequote]);
 
