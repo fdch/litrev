@@ -49,6 +49,118 @@ function addWords(str) {
   return addWord(s);
 }
 
+{
+  "actor-network_theory": {
+    "Lat90:On": [
+      [
+        "my parahprase...",
+        "Building aond..."
+      ],
+    ]
+  },
+}
+
+function displayLit(x) {
+
+  var section, prevkey='';
+
+  for (keys in allSections) {
+    if (prevkey.localeCompare(keys)) {
+     // console.log(keys);
+      section = element('section','',keys);
+      var st  = element('h5',ekeyw, '', "window.open(\'#menu\',\'_top\')");
+      section.appendChild(st);
+
+    }
+    var previds='';
+    for (ids in allSections[keys]) {
+      if (previds.localeCompare(ids)) {
+      //console.log(ids)
+      var link="window.open(\'#"+ids.replace(/:/,'')+"\',\'_top\')";
+      section.appendChild(element('h6',ids,'',link));
+
+      }
+      for (pairs in allSections[keys][ids]) {
+        // console.log(allSections[keys][ids][pairs]);
+        var parap=allSections[keys][ids][pairs][0];
+        var quote=allSections[keys][ids][pairs][1];
+        var pages=allSections[keys][ids][pairs][2];
+        var p=element('p',parap);
+        var q=element('p',quote+" ("+pages+")");
+        section.appendChild(p,q);
+      }
+    }
+  }
+
+
+
+
+
+
+
+
+      // // \cite{Man02:The} (28)
+      // var quoteA  = anchor(
+      //   "#"+id.replace(/:/,''),
+      //   "\\cite{"+id+"} ("+page+")",
+      //   '',
+      //  btitl+", "+eauth
+      // );
+
+
+
+
+        // if (keychange) {
+
+        //   allSections[ek]={};
+          
+        //   //  Set up a new section title for corresponding keyword
+          
+        
+        // }
+
+
+
+
+
+
+
+
+
+        // ///////////////////////////////////////////////////////////////////////
+        // //  THE PARAPHRASE
+        // ///////////////////////////////////////////////////////////////////////
+        // //  Print the Paraphrasing as a simple paragraph
+        // section.appendChild(element('p',paraphra));
+        // ///////////////////////////////////////////////////////////////////////
+        // //  THE QUOTE
+        // ///////////////////////////////////////////////////////////////////////
+
+        // //  Blockquote element with the Quote
+        // var bq = element('blockquote',thequote);
+        // //  Append Quote Reference to blockquote
+        // bq.appendChild(quoteA);
+        // //  Print Blockquote Element
+        // section.appendChild(bq);
+        
+
+        
+        // //  WHY IS THIS CHECK HERE AGAIN?
+        // if (keychange) {
+        //   //  Print the section
+        //   document.getElementById(x).appendChild(section);
+        // }
+}
+
+
+
+
+
+
+
+
+
+
 
 function getLit() {
 
@@ -74,10 +186,11 @@ function getLit() {
       "Copy Keyword Text "
     );
 
+    displayLit(sections[1]+"-a");
     makeBibTex(sections[2]+"-a");
 
     console.log(dictionary)
-    
+
   }, quoteTimeout);
 }
 /*
