@@ -285,7 +285,7 @@ function getLitRev() {
       var id      = (eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3)).replace(/ /g,'');
 
       //  If object does not have the key, create it
-      if (!(id in allSections)) allSections[ek]={};
+      if ((id in allSections)) allSections[ek]={};
         
       //  If object does not have the key, create it
       if (!(id in allSections[ek])) allSections[ek][id]=[];
