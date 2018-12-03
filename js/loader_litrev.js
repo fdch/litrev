@@ -49,16 +49,6 @@ function addWords(str) {
   return addWord(s);
 }
 
-{
-  "actor-network_theory": {
-    "Lat90:On": [
-      [
-        "my parahprase...",
-        "Building aond..."
-      ],
-    ]
-  },
-}
 
 function displayLit(x) {
 
