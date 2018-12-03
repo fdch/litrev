@@ -84,14 +84,10 @@ function displayLit(x) {
 
 function getLit() {
 
-  getBib();
-
-  getLitRev(function(){displayLit(sections[1]+"-a")});
-
-  welcome();
-
-  setTimeout(function () {
-
+  getBib(function(){
+    getLitRev(function () {
+    
+    welcome();
     //  Make dropdown for keyword anchors
     makeDropdown('keywords',
       document.getElementById(sections[0]+"-a"),
@@ -106,12 +102,13 @@ function getLit() {
       "Copy Keyword Text "
     );
 
-
+    displayLit(sections[1]+"-a")
     makeBibTex(sections[2]+"-a");
 
-    console.log(dictionary)
+    // console.log(dictionary)
 
-  }, quoteTimeout);
+    });
+  });
 }
 /*
 
