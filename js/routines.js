@@ -311,6 +311,11 @@ function getLitRev() {
           section.appendChild(st);
         
         }
+        
+        //  If object does not have the key, create it
+        if (!(id in allSections)) allSections[ek][id]=[];
+ 
+        allSections[ek][id].push([paraphra,thequote]);
 
 
         ///////////////////////////////////////////////////////////////////////
@@ -336,8 +341,8 @@ function getLitRev() {
           //  Print the section
           document.getElementById(sections[1]+"-a").appendChild(section);
         }
+
         
-        allSections[ek][id] = [ paraphra, thequote ];
       }
 
       // if(!addWords(thequote)){
