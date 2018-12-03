@@ -57,16 +57,14 @@ function displayLit(x) {
   for (keys in allSections) {
     if (prevkey.localeCompare(keys)) {
      // console.log(keys);
-      section = element('section','',keys);
-      var st  = element('h5',keys, '', "window.open(\'#menu\',\'_top\')");
-      section.appendChild(st);
+      x.appendChild(element('h5',keys, '', "window.open(\'#menu\',\'_top\')"));
     }
     var previds='';
     for (ids in allSections[keys]) {
       if (previds.localeCompare(ids)) {
       //console.log(ids)
       var link="window.open(\'#"+ids.replace(/:/,'')+"\',\'_top\')";
-      section.appendChild(element('h6',ids,'',link));
+      x.appendChild(element('h6',ids,'',link));
       }
       for (pairs in allSections[keys][ids]) {
         // console.log(allSections[keys][ids][pairs]);
@@ -75,10 +73,10 @@ function displayLit(x) {
         var pages=allSections[keys][ids][pairs][2];
         var p=element('p',parap);
         var q=element('p',quote+" ("+pages+")");
-        section.appendChild(p,q);
+        x.appendChild(p,q);
       }
     }
-    x.appendChild(x);
+    
   }
 }
 
@@ -90,7 +88,7 @@ function getLit() {
     welcome();
     displayLit(sections[1]+"-a");
     makeBibTex(sections[2]+"-a");
-    
+
     //  Make dropdown for keyword anchors
     makeDropdown('keywords',
       document.getElementById(sections[0]+"-a"),
