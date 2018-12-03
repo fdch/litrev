@@ -56,7 +56,7 @@ function displayLit(x) {
 
   for (keys in allSections) {
     if (prevkey.localeCompare(keys)) {
-     // console.log(keys);
+     console.log(keys);
       x.appendChild(element('h5',keys, '', "window.open(\'#menu\',\'_top\')"));
     }
     var previds='';
