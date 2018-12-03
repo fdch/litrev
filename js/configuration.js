@@ -140,7 +140,10 @@ var booktitles		= [],	//	getBib book title
 	alleqID    		= [],	//	all Unique Timestamp ID of quotes
 	filQuoteID 		= [],	//	all Filled Quotes Timestamps
 	remainQuotes	= [],	//	The remaining, unfilled quotes
-	allFormObjects	= {};	//	All Form Objects (id, form, author, etc)	
+	allFormObjects	= {},	//	All Form Objects (id, form, author, etc)
+	keyword 		= "blank", //	Keywords (litrev) Stuff
+	keychange 		= 0,	// 		Keywords (litrev) Stuff
+	keywords 		= [];	// 		Keywords (litrev) Stuff
 var cForm, num, sliDiv;		//	Stuff that should go somewhere...
 var w,h;					//	Page Dimensions: Width and Height
 var sections 		= [
