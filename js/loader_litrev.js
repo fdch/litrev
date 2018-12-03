@@ -85,7 +85,7 @@ function getLit() {
 
   getBib();
 
-  getLitRev();
+  getLitRev(function(){displayLit(sections[1]+"-a")});
 
   welcome();
 
@@ -105,7 +105,7 @@ function getLit() {
       "Copy Keyword Text "
     );
 
-    displayLit(sections[1]+"-a");
+
     makeBibTex(sections[2]+"-a");
 
     console.log(dictionary)
