@@ -191,7 +191,7 @@ function resized(){
 ///////////////////////////////////////////////////////////////////////////////
 //  GET BIBLIOGRAPHY
 ///////////////////////////////////////////////////////////////////////////////
-function getBib() {
+function getBib(callback) {
   loadJSON(bib,"GET", function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
@@ -216,6 +216,7 @@ function getBib() {
         }
       }
     }
+    callback();
     return booktitles.length?0:console.error({booktitles}),1;
   });
 }
