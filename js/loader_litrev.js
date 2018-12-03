@@ -52,6 +52,7 @@ function addWords(str) {
 
 function displayLit(x) {
   console.log("displayLit("+x+")");
+  console.log(allSections);
 
   var section, prevkey='';
 
