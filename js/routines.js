@@ -266,7 +266,8 @@ function displayBib(elementID) {
 //  GET LITERATURE REVIEW
 ///////////////////////////////////////////////////////////////////////////////
 function getLitRev(callback) {
-  loadJSON(lit, "GET", function(response,callback) {
+  var pas=callback;
+  loadJSON(lit, "GET", function(response,pas) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     var section;
@@ -297,7 +298,7 @@ function getLitRev(callback) {
     ///////////////////////////////////////////////////////////////////////////
     //  END ENTRY LOOP
     ///////////////////////////////////////////////////////////////////////////
-    callback();
+    pas();
   });
 }
 
