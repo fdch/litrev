@@ -52,13 +52,13 @@ function addWords(str) {
 
 function displayLit(x) {
   console.log("displayLit("+x+")");
-  console.log(allSections);
+  // console.log(allSections);
 
   var section, prevkey='';
 
   for (keys in allSections) {
-    if (prevkey.localeCompare(keys)) {
      console.log(keys);
+    if (prevkey.localeCompare(keys)) {
       x.appendChild(element('h5',keys, '', "window.open(\'#menu\',\'_top\')"));
     }
     var previds='';
