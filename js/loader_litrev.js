@@ -50,6 +50,16 @@ function addWords(str) {
 }
 
 
+
+// { <-- allSections
+//   "actor-network_theory": { <-- allSections[keys]
+//     "Lat90:On": [ <--allSections[keys][ids]
+//       [  <-- allSections[keys][ids][pairs][0]
+//         "PAr", <-- allSections[keys][ids][pairs][0][0]
+//         "Quot",<-- allSections[keys][ids][pairs][0][1]
+//         "14"   <-- allSections[keys][ids][pairs][0][2]
+//       ],<-- allSections[keys][ids][pairs][1]...
+
 function displayLit(target) {
   // console.log("displayLit("+target+")");
   var x = document.getElementById(target);
@@ -58,7 +68,7 @@ function displayLit(target) {
   var section, prevkey='';
 
   for (keys in allSections) {
-     console.log(keys);
+     // console.log(keys);
     if (prevkey.localeCompare(keys)) {
       x.appendChild(element('h5',keys, '', "window.open(\'#menu\',\'_top\')"));
     }
@@ -69,17 +79,18 @@ function displayLit(target) {
       var link="window.open(\'#"+ids.replace(/:/,'')+"\',\'_top\')";
       x.appendChild(element('h6',ids,'',link));
       }
-      for (pairs in allSections[keys][ids]) {
-        // console.log(allSections[keys][ids][pairs]);
-        var parap=allSections[keys][ids][pairs][0];
-        var quote=allSections[keys][ids][pairs][1];
-        var pages=allSections[keys][ids][pairs][2];
+      var pairLen=allSections[keys][ids][pairs].length;
+      var i=0;
+      for (i=0; i<pairLen; i++) {
+        // console.log(allSections[keys][ids][pairs][i]);
+        var parap=allSections[keys][ids][pairs][i][0];
+        var quote=allSections[keys][ids][pairs][i][1];
+        var pages=allSections[keys][ids][pairs][i][2];
         var p=element('p',parap);
         var q=element('p',quote+" ("+pages+")");
         x.appendChild(p,q);
       }
-    }
-    
+    }  
   }
 }
 
