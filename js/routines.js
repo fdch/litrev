@@ -312,7 +312,6 @@ function getLitRev() {
         
         }
 
-        allSections[ek][id] = [ paraphra, thequote ];
 
         ///////////////////////////////////////////////////////////////////////
         //  THE PARAPHRASE
@@ -337,6 +336,8 @@ function getLitRev() {
           //  Print the section
           document.getElementById(sections[1]+"-a").appendChild(section);
         }
+        
+        allSections[ek][id] = [ paraphra, thequote ];
       }
 
       // if(!addWords(thequote)){
