@@ -49,51 +49,19 @@ function addWords(str) {
   return addWord(s);
 }
 
-
-
-// { <-- allSections
-//   "actor-network_theory": { <-- allSections[keys]
-//     "Lat90:On": [ <--allSections[keys][ids]
-//       [  <-- allSections[keys][ids][0]
-//         "PAr", <-- allSections[keys][ids][0][0]
-//         "Quot",<-- allSections[keys][ids][0][1]
-//         "14"   <-- allSections[keys][ids][0][2]
-//       ],<-- allSections[keys][ids][1]...
-
 function displayLit(target) {
-  // console.log("displayLit("+target+")");
-  var x = document.getElementById(target);
-  // console.log(allSections);
-
-  var section, prevkey='';
-
+  var i,x = document.getElementById(target), section, prevkey='';
   for (keys in allSections) {
-     // console.log(keys);
-    if (prevkey.localeCompare(keys)) {
+    if (prevkey.localeCompare(keys))
       x.appendChild(element('h5',keys, '', "window.open(\'#menu\',\'_top\')"));
-    }
     var previds='';
     for (ids in allSections[keys]) {
       if (previds.localeCompare(ids)) {
-      //console.log(ids)
         var link="window.open(\'#"+ids.replace(/:/,'')+"\',\'_top\')";
         x.appendChild(element('h6',ids,'',link));
       }
-      
-      var pairLen=allSections[keys][ids].length;
-
-      // parsed["actor-network_theory"]["Lat90:On"][0][0]
-      var i=0;
-      for (i=0; i<pairLen; i++) {
-        // console.log(allSections[keys][ids][pairs][i]);
-        // var parap=allSections[keys][ids][i][0];
-        // var quote=allSections[keys][ids][i][1];
-        // var pages=allSections[keys][ids][i][2];
-        // var p=element('p',parap);
-        // var q=element('p',quote+" ("+pages+")");
-        // x.appendChild(p,q);
+      for (i=0; i<allSections[keys][ids].length; i++)
         x.appendChild(element('p',allSections[keys][ids][i].join()));
-      }
     }  
   }
 }
