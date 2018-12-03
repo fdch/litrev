@@ -292,7 +292,6 @@ function getLitRev() {
 
       allSections[ek][id].push([paraphra,thequote,page]);
       
-  
     }
     ///////////////////////////////////////////////////////////////////////////
     //  END ENTRY LOOP
