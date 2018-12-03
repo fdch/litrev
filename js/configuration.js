@@ -143,7 +143,8 @@ var booktitles		= [],	//	getBib book title
 	allFormObjects	= {},	//	All Form Objects (id, form, author, etc)
 	keyword 		= "blank", //	Keywords (litrev) Stuff
 	keychange 		= 0,	// 		Keywords (litrev) Stuff
-	keywords 		= [];	// 		Keywords (litrev) Stuff
+	keywords 		= [],	// 		Keywords (litrev) Stuff
+	allSections		= {};	//	All sections from litrev
 var cForm, num, sliDiv;		//	Stuff that should go somewhere...
 var w,h;					//	Page Dimensions: Width and Height
 var sections 		= [

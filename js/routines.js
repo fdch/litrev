@@ -288,12 +288,13 @@ function getLitRev() {
       var thequote = e.gsx$quickquote.$t;
       var paraphra = e.gsx$paraphrase.$t;
       var btitl   =e.gsx$booktitle.$t;
+      var page    =e.gsx$page.$t;
       var id      = eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3);
     
       // \cite{Man02:The} (28)
       var quoteA  = anchor(
         "#"+id,
-        "\\cite{"+id+"} ("+e.gsx$page.$t+")",
+        "\\cite{"+id+"} ("+page+")",
         '',
        btitl+", "+eauth
       );
@@ -301,11 +302,19 @@ function getLitRev() {
       if (ek){
         //  Check if it is different from the previous keyword
         if (keychange) {
+
+          allSections[ek]={};
+          
           //  Set up a new section title for corresponding keyword
           section = element('section','',ek);
           var st  = element('h5',ekeyw, '', "window.open(\'#menu\',\'_top\')");
           section.appendChild(st);
+        
         }
+
+        allSections[ek][id]['paraphrase']=paraphra;
+        allSections[ek][id]['quickquote']=thequote;
+
         ///////////////////////////////////////////////////////////////////////
         //  THE PARAPHRASE
         ///////////////////////////////////////////////////////////////////////
@@ -314,12 +323,16 @@ function getLitRev() {
         ///////////////////////////////////////////////////////////////////////
         //  THE QUOTE
         ///////////////////////////////////////////////////////////////////////
+
         //  Blockquote element with the Quote
         var bq = element('blockquote',thequote);
         //  Append Quote Reference to blockquote
         bq.appendChild(quoteA);
         //  Print Blockquote Element
         section.appendChild(bq);
+        
+
+        
         //  WHY IS THIS CHECK HERE AGAIN?
         if (keychange) {
           //  Print the section
