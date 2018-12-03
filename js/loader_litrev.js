@@ -11,7 +11,7 @@
 
   
 */
-var keyword="blank",keychange=0,keywords=[];
+
 
 var dictionary=[];
 
@@ -55,6 +55,11 @@ function getLit() {
   getBib();
 
   getLitRev();
+
+  welcome();
+
+  setTimeout(function () {
+
     //  Make dropdown for keyword anchors
     makeDropdown('keywords',
       document.getElementById(sections[0]+"-a"),
@@ -68,11 +73,11 @@ function getLit() {
       "getCopy(this)",
       "Copy Keyword Text "
     );
-  });
-  welcome();
-  setTimeout(function () {
+
     makeBibTex(sections[2]+"-a");
+
     console.log(dictionary)
+    
   }, quoteTimeout);
 }
 /*
