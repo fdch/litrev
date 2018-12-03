@@ -274,13 +274,8 @@ function getLitRev() {
     ///////////////////////////////////////////////////////////////////////////
     for (var i in entry) {
       var e = entry[i];
-    //var estam = e.gsx$timestamp.$t;
+      var estam   = e.gsx$timestamp.$t;
       var ekeyw   = e.gsx$keyword.$t;
-      // if (keyword.localeCompare(ekeyw)) {
-      //   keychange = 1;
-      //   keyword   = ekeyw;
-      //   keywords.push(keyword);
-      // } else { keychange = 0; }
       var ek      = ekeyw.replace(/ /g,"_").toLowerCase();
       var eauth   = e.gsx$author.$t;
       var thequote= e.gsx$quickquote.$t;
@@ -288,11 +283,16 @@ function getLitRev() {
       var btitl   = e.gsx$booktitle.$t;
       var page    = e.gsx$page.$t;
       var id      = (eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3)).replace(/ /g,'');
-        //  If object does not have the key, create it
-        if (!(id in allSections[ek])) allSections[ek][id]=[];
- 
-        allSections[ek][id].push([paraphra,thequote,page]);
-    
+
+      //  If object does not have the key, create it
+      if (!(id in allSections)) allSections[ek]={};
+        
+      //  If object does not have the key, create it
+      if (!(id in allSections[ek])) allSections[ek][id]=[];
+
+      allSections[ek][id].push([paraphra,thequote,page]);
+      
+  
     }
     ///////////////////////////////////////////////////////////////////////////
     //  END ENTRY LOOP
