@@ -70,13 +70,13 @@ function makeLitMenus(){
     //  Make dropdown for keyword anchors
   makeDropdown('keywords',
     document.getElementById(sections[0]+"-a"),
-    iKeys,
+    iKey,
     "getValue(this)",
     "Keywords "
   );
   makeDropdown('keywordcopy',
     document.getElementById(sections[0]+"-a"),
-    iKeys,
+    iKey,
     "getCopy(this)",
     "Copy Keyword Text "
   );
