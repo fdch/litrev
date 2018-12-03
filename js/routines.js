@@ -238,7 +238,7 @@ function displayBib(elementID) {
     var journal   = fullquotes[key]["journal"];
     var volume    = fullquotes[key]["volume"];
     var number    = fullquotes[key]["number"];
-    var id        = last.slice(0,3)+year.slice(2);
+    var id        = (last.slice(0,3)+year.slice(2)).replace(/ /g,'');
 
     if (!last.localeCompare("zzzzzz")) continue;
 
@@ -289,7 +289,7 @@ function getLitRev() {
       var paraphra = e.gsx$paraphrase.$t;
       var btitl   =e.gsx$booktitle.$t;
       var page    =e.gsx$page.$t;
-      var id      = eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3);
+      var id      = (eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3)).replace(/ /g,'');
     
       // \cite{Man02:The} (28)
       var quoteA  = anchor(
