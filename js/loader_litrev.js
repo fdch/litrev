@@ -79,13 +79,13 @@ function displayLit(target) {
       var link="window.open(\'#"+ids.replace(/:/,'')+"\',\'_top\')";
       x.appendChild(element('h6',ids,'',link));
       }
-      var pairLen=allSections[keys][ids][pairs].length;
+      var pairLen=allSections[keys][ids].length;
       var i=0;
       for (i=0; i<pairLen; i++) {
         // console.log(allSections[keys][ids][pairs][i]);
-        var parap=allSections[keys][ids][pairs][i][0];
-        var quote=allSections[keys][ids][pairs][i][1];
-        var pages=allSections[keys][ids][pairs][i][2];
+        var parap=allSections[keys][ids][i][0];
+        var quote=allSections[keys][ids][i][1];
+        var pages=allSections[keys][ids][i][2];
         var p=element('p',parap);
         var q=element('p',quote+" ("+pages+")");
         x.appendChild(p,q);
