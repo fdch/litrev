@@ -257,7 +257,7 @@ function displayBib(elementID) {
 
     // if (!fullbib.localeCompare("")) {
     // console.log(fullbib);
-    document.getElementById(eid).appendChild(element('p',fullbib,id));
+    document.getElementById(eid).appendChild(element('p',fullbib,id.replace(/:/,'')));
     // }
   }
 }
@@ -293,7 +293,7 @@ function getLitRev() {
     
       // \cite{Man02:The} (28)
       var quoteA  = anchor(
-        "#"+id,
+        "#"+id.replace(/:/,''),
         "\\cite{"+id+"} ("+page+")",
         '',
        btitl+", "+eauth
