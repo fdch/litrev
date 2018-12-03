@@ -53,7 +53,7 @@ function displayLit(target) {
   var i,x = document.getElementById(target), section, prevkey='';
   for (keys in allSections) {
     if (prevkey.localeCompare(keys))
-      x.appendChild(element('h5',keys, '', "window.open(\'#menu\',\'_top\')"));
+      x.appendChild(element('h5',keys, keys, "window.open(\'#menu\',\'_top\')"));
     var previds='';
     for (ids in allSections[keys]) {
       if (previds.localeCompare(ids)) {
