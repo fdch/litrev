@@ -462,7 +462,7 @@ function makeBibTex(elementID) {
     } 
     // if (!fullbib.localeCompare("")) {
     // console.log(fullbib);
-    document.getElementById(eid).appendChild(element('p',bibquote,id));
+    document.getElementById(eid).appendChild(element('p',bibquote,id.replace(/:/,'')));
     // }
   }
 }
