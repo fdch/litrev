@@ -312,8 +312,7 @@ function getLitRev() {
         
         }
 
-        allSections[ek][id]['paraphrase']=paraphra;
-        allSections[ek][id]['quickquote']=thequote;
+        allSections[ek][id] = [ paraphra, thequote ];
 
         ///////////////////////////////////////////////////////////////////////
         //  THE PARAPHRASE
