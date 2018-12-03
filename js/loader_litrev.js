@@ -60,7 +60,6 @@ function displayLit(x) {
       section = element('section','',keys);
       var st  = element('h5',ekeyw, '', "window.open(\'#menu\',\'_top\')");
       section.appendChild(st);
-
     }
     var previds='';
     for (ids in allSections[keys]) {
@@ -68,7 +67,6 @@ function displayLit(x) {
       //console.log(ids)
       var link="window.open(\'#"+ids.replace(/:/,'')+"\',\'_top\')";
       section.appendChild(element('h6',ids,'',link));
-
       }
       for (pairs in allSections[keys][ids]) {
         // console.log(allSections[keys][ids][pairs]);
@@ -81,76 +79,7 @@ function displayLit(x) {
       }
     }
   }
-
-
-
-
-
-
-
-
-      // // \cite{Man02:The} (28)
-      // var quoteA  = anchor(
-      //   "#"+id.replace(/:/,''),
-      //   "\\cite{"+id+"} ("+page+")",
-      //   '',
-      //  btitl+", "+eauth
-      // );
-
-
-
-
-        // if (keychange) {
-
-        //   allSections[ek]={};
-          
-        //   //  Set up a new section title for corresponding keyword
-          
-        
-        // }
-
-
-
-
-
-
-
-
-
-        // ///////////////////////////////////////////////////////////////////////
-        // //  THE PARAPHRASE
-        // ///////////////////////////////////////////////////////////////////////
-        // //  Print the Paraphrasing as a simple paragraph
-        // section.appendChild(element('p',paraphra));
-        // ///////////////////////////////////////////////////////////////////////
-        // //  THE QUOTE
-        // ///////////////////////////////////////////////////////////////////////
-
-        // //  Blockquote element with the Quote
-        // var bq = element('blockquote',thequote);
-        // //  Append Quote Reference to blockquote
-        // bq.appendChild(quoteA);
-        // //  Print Blockquote Element
-        // section.appendChild(bq);
-        
-
-        
-        // //  WHY IS THIS CHECK HERE AGAIN?
-        // if (keychange) {
-        //   //  Print the section
-        //   document.getElementById(x).appendChild(section);
-        // }
 }
-
-
-
-
-
-
-
-
-
-
 
 function getLit() {
 
