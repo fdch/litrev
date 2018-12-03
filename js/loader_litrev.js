@@ -54,11 +54,11 @@ function addWords(str) {
 // { <-- allSections
 //   "actor-network_theory": { <-- allSections[keys]
 //     "Lat90:On": [ <--allSections[keys][ids]
-//       [  <-- allSections[keys][ids][pairs][0]
-//         "PAr", <-- allSections[keys][ids][pairs][0][0]
-//         "Quot",<-- allSections[keys][ids][pairs][0][1]
-//         "14"   <-- allSections[keys][ids][pairs][0][2]
-//       ],<-- allSections[keys][ids][pairs][1]...
+//       [  <-- allSections[keys][ids][0]
+//         "PAr", <-- allSections[keys][ids][0][0]
+//         "Quot",<-- allSections[keys][ids][0][1]
+//         "14"   <-- allSections[keys][ids][0][2]
+//       ],<-- allSections[keys][ids][1]...
 
 function displayLit(target) {
   // console.log("displayLit("+target+")");
@@ -80,6 +80,8 @@ function displayLit(target) {
       x.appendChild(element('h6',ids,'',link));
       }
       var pairLen=allSections[keys][ids].length;
+
+      // parsed["actor-network_theory"]["Lat90:On"][0][0]
       var i=0;
       for (i=0; i<pairLen; i++) {
         // console.log(allSections[keys][ids][pairs][i]);
