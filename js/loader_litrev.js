@@ -92,7 +92,7 @@ function displayLit(target) {
         // var p=element('p',parap);
         // var q=element('p',quote+" ("+pages+")");
         // x.appendChild(p,q);
-        x.appendChild(element('p',allSections[keys][ids][pairs][i].join()));
+        x.appendChild(element('p',allSections[keys][ids][i].join()));
       }
     }  
   }
