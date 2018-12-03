@@ -17,6 +17,7 @@ REPO=$(basename `git rev-parse --show-toplevel`)
 DATE=$(date +"%D %T")
 COMMIT="...updates"
 USAGE="$ ./p- [\"commit msg\"], [\"/optional/html/target\"], [<boolean>]"
+COLS=`tput cols`; if [[ $COLS -eq 0 ]]; then COLS=80; fi
 #==============================================================================
 function makeLine() {
 	local i=0
@@ -30,7 +31,7 @@ function makeLine() {
 	else
 		color="setaf 2"
 	fi
-	while [ $i -lt 80 ]
+	while [ $i -lt $COLS ]
 	do
 		sleep "$sleepytime"
 		echo -ne "$(tput $color)="
