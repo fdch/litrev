@@ -11,25 +11,13 @@
 
 
 */
-var iKey=[];
-var abbyQuote={};
-function getLit(x)
-{
+
+function getLit(x) {
   getBib(function(){consoleLine()});
-  
-  loadJSON(keys, "GET", function(response) 
-  { 
-    var f  =  JSON.parse(response);
-    var entry = f.feed.entry;
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var k = (e.gsx$keywords.$t).replace(/ /g,'_').toLowerCase();
-      iKey[i]=k;
-    }
-  });
-  loadJSON(fil, "GET", function(response) 
-  {
+
+  filliKeys(function(){consoleLine()});
+
+  loadJSON(fil, "GET", function(response)  {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry) {
@@ -47,6 +35,7 @@ function getLit(x)
         abbyQuote[qid]["probabilities"][iKey[j].toString()]=probs[j];
     }
   });
+
   welcome();
 
 

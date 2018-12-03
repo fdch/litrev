@@ -263,6 +263,19 @@ function displayBib(elementID) {
   }
 }
 
+function filliKeys(callback) {
+  loadJSON(keys, "GET", function(response)  { 
+  var f  =  JSON.parse(response);
+  var entry = f.feed.entry;
+  for (var i in entry) {
+    var e = entry[i];
+    var k = (e.gsx$keywords.$t).replace(/ /g,'_').toLowerCase();
+    iKey[i]=k;
+  }
+  });
+  callback();
+}
+
 function fillSections(e,callback) {
   var section,entry=e;
   ///////////////////////////////////////////////////////////////////////////

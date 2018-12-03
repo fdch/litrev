@@ -66,33 +66,39 @@ function displayLit(target) {
   }
 }
 
+function makeLitMenus(){
+    //  Make dropdown for keyword anchors
+  makeDropdown('keywords',
+    document.getElementById(sections[0]+"-a"),
+    keywords,
+    "getValue(this)",
+    "Keywords "
+  );
+  makeDropdown('keywordcopy',
+    document.getElementById(sections[0]+"-a"),
+    keywords,
+    "getCopy(this)",
+    "Copy Keyword Text "
+  );
+}
+
+
 function getLit() {
 
   getBib(function(){
-    getLitRev(function () {
-    
-    welcome();
-    displayLit(sections[1]+"-a");
-    makeBibTex(sections[2]+"-a");
+    filliKeys(function() {
+      getLitRev(function () {
+      
+      welcome();
+      displayLit(sections[1]+"-a");
+      makeBibTex(sections[2]+"-a");
+      makeLitMenus();
 
-    //  Make dropdown for keyword anchors
-    makeDropdown('keywords',
-      document.getElementById(sections[0]+"-a"),
-      keywords,
-      "getValue(this)",
-      "Keywords "
-    );
-    makeDropdown('keywordcopy',
-      document.getElementById(sections[0]+"-a"),
-      keywords,
-      "getCopy(this)",
-      "Copy Keyword Text "
-    );
+      // console.log(dictionary)
 
-
-    // console.log(dictionary)
-
+      });
     });
+    
   });
 }
 /*

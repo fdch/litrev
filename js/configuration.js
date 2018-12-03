@@ -144,7 +144,10 @@ var booktitles		= [],	//	getBib book title
 	keyword 		= "blank", //	Keywords (litrev) Stuff
 	keychange 		= 0,	// 		Keywords (litrev) Stuff
 	keywords 		= [],	// 		Keywords (litrev) Stuff
-	allSections		= {};	//	All sections from litrev
+	allSections		= {},	//	All sections from litrev
+	iKey			= [],	// All keywords
+	abbyQuote		= {}; 	// allquotes
+
 var cForm, num, sliDiv;		//	Stuff that should go somewhere...
 var w,h;					//	Page Dimensions: Width and Height
 var sections 		= [
