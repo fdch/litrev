@@ -262,43 +262,47 @@ function displayBib(elementID) {
     // }
   }
 }
+
+function fillSections(e,callback) {
+  var section,entry=e;
+  ///////////////////////////////////////////////////////////////////////////
+  //  BEGIN ENTRY LOOP
+  ///////////////////////////////////////////////////////////////////////////
+  for (var i in entry) {
+    var e = entry[i];
+    var estam   = e.gsx$timestamp.$t;
+    var ekeyw   = e.gsx$keyword.$t;
+    var ek      = ekeyw.replace(/ /g,"_").toLowerCase();
+    var eauth   = e.gsx$author.$t;
+    var thequote= e.gsx$quickquote.$t;
+    var paraphra= e.gsx$paraphrase.$t;
+    var btitl   = e.gsx$booktitle.$t;
+    var page    = e.gsx$page.$t;
+    var id      = (eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3)).replace(/ /g,'');
+
+    //  If object does not have the key, create it
+    if (!(ek in allSections)) allSections[ek]={};
+      
+    //  If object does not have the key, create it
+    if (!(id in allSections[ek])) allSections[ek][id]=[];
+
+    allSections[ek][id].push([paraphra,thequote,page]);
+    
+  }
+  ///////////////////////////////////////////////////////////////////////////
+  //  END ENTRY LOOP
+  ///////////////////////////////////////////////////////////////////////////
+  callback();
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 //  GET LITERATURE REVIEW
 ///////////////////////////////////////////////////////////////////////////////
 function getLitRev(callback) {
-  var pas=callback;
-  loadJSON(lit, "GET", function(response,pas) {
+  loadJSON(lit, "GET", function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
-    var section;
-    ///////////////////////////////////////////////////////////////////////////
-    //  BEGIN ENTRY LOOP
-    ///////////////////////////////////////////////////////////////////////////
-    for (var i in entry) {
-      var e = entry[i];
-      var estam   = e.gsx$timestamp.$t;
-      var ekeyw   = e.gsx$keyword.$t;
-      var ek      = ekeyw.replace(/ /g,"_").toLowerCase();
-      var eauth   = e.gsx$author.$t;
-      var thequote= e.gsx$quickquote.$t;
-      var paraphra= e.gsx$paraphrase.$t;
-      var btitl   = e.gsx$booktitle.$t;
-      var page    = e.gsx$page.$t;
-      var id      = (eauth.slice(0,3)+(e.gsx$year.$t).slice(2)+":"+btitl.slice(0,3)).replace(/ /g,'');
-
-      //  If object does not have the key, create it
-      if (!(ek in allSections)) allSections[ek]={};
-        
-      //  If object does not have the key, create it
-      if (!(id in allSections[ek])) allSections[ek][id]=[];
-
-      allSections[ek][id].push([paraphra,thequote,page]);
-      
-    }
-    ///////////////////////////////////////////////////////////////////////////
-    //  END ENTRY LOOP
-    ///////////////////////////////////////////////////////////////////////////
-    pas();
+    fillSections(entry,callback);
   });
 }
 
