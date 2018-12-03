@@ -15,9 +15,9 @@ var iKey=[];
 var abbyQuote={};
 function getLit(x)
 {
-  getBib();
-  loadJSON(keys, "GET", function(response) 
-  { 
+  getBib(function() {
+  welcome();
+  loadJSON(keys, "GET", function(response) { 
     var f  =  JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry)
@@ -27,8 +27,7 @@ function getLit(x)
       iKey[i]=k;
     }
   });
-  loadJSON(fil, "GET", function(response) 
-  {
+  loadJSON(fil, "GET", function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry) {
@@ -46,20 +45,10 @@ function getLit(x)
         abbyQuote[qid]["probabilities"][iKey[j].toString()]=probs[j];
     }
   });
-  welcome();
-
-
-
-
-
-  
-  setTimeout(function() {
-    consoleLine();
-    for (var i in quoteOrder) {
-      // x.appendChild(element('p',"Quote ID=["+quoteOrder[i]+"]"));
-      x.appendChild(element('p',abbyQuote[quoteOrder[i]]["paraphrase"]));
-    }
-  }, quoteTimeout);
+  consoleLine();
+  for (var i in quoteOrder)
+    x.appendChild(element('p',abbyQuote[quoteOrder[i]]["paraphrase"]));
+  });
 }
 /*
 
