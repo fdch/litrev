@@ -78,6 +78,7 @@ function displayLit(x) {
         section.appendChild(p,q);
       }
     }
+    x.appendChild(x);
   }
 }
 
