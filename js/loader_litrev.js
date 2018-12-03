@@ -50,8 +50,9 @@ function addWords(str) {
 }
 
 
-function displayLit(x) {
-  console.log("displayLit("+x+")");
+function displayLit(target) {
+  // console.log("displayLit("+target+")");
+  var x = document.getElementById(target);
   // console.log(allSections);
 
   var section, prevkey='';
