@@ -49,11 +49,13 @@ function addWords(str) {
   return addWord(s);
 }
 
+
+
 function displayLit(target) {
   var i,ql,x = document.getElementById(target), s;
   for (keys in allSections) {
     s=element('section','',keys);
-    s.appendChild(element('h3',keys, keys, "window.open(\'#menu\',\'_top\')"));
+    s.appendChild(element('h3',keys, keys, "selectText(this)"));
     for (ids in allSections[keys]) {
       ql=anchor("#"+ids.replace(/:/,''),ids);
       for (i=0; i<allSections[keys][ids].length; i++){

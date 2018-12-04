@@ -38,6 +38,19 @@ function removeChilds(x) {
   } 
   if(!x.firstChild) return 1;
 }
+function selectText(x) {
+    var containerid = x.id;
+    if (document.selection) { // IE
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById(containerid));
+        range.select();
+    } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById(containerid));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+    }
+}
 ///////////////////////////////////////////////////////////////////////////////
 //  XMLHTTPREQUEST INTO JSON
 ///////////////////////////////////////////////////////////////////////////////
