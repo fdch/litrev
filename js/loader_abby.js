@@ -61,7 +61,7 @@ function displayAbby(x) {
     for (var i in quoteOrder) {
 
       s=findMatch(abbyQuote[quoteOrder[i]]["id"]);
-
+      x.appendChild(element('h5',s));
       x.appendChild(element('p',abbyQuote[quoteOrder[i]]["paraphrase"]));
     }
   }, quoteTimeout);
