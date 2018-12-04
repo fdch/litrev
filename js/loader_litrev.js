@@ -50,18 +50,30 @@ function addWords(str) {
 }
 
 function displayLit(target) {
-  var i,x = document.getElementById(target), section, prevkey='';
+  var i,ql,x = document.getElementById(target), section, prevkey='';
   for (keys in allSections) {
     if (prevkey.localeCompare(keys))
       x.appendChild(element('h5',keys, keys, "window.open(\'#menu\',\'_top\')"));
     var previds='';
     for (ids in allSections[keys]) {
       if (previds.localeCompare(ids)) {
-        var link="window.open(\'#"+ids.replace(/:/,'')+"\',\'_top\')";
-        x.appendChild(element('h6',ids,'',link));
+        ql=anchor("#"+ids.replace(/:/,''),ids);
       }
-      for (i=0; i<allSections[keys][ids].length; i++)
+      for (i=0; i<allSections[keys][ids].length; i++){
+        var para=allSections[keys][ids][i][0];
+        var quot=allSections[keys][ids][i][1];
+        var page=allSections[keys][ids][i][2];
+        var date=allSections[keys][ids][i][3];
+        var thepara=element('p',para);
+        var thequot=element('blockquote',quot);
+        var quotDiv.appendChild(element('p',"\\begin{quote}"));
+        var quote=element('blockquote',quot);
+        quote.appendChild(ql);
+        quote.appendChild(element('span',"("+page+")"));
+        quotDiv.appendChild(quote);
+        quotDiv.appendChild(element('p',"\\end{quote}"));
         x.appendChild(element('p',allSections[keys][ids][i].join()));
+      }
     }  
   }
 }
