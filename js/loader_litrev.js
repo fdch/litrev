@@ -59,7 +59,7 @@ function displayLit(target) {
         ql=anchor("#"+ids.replace(/:/,''),ids);
       for (i=0; i<allSections[keys][ids].length; i++){
         var page="("+allSections[keys][ids][i][2]+")";
-        var date=allSections[keys][ids][i][2];
+        var date=allSections[keys][ids][i][3];
         var sect=element('section','')
         var quotDiv=element('blockquote','');
         var quote=element('blockquote',allSections[keys][ids][i][1]);
