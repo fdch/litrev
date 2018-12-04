@@ -23,7 +23,7 @@ function main() {
 	for (let i in hstuff) headTag.appendChild(hstuff[i]);
 	mainTag = document.getElementsByTagName('main')[0];
 
-  	getLit(mainTag);
+  	displayAbby(mainTag);
 }
 /*
 

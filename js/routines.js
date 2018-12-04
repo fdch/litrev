@@ -299,7 +299,7 @@ function fillSections(e,callback) {
     //  If object does not have the key, create it
     if (!(id in allSections[ek])) allSections[ek][id]=[];
 
-    allSections[ek][id].push([paraphra,thequote,page]);
+    allSections[ek][id].push([paraphra,thequote,page,estam]);
     
   }
   ///////////////////////////////////////////////////////////////////////////

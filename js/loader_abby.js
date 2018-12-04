@@ -12,7 +12,23 @@
 
 */
 
-function getLit(x) {
+function findMatch(s) {
+  for (keys in allSections) {
+    for (ids in allSections[keys]){
+      for (i=0; i<allSections[keys][ids].length; i++){
+        if(!s.localeCompare(allSections[keys][ids][i][3])){
+          return keys+" \\cite{"+ids+"}("+allSections[keys][ids][i][2]+")";
+        } else {
+          return 0;
+        }
+      }
+    }
+  }
+      
+}
+
+
+function displayAbby(x) {
   getBib(function(){
     filliKeys(function(){
       getLitRev(function () {
@@ -43,7 +59,9 @@ function getLit(x) {
   setTimeout(function() {
     consoleLine();
     for (var i in quoteOrder) {
-      // x.appendChild(element('p',"Quote ID=["+quoteOrder[i]+"]"));
+
+      s=findMatch(abbyQuote[quoteOrder[i]]["id"]);
+
       x.appendChild(element('p',abbyQuote[quoteOrder[i]]["paraphrase"]));
     }
   }, quoteTimeout);
