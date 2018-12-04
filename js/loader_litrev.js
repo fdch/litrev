@@ -50,13 +50,12 @@ function addWords(str) {
 }
 
 function displayLit(target) {
-  var i,ql,x = document.getElementById(target), section, prevkey='';
+  var i,ql,x = document.getElementById(target), s;
   for (keys in allSections) {
-    if (prevkey.localeCompare(keys))
-      x.appendChild(element('h5',keys, keys, "window.open(\'#menu\',\'_top\')"));
-    var previds='';
+    s=element('section','',keys);
+    s.appendChild(element('h3',keys, keys, "window.open(\'#menu\',\'_top\')"));
     for (ids in allSections[keys]) {
-        ql=anchor("#"+ids.replace(/:/,''),ids);
+      ql=anchor("#"+ids.replace(/:/,''),ids);
       for (i=0; i<allSections[keys][ids].length; i++){
         var page="("+allSections[keys][ids][i][2]+")";
         var date=allSections[keys][ids][i][3];
@@ -71,7 +70,8 @@ function displayLit(target) {
         quotDiv.appendChild(element('p',"\\end{quote}"));
         sect.appendChild(element('p',allSections[keys][ids][i][0]));//paraphras
         sect.appendChild(quotDiv);
-        x.appendChild(sect);
+        sec.appendChild(sect);
+        x.appendChild(s);
         // x.appendChild(element('p',allSections[keys][ids][i].join()));
       }
     }  
