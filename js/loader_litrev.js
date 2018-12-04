@@ -70,7 +70,7 @@ function displayLit(target) {
         quotDiv.appendChild(element('p',"\\end{quote}"));
         sect.appendChild(element('p',allSections[keys][ids][i][0]));//paraphras
         sect.appendChild(quotDiv);
-        sec.appendChild(sect);
+        s.appendChild(sect);
         x.appendChild(s);
         // x.appendChild(element('p',allSections[keys][ids][i].join()));
       }
