@@ -13,17 +13,17 @@
 */
 
 function findMatch(s) {
+  var i,keys,ids;
   for (keys in allSections) {
     for (ids in allSections[keys]){
       for (i=0; i<allSections[keys][ids].length; i++){
         if(!s.localeCompare(allSections[keys][ids][i][3])){
           return keys+" \\cite{"+ids+"}("+allSections[keys][ids][i][2]+")";
-        } else {
-          return 0;
         }
       }
     }
   }
+  return 0;
       
 }
 
