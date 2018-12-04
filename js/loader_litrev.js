@@ -56,9 +56,7 @@ function displayLit(target) {
       x.appendChild(element('h5',keys, keys, "window.open(\'#menu\',\'_top\')"));
     var previds='';
     for (ids in allSections[keys]) {
-      if (previds.localeCompare(ids)) {
         ql=anchor("#"+ids.replace(/:/,''),ids);
-      }
       for (i=0; i<allSections[keys][ids].length; i++){
         var page="("+allSections[keys][ids][i][2]+")";
         var sect=element('section','')
