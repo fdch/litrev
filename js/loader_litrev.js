@@ -59,12 +59,14 @@ function displayLit(target) {
         ql=anchor("#"+ids.replace(/:/,''),ids);
       for (i=0; i<allSections[keys][ids].length; i++){
         var page="("+allSections[keys][ids][i][2]+")";
+        var date=allSections[keys][ids][i][2];
         var sect=element('section','')
         var quotDiv=element('blockquote','');
         var quote=element('blockquote',allSections[keys][ids][i][1]);
         quotDiv.appendChild(element('p',"\\begin{quote}"));
         quote.appendChild(ql);
         quote.appendChild(element('span',page));
+        quote.appendChild(element('span',date));
         quotDiv.appendChild(quote);
         quotDiv.appendChild(element('p',"\\end{quote}"));
         sect.appendChild(element('p',allSections[keys][ids][i][0]));//paraphras
