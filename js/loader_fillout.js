@@ -196,69 +196,71 @@ function makeKeys(callback) {
   callback();
 }
 
+function fillLit(e,callback) {
+  var entry = e;
+  for (var i in entry)  {
+    var e = entry[i];
+
+    var ebook   = e.gsx$booktitle.$t;
+    var eauth   = e.gsx$author.$t;
+    var equot   = e.gsx$quickquote.$t;
+    var epara   = e.gsx$paraphrase.$t;
+    var eqid    = e.gsx$timestamp.$t;
+
+    var eID     = booktitles.indexOf(ebook);
+    var len     = equot.length;
+    var col     = 40;
+    var row     = len/col+2;
+
+    var formTag = makeInput(0, 'form', {action:formAction});
+
+    for (let i=0; i<2; i++) {
+      makeInput(formTag,'textarea', 
+      {
+        id:formNames[i],
+        name:formNames[i],
+        type:"message",
+        rows:row,
+        cols:col,
+        text:i==0?equot:epara,
+        style:"margin-right:5px;"
+      });
+    }
+    
+    for (let i=2; i<4; i++) {
+      makeInput(formTag,'input', 
+      {
+        id:formNames[i],
+        name:formNames[i],
+        type:"text",
+        size:(i==3?eqid.length:slidersVals.length*2),
+        value:i==3?eqid.replace(/\'/g,''):slidersVals.join(' '),
+        style:"display:block;margin:3px"
+      });
+    }
+    makeInput(formTag,'input', {
+        type:"submit",
+        id:"thesubmit",
+        value:"Submit"
+    });
+    
+    allFormObjects[eqid]={};
+    allFormObjects[eqid][0]=formTag;
+    allFormObjects[eqid][1]=eID;
+    allFormObjects[eqid][2]=eauth;
+    allFormObjects[eqid][3]=ebook;
+
+    alleqID.push(eqid);
+  }
+  callback();
+}
+
 function makeLit(callback) {
   loadJSON(lit, "GET", function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
-    for (var i in entry)
-    {
-      var e = entry[i];
-
-      var ebook   = e.gsx$booktitle.$t;
-      var eauth   = e.gsx$author.$t;
-      var equot   = e.gsx$quickquote.$t;
-      var epara   = e.gsx$paraphrase.$t;
-      var eqid    = e.gsx$timestamp.$t;
-
-      var eID     = booktitles.indexOf(ebook);
-      var len     = equot.length;
-      var col     = 40;
-      var row     = len/col+2;
-
-      var formTag = makeInput(0, 'form', {action:formAction});
-
-      for (let i=0; i<2; i++) {
-        makeInput(formTag,'textarea', 
-        {
-          id:formNames[i],
-          name:formNames[i],
-          type:"message",
-          rows:row,
-          cols:col,
-          text:i==0?equot:epara,
-          style:"margin-right:5px;"
-        });
-      }
-      
-      for (let i=2; i<4; i++) {
-        makeInput(formTag,'input', 
-        {
-          id:formNames[i],
-          name:formNames[i],
-          type:"text",
-          size:(i==3?eqid.length:slidersVals.length*2),
-          value:i==3?eqid.replace(/\'/g,''):slidersVals.join(' '),
-          style:"display:block;margin:3px"
-        });
-      }
-      makeInput(formTag,'input', {
-          type:"submit",
-          id:"thesubmit",
-          value:"Submit"
-      });
-      
-      allFormObjects[eqid]={};
-      allFormObjects[eqid][0]=formTag;
-      allFormObjects[eqid][1]=eID;
-      allFormObjects[eqid][2]=eauth;
-      allFormObjects[eqid][3]=ebook;
-
-      alleqID.push(eqid);
-    }
-
-    
+    fillLit(entry,callback);
   });
-  callback();
 }
 function filterQuotes(callback){
   remainQuotes = alleqID.filter(f => !filQuoteID.includes(f));
