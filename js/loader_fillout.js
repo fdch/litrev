@@ -311,6 +311,14 @@ function makeLit(callback) {
   });
   callback();
 }
+function filterQuotes(callback){
+  remainQuotes = alleqID.filter(f => !filQuoteID.includes(f));
+  remainQuotes.sort( function(a,b) {
+    return (new Date(a)).getTime() - (new Date(b)).getTime();
+  });
+  callback();
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 //  GET ALL QUOTES
 ///////////////////////////////////////////////////////////////////////////////
@@ -320,10 +328,8 @@ function getLit(x,y) {
       makeKeys(function() {
         makeLit(function() {
           welcome();
-          remainQuotes = alleqID.filter(f => !filQuoteID.includes(f));
-          remainQuotes.sort( function(a,b) {
-            return (new Date(a)).getTime() - (new Date(b)).getTime();
-          });
+          
+
           consoleLine();
           console.log("| Filled Quotes     : "+filQuoteID.length);
           console.log("| Total Quotes      : "+alleqID.length);
