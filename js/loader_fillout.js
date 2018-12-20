@@ -11,59 +11,6 @@
 
 
 */
-///////////////////////////////////////////////////////////////////////////////
-//  QUOTE DISPLAY
-///////////////////////////////////////////////////////////////////////////////
-
-var currQuote;  //  Store current quote Timestamp
-
-function makeQuote(head,main,id,forms,rquotes) {
-  var h = head, m = main, e = id, f = forms, r = rquotes;
-  makeDropdown(
-    "selQuoteID",
-    m,
-    r,
-    "selQuote(this)",
-    "Select Quote by Number:"
-  ); 
-
-  h.appendChild(element('h3', "Quote ID # "+e));
-  h.appendChild(element('h4', f.e[3]+". "+f.e[2]));
-  m.appendChild(f.e[0]);
-  //  Empty 'slidersVals'
-  if(slidersVals.length)
-    for (var i in slidersVals)
-      slidersVals[i]=0;
-
-  makeInput(m,'input',{
-    type:'button',
-    id:'rSliders',
-    value:'randomSliders',
-    onclick:'randomSliders()'
-  });
-  makeInput(m,'input',{
-    type:'button',
-    id:'analyze',
-    value:'analyze',
-    onclick:'analyze()'
-  });
-  // makeInput(m,'input',{
-  //   type:"button",
-  //   id:'refill',
-  //   value:"Refill Phrase",
-  //   onclick:"refillPhrase()"
-  // });
-  m.appendChild(sliDiv);
-  
-  //  Empty slider element values
-  if(slidersID.length)
-    for (var i in slidersID)
-      document.getElementById(slidersID[i]).value=0;
-
-  fillPhrase(e);
-  analyze(e);
-  currQuote=e;
-}
 
 function removeQuote(head,main,stuff){
   var h = head, m = main, s = stuff;
@@ -315,21 +262,21 @@ function makeLit(callback) {
 }
 function filterQuotes(callback){
   remainQuotes = alleqID.filter(f => !filQuoteID.includes(f));
-  remainQuotes.sort( function(a,b) {
+  
+  callback(function(){remainQuotes.sort( function(a,b) {
     return (new Date(a)).getTime() - (new Date(b)).getTime();
-  });
-  callback();
+  });});
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 //  GET ALL QUOTES
 ///////////////////////////////////////////////////////////////////////////////
-function getLit(x,y) {
+function getLit(head,main) {
   getBib(function() {
     getFilledQuotesID(function() {
       makeKeys(function() {
         makeLit(function() {
-          filterQuotes(function() {
+          filterQuotes(function(rquotes) {
             welcome();
             
 
@@ -339,14 +286,58 @@ function getLit(x,y) {
             console.log("| Remaining Quotes  : "+remainQuotes.length);
             consoleLine();
 
-            //  Make the quote
-            makeQuote( 
-              y, 
-              x,
-              remainQuotes[pdRandom(remainQuotes.length)],
-              allFormObjects,
-              remainQuotes
-            );
+            ///////////////////////////////////////////////////////////////////
+            //  QUOTE DISPLAY
+            ///////////////////////////////////////////////////////////////////
+
+            var currQuote;  //  Store current quote Timestamp
+
+            var e = rquotes[pdRandom(rquotes.length)];
+
+            makeDropdown(
+              "selQuoteID",
+              main,
+              rquotes,
+              "selQuote(this)",
+              "Select Quote by Number:"
+            ); 
+
+            head.appendChild(element('h3', "Quote ID # "+e));
+            head.appendChild(element('h4', allFormObjects[e][3]+". "+allFormObjects[e][2]));
+            main.appendChild(allFormObjects[e][0]);
+            //  Empty 'slidersVals'
+            if(slidersVals.length)
+              for (var i in slidersVals)
+                slidersVals[i]=0;
+
+            makeInput(main,'input',{
+              type:'button',
+              id:'rSliders',
+              value:'randomSliders',
+              onclick:'randomSliders()'
+            });
+            makeInput(main,'input',{
+              type:'button',
+              id:'analyze',
+              value:'analyze',
+              onclick:'analyze()'
+            });
+            // makeInput(m,'input',{
+            //   type:"button",
+            //   id:'refill',
+            //   value:"Refill Phrase",
+            //   onclick:"refillPhrase()"
+            // });
+            main.appendChild(sliDiv);
+            
+            //  Empty slider element values
+            if(slidersID.length)
+              for (var i in slidersID)
+                document.getElementById(slidersID[i]).value=0;
+
+            fillPhrase(e);
+            analyze(e);
+            currQuote=e;
           })
         });
       }); 
