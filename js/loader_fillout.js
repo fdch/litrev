@@ -11,7 +11,7 @@
 
 
 */
-
+var rquotes=[];
 function removeQuote(head,main,stuff){
   var h = head, m = main, s = stuff;
   removeChilds(h);removeChilds(m);
