@@ -294,12 +294,12 @@ function getLit(head,main) {
 
             var currQuote;  //  Store current quote Timestamp
 
-            var e = rquotes[pdRandom(rquotes.length)];
+            var e = remainQuotes[pdRandom(remainQuotes.length)];
 
             makeDropdown(
               "selQuoteID",
               main,
-              rquotes,
+              remainQuotes,
               "selQuote(this)",
               "Select Quote by Number:"
             ); 
