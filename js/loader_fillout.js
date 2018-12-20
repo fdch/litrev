@@ -329,6 +329,8 @@ function getLit(x,y) {
           console.log("| Total Quotes      : "+alleqID.length);
           console.log("| Remaining Quotes  : "+remainQuotes.length);
           consoleLine();
+
+          //  Make the quote
           makeQuote(y,x,remainQuotes[pdRandom(remainQuotes.length)]);
         })
       }); 
