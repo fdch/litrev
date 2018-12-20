@@ -28,8 +28,8 @@ function makeQuote(head,main,id,forms,rquotes) {
   ); 
 
   h.appendChild(element('h3', "Quote ID # "+e));
-  h.appendChild(element('h4', f[e][3]+". "+f[e][2]));
-  m.appendChild(f[e][0]);
+  h.appendChild(element('h4', f.e[3]+". "+f.e[2]));
+  m.appendChild(f.e.[0]);
   //  Empty 'slidersVals'
   if(slidersVals.length)
     for (var i in slidersVals)
