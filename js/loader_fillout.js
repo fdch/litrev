@@ -214,40 +214,39 @@ function randomSliders(){
   let sv = slidersVals.join(' ');
   document.getElementById(formNames[2]).value = sv;
 }
-///////////////////////////////////////////////////////////////////////////////
-//  GET ALL QUOTES
-///////////////////////////////////////////////////////////////////////////////
-function getLit(x,y) {
-  getBib();
-  
-  getFilledQuotesID();
 
+
+function makeKeys(callback) {
   loadJSON(keys, "GET", function(response) 
-  { 
-    var f  =  JSON.parse(response);
-    var entry = f.feed.entry;
-    for (var i in entry)
-    {
-      var e = entry[i];
-      var sliderName = e.gsx$keywords.$t;
-      var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
-      var rValue = 0;//Math.floor((Math.random()*100));
-      makeInput(sliDiv,'input',{
-         type:"range",
-         name: sliderName,
-         oninput:"stats(this)",
-         onchange:"stats(this)",
-         value: rValue,
-         min:0,
-         max:100,
-         label:sliderName,
-         id:sliderLink,
-         style:"display:block;width:"+articleWidth(500)+"px;"
-      });
-      slidersVals.push(rValue);
-      slidersID.push(sliderLink);
-    }
-  });
+    { 
+      var f  =  JSON.parse(response);
+      var entry = f.feed.entry;
+      for (var i in entry)
+      {
+        var e = entry[i];
+        var sliderName = e.gsx$keywords.$t;
+        var sliderLink = sliderName.replace(/ /g,'_').toLowerCase();
+        var rValue = 0;//Math.floor((Math.random()*100));
+        makeInput(sliDiv,'input',{
+           type:"range",
+           name: sliderName,
+           oninput:"stats(this)",
+           onchange:"stats(this)",
+           value: rValue,
+           min:0,
+           max:100,
+           label:sliderName,
+           id:sliderLink,
+           style:"display:block;width:"+articleWidth(500)+"px;"
+        });
+        slidersVals.push(rValue);
+        slidersID.push(sliderLink);
+      }
+    });
+  callback();
+}
+
+function makeLit(callback) {
   loadJSON(lit, "GET", function(response) 
   {
     var f = JSON.parse(response);
@@ -308,24 +307,32 @@ function getLit(x,y) {
       alleqID.push(eqid);
     }
 
-    welcome();
     
-    console.log("| Waiting "+quoteTimeout/1000+" seconds for correct loading.        |");
-    var countdown = setInterval(consoleLine, 1000);
-    setTimeout(function() {    
-      remainQuotes= alleqID.filter(f => !filQuoteID.includes(f));
-      remainQuotes.sort( function(a,b) {
-        return (new Date(a)).getTime() - (new Date(b)).getTime();
-      });
-      clearInterval(countdown);
-      consoleLine();
-      console.log("| Filled Quotes     : "+filQuoteID.length);
-      console.log("| Total Quotes      : "+alleqID.length);
-      console.log("| Remaining Quotes  : "+remainQuotes.length);
-      consoleLine();
-      makeQuote(y,x,remainQuotes[pdRandom(remainQuotes.length)]);
-
-    }, quoteTimeout);
+  });
+  callback();
+}
+///////////////////////////////////////////////////////////////////////////////
+//  GET ALL QUOTES
+///////////////////////////////////////////////////////////////////////////////
+function getLit(x,y) {
+  getBib(function() {
+    getFilledQuotesID(function() {
+      makeKeys(function() {
+        makeLit(function() {
+          welcome();
+          remainQuotes = alleqID.filter(f => !filQuoteID.includes(f));
+          remainQuotes.sort( function(a,b) {
+            return (new Date(a)).getTime() - (new Date(b)).getTime();
+          });
+          consoleLine();
+          console.log("| Filled Quotes     : "+filQuoteID.length);
+          console.log("| Total Quotes      : "+alleqID.length);
+          console.log("| Remaining Quotes  : "+remainQuotes.length);
+          consoleLine();
+          makeQuote(y,x,remainQuotes[pdRandom(remainQuotes.length)]);
+        })
+      }); 
+    });
   });
 }
 /*
