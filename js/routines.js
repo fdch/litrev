@@ -276,6 +276,32 @@ function displayBib(elementID) {
   }
 }
 
+function fillAbbyQuotes(callback) {
+  loadJSON(fil, "GET", function(response)  {
+    var f = JSON.parse(response);
+    var entry = f.feed.entry;
+    for (var i in entry) {
+      var e = entry[i];
+      // var qid = e.gsx$timestamp.$t;
+      var qid = i;
+      abbyQuote[qid] = {
+        "quote"         : e.gsx$quote.$t,
+        "paraphrase"    : e.gsx$paraphrase.$t,
+        "id"            : e.gsx$quoteid.$t,
+        "probabilities" : {}
+      };
+      var probs = (e.gsx$probs.$t).split(' ');
+      for (var j=0; j<=probs.length-1; j++)
+        abbyQuote[qid]["probabilities"][iKey[j].toString()]=probs[j];
+    }
+  });
+  callback();
+}
+
+
+
+
+
 function getFilledQuotesID(callback) {
   loadJSON(fil, "GET", function(response) { 
     // Get all quoteIDS from filled out sheet and make
@@ -341,7 +367,36 @@ function fillSections(e,callback) {
     //  If object does not have the key, create it
     if (!(id in allSections[ek])) allSections[ek][id]=[];
 
-    allSections[ek][id].push([paraphra,thequote,page,estam]);
+    // abbyQuote[qid] = {
+    //     "quote"         : e.gsx$quote.$t,
+    //     "paraphrase"    : e.gsx$paraphrase.$t,
+    //     "id"            : e.gsx$quoteid.$t,
+    //     "probabilities" : {}
+    //   };
+
+
+    var flag=0;
+    
+    
+    // if quote has already been filled out, place filled out stuff
+    for (var k in abbyQuote) {
+      flag=!(estam.localeCompare(abbyQuote[k]["id"]));
+      allSections[ek][id].push([
+          abbyQuote[k]["paraphrase"],
+          abbyQuote[k]["quote"],
+          page,
+          estam]);
+    }
+
+    //  otherwise, let it through untouched
+    if(flag==0) { 
+      allSections[ek][id].push([
+        paraphra,
+        thequote,
+        page,
+        estam
+      ]);
+    }
     
   }
   ///////////////////////////////////////////////////////////////////////////

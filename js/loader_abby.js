@@ -31,40 +31,17 @@ function displayAbby(x) {
   getBib(function(){
     filliKeys(function(){
       getLitRev(function () {
-        welcome();
-        loadJSON(fil, "GET", function(response)  {
-          var f = JSON.parse(response);
-          var entry = f.feed.entry;
-          for (var i in entry) {
-            var e = entry[i];
-            // var qid = e.gsx$timestamp.$t;
-            var qid = i;
-            abbyQuote[qid] = {
-              "quote"         : e.gsx$quote.$t,
-              "paraphrase"    : e.gsx$paraphrase.$t,
-              "id"            : e.gsx$quoteid.$t,
-              "probabilities" : {}
-            };
-            var probs = (e.gsx$probs.$t).split(' ');
-            for (var j=0; j<=probs.length-1; j++)
-              abbyQuote[qid]["probabilities"][iKey[j].toString()]=probs[j];
-          }
-        });
+        fillAbbyQuotes(function() {
+          welcome();
+          consoleLine();
+          for (var i in quoteOrder) {
+            s=findMatch(abbyQuote[quoteOrder[i]]["id"]);
+            x.appendChild(element('h5',s));
+            x.appendChild(element('p',abbyQuote[quoteOrder[i]]["paraphrase"]));
+          };
       });
     });
   });
-
-  
-  setTimeout(function() {
-    consoleLine();
-    for (var i in quoteOrder) {
-
-      s=findMatch(abbyQuote[quoteOrder[i]]["id"]);
-      x.appendChild(element('h5',s));
-      x.appendChild(element('p',abbyQuote[quoteOrder[i]]["paraphrase"]));
-    }
-  }, quoteTimeout);
-
 }
 /*
 
