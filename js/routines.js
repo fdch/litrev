@@ -276,6 +276,27 @@ function displayBib(elementID) {
   }
 }
 
+function getFilledQuotesID(callback) {
+  loadJSON(fil, "GET", function(response) { 
+    // Get all quoteIDS from filled out sheet and make
+    // an array of DATE objects to account for the
+    // unwanted quotes, because they are already filled out.
+    var f  =  JSON.parse(response);
+    var entry = f.feed.entry;
+    for (var i in entry){
+      var e = entry[i];
+      var quotid = e.gsx$quoteid.$t;
+      filQuoteID.push(quotid);
+      // console.log('length:  '+filQuoteID.length);
+      // console.log('lastitem:'+filQuoteID[filQuoteID.length-1]);
+    }
+    //Post the array to console to check
+    // console.log(filQuoteID);
+  });
+  callback();
+}
+
+
 function filliKeys(callback) {
   loadJSON(keys, "GET", function(response)  { 
   var f  =  JSON.parse(response);

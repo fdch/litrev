@@ -102,14 +102,11 @@ function getLit() {
   getBib(function(){
     filliKeys(function() {
       getLitRev(function () {
-      
-      welcome();
-      displayLit(sections[1]+"-a");
-      makeBibTex(sections[2]+"-a");
-      makeLitMenus();
-
-      // console.log(dictionary)
-
+          welcome();
+          displayLit(sections[1]+"-a");
+          makeBibTex(sections[2]+"-a");
+          makeLitMenus();
+          // console.log(dictionary)
       });
     });
     
