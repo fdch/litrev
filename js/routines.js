@@ -296,6 +296,14 @@ function getFilledQuotesID(callback) {
   callback();
 }
 
+function filterQuotes(callback){
+  remainQuotes = alleqID.filter(f => !filQuoteID.includes(f));
+  
+  callback(function(){remainQuotes.sort( function(a,b) {
+    return (new Date(a)).getTime() - (new Date(b)).getTime();
+  });});
+}
+
 
 function filliKeys(callback) {
   loadJSON(keys, "GET", function(response)  { 
