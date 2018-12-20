@@ -273,7 +273,7 @@ function filterQuotes(callback){
 ///////////////////////////////////////////////////////////////////////////////
 //  GET ALL QUOTES
 ///////////////////////////////////////////////////////////////////////////////
-function getLit(head,main) {
+function getLit(main,head) {
   getBib(function() {
     getFilledQuotesID(function() {
       makeKeys(function() {
@@ -304,7 +304,7 @@ function getLit(head,main) {
               "Select Quote by Number:"
             ); 
 
-            head.appendChild(element('h3', "Quote ID # "+e));
+            head.appendChild(element('h3', "Quote ID: "+e));
             head.appendChild(element('h4', allFormObjects[e][3]+". "+allFormObjects[e][2]));
             main.appendChild(allFormObjects[e][0]);
             //  Empty 'slidersVals'
