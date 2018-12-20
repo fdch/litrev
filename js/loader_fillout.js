@@ -292,6 +292,8 @@ function getLit(main,head) {
             //  QUOTE DISPLAY
             ///////////////////////////////////////////////////////////////////
 
+            var rem = remainQuotes.length + "/" + alleqID.length;
+
             var currQuote;  //  Store current quote Timestamp
 
             var e = remainQuotes[pdRandom(remainQuotes.length)];
@@ -306,6 +308,7 @@ function getLit(main,head) {
 
             head.appendChild(element('h3', "Quote ID: "+e));
             head.appendChild(element('h4', allFormObjects[e][3]+". "+allFormObjects[e][2]));
+            head.appendChild(element('p', "Remaining: "+rem));
             main.appendChild(allFormObjects[e][0]);
             //  Empty 'slidersVals'
             if(slidersVals.length)
