@@ -17,19 +17,19 @@
 
 var currQuote;  //  Store current quote Timestamp
 
-function makeQuote(head,main,id) {
-  var h = head, m = main, e = id;
+function makeQuote(head,main,id,forms,rquotes) {
+  var h = head, m = main, e = id, f = forms, r = rquotes;
   makeDropdown(
     "selQuoteID",
     m,
-    remainQuotes,
+    r,
     "selQuote(this)",
     "Select Quote by Number:"
   ); 
 
   h.appendChild(element('h3', "Quote ID # "+e));
-  h.appendChild(element('h4', allFormObjects[e][3]+". "+allFormObjects[e][2]));
-  m.appendChild(allFormObjects[e][0]);
+  h.appendChild(element('h4', f[e][3]+". "+f[e][2]));
+  m.appendChild(f[e][0]);
   //  Empty 'slidersVals'
   if(slidersVals.length)
     for (var i in slidersVals)
@@ -64,6 +64,7 @@ function makeQuote(head,main,id) {
   analyze(e);
   currQuote=e;
 }
+
 function removeQuote(head,main,stuff){
   var h = head, m = main, s = stuff;
   removeChilds(h);removeChilds(m);
@@ -242,13 +243,14 @@ function makeKeys(callback) {
         slidersVals.push(rValue);
         slidersID.push(sliderLink);
       }
+      //  view slidersID array
+      // console.log(slidersID);
     });
   callback();
 }
 
 function makeLit(callback) {
-  loadJSON(lit, "GET", function(response) 
-  {
+  loadJSON(lit, "GET", function(response) {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
     for (var i in entry)
@@ -327,18 +329,26 @@ function getLit(x,y) {
     getFilledQuotesID(function() {
       makeKeys(function() {
         makeLit(function() {
-          welcome();
-          
+          filterQuotes(function() {
+            welcome();
+            
 
-          consoleLine();
-          console.log("| Filled Quotes     : "+filQuoteID.length);
-          console.log("| Total Quotes      : "+alleqID.length);
-          console.log("| Remaining Quotes  : "+remainQuotes.length);
-          consoleLine();
+            consoleLine();
+            console.log("| Filled Quotes     : "+filQuoteID.length);
+            console.log("| Total Quotes      : "+alleqID.length);
+            console.log("| Remaining Quotes  : "+remainQuotes.length);
+            consoleLine();
 
-          //  Make the quote
-          makeQuote(y,x,remainQuotes[pdRandom(remainQuotes.length)]);
-        })
+            //  Make the quote
+            makeQuote( 
+              y, 
+              x,
+              remainQuotes[pdRandom(remainQuotes.length)],
+              allFormObjects,
+              remainQuotes
+            );
+          })
+        });
       }); 
     });
   });

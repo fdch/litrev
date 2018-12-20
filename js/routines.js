@@ -291,7 +291,7 @@ function getFilledQuotesID(callback) {
       // console.log('lastitem:'+filQuoteID[filQuoteID.length-1]);
     }
     //Post the array to console to check
-    console.log(filQuoteID);
+    // console.log(filQuoteID);
   });
   callback();
 }
