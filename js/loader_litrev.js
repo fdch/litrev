@@ -57,21 +57,31 @@ function displayLit(target) {
     s=element('section','',keys);
     s.appendChild(element('h3',keys, keys, "selectText(this)"));
     for (ids in allSections[keys]) {
-      ql=anchor("#"+ids.replace(/:/,''),ids);
+      ql="#"+ids.replace(/:/,''),ids;
       for (i=0; i<allSections[keys][ids].length; i++){
         var page="["+allSections[keys][ids][i][2]+"]";
         var date=allSections[keys][ids][i][3];
+        
         var sect=element('section','')
         var quotDiv=element('blockquote','');
+        
         var quote=element('blockquote',allSections[keys][ids][i][1]);
 
-        quotDiv.appendChild(element('p',"\\begin{quote} % "+date));
-        quote.appendChild(ql);
-        quote.appendChild(element('span'," \\cite"+page+"{"+ids+"}"));
+        quotDiv.appendChild(element('p',"\\begin{quote}"));
+        // quote.appendChild(ql);
+        quote.appendChild(element(
+          'span',
+          " \\cite" + page + "{" + ids + "}",,
+          "window.open(" + ql + ", '_top' )"
+          ));
         quotDiv.appendChild(quote);
-        quotDiv.appendChild(element('p',"\\end{quote}"));
-        sect.appendChild(element('p',allSections[keys][ids][i][0]));//paraphras
+        quotDiv.appendChild(element('p',"\\end{quote} % "+date));
+
+        //  paraphrase
+        sect.appendChild(element('p',allSections[keys][ids][i][0]));
+        //  quote
         sect.appendChild(quotDiv);
+
         s.appendChild(sect);
         x.appendChild(s);
         // x.appendChild(element('p',allSections[keys][ids][i].join()));
