@@ -73,7 +73,7 @@ function displayLit(target) {
           'span',
           " \\cite" + page + "{" + ids + "}",
           '',
-          "window.open(" + ql + ", '_top' )"
+          "window.open('" + ql + "', '_top' )"
           ));
         quotDiv.appendChild(quote);
         quotDiv.appendChild(element('p',"\\end{quote} % "+date));
