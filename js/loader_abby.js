@@ -39,6 +39,7 @@ function displayAbby(x) {
             x.appendChild(element('h5',s));
             x.appendChild(element('p',abbyQuote[quoteOrder[i]]["paraphrase"]));
           };
+        });
       });
     });
   });
