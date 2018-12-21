@@ -381,11 +381,14 @@ function fillSections(e,callback) {
     // if quote has already been filled out, place filled out stuff
     for (var k in abbyQuote) {
       flag=!(estam.localeCompare(abbyQuote[k]["id"]));
-      allSections[ek][id].push([
+      if(flag) {
+        allSections[ek][id].push([
           abbyQuote[k]["paraphrase"],
           abbyQuote[k]["quote"],
           page,
           estam]);
+        break;
+      }
     }
 
     //  otherwise, let it through untouched
