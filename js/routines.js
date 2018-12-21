@@ -276,26 +276,32 @@ function displayBib(elementID) {
   }
 }
 
+function fillAbbyQuoteArray(entries,callback) {
+  var entry = entries;
+  for (var i in entry) {
+    var e = entry[i];
+    // var qid = e.gsx$timestamp.$t;
+    var qid = i;
+    abbyQuote[qid] = {
+      "quote"         : e.gsx$quote.$t,
+      "paraphrase"    : e.gsx$paraphrase.$t,
+      "id"            : e.gsx$quoteid.$t,
+      "probabilities" : {}
+    };
+    var probs = (e.gsx$probs.$t).split(' ');
+    for (var j=0; j<=probs.length-1; j++) {
+      abbyQuote[qid]["probabilities"][iKey[j].toString()]=probs[j];
+    }
+  }
+  callback();
+}
+
 function fillAbbyQuotes(callback) {
   loadJSON(fil, "GET", function(response)  {
     var f = JSON.parse(response);
     var entry = f.feed.entry;
-    for (var i in entry) {
-      var e = entry[i];
-      // var qid = e.gsx$timestamp.$t;
-      var qid = i;
-      abbyQuote[qid] = {
-        "quote"         : e.gsx$quote.$t,
-        "paraphrase"    : e.gsx$paraphrase.$t,
-        "id"            : e.gsx$quoteid.$t,
-        "probabilities" : {}
-      };
-      var probs = (e.gsx$probs.$t).split(' ');
-      for (var j=0; j<=probs.length-1; j++)
-        abbyQuote[qid]["probabilities"][iKey[j].toString()]=probs[j];
-    }
+    fillAbbyQuoteArray(entry,callback);
   });
-  callback();
 }
 
 
