@@ -71,7 +71,8 @@ function displayLit(target) {
         // quote.appendChild(ql);
         quote.appendChild(element(
           'span',
-          " \\cite" + page + "{" + ids + "}",,
+          " \\cite" + page + "{" + ids + "}",
+          '',
           "window.open(" + ql + ", '_top' )"
           ));
         quotDiv.appendChild(quote);
