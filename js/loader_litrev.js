@@ -59,15 +59,15 @@ function displayLit(target) {
     for (ids in allSections[keys]) {
       ql=anchor("#"+ids.replace(/:/,''),ids);
       for (i=0; i<allSections[keys][ids].length; i++){
-        var page="("+allSections[keys][ids][i][2]+")";
+        var page="["+allSections[keys][ids][i][2]+"]";
         var date=allSections[keys][ids][i][3];
         var sect=element('section','')
         var quotDiv=element('blockquote','');
         var quote=element('blockquote',allSections[keys][ids][i][1]);
-        quotDiv.appendChild(element('p',"\\begin{quote}"));
+
+        quotDiv.appendChild(element('p',"\\begin{quote} % "+date));
         quote.appendChild(ql);
-        quote.appendChild(element('span',page));
-        quote.appendChild(element('span',date));
+        quote.appendChild(element('span'," \\cite"+page+"{"+ids+"}"));
         quotDiv.appendChild(quote);
         quotDiv.appendChild(element('p',"\\end{quote}"));
         sect.appendChild(element('p',allSections[keys][ids][i][0]));//paraphras
