@@ -1,0 +1,50 @@
+Dissertation Outline
+Abstract 425
+Introduction 3145
+Database Art 172
+	The Database in New Media Theory 0
+		Database as Form 415 33%
+		A Semiotic Trap 913 73%
+		Digital Convergence 553 44%
+		Bodiless Information 638 51%
+		Embodying Databasing 512 40%
+		Filtering and Framing 313 25%
+		Database as Aesthetics 211 16%
+		Databasing: Database as Performance 296 23%
+	Databasing and the History of Databases 0
+		Databasing: structure, time, writing, and architecture 2116 84%
+		A Database Tree 880 35%
+		The Realm of Data Structures 541 21%
+		A Brief History of Datbase Models 1803 72%
+	Databasing Sound: Applications of databases in sound 404
+		Music Information Retrieval 662 26%
+		Sonification 1927 77%
+		Computer Music 4890 195%
+		Applications 2334 93%
+Database Aesthetics 419
+	Listening Database 0
+		The Resonance of a Return 1639 65%
+		Resonant Network 1345 53%
+		The Work of Actors 881 35%
+		The Unworking Network 1352 54%
+	Memory 0
+		Interlude: Embodied Memory 1684 67%
+		The Effraction of the Trace 1598 63%
+		The Archontic Principle 1821 72%
+		The Spectral Database 2312 92%
+	Performance 0
+		Gendered Database 1227 49%
+		Towards the Limits 1496 59%
+		Contingencies of Style 2627 105%
+		A Specter of Authority 1939 77%
+Database Politics 376
+	Rethinking Composition 0
+		Performing the Database 1438 38%
+		Working Composition 1655 44%
+		The Composer as Navigator 1436 38%
+		The Database as Performer 2630 70%
+	Inoperativity 0
+		The severed object of music: composing composer 1902 50%
+		Anarchy and the unwork 1982 52%
+		Trans-inoperativity: a database politics of authorship 1290 34%
+		[WIP] work in progress 361 9%
