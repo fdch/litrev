@@ -22,16 +22,16 @@ Database Art 172
 		Computer Music 4893 195%
 		Applications 2243 89%
 Database Aesthetics 419
-	Listening Database 0
-		The Resonance of a Return 1455 43%
-		Resonant Network 1507 45%
-		The Unworking Network 1350 40%
-	Memory 0
+	Listening Databases 0
+		The Resonance of a Return 1463 43%
+		Resonant Network 1501 45%
+		The Unworking Network 1353 40%
+	Databases and Memory 0
 		Interlude: Embodied Memory 1685 67%
-		The Effraction of the Trace 1599 63%
-		The Archontic Principle 1809 72%
-		The Spectral Database 2310 92%
-	Performance 0
+		The Effraction of the Trace 1561 62%
+		The Archontic Principle 1810 72%
+		The Spectral Database 2309 92%
+	Performativity of Databases 0
 		Gendered Database 1279 51%
 		Towards the Limits 1036 41%
 		Contingencies of Style 2627 105%
