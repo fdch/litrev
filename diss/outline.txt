@@ -1,10 +1,10 @@
 Dissertation Outline
 Abstract 425
-Introduction 3145
+Introduction 3146
 Database Art 172
 	The Database in New Media Theory 0
 		Database as Form 415 33%
-		A Semiotic Trap 913 73%
+		A Semiotic Trap 906 72%
 		Digital Convergence 553 44%
 		Bodiless Information 638 51%
 		Embodying Databasing 512 40%
@@ -15,28 +15,28 @@ Database Art 172
 		Databasing: structure, time, writing, and architecture 2116 84%
 		A Database Tree 880 35%
 		The Realm of Data Structures 541 21%
-		A Brief History of Datbase Models 1803 72%
+		A Brief History of Database Models 2361 94%
 	Databasing Sound: Applications of databases in sound 404
 		Music Information Retrieval 662 26%
 		Sonification 1927 77%
-		Computer Music 4890 195%
-		Applications 2334 93%
+		Computer Music 4891 195%
+		Applications 2243 89%
 Database Aesthetics 419
 	Listening Database 0
-		The Resonance of a Return 1639 65%
+		The Resonance of a Return 1640 65%
 		Resonant Network 1345 53%
 		The Work of Actors 881 35%
 		The Unworking Network 1352 54%
 	Memory 0
-		Interlude: Embodied Memory 1684 67%
-		The Effraction of the Trace 1598 63%
-		The Archontic Principle 1821 72%
-		The Spectral Database 2312 92%
+		Interlude: Embodied Memory 1685 67%
+		The Effraction of the Trace 1599 63%
+		The Archontic Principle 1809 72%
+		The Spectral Database 2310 92%
 	Performance 0
-		Gendered Database 1227 49%
-		Towards the Limits 1496 59%
+		Gendered Database 1279 51%
+		Towards the Limits 1036 41%
 		Contingencies of Style 2627 105%
-		A Specter of Authority 1939 77%
+		A Specter of Authority 1938 77%
 Database Politics 376
 	Rethinking Composition 0
 		Performing the Database 1438 38%
@@ -44,7 +44,7 @@ Database Politics 376
 		The Composer as Navigator 1436 38%
 		The Database as Performer 2630 70%
 	Inoperativity 0
-		The severed object of music: composing composer 1902 50%
+		The severed object of music: composing composer 1903 50%
 		Anarchy and the unwork 1982 52%
-		Trans-inoperativity: a database politics of authorship 1290 34%
+		Trans-inoperativity: a database politics of authorship 1291 34%
 		[WIP] work in progress 361 9%

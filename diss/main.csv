@@ -1,10 +1,10 @@
 words,title,path
 425   	Abstract            	content/abstract/abstract.tex
-3145  	Introduction        	content/introduction/abstract.tex
+3146  	Introduction        	content/introduction/abstract.tex
 172   	Database Art        	content/art/abstract.tex
 0     	The Database in New Media Theory	content/art/section-1/sub/abstract.tex
 415   	Database as Form    	content/art/section-1/sub/new_media.tex
-913   	A Semiotic Trap     	content/art/section-1/sub/semiotics.tex
+906   	A Semiotic Trap     	content/art/section-1/sub/semiotics.tex
 553   	Digital Convergence 	content/art/section-1/sub/convergence.tex
 638   	Bodiless Information	content/art/section-1/sub/bodiless_information.tex
 512   	Embodying Databasing	content/art/section-1/sub/embodiment.tex
@@ -15,21 +15,21 @@ words,title,path
 2116  	Databasing: structure, time, writing, and architecture	content/art/section-2/sub/databasing.tex
 880   	A Database Tree     	content/art/section-2/sub/programming.tex
 541   	The Realm of Data Structures	content/art/section-2/sub/models.tex
-1803  	A Brief History of Datbase Models	content/art/section-2/sub/descriptions.tex
+1894  	A Brief History of Database Models	content/art/section-2/sub/descriptions.tex
 404   	Databasing Sound: Applications of databases in sound	content/art/section-3/sub/abstract.tex
 662   	Music Information Retrieval	content/art/section-3/sub/mir.tex
 1927  	Sonification        	content/art/section-3/sub/sonification.tex
-4890  	Computer Music      	content/art/section-3/sub/computer_music.tex
-2334  	Applications        	content/art/section-3/sub/applications.tex
+4891  	Computer Music      	content/art/section-3/sub/computer_music.tex
+2243  	Applications        	content/art/section-3/sub/applications.tex
 419   	Database Aesthetics 	content/aesthetics/abstract.tex
 0     	Listening Database  	content/aesthetics/section-1/sub/abstract.tex
-1639  	The Resonance of a Return	content/aesthetics/section-1/sub/resonance_of_a_return.tex
+1640  	The Resonance of a Return	content/aesthetics/section-1/sub/resonance_of_a_return.tex
 1345  	Resonant Network    	content/aesthetics/section-1/sub/network.tex
 881   	The Work of Actors  	content/aesthetics/section-1/sub/work.tex
 1352  	The Unworking Network	content/aesthetics/section-1/sub/inoperativity.tex
 0     	Memory              	content/aesthetics/section-2/sub/abstract.tex
-1684  	Interlude: Embodied Memory	content/aesthetics/section-2/sub/funeslude.tex
-1598  	The Effraction of the Trace	content/aesthetics/section-2/sub/human.tex
+1685  	Interlude: Embodied Memory	content/aesthetics/section-2/sub/funeslude.tex
+1599  	The Effraction of the Trace	content/aesthetics/section-2/sub/human.tex
 1821  	The Archontic Principle	content/aesthetics/section-2/sub/archontic.tex
 2312  	The Spectral Database	content/aesthetics/section-2/sub/spectrality.tex
 0     	Performance         	content/aesthetics/section-3/sub/abstract.tex
