@@ -16,17 +16,16 @@ Database Art 172
 		A Database Tree 880 35%
 		The Realm of Data Structures 541 21%
 		A Brief History of Database Models 2361 94%
-	Databasing Sound: Applications of databases in sound 404
+	Databasing Sound: Applications of databases in sound 358
 		Music Information Retrieval 662 26%
 		Sonification 1927 77%
-		Computer Music 4891 195%
+		Computer Music 4893 195%
 		Applications 2243 89%
 Database Aesthetics 419
 	Listening Database 0
-		The Resonance of a Return 1640 65%
-		Resonant Network 1345 53%
-		The Work of Actors 881 35%
-		The Unworking Network 1352 54%
+		The Resonance of a Return 1455 43%
+		Resonant Network 1507 45%
+		The Unworking Network 1350 40%
 	Memory 0
 		Interlude: Embodied Memory 1685 67%
 		The Effraction of the Trace 1599 63%
