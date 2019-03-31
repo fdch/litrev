@@ -13,7 +13,7 @@ Database Art 172
 		Databasing: Database as Performance 296 23%
 	Databasing and the History of Databases 0
 		Databasing: structure, time, writing, and architecture 2116 84%
-		A Database Tree 880 35%
+		A Database Tree 922 36%
 		The Realm of Data Structures 541 21%
 		A Brief History of Database Models 2361 94%
 	Databasing Sound: Applications of databases in sound 358
@@ -34,8 +34,8 @@ Database Aesthetics 419
 	Performativity of Databases 0
 		Gendered Database 1236 49%
 		Towards the Limits 892 35%
-		Contingencies of Style 2627 105%
-		A Specter of Authority 1938 77%
+		Contingencies of Style 1952 78%
+		A Specter of Authority 1972 78%
 Database Politics 376
 	Rethinking Composition 0
 		Performing the Database 1438 38%
