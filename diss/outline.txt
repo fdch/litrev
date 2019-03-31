@@ -38,8 +38,8 @@ Database Aesthetics 419
 		A Specter of Authority 1249 49%
 Database Politics 376
 	Rethinking Composition 0
-		Performing the Database 1438 38%
-		Working Composition 1655 44%
+		Interlude: Hyperbolic Reactions 1232 32%
+		Working Composition 1603 42%
 		The Composer as Navigator 1436 38%
 		The Database as Performer 2630 70%
 	Inoperativity 0
