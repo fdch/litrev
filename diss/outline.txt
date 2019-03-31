@@ -35,7 +35,7 @@ Database Aesthetics 419
 		Gendered Database 1236 49%
 		Towards the Limits 892 35%
 		Contingencies of Style 1952 78%
-		A Specter of Authority 1972 78%
+		A Specter of Authority 1249 49%
 Database Politics 376
 	Rethinking Composition 0
 		Performing the Database 1438 38%
