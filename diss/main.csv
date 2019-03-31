@@ -1,26 +1,26 @@
 words,title,path
 425   	Abstract            	content/abstract/abstract.tex
-3146  	Introduction        	content/introduction/abstract.tex
+3149  	Introduction        	content/introduction/abstract.tex
 172   	Database Art        	content/art/abstract.tex
 0     	The Database in New Media Theory	content/art/section-1/sub/abstract.tex
 415   	Database as Form    	content/art/section-1/sub/new_media.tex
-906   	A Semiotic Trap     	content/art/section-1/sub/semiotics.tex
+905   	A Semiotic Trap     	content/art/section-1/sub/semiotics.tex
 553   	Digital Convergence 	content/art/section-1/sub/convergence.tex
 638   	Bodiless Information	content/art/section-1/sub/bodiless_information.tex
 512   	Embodying Databasing	content/art/section-1/sub/embodiment.tex
 313   	Filtering and Framing	content/art/section-1/sub/framing.tex
 211   	Database as Aesthetics	content/art/section-1/sub/database_aesthetics.tex
-296   	Databasing: Database as Performance	content/art/section-1/sub/generated.tex
+295   	Databasing: Database as Performance	content/art/section-1/sub/generated.tex
 0     	Databasing and the History of Databases	content/art/section-2/sub/abstract.tex
 2116  	Databasing: structure, time, writing, and architecture	content/art/section-2/sub/databasing.tex
-922   	A Database Tree     	content/art/section-2/sub/programming.tex
+921   	A Database Tree     	content/art/section-2/sub/programming.tex
 541   	The Realm of Data Structures	content/art/section-2/sub/models.tex
 2361  	A Brief History of Database Models	content/art/section-2/sub/descriptions.tex
 358   	Databasing Sound: Applications of databases in sound	content/art/section-3/sub/abstract.tex
 662   	Music Information Retrieval	content/art/section-3/sub/mir.tex
 1927  	Sonification        	content/art/section-3/sub/sonification.tex
 4893  	Computer Music      	content/art/section-3/sub/computer_music.tex
-2243  	Applications        	content/art/section-3/sub/applications.tex
+2241  	Applications        	content/art/section-3/sub/applications.tex
 419   	Database Aesthetics 	content/aesthetics/abstract.tex
 0     	Listening Databases 	content/aesthetics/section-1/sub/abstract.tex
 1463  	The Resonance of a Return	content/aesthetics/section-1/sub/resonance_of_a_return.tex
@@ -43,7 +43,7 @@ words,title,path
 1418  	The Composer as Navigator	content/politics/section-1/sub/practice.tex
 2630  	The Database as Performer	content/politics/section-1/sub/improv.tex
 0     	Inoperativity       	content/politics/section-2/sub/abstract.tex
-1903  	The severed object of music: composing composer	content/politics/section-2/sub/music.tex
+1902  	The severed object of music: composing composer	content/politics/section-2/sub/music.tex
 1982  	Anarchy and the unwork	content/politics/section-2/sub/anarchy.tex
 1291  	Trans-inoperativity: a database politics of authorship	content/politics/section-2/sub/trans.tex
 361   	[WIP] work in progress	content/politics/section-2/sub/worker.tex
