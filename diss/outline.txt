@@ -34,13 +34,13 @@ Database Aesthetics 419
 	Performativity of Databases 0
 		Gendered Database 1236 49%
 		Towards the Limits 892 35%
-		Contingencies of Style 1952 78%
+		Contingencies of Style 1964 78%
 		A Specter of Authority 1249 49%
 Database Politics 376
 	Rethinking Composition 0
 		Interlude: Hyperbolic Reactions 1232 32%
 		Working Composition 1603 42%
-		The Composer as Navigator 1436 38%
+		The Composer as Navigator 1418 37%
 		The Database as Performer 2630 70%
 	Inoperativity 0
 		The severed object of music: composing composer 1903 50%
