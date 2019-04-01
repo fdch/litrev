@@ -18,8 +18,8 @@ Database Art 172
 		A Brief History of Database Models 2381 95%
 	Databasing Sound: Applications of databases in sound 359
 		Music Information Retrieval 895 35%
-		Sonification 2088 83%
-		Computer Music 4893 195%
+		Sonification 2052 82%
+		Computer Music 5016 200%
 		Applications 2439 97%
 Database Aesthetics 419
 	Listening Databases 0
