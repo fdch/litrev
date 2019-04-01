@@ -15,10 +15,10 @@ Database Art 172
 		Databasing: structure, time, writing, and architecture 2116 84%
 		A Database Tree 925 37%
 		The Realm of Data Structures 541 21%
-		A Brief History of Database Models 2361 94%
+		A Brief History of Database Models 2381 95%
 	Databasing Sound: Applications of databases in sound 359
 		Music Information Retrieval 895 35%
-		Sonification 2103 84%
+		Sonification 2088 83%
 		Computer Music 4893 195%
 		Applications 2439 97%
 Database Aesthetics 419
