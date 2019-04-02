@@ -1,5 +1,5 @@
 
-# Database Music:A History, Technology, and Aesthetics of the Database in Music Composition
+# Database Music: A History, Technology, and Aesthetics of the Database in Music Composition
 
 ### Main text
 
@@ -15,7 +15,12 @@
 
 - outline TXT: [outline.txt](outline.txt)
 
-Federico Nicolás Cámara Halac
-Tue Apr  2 17:55:54 CEST 2019
-Total Words: 53364
-Word Changes: -1185
+### Log
+
+- author: Federico Nicolás Cámara Halac
+
+- date: Tue Apr  2 18:03:04 CEST 2019
+
+- total words: 53364
+
+- word changes: -1185
