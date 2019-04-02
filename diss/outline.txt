@@ -19,7 +19,7 @@ Database Art 172
 	Databasing Sound: Applications of databases in sound 359
 		Music Information Retrieval 895 35%
 		Sonification 2052 82%
-		Computer Music 5016 200%
+		Computer Music 5038 201%
 		Applications 2439 97%
 Database Aesthetics 419
 	Listening Databases 0
@@ -41,9 +41,9 @@ Database Politics 376
 		Interlude: Hyperbolic Reactions 1232 32%
 		Working Composition 1603 42%
 		The Composer as Navigator 1418 37%
-		The Database as Performer 2630 70%
+		The Database as Performer 2783 74%
 	Inoperativity 0
-		The severed object of music: composing composer 1902 50%
-		Anarchy and the unwork 1982 52%
+		The severed object of music 1901 50%
+		Anarchy and the unwork 1970 52%
 		Trans-inoperativity: a database politics of authorship 1291 34%
 		[WIP] work in progress 361 9%

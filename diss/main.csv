@@ -19,7 +19,7 @@ words,title,path
 359   	Databasing Sound: Applications of databases in sound	content/art/section-3/sub/abstract.tex
 895   	Music Information Retrieval	content/art/section-3/sub/mir.tex
 2052  	Sonification        	content/art/section-3/sub/sonification.tex
-5016  	Computer Music      	content/art/section-3/sub/computer_music.tex
+5038  	Computer Music      	content/art/section-3/sub/computer_music.tex
 2439  	Applications        	content/art/section-3/sub/applications.tex
 419   	Database Aesthetics 	content/aesthetics/abstract.tex
 0     	Listening Databases 	content/aesthetics/section-1/sub/abstract.tex
@@ -41,9 +41,9 @@ words,title,path
 1232  	Interlude: Hyperbolic Reactions	content/politics/section-1/sub/performance.tex
 1603  	Working Composition 	content/politics/section-1/sub/organic.tex
 1418  	The Composer as Navigator	content/politics/section-1/sub/practice.tex
-2630  	The Database as Performer	content/politics/section-1/sub/improv.tex
+2783  	The Database as Performer	content/politics/section-1/sub/improv.tex
 0     	Inoperativity       	content/politics/section-2/sub/abstract.tex
-1902  	The severed object of music: composing composer	content/politics/section-2/sub/music.tex
-1982  	Anarchy and the unwork	content/politics/section-2/sub/anarchy.tex
+1901  	The severed object of music	content/politics/section-2/sub/music.tex
+1970  	Anarchy and the unwork	content/politics/section-2/sub/anarchy.tex
 1291  	Trans-inoperativity: a database politics of authorship	content/politics/section-2/sub/trans.tex
 361   	[WIP] work in progress	content/politics/section-2/sub/worker.tex
