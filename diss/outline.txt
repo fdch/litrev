@@ -21,29 +21,27 @@ Database Art 172
 		Sonification 2052 82%
 		Computer Music 5038 201%
 		Applications 2439 97%
-Database Aesthetics 419
+Database Aesthetics 795
 	Listening Databases 0
-		The Resonance of a Return 1463 43%
-		Resonant Network 1501 45%
-		The Unworking Network 1353 40%
+		The Resonance of a Return 1463 58%
+		Resonant Network 1501 60%
+		The Unworking Network 1353 54%
 	Databases and Memory 0
-		Interlude: Embodied Memory 1685 67%
-		The Effraction of the Trace 1561 62%
-		The Archontic Principle 1810 72%
-		The Spectral Database 2309 92%
+		Interlude: Embodied Memory 1685 89%
+		The Effraction of the Trace 1561 83%
+		The Archontic Principle 1810 96%
+		The Spectral Database 2309 123%
 	Performativity of Databases 0
-		Gendered Database 1236 49%
-		Towards the Limits 892 35%
-		Contingencies of Style 1964 78%
-		A Specter of Authority 1249 49%
-Database Politics 376
+		Gendered Database 1236 65%
+		Towards the Limits 892 47%
+		Contingencies of Style 1964 104%
+		A Specter of Authority 1249 66%
 	Rethinking Composition 0
-		Interlude: Hyperbolic Reactions 1232 32%
-		Working Composition 1603 42%
-		The Composer as Navigator 1418 37%
-		The Database as Performer 2783 74%
-	Inoperativity 0
-		The severed object of music 1901 50%
-		Anarchy and the unwork 1970 52%
-		Trans-inoperativity: a database politics of authorship 1291 34%
-		[WIP] work in progress 361 9%
+		Interlude: Hyperbolic Reactions 1232 115%
+		Working Composition 1603 149%
+		The Composer as Navigator 1418 132%
+		The Database as Performer 2783 259%
+		The severed object of music 1901 177%
+		Anarchy and the unwork 1924 179%
+		[WIP] work in progress 347 32%
+Conclusion 4

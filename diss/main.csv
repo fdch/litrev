@@ -21,7 +21,7 @@ words,title,path
 2052  	Sonification        	content/art/section-3/sub/sonification.tex
 5038  	Computer Music      	content/art/section-3/sub/computer_music.tex
 2439  	Applications        	content/art/section-3/sub/applications.tex
-419   	Database Aesthetics 	content/aesthetics/abstract.tex
+795   	Database Aesthetics 	content/aesthetics/abstract.tex
 0     	Listening Databases 	content/aesthetics/section-1/sub/abstract.tex
 1463  	The Resonance of a Return	content/aesthetics/section-1/sub/resonance_of_a_return.tex
 1501  	Resonant Network    	content/aesthetics/section-1/sub/network.tex
@@ -36,14 +36,12 @@ words,title,path
 892   	Towards the Limits  	content/aesthetics/section-3/sub/limits.tex
 1964  	Contingencies of Style	content/aesthetics/section-3/sub/style.tex
 1249  	A Specter of Authority	content/aesthetics/section-3/sub/authority.tex
-376   	Database Politics   	content/politics/abstract.tex
-0     	Rethinking Composition	content/politics/section-1/sub/abstract.tex
-1232  	Interlude: Hyperbolic Reactions	content/politics/section-1/sub/performance.tex
-1603  	Working Composition 	content/politics/section-1/sub/organic.tex
-1418  	The Composer as Navigator	content/politics/section-1/sub/practice.tex
-2783  	The Database as Performer	content/politics/section-1/sub/improv.tex
-0     	Inoperativity       	content/politics/section-2/sub/abstract.tex
-1901  	The severed object of music	content/politics/section-2/sub/music.tex
-1970  	Anarchy and the unwork	content/politics/section-2/sub/anarchy.tex
-1291  	Trans-inoperativity: a database politics of authorship	content/politics/section-2/sub/trans.tex
-361   	[WIP] work in progress	content/politics/section-2/sub/worker.tex
+0     	Rethinking Composition	content/aesthetics/section-4/sub/abstract.tex
+1232  	Interlude: Hyperbolic Reactions	content/aesthetics/section-4/sub/performance.tex
+1603  	Working Composition 	content/aesthetics/section-4/sub/organic.tex
+1418  	The Composer as Navigator	content/aesthetics/section-4/sub/practice.tex
+2783  	The Database as Performer	content/aesthetics/section-4/sub/improv.tex
+1901  	The severed object of music	content/aesthetics/section-4/sub/music.tex
+1924  	Anarchy and the unwork	content/aesthetics/section-4/sub/anarchy.tex
+347   	[WIP] work in progress	content/aesthetics/section-4/sub/worker.tex
+4     	Conclusion          	content/conclusion/abstract.tex
